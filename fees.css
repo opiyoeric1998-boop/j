@@ -1,0 +1,928 @@
+/* FEES PAGE STYLESHEET - UPDATED */
+/* Jets Elementary School - Professional Primary School Website */
+/* Theme Colors: Blue and White */
+
+/* ===== BASE STYLES ===== */
+:root {
+  /* Color Palette */
+  --primary-blue: #1e40af;
+  --secondary-blue: #3b82f6;
+  --light-blue: #dbeafe;
+  --dark-blue: #1e3a8a;
+  --accent-blue: #60a5fa;
+  --white: #ffffff;
+  --off-white: #f8fafc;
+  --light-gray: #e2e8f0;
+  --medium-gray: #94a3b8;
+  --dark-gray: #475569;
+  --text-dark: #1e293b;
+  
+  /* Social Media Brand Colors */
+  --facebook-blue: #1877f2;
+  --instagram-purple: #e4405f;
+  --tiktok-black: #000000;
+  --whatsapp-green: #25d366;
+  
+  /* Typography */
+  --heading-font: 'Roboto Slab', serif;
+  --hero-font: 'Playfair Display', serif;
+  --body-font: 'Lora', serif;
+  --nav-font: 'Montserrat', sans-serif;
+  --button-font: 'Montserrat', sans-serif;
+  
+  /* Spacing */
+  --section-padding: 4rem 0;
+  --container-padding: 0 1.5rem;
+  --card-padding: 1.5rem;
+  --border-radius: 8px;
+  
+  /* Shadows */
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  /* Transitions */
+  --transition: all 0.3s ease;
+}
+
+/* ===== IMPROVED HERO SECTION ===== */
+.fees-hero {
+  background: linear-gradient(rgba(30, 64, 175, 0.9), rgba(30, 64, 175, 0.95)), 
+              url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  padding: 2.5rem 0 3rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+/* Add subtle shadow for separation */
+.fees-hero::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), transparent);
+}
+
+.fees-hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+.fees-hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.fees-hero-title {
+  font-family: var(--hero-font);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.fees-hero-subtitle {
+  font-family: var(--body-font);
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.95;
+}
+
+.fees-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  font-family: var(--button-font);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  display: inline-block;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: var(--white);
+  color: var(--primary-blue);
+}
+
+.btn-primary:hover {
+  background-color: var(--light-blue);
+  transform: translateY(-2px);
+  box-shadow: var(--hover-shadow);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ===== SECTION STYLES ===== */
+.fees-structure-section,
+.payment-options-section,
+.uniforms-section,
+.additional-info-section {
+  padding: var(--section-padding);
+}
+
+.fees-structure-section {
+  background-color: var(--off-white);
+}
+
+.uniforms-section {
+  background-color: var(--off-white);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+.section-title {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-family: var(--body-font);
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+/* ===== UPDATED FEES STRUCTURE ===== */
+.table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  background-color: var(--white);
+  padding: 0.5rem;
+}
+
+.fees-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--body-font);
+  min-width: 800px;
+}
+
+.fees-table thead {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.fees-table th {
+  font-family: var(--nav-font);
+  font-weight: 600;
+  padding: 1.2rem 0.8rem;
+  text-align: left;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.fees-table th:nth-child(1) { width: 15%; }
+.fees-table th:nth-child(2) { width: 12%; }
+.fees-table th:nth-child(3) { width: 12%; }
+.fees-table th:nth-child(4) { width: 10%; }
+.fees-table th:nth-child(5) { width: 10%; }
+.fees-table th:nth-child(6) { width: 10%; }
+
+.fees-table tbody tr {
+  border-bottom: 1px solid var(--light-gray);
+  transition: var(--transition);
+}
+
+.fees-table tbody tr:nth-child(even) {
+  background-color: rgba(219, 234, 254, 0.3);
+}
+
+.fees-table tbody tr:hover {
+  background-color: var(--light-blue);
+}
+
+.fees-table td {
+  padding: 1rem 0.8rem;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.fees-table td:first-child {
+  font-weight: 600;
+  color: var(--dark-blue);
+  font-family: var(--nav-font);
+}
+
+.term-fee {
+  font-weight: 500;
+  color: var(--dark-gray);
+}
+
+.fees-table tfoot {
+  background-color: var(--light-blue);
+}
+
+.table-note {
+  padding: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+  font-style: italic;
+  margin: 0;
+  border-top: 2px solid var(--secondary-blue);
+}
+
+/* ===== PAYMENT OPTIONS ===== */
+.payment-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2.5rem 0;
+}
+
+.payment-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  border-top: 4px solid var(--primary-blue);
+}
+
+.payment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.payment-card-header {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.payment-icon {
+  font-size: 1.5rem;
+}
+
+.payment-card-header h3 {
+  font-family: var(--heading-font);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.payment-card-body {
+  padding: 1.5rem;
+}
+
+.payment-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px dashed var(--light-gray);
+}
+
+.payment-detail:last-child {
+  border-bottom: none;
+}
+
+.payment-label {
+  font-family: var(--nav-font);
+  font-weight: 600;
+  color: var(--dark-blue);
+}
+
+.payment-value {
+  font-family: var(--body-font);
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.payment-note {
+  background-color: var(--light-blue);
+  border-left: 4px solid var(--secondary-blue);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-top: 2rem;
+}
+
+.payment-note p {
+  margin: 0;
+  font-family: var(--body-font);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.payment-note i {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+/* ===== UPDATED SCHOOL UNIFORMS ===== */
+.uniforms-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin: 2.5rem 0;
+}
+
+.uniform-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.uniform-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+/* UPDATED: Better image fitting with improved structure */
+.uniform-image-wrapper {
+  position: relative;
+  height: 300px; /* Optimal height for full body display */
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.uniform-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%; /* Position to show head to toes */
+  transition: var(--transition);
+}
+
+.uniform-card:hover .uniform-img {
+  transform: scale(1.05);
+}
+
+/* Overlay for uniform label */
+.uniform-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(30, 64, 175, 0.9));
+  color: var(--white);
+  padding: 1.2rem;
+  z-index: 1;
+}
+
+.uniform-overlay h4 {
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Uniform details section */
+.uniform-details {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.uniform-details h3 {
+  font-family: var(--heading-font);
+  color: var(--primary-blue);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--light-blue);
+  padding-bottom: 0.5rem;
+}
+
+.uniform-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.uniform-items li {
+  padding: 0.6rem 0;
+  font-family: var(--body-font);
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--light-gray);
+  padding-left: 1.8rem;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.uniform-items li:last-child {
+  border-bottom: none;
+}
+
+.uniform-items li:before {
+  content: "✓";
+  color: var(--secondary-blue);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+}
+
+.uniform-note {
+  background-color: var(--white);
+  border: 1px solid var(--light-blue);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-top: 2rem;
+  box-shadow: var(--card-shadow);
+}
+
+.uniform-note p {
+  margin: 0;
+  font-family: var(--body-font);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  line-height: 1.5;
+}
+
+.uniform-note i {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+/* ===== UPDATED ADDITIONAL INFORMATION ===== */
+.info-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.info-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid var(--secondary-blue);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+/* UPDATED: Image container for transport and meals */
+.info-card-image {
+  height: 200px; /* Optimal height for section images */
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.info-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: var(--transition);
+}
+
+.info-card:hover .info-img {
+  transform: scale(1.05);
+}
+
+.info-card-content {
+  padding: 1.8rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-card-content h3 {
+  font-family: var(--heading-font);
+  color: var(--primary-blue);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.info-card-content > p {
+  font-family: var(--body-font);
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.info-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.info-list li {
+  padding: 0.5rem 0;
+  font-family: var(--body-font);
+  color: var(--text-dark);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.info-list i {
+  color: var(--secondary-blue);
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.info-note {
+  font-family: var(--body-font);
+  font-style: italic;
+  color: var(--dark-gray);
+  background-color: var(--off-white);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin: 0;
+  margin-top: auto;
+  font-size: 0.95rem;
+}
+
+/* ===== SMALLER HORIZONTAL FOOTER WITH COLORED SOCIAL ICONS ===== */
+.small-footer {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  padding: 1.5rem 0;
+  font-family: var(--nav-font);
+  font-size: 0.9rem;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--container-padding);
+  align-items: start;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.school-section {
+  padding-right: 1rem;
+}
+
+.contacts-section {
+  padding: 0 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.links-section {
+  padding-left: 1rem;
+}
+
+.footer-heading {
+  font-family: var(--heading-font);
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer-motto {
+  font-style: italic;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: auto;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+}
+
+.footer-contact-item i {
+  color: var(--accent-blue);
+  font-size: 0.9rem;
+  min-width: 16px;
+}
+
+/* Horizontal quick links */
+.footer-links-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.footer-links-horizontal a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: var(--transition);
+  opacity: 0.9;
+  padding: 0.2rem 0;
+  white-space: nowrap;
+}
+
+.footer-links-horizontal a:hover {
+  opacity: 1;
+  color: var(--accent-blue);
+}
+
+/* Social Media Icons with Color */
+.footer-social-icons {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--white);
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Base colors */
+.facebook {
+  background-color: var(--facebook-blue);
+}
+
+.instagram {
+  background-color: var(--instagram-purple);
+}
+
+.tiktok {
+  background-color: var(--tiktok-black);
+}
+
+.whatsapp {
+  background-color: var(--whatsapp-green);
+}
+
+/* Hover effects */
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.facebook:hover {
+  background-color: #0d65d9;
+}
+
+.instagram:hover {
+  background-color: #d32e50;
+}
+
+.tiktok:hover {
+  background-color: #333333;
+}
+
+.whatsapp:hover {
+  background-color: #1da851;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 992px) {
+  .fees-hero-title {
+    font-size: 2rem;
+  }
+  
+  .fees-hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .fees-table th,
+  .fees-table td {
+    padding: 0.9rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .uniform-image-wrapper {
+    height: 280px;
+  }
+  
+  .info-card-image {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .fees-hero {
+    padding: 2rem 0;
+  }
+  
+  .fees-hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .fees-hero-subtitle {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .fees-hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .uniforms-container,
+  .info-cards-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .uniform-card {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .uniform-image-wrapper {
+    height: 260px;
+  }
+  
+  .info-card-image {
+    height: 160px;
+  }
+  
+  /* Footer becomes vertical on mobile */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .school-section,
+  .contacts-section,
+  .links-section {
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.5rem;
+  }
+  
+  .links-section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  
+  .footer-links-horizontal {
+    justify-content: center;
+  }
+  
+  .footer-contact-item {
+    justify-content: center;
+  }
+  
+  .footer-social-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .fees-hero-title {
+    font-size: 1.6rem;
+  }
+  
+  .fees-hero-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .table-container {
+    margin: 1rem -0.5rem;
+    border-radius: 0;
+  }
+  
+  .fees-table {
+    min-width: 900px;
+  }
+  
+  .uniform-image-wrapper {
+    height: 240px;
+  }
+  
+  .info-card-image {
+    height: 150px;
+  }
+  
+  .info-card-content {
+    padding: 1.5rem;
+  }
+  
+  .footer-heading {
+    font-size: 1rem;
+  }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  nav, .fees-hero-buttons, .small-footer {
+    display: none;
+  }
+  
+  .fees-hero {
+    background: none;
+    color: #000;
+    padding: 1rem 0;
+    border-top: 2px solid #000;
+  }
+  
+  .table-container {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .fees-table {
+    min-width: 100%;
+  }
+  
+  .fees-table th,
+  .fees-table td {
+    padding: 0.5rem;
+    font-size: 10pt;
+  }
+  
+  .uniform-image-wrapper,
+  .info-card-image {
+    max-height: 150px !important;
+  }
+  
+  .uniform-overlay {
+    background: #000 !important;
+    color: #fff !important;
+  }
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science | Jets Elementary School</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS File -->
+    <link rel="stylesheet" href="science.css">
+</head>
+<body>
+  <!-- Replace this section in your HTML -->
+<!-- Desktop Menu -->
+<ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="programme.html">Programme</a></li>
+    <li><a href="#" class="active">Science</a></li>
+    <li><a href="fees.html">Fees</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+</ul>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Science Learning</h1>
+            <p class="subtitle">PP1 to Grade 4 - CBC Curriculum</p>
+            <p class="hero-text">Discover, explore, and learn through hands-on science activities</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section class="intro-section">
+            <h2>Our Science Program</h2>
+            <p>At Jets Elementary, we nurture young scientists through discovery-based learning aligned with the CBC curriculum. Our program develops curiosity, critical thinking, and problem-solving skills.</p>
+        </section>
+
+        <!-- Grade Levels -->
+        <section class="grades-section">
+            <h2 class="section-title">Science by Grade Level</h2>
+            
+            <!-- Grade Filter Buttons -->
+            <div class="grade-filter">
+                <button class="filter-btn active" data-grade="all">All Grades</button>
+                <button class="filter-btn" data-grade="pp">PP1 & PP2</button>
+                <button class="filter-btn" data-grade="1">Grade 1</button>
+                <button class="filter-btn" data-grade="2">Grade 2</button>
+                <button class="filter-btn" data-grade="3">Grade 3</button>
+                <button class="filter-btn" data-grade="4">Grade 4</button>
+            </div>
+
+            <!-- Grade Cards -->
+            <div class="grade-cards">
+                <!-- PP1 & PP2 -->
+                <div class="grade-card" data-grade="pp">
+                    <div class="card-header pp-bg">
+                        <h3>PP1 & PP2</h3>
+                        <span class="age-label">Age 4-6</span>
+                    </div>
+                    <div class="card-content">
+                        <h4>Early Discovery Stage</h4>
+                        <ul class="topics">
+                            <li><i class="fas fa-leaf topic-icon green"></i> Living & non-living things</li>
+                            <li><i class="fas fa-child topic-icon blue"></i> My body & health</li>
+                            <li><i class="fas fa-tree topic-icon green"></i> Plants & animals</li>
+                            <li><i class="fas fa-cloud topic-icon blue"></i> Water, air & weather</li>
+                        </ul>
+                        <div class="approach">
+                            <p><strong>Learning Approach:</strong> Play-based activities, songs, and observations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 1 -->
+                <div class="grade-card" data-grade="1">
+                    <div class="card-header grade1-bg">
+                        <h3>Grade 1</h3>
+                        <span class="age-label">Age 6-7</span>
+                    </div>
+                    <div class="card-content">
+                        <h4>Exploration Stage</h4>
+                        <ul class="topics">
+                            <li><i class="fas fa-seedling topic-icon green"></i> Plants & animals</li>
+                            <li><i class="fas fa-user topic-icon red"></i> Human body</li>
+                            <li><i class="fas fa-cube topic-icon orange"></i> Materials around us</li>
+                            <li><i class="fas fa-home topic-icon blue"></i> Safety</li>
+                            <li><i class="fas fa-sun topic-icon yellow"></i> Day & night</li>
+                        </ul>
+                        <div class="approach">
+                            <p><strong>Learning Approach:</strong> Simple experiments, drawing, storytelling</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 2 -->
+                <div class="grade-card" data-grade="2">
+                    <div class="card-header grade2-bg">
+                        <h3>Grade 2</h3>
+                        <span class="age-label">Age 7-8</span>
+                    </div>
+                    <div class="card-content">
+                        <h4>Understanding the World</h4>
+                        <ul class="topics">
+                            <li><i class="fas fa-apple-alt topic-icon green"></i> Uses of plants & animals</li>
+                            <li><i class="fas fa-atom topic-icon purple"></i> Matter (solids, liquids, gases)</li>
+                            <li><i class="fas fa-bolt topic-icon yellow"></i> Energy around us</li>
+                            <li><i class="fas fa-globe topic-icon blue"></i> Our environment</li>
+                            <li><i class="fas fa-umbrella topic-icon light-blue"></i> Weather changes</li>
+                        </ul>
+                        <div class="approach">
+                            <p><strong>Learning Approach:</strong> Group activities, daily life connections</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 3 -->
+                <div class="grade-card" data-grade="3">
+                    <div class="card-header grade3-bg">
+                        <h3>Grade 3</h3>
+                        <span class="age-label">Age 8-9</span>
+                    </div>
+                    <div class="card-content">
+                        <h4>Science in Action</h4>
+                        <ul class="topics">
+                            <li><i class="fas fa-recycle topic-icon green"></i> Life cycles</li>
+                            <li><i class="fas fa-running topic-icon orange"></i> Forces & movement</li>
+                            <li><i class="fas fa-tint topic-icon blue"></i> Soil & water</li>
+                            <li><i class="fas fa-apple-alt topic-icon red"></i> Health & nutrition</li>
+                            <li><i class="fas fa-cogs topic-icon gray"></i> Simple machines</li>
+                        </ul>
+                        <div class="approach">
+                            <p><strong>Learning Approach:</strong> Hands-on experiments, problem-solving</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grade 4 -->
+                <div class="grade-card" data-grade="4">
+                    <div class="card-header grade4-bg">
+                        <h3>Grade 4</h3>
+                        <span class="age-label">Age 9-10</span>
+                    </div>
+                    <div class="card-content">
+                        <h4>Young Scientists</h4>
+                        <ul class="topics">
+                            <li><i class="fas fa-heartbeat topic-icon red"></i> Human body systems</li>
+                            <li><i class="fas fa-atom topic-icon purple"></i> States of matter</li>
+                            <li><i class="fas fa-bolt topic-icon yellow"></i> Energy & electricity</li>
+                            <li><i class="fas fa-globe-americas topic-icon blue"></i> Earth & space</li>
+                            <li><i class="fas fa-leaf topic-icon green"></i> Conservation</li>
+                        </ul>
+                        <div class="approach">
+                            <p><strong>Learning Approach:</strong> Projects, experiments, critical thinking</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section class="features-section">
+            <h2 class="section-title">Our Science Approach</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands"></i>
+                    </div>
+                    <h3>Hands-on Learning</h3>
+                    <p>Practical experiments and activities that make science come alive</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Critical Thinking</h3>
+                    <p>Encourage questioning, prediction, and analysis</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Environment Focus</h3>
+                    <p>Teach care for nature and sustainable practices</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>Group projects and team-based discovery</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER - FIXED COMPACT ARRANGEMENT -->
+<footer class="footer">
+    <!-- Curved top -->
+    <div class="footer-wave">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35,6.36,119.13-6.29,32-10.63,59-31.34,82-58.31C1105.72,30.58,1148.5,17,1200,20.11V0Z" opacity=".5"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+        </svg>
+    </div>
+    
+    <!-- Main footer content - COMPACT 3-COLUMN LAYOUT -->
+    <div class="footer-main">
+        <!-- Column 1: School Info -->
+        <div class="footer-col">
+            <div class="school-brand">
+                <h3>Jets Elementary School</h3>
+            </div>
+            <p class="school-motto">Nurturing young minds for a brighter future</p>
+        </div>
+        
+        <!-- Column 2: Quick Links - HORIZONTAL -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <div class="quick-links-horizontal">
+                <a href="index.html">Home</a>
+                <a href="science.html" class="active">Science</a>
+                <a href="about.html">About</a>
+                <a href="programme.html">Programme</a>
+                <a href="fees.html">Fees</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            
+            <!-- Social Icons Below Links -->
+            <div class="social-icons-compact">
+                <a href="#" class="social-btn facebook" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-btn instagram" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-btn whatsapp" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="social-btn tiktok" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="#" class="social-btn maps" title="Google Maps">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Column 3: Contact Info -->
+        <div class="footer-col">
+            <h4>Contact Us</h4>
+            <div class="contact-info-compact">
+                <p><i class="fas fa-phone"></i> +254 717830659</p>
+                <p><i class="fas fa-phone"></i> +254 727549629</p>
+                <p><i class="fas fa-envelope"></i> jetselementary@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Gesoko, Kisumu</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer Bottom - VERY COMPACT -->
+    <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> Jets Elementary School. All rights reserved.</p>
+    </div>
+</footer>

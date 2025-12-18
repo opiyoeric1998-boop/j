@@ -1,0 +1,543 @@
+/* programme.css - Styles for the Programme Page */
+
+/* ===== BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Navigation fix for school name */
+.school-name {
+    white-space: nowrap;
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: inline-block;
+    line-height: normal;
+}
+
+/* ===== HERO SECTION ===== */
+.programme-hero {
+    height: 35vh;
+    min-height: 250px;
+    background-color: #e6f2ff; /* Light blue color */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: #003366;
+    padding: 15px;
+}
+
+.hero-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+}
+
+.hero-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #003366;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+/* ===== PROGRAMMES SECTION ===== */
+.programmes-section {
+    padding: 50px 0;
+    background-color: #f9f9f9;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.section-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.8rem;
+    color: #003366;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #0066cc;
+}
+
+.section-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Programme Cards Grid */
+.programmes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.programme-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eaeaea;
+}
+
+.programme-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-image {
+    height: 180px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.programme-card:hover .card-image img {
+    transform: scale(1.03);
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    color: #003366;
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+/* ===== REVIEW SECTION ===== */
+.review-section {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.review-title {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.8rem;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 35px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.review-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #0066cc;
+}
+
+.testimonial-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #f8fbff;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 51, 102, 0.08);
+    border-left: 4px solid #0066cc;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    font-style: italic;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.testimonial-text::before {
+    content: '"';
+    font-size: 2.5rem;
+    color: #0066cc;
+    opacity: 0.3;
+    position: absolute;
+    top: -10px;
+    left: -5px;
+    font-family: Georgia, serif;
+}
+
+.testimonial-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.author-info {
+    flex: 1;
+}
+
+.author-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: #003366;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.author-role {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.rating {
+    color: #ffc107;
+    font-size: 1.1rem;
+}
+
+.rating i {
+    margin: 0 1px;
+}
+
+/* ===== FOOTER STYLES ===== */
+.programme-footer {
+    background-color: #003366;
+    color: white;
+    padding-top: 25px;
+}
+
+.footer_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.footer_section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.footer_logo h3 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: white;
+    font-weight: 600;
+}
+
+.footer_tagline {
+    font-size: 0.85rem;
+    color: #cce0ff;
+    line-height: 1.4;
+}
+
+.contact_item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.contact_icon {
+    margin-right: 8px;
+    color: #66b3ff;
+    width: 14px;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.contact_item span {
+    display: block;
+}
+
+.social_icons {
+    display: flex;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.social_icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-radius: 50%;
+    color: white;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+/* Social Media Icon Colors */
+.social_icon.facebook {
+    background-color: #1877f2; /* Facebook blue */
+}
+
+.social_icon.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+.social_icon.tiktok {
+    background-color: #000000; /* TikTok black */
+}
+
+.social_icon.whatsapp {
+    background-color: #25D366; /* WhatsApp green */
+}
+
+.social_icon.maps {
+    background-color: #4285F4; /* Google Maps blue */
+}
+
+.social_icon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.footer_links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.footer_links a {
+    color: #cce0ff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+    padding: 2px 5px;
+    white-space: nowrap;
+}
+
+.footer_links a:hover,
+.footer_links .footer-active {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer_bottom {
+    padding: 12px 0;
+    text-align: center;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer_bottom p {
+    font-size: 0.8rem;
+    color: #cce0ff;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 1.9rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title,
+    .review-title {
+        font-size: 1.6rem;
+    }
+    
+    .programmes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    
+    .footer_links {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .programme-hero {
+        height: 30vh;
+        min-height: 200px;
+    }
+    
+    .hero-title {
+        font-size: 1.7rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .programmes-section,
+    .review-section {
+        padding: 40px 0;
+    }
+    
+    .programmes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .card-image {
+        height: 160px;
+    }
+    
+    .testimonial-card {
+        padding: 20px 15px;
+    }
+    
+    .testimonial-author {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .rating {
+        margin-top: 8px;
+    }
+    
+    .footer_container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer_section {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    
+    .footer_links {
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .contact_item {
+        justify-content: center;
+    }
+    
+    .social_icons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .section-title,
+    .review-title {
+        font-size: 1.4rem;
+    }
+    
+    .section-description {
+        font-size: 0.9rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-content {
+        padding: 15px;
+    }
+    
+    .testimonial-text {
+        font-size: 0.9rem;
+    }
+    
+    .author-name {
+        font-size: 1rem;
+    }
+    
+    .footer_logo h3 {
+        font-size: 1.2rem;
+    }
+    
+    .footer_links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+    
+    .footer_links a {
+        font-size: 0.8rem;
+        padding: 2px 4px;
+    }
+}

@@ -1,0 +1,715 @@
+/* ===== GOOGLE FONT IMPORT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    --primary-blue: #1a4b8c;
+    --secondary-blue: #2c6eb5;
+    --light-blue: #e8f2ff;
+    --accent-blue: #4a90e2;
+    --dark-blue: #0a2a5a;
+    --footer-blue: #1e5cb3; /* New variable for footer background */
+    --white: #ffffff;
+    --light-gray: #f5f7fa;
+    --medium-gray: #e1e5eb;
+    --dark-gray: #555555;
+    --text-color: #333333;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    
+    /* Social media colors */
+    --facebook-blue: #1877f2;
+    --instagram-purple: #e4405f;
+    --tiktok-black: #010101;
+    --whatsapp-green: #25d366;
+    --maps-red: #ea4335;
+}
+
+/* ===== BASE STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Merriweather', serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--primary-blue);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.section_title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    position: relative;
+}
+
+.section_title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-blue);
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 0;
+}
+
+.nav_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_container h4 {
+    color: var(--primary-blue);
+    font-size: 1.5rem;
+}
+
+.nav_menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav_menu a {
+    color: var(--dark-gray);
+    font-weight: 400;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav_menu a:hover, .nav_menu a.active {
+    color: var(--primary-blue);
+}
+
+.nav_menu a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-blue);
+}
+
+.nav_buttons {
+    display: none;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    background: linear-gradient(rgba(37, 99, 235, 0.85), rgba(37, 99, 235, 0.9));
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 3rem 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    min-height: 40vh;
+}
+
+.hero_container {
+    max-width: 800px;
+}
+
+.hero_content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.hero_content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== SCHOOL STORY SECTION ===== */
+.story {
+    padding: 5rem 0;
+    background-color: var(--white);
+}
+
+.story_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.story_image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.story_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story_content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.story_content p {
+    margin-bottom: 1.5rem;
+    color: var(--dark-gray);
+}
+
+/* ===== MISSION AND VISION SECTION ===== */
+.mission-vision {
+    padding: 5rem 0;
+    background-color: var(--light-blue);
+}
+
+.mission-vision_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.mission_card, .vision_card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.mission_card:hover, .vision_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card_image {
+    width: 100%;
+    height: 180px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.card_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mission_card h3, .vision_card h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.mission_card p, .vision_card p {
+    color: var(--dark-gray);
+}
+
+/* ===== MANAGEMENT TEAM IMAGE STYLES ===== */
+.team_member .member_image {
+    width: 220px;
+    height: 280px; /* Taller for head-and-shoulders portrait */
+    border-radius: 12px; /* Slightly rounded corners */
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--white);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+    background-color: #f0f7ff; /* Light blue background */
+    position: relative;
+}
+
+.team_member .member_image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(74, 144, 226, 0.2); /* Subtle blue outline */
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.team_member .member_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%; /* Positions image to show head and shoulders */
+}
+
+/* ===== MANAGEMENT TEAM SECTION ===== */
+.management {
+    padding: 5rem 0;
+    background-color: var(--white);
+}
+
+.management_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.team_member {
+    text-align: center;
+    background-color: var(--light-blue);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.team_member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.team_member h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.team_member p {
+    color: var(--dark-gray);
+    font-style: italic;
+}
+
+/* ===== STAFF IMAGE STYLES ===== */
+.staff_member .staff_image {
+    width: 160px;
+    height: 200px; /* Taller for head-and-shoulders portrait */
+    border-radius: 10px; /* Slightly rounded corners */
+    overflow: hidden;
+    margin: 0 auto 1rem;
+    border: 3px solid var(--white);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.12),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+    background-color: #f0f7ff; /* Light blue background */
+    position: relative;
+}
+
+.staff_member .staff_image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(74, 144, 226, 0.15); /* Subtle blue outline */
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.staff_member .staff_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%; /* Positions image to show head and shoulders */
+}
+
+/* ===== STAFF SECTION ===== */
+.staff {
+    padding: 5rem 0;
+    background-color: var(--light-blue);
+}
+
+.staff_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.staff_member {
+    text-align: center;
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.staff_member:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.staff_member h4 {
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+}
+
+.staff_member p {
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--footer-blue); /* Changed to middle blue */
+    color: var(--white);
+    padding-top: 2rem;
+    border-top-left-radius: 30px; /* Curved top left edge */
+    border-top-right-radius: 30px; /* Curved top right edge */
+    margin-top: 3rem; /* Added margin to separate from content */
+}
+
+.footer_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.footer_section h3 {
+    color: var(--white);
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.footer_tagline {
+    color: var(--light-blue);
+    font-style: italic;
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.contact_item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+}
+
+.contact_icon {
+    margin-right: 8px;
+    color: var(--accent-blue);
+    font-size: 0.9rem;
+}
+
+.social_icons {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+}
+
+/* Social media icons with colors */
+.social_icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    color: white;
+}
+
+/* Facebook */
+.social_icon.facebook {
+    background-color: var(--facebook-blue);
+}
+
+/* Instagram */
+.social_icon.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+/* TikTok */
+.social_icon.tiktok {
+    background-color: var(--tiktok-black);
+}
+
+/* WhatsApp */
+.social_icon.whatsapp {
+    background-color: var(--whatsapp-green);
+}
+
+/* Google Maps */
+.social_icon.maps {
+    background-color: var(--maps-red);
+}
+
+/* Hover effects for social icons */
+.social_icon:hover {
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.social_icon.facebook:hover {
+    background-color: #166fe5;
+}
+
+.social_icon.instagram:hover {
+    background: linear-gradient(45deg, #e68524 0%, #d85a2c 25%, #d02038 50%, #b81c5a 75%, #a81376 100%);
+}
+
+.social_icon.tiktok:hover {
+    background-color: #000000;
+}
+
+.social_icon.whatsapp:hover {
+    background-color: #1da851;
+}
+
+.social_icon.maps:hover {
+    background-color: #d33424;
+}
+
+.footer_links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer_links a {
+    color: #87CEEB;
+    transition: var(--transition);
+    white-space: nowrap;
+    font-size: 0.85rem;
+}
+
+.footer_links a:hover {
+    color: var(--white);
+    padding-left: 0;
+    transform: translateY(-1px);
+}
+
+.footer_bottom {
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Slightly more visible border */
+    color: var(--light-blue);
+    font-size: 0.8rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .staff_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .story_container {
+        gap: 3rem;
+    }
+    
+    .footer_container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Responsive adjustments for images */
+    .team_member .member_image {
+        width: 200px;
+        height: 250px;
+    }
+    
+    .staff_member .staff_image {
+        width: 150px;
+        height: 190px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav_menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background-color: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transition);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    
+    .nav_menu.active {
+        right: 0;
+    }
+    
+    .nav_buttons {
+        display: block;
+        z-index: 1001;
+    }
+    
+    .nav_buttons button {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--primary-blue);
+        cursor: pointer;
+    }
+    
+    .hero_content h1 {
+        font-size: 2rem;
+    }
+    
+    .story_container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .mission-vision_container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .management_container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 400px;
+    }
+    
+    .staff_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer_container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer_section h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* Adjust footer curve for mobile */
+    footer {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    
+    /* Responsive adjustments for images */
+    .team_member .member_image {
+        width: 180px;
+        height: 230px;
+        border-width: 3px;
+    }
+    
+    .staff_member .staff_image {
+        width: 140px;
+        height: 175px;
+        border-width: 2.5px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+    .hero {
+        padding: 2.5rem 0;
+        min-height: 30vh;
+    }
+    
+    .hero_content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero_content p {
+        font-size: 1rem;
+    }
+    
+    .section_title {
+        font-size: 1.5rem;
+    }
+    
+    .story, .mission-vision, .management, .staff {
+        padding: 3rem 0;
+    }
+    
+    .mission_card, .vision_card {
+        padding: 1.5rem;
+    }
+    
+    .card_image {
+        height: 150px;
+    }
+    
+    .staff_container {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Further adjust footer curve for small mobile */
+    footer {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+    
+    /* Responsive adjustments for images */
+    .team_member .member_image {
+        width: 160px;
+        height: 200px;
+    }
+    
+    .staff_member .staff_image {
+        width: 130px;
+        height: 165px;
+    }
+}
