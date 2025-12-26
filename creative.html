@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Arts Curriculum - Jets Elementary School</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-primary: #007bff;
+            --color-white: #fff;
+            --color-yellow: #f7c94b;
+            --color-purple: #6f42c1;
+            --color-red: #dc3545;
+            --color-black: #333;
+            --color-light-green: #90ee90;
+            --color-bg: #f8f9fa;
+            --color-light: #f8f9fa;
+            --color-gray: #6c757d;
+            --color-primary-variant: rgba(0, 123, 255, 0.8);
+            --color-dark: #212529;
+            --color-border: #e0e0e0;
+            
+            /* Social Media Colors */
+            --facebook-color: #1877F2;
+            --instagram-color: #E4405F;
+            --tiktok-color: #000000;
+            --whatsapp-color: #25D366;
+            --maps-color: #4285F4;
+            
+            --container-width-lg: 76%;
+            --container-width-md: 90%;
+            --container-width-sm: 94%;
+            
+            --transition: all 400ms ease;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --box-shadow-strong: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            line-height: 1.7;
+            color: var(--color-black);
+            background: var(--color-white);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            width: var(--container-width-lg);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            background: var(--color-white);
+            width: 100vw;
+            height: 5rem;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: var(--color-white);
+            height: 4.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .nav_container {
+            height: 100%;
+        }
+
+        nav.scrolled .nav_container a h4 {
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        nav.scrolled .nav_menu a {
+            font-size: 0.95rem;
+            padding: 0.4rem 0.8rem;
+        }
+
+        nav.scrolled .nav_menu a:hover {
+            background: rgba(0, 123, 255, 0.08);
+        }
+
+        .nav_container {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav button {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--color-black);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        nav button:hover {
+            color: var(--color-primary);
+        }
+
+        .nav_menu {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .nav_menu a {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .nav_menu a:hover {
+            color: var(--color-primary);
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        .nav_container a h4 {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .nav_menu a.active {
+            color: var(--color-primary);
+            background: rgba(0, 123, 255, 0.1);
+            font-weight: 600;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: 12rem;
+            padding-bottom: 6rem;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e1effe 100%);
+            margin-top: 0;
+        }
+
+        .hero_container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero_left h1 {
+            font-size: 3rem;
+            color: var(--color-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero_left p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero_right-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            height: 400px;
+            cursor: pointer;
+        }
+
+        .hero_right-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .hero_right-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .hero_right-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 1rem 2rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        /* ===== AREAS COVERED SECTION ===== */
+        .areas-section {
+            background: var(--color-bg);
+            padding: 6rem 0;
+        }
+
+        .areas-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--color-black);
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .area-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--color-primary);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .area-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .area-card.drawing {
+            border-top-color: #e53e3e;
+        }
+
+        .area-card.music {
+            border-top-color: #805ad5;
+        }
+
+        .area-card.drama {
+            border-top-color: #d69e2e;
+        }
+
+        .area-card.craft {
+            border-top-color: #38a169;
+        }
+
+        .area-card.movement {
+            border-top-color: #3182ce;
+        }
+
+        .area-card.collaboration {
+            border-top-color: #dd6b20;
+        }
+
+        .area-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--color-black);
+            font-weight: 600;
+        }
+
+        .area-card p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ===== IMPORTANCE SECTION ===== */
+        .importance-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .importance-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--color-black);
+        }
+
+        .importance-points {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .importance-point {
+            background: var(--color-bg);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--color-primary);
+            transition: var(--transition);
+        }
+
+        .importance-point:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .importance-point h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+
+        .importance-point p {
+            color: #555;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* ===== LEARNING OUTCOMES SECTION - REVISED ===== */
+        .outcomes-section {
+            background: var(--color-bg);
+            padding: 6rem 0;
+        }
+
+        .outcomes-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--color-black);
+        }
+
+        .outcomes-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .level-cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .level-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .level-header {
+            padding: 2rem;
+            background: linear-gradient(135deg, #4f6df5 0%, #3a56d4 100%);
+            color: white;
+        }
+
+        .level-header.grade1-2 {
+            background: linear-gradient(135deg, #10b981 0%, #0da271 100%);
+        }
+
+        .level-header.grade3-4 {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .level-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .level-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .outcome-cards-grid {
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .outcome-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--color-primary);
+            transition: var(--transition);
+        }
+
+        .outcome-card:hover {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transform: translateY(-3px);
+        }
+
+        .outcome-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--color-black);
+            font-weight: 600;
+        }
+
+        .outcome-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            padding: 1.2rem 0;
+            width: 100%;
+            margin-top: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer_section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer_logo h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: white;
+        }
+
+        .footer_tagline {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 250px;
+            line-height: 1.4;
+        }
+
+        .footer_contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact_item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            color: #4fc3f7;
+        }
+
+        .social_icons {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .social_icon.facebook {
+            background: var(--facebook-color);
+        }
+
+        .social_icon.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social_icon.tiktok {
+            background: var(--tiktok-color);
+        }
+
+        .social_icon.whatsapp {
+            background: var(--whatsapp-color);
+        }
+
+        .social_icon.maps {
+            background: var(--maps-color);
+        }
+
+        .social_icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer_bottom {
+            text-align: center;
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .container {
+                width: var(--container-width-md);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero_left h1 {
+                font-size: 2.5rem;
+            }
+            
+            .areas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .outcome-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: var(--container-width-sm);
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            nav button {
+                display: inline-block;
+                background: transparent;
+                font-size: 1.8rem;
+                color: var(--color-black);
+                cursor: pointer;
+                padding: 0;
+            }
+            
+            #close-menu-btn {
+                display: none;
+            }
+            
+            .nav_menu {
+                position: fixed;
+                top: 5rem;
+                right: 5%;
+                height: fit-content;
+                width: 90%;
+                flex-direction: column;
+                gap: 0;
+                display: none;
+                padding: 2rem;
+                border-radius: 10px;
+                background: var(--color-white);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav_menu.active {
+                display: flex;
+            }
+            
+            .nav_menu li {
+                width: 100%;
+                height: 4.5rem;
+                animation: animateNavItems 400ms linear forwards;
+                transform-origin: top right;
+                opacity: 0;
+            }
+            
+            @keyframes animateNavItems {
+                0% {
+                    transform: rotateZ(-90deg) rotateX(90deg) scale(0.1);
+                }
+                100% {
+                    transform: rotateZ(0) rotateX(0) scale(1);
+                    opacity: 1;
+                }
+            }
+            
+            .nav_menu a {
+                background: transparent;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+                border-radius: 4px;
+                transition: var(--transition);
+            }
+            
+            .nav_menu a:hover {
+                background: rgba(0, 123, 255, 0.1);
+                color: var(--color-primary);
+            }
+            
+            .hero {
+                padding-top: 10rem;
+                padding-bottom: 4rem;
+            }
+            
+            .hero_container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2.5rem;
+            }
+            
+            .hero_left h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .hero_left p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero_right-image {
+                height: 300px;
+                order: -1;
+            }
+            
+            .areas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .area-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .outcome-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .importance-point {
+                padding: 1.5rem;
+            }
+            
+            .footer_container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            .footer_section {
+                min-width: 100%;
+            }
+            
+            .footer_tagline {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            
+            .social_icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .nav_container {
+                padding: 0 1rem;
+            }
+            
+            .hero_left h1 {
+                font-size: 1.8rem;
+            }
+            
+            .importance-point {
+                padding: 1.5rem;
+            }
+            
+            .footer_container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            .footer_section {
+                min-width: 100%;
+            }
+            
+            .footer_tagline {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            
+            .social_icons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html" id="nav-logo"><h4>JETS ELEMENTARY</h4></a>
+            
+            <ul class="nav_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="course.html" class="active">Course</a></li>
+                <li><a href="fees.html">Fees</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <div class="nav_buttons">
+                <button id="open-menu-btn"><i class="fas fa-bars"></i></button>
+                <button id="close-menu-btn"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container hero_container">
+            <div class="hero_left">
+                <h1>Creative Arts Curriculum</h1>
+                <p>Nurturing imagination, expression & creativity in PP1 to Grade 4 learners through integrated arts education aligned with CBC standards.</p>
+                <a href="#areas" class="btn btn-primary">Explore Curriculum</a>
+            </div>
+            <div class="hero_right">
+                <div class="hero_right-image">
+                    <img src="images/creative-1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Areas Covered Section -->
+    <section class="areas-section" id="areas">
+        <div class="container">
+            <h2>Areas Covered in Creative Arts</h2>
+            <div class="areas-grid">
+                <div class="area-card drawing">
+                    <h3>Drawing & Painting</h3>
+                    <p>Exploring colors, shapes, and techniques to express ideas visually using various mediums and tools.</p>
+                </div>
+                
+                <div class="area-card music">
+                    <h3>Music</h3>
+                    <p>Singing, rhythm activities, introduction to simple instruments, and music appreciation from diverse cultures.</p>
+                </div>
+                
+                <div class="area-card drama">
+                    <h3>Drama</h3>
+                    <p>Role-play, storytelling, puppet shows, and simple performances to build confidence and communication skills.</p>
+                </div>
+                
+                <div class="area-card craft">
+                    <h3>Craft</h3>
+                    <p>Hands-on activities using recycled materials, paper, clay, and textiles to create 3D artworks and functional items.</p>
+                </div>
+                
+                <div class="area-card movement">
+                    <h3>Movement</h3>
+                    <p>Creative dance, coordination exercises, expressive body movements, and rhythm-based physical activities.</p>
+                </div>
+                
+                <div class="area-card collaboration">
+                    <h3>Collaboration</h3>
+                    <p>Group projects, mural painting, and ensemble performances that teach teamwork and appreciation of diverse perspectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Importance Section -->
+    <section class="importance-section" id="importance">
+        <div class="container">
+            <h2>Importance of Creative Arts</h2>
+            <div class="importance-points">
+                <div class="importance-point">
+                    <h3>Builds Imagination & Self-expression</h3>
+                    <p>Creative arts provide children with a safe space to explore their thoughts, feelings, and ideas without judgment. It helps them develop their unique voice and creative thinking skills.</p>
+                </div>
+                
+                <div class="importance-point">
+                    <h3>Encourages Teamwork & Confidence</h3>
+                    <p>Through group performances, collaborative projects, and peer feedback, children learn to work together, respect different perspectives, and build confidence in sharing their work.</p>
+                </div>
+                
+                <div class="importance-point">
+                    <h3>Develops Fine Motor Skills</h3>
+                    <p>Activities like cutting, drawing, painting, and modeling strengthen hand-eye coordination, dexterity, and precision - essential skills for writing and other academic tasks.</p>
+                </div>
+                
+                <div class="importance-point">
+                    <h3>Promotes Cultural Appreciation</h3>
+                    <p>Exposure to diverse art forms, music, dance, and stories from different cultures fosters global awareness, tolerance, and appreciation for cultural diversity.</p>
+                </div>
+                
+                <div class="importance-point">
+                    <h3>Enhances Academic Performance</h3>
+                    <p>Arts education improves focus, memory, and problem-solving skills. Studies show that students engaged in arts perform better across all academic subjects.</p>
+                </div>
+                
+                <div class="importance-point">
+                    <h3>Fosters Emotional Intelligence</h3>
+                    <p>Through arts, children learn to identify, express, and manage emotions. They develop empathy by understanding characters in stories and expressing feelings through art.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Outcomes Section - Revised with Cards -->
+    <section class="outcomes-section" id="outcomes">
+        <div class="container outcomes-container">
+            <h2>Learning Outcomes by Level</h2>
+            <div class="level-cards-container">
+                
+                <!-- PP1 - PP2 Level -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <h3>PP1 - PP2: Foundational Exploration</h3>
+                        <p>Early childhood creative development through play and sensory exploration</p>
+                    </div>
+                    <div class="outcome-cards-grid">
+                        <div class="outcome-card">
+                            <h4>Color & Shape Recognition</h4>
+                            <p>Exploring primary colors and basic shapes through finger painting and collage</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Rhythm & Song</h4>
+                            <p>Singing simple songs, nursery rhymes, and learning basic rhythm with percussion instruments</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Role-play & Imagination</h4>
+                            <p>Basic role-play, imaginative games, and puppet shows to develop social skills</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Free Drawing</h4>
+                            <p>Free drawing with crayons, markers, and chalk on different surfaces</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Movement Coordination</h4>
+                            <p>Simple rhythm and movement activities to develop coordination and body awareness</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Sensory Development</h4>
+                            <p>Introduction to textures through sensory play with various materials</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grade 1 - 2 Level -->
+                <div class="level-card">
+                    <div class="level-header grade1-2">
+                        <h3>Grade 1 - 2: Skill Development</h3>
+                        <p>Building foundational skills in various art forms with guided instruction</p>
+                    </div>
+                    <div class="outcome-cards-grid">
+                        <div class="outcome-card">
+                            <h4>Mixed Media Art</h4>
+                            <p>Creative drawing with mixed media including watercolors, pastels, and charcoal</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>3D Art Forms</h4>
+                            <p>Basic modeling with clay and playdough to create simple 3D forms</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Music Ensembles</h4>
+                            <p>Rhythm patterns, simple percussion ensembles, and introduction to melody</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Short Performances</h4>
+                            <p>Short group performances, skits, and storytelling with simple costumes</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Cultural Arts</h4>
+                            <p>Introduction to art from local culture through traditional crafts and music</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Collaborative Projects</h4>
+                            <p>Collaborative murals and group art projects focusing on community themes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grade 3 - 4 Level -->
+                <div class="level-card">
+                    <div class="level-header grade3-4">
+                        <h3>Grade 3 - 4: Creative Expression</h3>
+                        <p>Advanced exploration and development of personal artistic style</p>
+                    </div>
+                    <div class="outcome-cards-grid">
+                        <div class="outcome-card">
+                            <h4>Design Principles</h4>
+                            <p>Introduction to design principles, perspective, and composition in visual arts</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Melodic Instruments</h4>
+                            <p>Playing simple melodic instruments (recorder, xylophone) and reading basic notation</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Script Writing & Performance</h4>
+                            <p>Storytelling, script writing, character development, and stage techniques</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Cultural Dance Forms</h4>
+                            <p>Cultural dance forms, choreography, and performance skills</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Art Appreciation</h4>
+                            <p>Art critique, appreciation sessions, and learning about famous artists</p>
+                        </div>
+                        
+                        <div class="outcome-card">
+                            <h4>Digital Arts Introduction</h4>
+                            <p>Digital arts introduction using simple drawing software and creative apps</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer_container">
+            <!-- Section 1: School Name & Tagline -->
+            <div class="footer_section footer_logo">
+                <h3>Jets Elementary School</h3>
+                <p class="footer_tagline">Nurturing young minds for a brighter future</p>
+            </div>
+            
+            <!-- Section 2: Contact Details & Social Icons -->
+            <div class="footer_section footer_contact">
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-phone-alt"></i></span>
+                    <span>+254 717830659 / +254 727549629</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <span>Gesoko, opp. Joyland Special School, Kisumu</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-envelope"></i></span>
+                    <span>jetselementary@gmail.com</span>
+                </div>
+                
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jets_elementary_school" target="_blank" class="social_icon instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm" target="_blank" class="social_icon tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://maps.google.com" target="_blank" class="social_icon maps" title="Google Maps">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer_bottom">
+            <p>&copy; 2026 Jets Elementary School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== NAVBAR SCROLL EFFECT ====================
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            const scrollPosition = window.scrollY;
+            
+            if (scrollPosition > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ==================== MOBILE MENU TOGGLE ====================
+        const openMenuBtn = document.getElementById('open-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const navMenu = document.querySelector('.nav_menu');
+
+        if (openMenuBtn && closeMenuBtn && navMenu) {
+            // Open mobile menu
+            openMenuBtn.addEventListener('click', () => {
+                navMenu.classList.add('active');
+                openMenuBtn.style.display = 'none';
+                closeMenuBtn.style.display = 'inline-block';
+            });
+
+            // Close mobile menu
+            closeMenuBtn.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                openMenuBtn.style.display = 'inline-block';
+                closeMenuBtn.style.display = 'none';
+            });
+
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav_menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navMenu.classList.remove('active');
+                        openMenuBtn.style.display = 'inline-block';
+                        closeMenuBtn.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // ==================== RESPONSIVE RESIZE HANDLER ====================
+        window.addEventListener('resize', function() {
+            // Handle mobile menu reset
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile && navMenu) {
+                navMenu.classList.remove('active');
+                if (openMenuBtn) openMenuBtn.style.display = 'none';
+                if (closeMenuBtn) closeMenuBtn.style.display = 'none';
+            }
+        });
+
+        // ==================== SMOOTH SCROLLING ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
