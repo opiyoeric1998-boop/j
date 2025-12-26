@@ -1,0 +1,2650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JETS ELEMENTARY SCHOOL</title>
+
+    <!-- ICONSCOUT CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <!-- ADD FONT AWESOME FOR PLUS/MINUS ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #007bff;
+            --color-white: #fff;
+            --color-yellow: #f7c94b;
+            --color-purple: #6f42c1;
+            --color-red: #dc3545;
+            --color-black: #333;
+            --color-light-green: #90ee90;
+            --color-bg: #f8f9fa;
+            --color-light: #f8f9fa;
+            --color-gray: #6c757d;
+            --color-primary-variant: rgba(0, 123, 255, 0.8);
+            --color-dark: #212529;
+            --color-border: #e0e0e0;
+            
+            /* Social Media Colors */
+            --facebook-color: #1877F2;
+            --instagram-color: #E4405F;
+            --tiktok-color: #000000;
+            --whatsapp-color: #25D366;
+            --maps-color: #4285F4;
+            
+            --container-width-lg: 76%;
+            --container-width-md: 90%;
+            --container-width-sm: 94%;
+            
+            --transition: all 400ms ease;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --box-shadow-strong: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            line-height: 1.7;
+            color: var(--color-black);
+            background: var(--color-white);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            width: var(--container-width-lg);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .section_subtitle {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            background: var(--color-white);
+            width: 100vw;
+            height: 5rem;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: var(--color-white);
+            height: 4.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .nav_container {
+            height: 100%;
+        }
+
+        nav.scrolled .nav_container a h4 {
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        nav.scrolled .nav_menu a {
+            font-size: 0.95rem;
+            padding: 0.4rem 0.8rem;
+        }
+
+        nav.scrolled .nav_menu a:hover {
+            background: rgba(0, 123, 255, 0.08);
+        }
+
+        .nav_container {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav button {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--color-black);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        nav button:hover {
+            color: var(--color-primary);
+        }
+
+        .nav_menu {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .nav_menu a {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .nav_menu a:hover {
+            color: var(--color-primary);
+            background: rgba(0, 123, 255, 0.1);
+        }
+
+        .nav_container a h4 {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        header {
+            padding-top: 12rem;
+            padding-bottom: 4rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+        }
+
+        .header_container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .header_left h1 {
+            font-size: 3.5rem;
+            color: var(--color-black);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .header_left p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .header_right-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .header_right-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* HOMEPAGE STYLES */
+        .homepage {
+            display: block;
+        }
+
+        /* PROGRAM PAGE STYLES */
+        .program-page {
+            display: none;
+            padding-top: 8rem;
+            min-height: 100vh;
+        }
+
+        .categories {
+            background: var(--color-bg);
+            padding: 6rem 0;
+        }
+
+        .categories h1 {
+            text-align: left;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: var(--color-black);
+        }
+
+        .categories_container {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .categories_left h1 {
+            margin-bottom: 1.5rem;
+        }
+
+        .categories_left p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .categories_left ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .categories_left li {
+            color: #555;
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .categories_left li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .categories_right {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .category {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-primary);
+        }
+
+        .category_icon {
+            background: var(--color-primary);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: var(--transition);
+        }
+
+        .category:hover .category_icon {
+            background: var(--color-white);
+            border: 2px solid var(--color-primary);
+            transform: scale(1.1);
+        }
+
+        .category_icon i {
+            font-size: 2rem;
+            color: var(--color-white);
+            transition: var(--transition);
+        }
+
+        .category:hover .category_icon i {
+            color: var(--color-primary);
+        }
+
+        .category h5 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--color-black);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .category p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .category:nth-child(1) .category_icon { background: linear-gradient(135deg, #007bff, #6610f2); }
+        .category:nth-child(2) .category_icon { background: linear-gradient(135deg, #20c997, #28a745); }
+        .category:nth-child(3) .category_icon { background: linear-gradient(135deg, #ff6b6b, #ff8e53); }
+        .category:nth-child(4) .category_icon { background: linear-gradient(135deg, #6f42c1, #e83e8c); }
+        .category:nth-child(5) .category_icon { background: linear-gradient(135deg, #17a2b8, #20c997); }
+        .category:nth-child(6) .category_icon { background: linear-gradient(135deg, #fd7e14, #dc3545); }
+
+        .category:nth-child(1):hover { border-color: #007bff; }
+        .category:nth-child(2):hover { border-color: #20c997; }
+        .category:nth-child(3):hover { border-color: #ff6b6b; }
+        .category:nth-child(4):hover { border-color: #6f42c1; }
+        .category:nth-child(5):hover { border-color: #17a2b8; }
+        .category:nth-child(6):hover { border-color: #fd7e14; }
+
+        /* PROGRAM PAGE CONTENT */
+        .program-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .program-header {
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .program-header h1 {
+            font-size: 2.8rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .program-header p {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-to-home {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .back-to-home:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .program-hero-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .program-hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .program-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .program-text {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .program-text h2 {
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .program-text p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        .program-text ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .program-text li {
+            margin-bottom: 0.8rem;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .program-text li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .program-features {
+            background: var(--color-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+        }
+
+        .program-features h3 {
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .feature-icon i {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-black);
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .program-review {
+            background: #f0f7ff;
+            border-left: 4px solid var(--color-primary);
+            padding: 2.5rem;
+            margin-top: 3rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .program-review h3 {
+            font-family: 'Roboto Slab', serif;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+
+        .program-review p {
+            font-size: 1.05rem;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        /* COURSES SECTION */
+        .courses {
+            padding: 6rem 0;
+            background: var(--color-white);
+        }
+
+        .courses h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            color: var(--color-black);
+        }
+
+        .courses_container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .course_item {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .course_item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .course_image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .course_image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .course_item:hover .course_image img {
+            transform: scale(1.1);
+        }
+
+        .course_content {
+            padding: 2rem;
+        }
+
+        .course_content h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-black);
+        }
+
+        .course_content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .testimonials {
+            background: var(--color-white);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            color: var(--color-black);
+        }
+
+        .testimonials > p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .testimonials_container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            height: 400px;
+        }
+
+        .testimonial {
+            background: var(--color-white);
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--color-primary);
+            position: absolute;
+            transition: all 0.5s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: 0 8px 8px 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        .testimonial.active {
+            opacity: 1;
+            transform: translateX(0);
+            z-index: 2;
+        }
+
+        .testimonial.next {
+            opacity: 0;
+            transform: translateX(50px);
+            z-index: 1;
+        }
+
+        .testimonial.prev {
+            opacity: 0;
+            transform: translateX(-50px);
+            z-index: 1;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-left-width: 6px;
+        }
+
+        .testimonial.active:hover {
+            transform: translateY(-5px) translateX(0);
+        }
+
+        .testimonial::before {
+            content: "''";
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: var(--color-primary);
+            opacity: 0.15;
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            line-height: 1;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .testimonial_content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial_text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 2rem;
+            font-style: normal;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .testimonial_text::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--color-primary);
+            opacity: 0.5;
+            position: absolute;
+            left: -1rem;
+            top: -0.5rem;
+        }
+
+        .testimonial_author {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .author_avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--color-primary);
+            padding: 2px;
+            background: var(--color-white);
+        }
+
+        .author_avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .author_info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--color-black);
+            font-weight: 600;
+        }
+
+        .author_info p {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            margin: 0;
+            font-style: normal;
+        }
+
+        .author_position {
+            display: block;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        .testimonial_nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial_dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            padding: 0;
+        }
+
+        .testimonial_dot.active {
+            background: var(--color-primary);
+            transform: scale(1.3);
+        }
+
+        .testimonial_dot:hover {
+            background: var(--color-primary);
+            transform: scale(1.2);
+        }
+
+        .testimonial_controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial_btn {
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+
+        .testimonial_btn:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .faqs {
+            background: var(--color-bg);
+            padding: 6rem 0;
+        }
+
+        .faqs > h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--color-black);
+        }
+
+        .faqs_container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq {
+            background: var(--color-white);
+            padding: 1.8rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .faq:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .faq_header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .faq_icon {
+            min-width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
+            transition: var(--transition);
+        }
+
+        .faq:hover .faq_icon {
+            background: var(--color-primary);
+            box-shadow: 0 6px 12px rgba(67, 97, 238, 0.4);
+        }
+
+        .faq.active .faq_icon {
+            background: var(--color-primary);
+            transform: rotate(45deg);
+        }
+
+        .question_answer h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--color-black);
+            font-weight: 600;
+        }
+
+        .faq_answer {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            padding-left: 4.2rem;
+            margin-top: 0;
+        }
+
+        .faq.active .faq_answer {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1.2rem;
+        }
+
+        .faq_answer p {
+            margin: 0;
+            line-height: 1.7;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 1rem 2rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .header_left {
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .header_right {
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .category {
+            animation: slideInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .category:nth-child(1) { animation-delay: 0.1s; }
+        .category:nth-child(2) { animation-delay: 0.2s; }
+        .category:nth-child(3) { animation-delay: 0.3s; }
+        .category:nth-child(4) { animation-delay: 0.4s; }
+        .category:nth-child(5) { animation-delay: 0.5s; }
+        .category:nth-child(6) { animation-delay: 0.6s; }
+
+        .course_item {
+            animation: slideInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .course_item:nth-child(1) { animation-delay: 0.2s; }
+        .course_item:nth-child(2) { animation-delay: 0.4s; }
+        .course_item:nth-child(3) { animation-delay: 0.6s; }
+
+        .testimonial {
+            animation: slideInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .faq {
+            animation: slideInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .nav_menu a.active {
+            color: var(--color-primary);
+            background: rgba(0, 123, 255, 0.1);
+            font-weight: 600;
+        }
+
+        /* FOOTER STYLES */
+        footer {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            padding: 1.2rem 0;
+            width: 100%;
+            margin-top: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer_section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer_logo h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            color: white;
+        }
+
+        .footer_tagline {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 200px;
+            line-height: 1.4;
+        }
+
+        .footer_contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .contact_item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            color: #4fc3f7;
+        }
+
+        /* Social Media Icons with Colors */
+        .social_icons {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        /* Social Media Icon Colors */
+        .social_icon.facebook {
+            background: var(--facebook-color);
+        }
+
+        .social_icon.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social_icon.tiktok {
+            background: var(--tiktok-color);
+        }
+
+        .social_icon.whatsapp {
+            background: var(--whatsapp-color);
+        }
+
+        .social_icon.maps {
+            background: var(--maps-color);
+        }
+
+        /* Hover Effects */
+        .social_icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .social_icon.facebook:hover {
+            background: #166FE5;
+        }
+
+        .social_icon.instagram:hover {
+            background: linear-gradient(45deg, #e0852e, #dd5f36, #d32640, #c2205f, #b3177f);
+        }
+
+        .social_icon.tiktok:hover {
+            background: #1a1a1a;
+        }
+
+        .social_icon.whatsapp:hover {
+            background: #1da851;
+        }
+
+        .social_icon.maps:hover {
+            background: #3b78e7;
+        }
+
+        .footer_links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .footer_links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            padding: 0.2rem 0;
+            position: relative;
+        }
+
+        .footer_links a:hover {
+            color: white;
+        }
+
+        .footer_links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4fc3f7;
+            transition: width 0.3s ease;
+        }
+
+        .footer_links a:hover::after {
+            width: 100%;
+        }
+
+        .footer_bottom {
+            text-align: center;
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .container {
+                width: var(--container-width-md);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            h3 {
+                font-size: 1.8rem;
+            }
+            
+            h4 {
+                font-size: 1.4rem;
+            }
+            
+            .header_container {
+                gap: 3rem;
+            }
+            
+            .header_left h1 {
+                font-size: 3rem;
+            }
+            
+            .header_left p {
+                font-size: 1.1rem;
+            }
+            
+            .categories_container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .categories_left {
+                text-align: center;
+                padding-right: 0;
+            }
+            
+            .categories_left h1 {
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+            
+            .categories_left p {
+                margin: 0 auto 2rem;
+                max-width: 600px;
+            }
+            
+            .categories_left ul {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                text-align: left;
+                margin: 0 auto 2rem;
+                max-width: 600px;
+            }
+            
+            .categories_right {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .category {
+                padding: 1.8rem;
+            }
+            
+            .category_icon {
+                width: 65px;
+                height: 65px;
+                margin-bottom: 1.2rem;
+            }
+            
+            .category_icon i {
+                font-size: 1.8rem;
+            }
+            
+            .program-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .courses_container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .course_item {
+                margin-bottom: 0;
+            }
+            
+            .course_image {
+                height: 220px;
+            }
+            
+            .course_content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: var(--container-width-sm);
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .section_subtitle {
+                margin-bottom: 3rem;
+                font-size: 1rem;
+            }
+            
+            .nav_container {
+                padding: 0 1.5rem;
+            }
+            
+            nav button {
+                display: inline-block;
+                background: transparent;
+                font-size: 1.8rem;
+                color: var(--color-black);
+                cursor: pointer;
+                padding: 0;
+            }
+            
+            #close-menu-btn {
+                display: none;
+            }
+            
+            .nav_menu {
+                position: fixed;
+                top: 5rem;
+                right: 5%;
+                height: fit-content;
+                width: 90%;
+                flex-direction: column;
+                gap: 0;
+                display: none;
+                padding: 2rem;
+                border-radius: 10px;
+                background: var(--color-white);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav_menu.active {
+                display: flex;
+            }
+            
+            .nav_menu li {
+                width: 100%;
+                height: 4.5rem;
+                animation: animateNavItems 400ms linear forwards;
+                transform-origin: top right;
+                opacity: 0;
+            }
+            
+            @keyframes animateNavItems {
+                0% {
+                    transform: rotateZ(-90deg) rotateX(90deg) scale(0.1);
+                }
+                100% {
+                    transform: rotateZ(0) rotateX(0) scale(1);
+                    opacity: 1;
+                }
+            }
+            
+            .nav_menu a {
+                background: transparent;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+                border-radius: 4px;
+                transition: var(--transition);
+            }
+            
+            .nav_menu a:hover {
+                background: rgba(0, 123, 255, 0.1);
+                color: var(--color-primary);
+            }
+            
+            header {
+                padding-top: 10rem;
+                padding-bottom: 4rem;
+                min-height: auto;
+            }
+            
+            .header_container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2.5rem;
+            }
+            
+            .header_left h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .header_left p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .header_right-image {
+                max-width: 90%;
+                margin: 0 auto;
+            }
+            
+            .categories {
+                padding: 4rem 0;
+            }
+            
+            .categories_container {
+                gap: 2rem;
+            }
+            
+            .categories_left ul {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                max-width: 100%;
+            }
+            
+            .categories_right {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            
+            .category {
+                padding: 1.5rem;
+            }
+            
+            .category_icon {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 1rem;
+            }
+            
+            .category_icon i {
+                font-size: 1.6rem;
+            }
+            
+            .category h5 {
+                font-size: 1.1rem;
+            }
+            
+            .category p {
+                font-size: 0.9rem;
+            }
+            
+            .program-container {
+                padding: 1rem;
+            }
+            
+            .program-header h1 {
+                font-size: 2rem;
+                margin-top: 2rem;
+            }
+            
+            .back-to-home {
+                position: relative;
+                margin-bottom: 1rem;
+            }
+            
+            .program-hero-image {
+                height: 250px;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .courses_container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .course_item {
+                margin-bottom: 0;
+            }
+            
+            .course_image {
+                height: 200px;
+            }
+            
+            .course_content {
+                padding: 1.5rem;
+            }
+            
+            .course_content h4 {
+                font-size: 1.3rem;
+            }
+            
+            .course_content p {
+                font-size: 0.95rem;
+            }
+            
+            .testimonials_container {
+                height: 450px;
+            }
+            
+            .testimonial {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html" id="nav-logo"><h4>JETS ELEMENTARY</h4></a>
+            
+            <ul class="nav_menu">
+                <li><a href="#" id="nav-home" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <!-- Programme link removed -->
+                <li><a href="course.html">Course</a></li>
+                <li><a href="fees.html">Fees</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <div class="nav_buttons">
+                <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+                <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+            </div>
+        </div>
+    </nav>
+    <!-- END OF NAVBAR -->
+
+    <!-- HOMEPAGE CONTENT -->
+    <div class="homepage" id="homepage">
+        <header id="home">
+            <div class="container header_container">
+                <div class="header_left">
+                    <h1>Welcome to Jets Elementary School</h1>
+                    <p>
+                        A vibrant learning community where every child is valued, supported, and inspired to soar.
+                    </p>
+                    <a href="about.html" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="header_right">
+                    <div class="header_right-image">
+                        <!-- Placeholder for header image -->
+                        <img src="images/header.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!------------------------END OF HEADER---------------------------------->
+
+        <section class="categories" id="categories">
+            <div class="container categories_container">
+                <div class="categories_left">
+                    <h1>Why Choose Us</h1>
+                    <p>
+                        At Jets Elementary School, we provide a warm and nurturing environment where every learner grows with confidence. Our key offerings include:
+                    </p>
+                    <ul>
+                        <li>CBC-Aligned Learning</li>
+                        <li>Modern ICT Exposure</li>
+                        <li>Safe & Caring Environment</li>
+                        <li>Balanced Co-Curricular Activities</li>
+                        <li>Play-Based Early Years Program</li>
+                        <li>Strong Moral & Social Values</li>
+                    </ul>
+                    <a href="#categories" class="btn" id="view-all-programs">Click each card to view our programs</a>
+                </div>
+                <div class="categories_right">
+                    <article class="category" data-program="cbc-aligned">
+                        <span class="category_icon">
+                            <i class="uil uil-book-open"></i>
+                        </span>
+                        <h5>CBC-Aligned Learning</h5>
+                        <p>Strong academic foundation with engaging hands-on activities</p>
+                    </article>
+                    
+                    <article class="category" data-program="safe-environment">
+                        <span class="category_icon">
+                            <i class="uil uil-shield-check"></i>
+                        </span>
+                        <h5>Safe & Caring Environment</h5>
+                        <p>Clean classes, loving teachers, and child-friendly spaces</p>
+                    </article>
+                    
+                    <article class="category" data-program="play-based">
+                        <span class="category_icon">
+                            <i class="uil uil-palette"></i>
+                        </span>
+                        <h5>Play Based Early Years Program</h5>
+                        <p>PP1, PP2, G1 to G4 learners enjoy fun, interactive learning</p>
+                    </article>
+                    
+                    <article class="category" data-program="ict-exposure">
+                        <span class="category_icon">
+                            <i class="uil uil-desktop"></i>
+                        </span>
+                        <h5>Modern ICT Exposure</h5>
+                        <p>Early introduction to digital skills for future-ready learners</p>
+                    </article>
+                    
+                    <article class="category" data-program="co-curricular">
+                        <span class="category_icon">
+                            <i class="uil uil-football"></i>
+                        </span>
+                        <h5>Balanced Co-Curricular Activities</h5>
+                        <p>Music, Art, Sports, Swimming, Debate, Cooking, Science fair, Tae Kwon Ndo, Young Entrepreneurs, Chess games & modelling</p>
+                    </article>
+                    
+                    <article class="category" data-program="moral-values">
+                        <span class="category_icon">
+                            <i class="uil uil-heart"></i>
+                        </span>
+                        <h5>Strong Moral & Social Values</h5>
+                        <p>We build discipline, confidence, and respect</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!------------------END OF CATEGORIES------------------------>
+
+        <section class="courses" id="courses">
+            <div class="container">
+                <h2>Core Learning Areas</h2>
+                <p class="section_subtitle">Our comprehensive curriculum designed to nurture well-rounded learners</p>
+                <div class="courses_container">
+                    <article class="course_item">
+                        <div class="course_image">
+                            <img src="images/course-1.jpg" alt="">
+                        </div>
+                        <div class="course_content">
+                            <h4>Literacy</h4>
+                            <p>
+                                We help your child build strong reading, writing and communication skills that form the foundation for lifelong learning and confidence in expressing ideas clearly.
+                            </p>
+                            <a href="literacy.html" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="course_item">
+                        <div class="course_image">
+                            <img src="images/course-2.jpg" alt="">
+                        </div>
+                        <div class="course_content">
+                            <h4>Science & Technology</h4>
+                            <p>
+                                We spark curiosity by exploring simple scientific concepts and introducing basic technology, encouraging problem-solving and critical thinking skills.
+                            </p>
+                            <a href="science.html" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="course_item">
+                        <div class="course_image">
+                            <img src="images/course-3.jpg" alt="">
+                        </div>
+                        <div class="course_content">
+                            <h4>Creative Arts</h4>
+                            <p>
+                                We encourage creativity and self-expression through painting, drawing, crafts and storytelling, allowing each child's imagination to shine.
+                            </p>
+                            <a href="creative.html" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <!--------------------END OF COURSES--------------------------------->
+
+        <!-- Test scrolling section -->
+        <section style="height: 50vh; background: #f8f9fa; padding: 4rem 0; display: none;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Scroll Down to See Navbar Change</h2>
+            </div>
+        </section>
+
+        <section class="faqs">
+            <h2>Frequently Asked Questions</h2>
+            <p class="section_subtitle">Get answers to the most common questions about our school</p>
+            
+            <div class="container faqs_container">
+                <article class="faq">
+                    <div class="faq_header">
+                        <div class="faq_icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="question_answer">
+                            <h4>What makes jets elementary stand out?</h4>
+                        </div>
+                    </div>
+                    <div class="faq_answer">
+                        <p>
+                            We blend strong academics, modern learning resources, passionate teachers, and a warm, family friendly environment that helps every learner thrive.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="faq">
+                    <div class="faq_header">
+                        <div class="faq_icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="question_answer">
+                            <h4>Do you communicate with parents regularly?</h4>
+                        </div>
+                    </div>
+                    <div class="faq_answer">
+                        <p>
+                            Absolutely! We keep parents updated through meetings, messages, and weekly reports so you always know your child's progress.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="faq">
+                    <div class="faq_header">
+                        <div class="faq_icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="question_answer">
+                            <h4>What co-curricular activities do you offer?</h4>
+                        </div>
+                    </div>
+                    <div class="faq_answer">
+                        <p>
+                            From music, art, sports, cooking, debate, science fair, environmental club, young entrepreneurs, fashion and modelling, Tae Kwon Ndo to help your child discover new passions beyond the classroom.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="faq">
+                    <div class="faq_header">
+                        <div class="faq_icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="question_answer">
+                            <h4>How can I enroll my child?</h4>
+                        </div>
+                    </div>
+                    <div class="faq_answer">
+                        <p>
+                            It's easy! Visit the school, call our office, or start enrollment online. Our team will guide you step by step.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="faq">
+                    <div class="faq_header">
+                        <div class="faq_icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="question_answer">
+                            <h4>What curriculum do you teach?</h4>
+                        </div>
+                    </div>
+                    <div class="faq_answer">
+                        <p>
+                            We proudly teach the CBC curriculum, using fun, hands-on learning that helps every child discover their talents and grow confidently.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="faq">
+                    <div class="faq_header">
+                        <div class="faq_icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="question_answer">
+                            <h4>What ages do you admit?</h4>
+                        </div>
+                    </div>
+                    <div class="faq_answer">
+                        <p>
+                            We welcome young learners from playgroup to Grade classes, giving them a strong, happy start in school.
+                        </p>
+                    </div>
+                </article>
+                
+                <article class="faq">
+                    <div class="faq_header">
+                        <div class="faq_icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="question_answer">
+                            <h4>How do you keep children safe?</h4>
+                        </div>
+                    </div>
+                    <div class="faq_answer">
+                        <p>
+                            Safety is our top priority. We have secure grounds, clean classrooms, trained teachers, and strict child protection procedures.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <!--------------------------END OF FAQ--------------------------------------------------->
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>Parents Testimonials</h2>
+                <p class="section_subtitle">Hear from parents about their experience with Jets Elementary</p>
+                
+                <div class="testimonials_container">
+                    <!-- Testimonial 1 -->
+                    <article class="testimonial active">
+                        <div class="testimonial_content">
+                            <p class="testimonial_text">
+                                Jets Elementary has been the best decision for my child. She comes home excited everyday and has grown so much in confidence. The teachers are caring and truly understand young learners.
+                            </p>
+                            <div class="testimonial_author">
+                                <div class="author_avatar">
+                                    <img src="images/parent-1.jpg" alt="">
+                                </div>
+                                <div class="author_info">
+                                    <h4>Purity Omariba</h4>
+                                    <p>Parent</p>
+                                    <span class="author_position"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Testimonial 2 -->
+                    <article class="testimonial next">
+                        <div class="testimonial_content">
+                            <p class="testimonial_text">
+                                The school blends discipline, creativity, and modern learning perfectly. My child is more responsible, active in class, and happy. I highly recommend Jets Elementary.
+                            </p>
+                            <div class="testimonial_author">
+                                <div class="author_avatar">
+                                    <img src="images/parent-2.jpg" alt="">
+                                </div>
+                                <div class="author_info">
+                                    <h4>Mama Rhemmy</h4>
+                                    <p>Parent</p>
+                                    <span class="author_position"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Testimonial 3 -->
+                    <article class="testimonial next">
+                        <div class="testimonial_content">
+                            <p class="testimonial_text">
+                                My son has improved in reading and writing within a very short time. The school offers a warm environment and strong academics. I love how they communicate with parents.
+                            </p>
+                            <div class="testimonial_author">
+                                <div class="author_avatar">
+                                    <img src="images/parent-3.jpg" alt="">
+                                </div>
+                                <div class="author_info">
+                                    <h4>Baba Esbourne</h4>
+                                    <p>Parent</p>
+                                    <span class="author_position"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Testimonial 4 -->
+                    <article class="testimonial next">
+                        <div class="testimonial_content">
+                            <p class="testimonial_text">
+                                I appreciate the cleanliness, safety, and kindness of the staff. My daughter settled instantly and enjoys school so much. Jets Elementary feels like a second home for her.
+                            </p>
+                            <div class="testimonial_author">
+                                <div class="author_avatar">
+                                    <img src="images/parent-4.jpg" alt="">
+                                </div>
+                                <div class="author_info">
+                                    <h4>Kevin Odero</h4>
+                                    <p>Parent</p>
+                                    <span class="author_position"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Navigation Dots -->
+                <div class="testimonial_nav">
+                    <button class="testimonial_dot active" data-index="0"></button>
+                    <button class="testimonial_dot" data-index="1"></button>
+                    <button class="testimonial_dot" data-index="2"></button>
+                    <button class="testimonial_dot" data-index="3"></button>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="testimonial_controls">
+                    <button class="testimonial_btn" id="prev-testimonial">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="testimonial_btn" id="next-testimonial">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!------------------------------END OF TESTIMONIALS------------------------------------------------->
+    </div>
+    <!-- END HOMEPAGE CONTENT -->
+
+    <!-- PROGRAM PAGE CONTENT (Hidden by default) -->
+    <div class="program-page" id="program-page">
+        <div class="program-container" id="program-container">
+            <!-- Program content will be dynamically loaded here -->
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer_container">
+            <!-- Section 1: School Name & Tagline -->
+            <div class="footer_section footer_logo">
+                <h3>Jets Elementary School</h3>
+                <p class="footer_tagline">Nurturing young minds for a brighter future</p>
+            </div>
+            
+            <!-- Section 2: Contact Details & Social Icons -->
+            <div class="footer_section footer_contact">
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-phone-alt"></i></span>
+                    <span>+254 717830659</span>
+                    <span>+254 727549629</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <span>Gesoko, opp.joyland special school-kisumu</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-envelope"></i></span>
+                    <span>jetselementary@gmail.com</span>
+                </div>
+                
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="social_icon instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="social_icon tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://maps.google.com" target="_blank" class="social_icon maps" title="Google Maps">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer_bottom">
+            <p>&copy; 2026 Jets Elementary School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== PROGRAM DATA WITH IMAGES ====================
+        const programs = {
+            "cbc-aligned": {
+                title: "CBC-Aligned Learning",
+                subtitle: "Building Competencies for Life",
+                heroImage: "images/cbc.jpg",
+                content: `
+                    <div class="program-text">
+                        <h2>Competency-Based Curriculum</h2>
+                        <p>At Jets Elementary, we embrace the Competency-Based Curriculum (CBC) to provide a holistic education that goes beyond rote learning. Our approach focuses on developing seven core competencies that prepare children for life:</p>
+                        
+                        <ul>
+                            <li><strong>Communication and Collaboration:</strong> Students learn to express themselves clearly and work effectively in teams</li>
+                            <li><strong>Critical Thinking and Problem Solving:</strong> We encourage questioning, analysis, and creative solutions</li>
+                            <li><strong>Creativity and Imagination:</strong> Artistic expression and innovative thinking are nurtured daily</li>
+                            <li><strong>Citizenship:</strong> Building responsible, patriotic, and globally-aware individuals</li>
+                            <li><strong>Learning to Learn:</strong> Developing self-directed learning skills and curiosity</li>
+                            <li><strong>Self-efficacy:</strong> Building confidence and belief in one's abilities</li>
+                            <li><strong>Digital Literacy:</strong> Preparing students for the digital age</li>
+                        </ul>
+                        
+                        <p>Our classrooms are designed to support hands-on learning with practical activities, projects, and real-world applications. Teachers act as facilitators, guiding students to discover knowledge rather than just receiving it.</p>
+                    </div>
+                `,
+                features: [
+                    {
+                        icon: "uil uil-book-open",
+                        title: "Thematic Learning",
+                        description: "Integrated subjects around meaningful real-world topics"
+                    },
+                    {
+                        icon: "uil uil-users-alt",
+                        title: "Collaborative Projects",
+                        description: "Group work that develops teamwork and communication"
+                    },
+                    {
+                        icon: "uil uil-presentation-play",
+                        title: "Practical Activities",
+                        description: "Hands-on learning experiences in every subject"
+                    },
+                    {
+                        icon: "uil uil-chart-line",
+                        title: "Continuous Assessment",
+                        description: "Ongoing evaluation of all seven competencies"
+                    }
+                ],
+                review: `
+                    <p>We implement CBC through thematic learning where subjects are integrated around meaningful topics. Each term, students explore 3-4 themes that connect classroom learning to real life. Our assessment is continuous and competency-based, tracking each child's progress across all competencies. We provide detailed progress reports that show not just academic performance but also growth in values, social skills, and talents. Our teachers receive regular CBC training to ensure they deliver the curriculum effectively and joyfully.</p>
+                `
+            },
+            "safe-environment": {
+                title: "Safe & Caring Environment",
+                subtitle: "Where Every Child Feels Secure and Valued",
+                heroImage: "images/day.jpg",
+                content: `
+                    <div class="program-text">
+                        <h2>A Sanctuary for Learning</h2>
+                        <p>A child's sense of security is fundamental to their learning. At Jets Elementary, we've created an environment where every child feels physically, emotionally, and psychologically safe.</p>
+                        
+                        <ul>
+                            <li><strong>Secure Premises:</strong> Controlled access, CCTV monitoring, and secure perimeter fencing</li>
+                            <li><strong>Child-Friendly Facilities:</strong> Age-appropriate furniture, clean washrooms, and well-maintained play areas</li>
+                            <li><strong>Trained Staff:</strong> All staff undergo child protection training and background checks</li>
+                            <li><strong>Health and Hygiene:</strong> Regular health checks, clean drinking water, and hygiene education</li>
+                            <li><strong>Emotional Safety:</strong> Anti-bullying policies, counseling support, and positive discipline</li>
+                            <li><strong>First Aid:</strong> Trained first-aiders on duty at all times</li>
+                            <li><strong>Transport Safety:</strong> Supervised transport with seat belts and responsible drivers</li>
+                        </ul>
+                        
+                        <p>We believe that a caring environment extends beyond physical safety. Our teachers build warm, nurturing relationships with students, creating a "school family" atmosphere where every child feels valued and heard.</p>
+                    </div>
+                `,
+                features: [
+                    {
+                        icon: "uil uil-shield-check",
+                        title: "24/7 Security",
+                        description: "Round-the-clock security personnel and surveillance"
+                    },
+                    {
+                        icon: "uil uil-heart-medical",
+                        title: "Health Monitoring",
+                        description: "Regular health checks and first aid facilities"
+                    },
+                    {
+                        icon: "uil uil-smile",
+                        title: "Emotional Support",
+                        description: "Counseling services and peer support programs"
+                    },
+                    {
+                        icon: "uil uil-home",
+                        title: "Family Atmosphere",
+                        description: "Warm, nurturing relationships with all staff"
+                    }
+                ],
+                review: `
+                    <p>Our safety protocols are comprehensive and regularly reviewed. We conduct monthly safety drills (fire, emergency), have a full-time nurse, and maintain strict visitor policies. Beyond physical safety, we focus on emotional wellbeing through morning circles, peer support programs, and open communication channels. Our "Buddy System" pairs older and younger students for mutual support. We involve parents in safety through regular updates and workshops on child protection. The result is an environment where children feel secure enough to take learning risks and express themselves fully.</p>
+                `
+            },
+            "play-based": {
+                title: "Play-Based Early Years Program",
+                subtitle: "Learning Through Joyful Exploration",
+                heroImage: "images/environment.jpg",
+                content: `
+                    <div class="program-text">
+                        <h2>The Power of Play</h2>
+                        <p>For our youngest learners (PP1, PP2, Grade 1-4), we believe that play is the most powerful vehicle for learning. Our play-based program is carefully designed to develop cognitive, social, emotional, and physical skills through joyful exploration.</p>
+                        
+                        <ul>
+                            <li><strong>Structured and Unstructured Play:</strong> Balanced approach with guided activities and free choice</li>
+                            <li><strong>Learning Centers:</strong> Classroom areas for reading, art, blocks, drama, and discovery</li>
+                            <li><strong>Outdoor Learning:</strong> Nature exploration, sand/water play, and physical activities</li>
+                            <li><strong>Social Development:</strong> Play that teaches sharing, cooperation, and conflict resolution</li>
+                            <li><strong>Language Development:</strong> Storytelling, puppetry, and role-play to build vocabulary</li>
+                            <li><strong>Early Math Concepts:</strong> Counting, sorting, and patterning through games</li>
+                            <li><strong>Creative Expression:</strong> Art, music, and movement integrated into daily play</li>
+                        </ul>
+                        
+                        <p>Our play-based approach recognizes that children learn best when they're engaged, curious, and having fun. Through play, children develop problem-solving skills, creativity, and a lifelong love of learning.</p>
+                    </div>
+                `,
+                features: [
+                    {
+                        icon: "uil uil-palette",
+                        title: "Creative Expression",
+                        description: "Art, music, and drama integrated into daily activities"
+                    },
+                    {
+                        icon: "uil uil-trees",
+                        title: "Outdoor Learning",
+                        description: "Nature exploration and physical play areas"
+                    },
+                    {
+                        icon: "uil uil-game-structure",
+                        title: "Learning Centers",
+                        description: "Dedicated areas for different types of play"
+                    },
+                    {
+                        icon: "uil uil-smile-beam",
+                        title: "Social Development",
+                        description: "Play that builds sharing and cooperation skills"
+                    }
+                ],
+                review: `
+                    <p>We implement play-based learning through carefully planned environments and trained early years specialists. Each classroom is organized into interest areas that change regularly to maintain engagement. Our teachers observe children at play to identify interests and plan next steps. We document learning through photos, videos, and children's work to show progress. Parent workshops help families understand the value of play and extend learning at home. Our outdoor area includes gardens, climbing structures, and creative play spaces. The result is happy, confident learners who develop foundational skills naturally through meaningful experiences.</p>
+                `
+            },
+            "ict-exposure": {
+                title: "Modern ICT Exposure",
+                subtitle: "Preparing Digital Natives for the Future",
+                heroImage: "images/ict.jpg",
+                content: `
+                    <div class="program-text">
+                        <h2>Technology as a Learning Tool</h2>
+                        <p>In today's digital world, technological literacy is essential. At Jets Elementary, we introduce children to technology in age-appropriate, meaningful ways that enhance learning and prepare them for the future.</p>
+                        
+                        <ul>
+                            <li><strong>Digital Literacy Skills:</strong> Basic computer operations, keyboarding, and safe internet use</li>
+                            <li><strong>Coding and Robotics:</strong> Simple programming concepts through games and robots</li>
+                            <li><strong>Creative Technology:</strong> Digital art, music composition, and storytelling tools</li>
+                            <li><strong>Research Skills:</strong> Using technology to find and evaluate information</li>
+                            <li><strong>Presentation Skills:</strong> Creating simple slideshows and digital presentations</li>
+                            <li><strong>Educational Software:</strong> Carefully selected programs that reinforce curriculum</li>
+                            <li><strong>Digital Citizenship:</strong> Teaching responsible, ethical technology use</li>
+                        </ul>
+                        
+                        <p>Our approach balances screen time with hands-on activities, ensuring technology enhances rather than replaces traditional learning. We focus on using technology as a tool for creation, collaboration, and problem-solving.</p>
+                    </div>
+                `,
+                features: [
+                    {
+                        icon: "uil uil-desktop",
+                        title: "Computer Lab",
+                        description: "Modern computers with educational software"
+                    },
+                    {
+                        icon: "uil uil-circuit",
+                        title: "Coding Classes",
+                        description: "Age-appropriate programming and robotics"
+                    },
+                    {
+                        icon: "uil uil-shield-exclamation",
+                        title: "Internet Safety",
+                        description: "Teaching responsible digital citizenship"
+                    },
+                    {
+                        icon: "uil uil-creative-commons-pd",
+                        title: "Digital Creativity",
+                        description: "Art, music, and storytelling with technology"
+                    }
+                ],
+                review: `
+                    <p>We have a dedicated ICT lab with age-appropriate devices and educational software. Our ICT curriculum is integrated across subjects - for example, using math games to reinforce concepts or creating digital stories in language arts. We follow the "SAMR" model (Substitution, Augmentation, Modification, Redefinition) to ensure technology transforms learning. Teachers receive ongoing training in educational technology. We balance screen time guidelines with opportunities for digital creation. Internet safety is taught explicitly, with filtered internet access and supervision. Our goal is to develop confident, critical users of technology who can leverage digital tools for learning and expression.</p>
+                `
+            },
+            "co-curricular": {
+                title: "Balanced Co-Curricular Activities",
+                subtitle: "Discovering Passions Beyond the Classroom",
+                heroImage: "images/activities.jpg",
+                content: `
+                    <div class="program-text">
+                        <h2>Holistic Development</h2>
+                        <p>Education extends beyond the classroom. Our comprehensive co-curricular program helps children discover their passions, develop new skills, and build confidence through diverse activities.</p>
+                        
+                        <ul>
+                            <li><strong>Sports & Physical Activities:</strong> Football, athletics, swimming, Tae Kwon Do, and gymnastics</li>
+                            <li><strong>Creative Arts:</strong> Music (vocal and instrumental), drama, dance, and visual arts</li>
+                            <li><strong>Academic Clubs:</strong> Debate, science club, mathletes, and young writers</li>
+                            <li><strong>Life Skills:</strong> Cooking, gardening, first aid, and environmental club</li>
+                            <li><strong>Entrepreneurship:</strong> Young entrepreneurs program teaching business basics</li>
+                            <li><strong>Cultural Activities:</strong> Traditional music, dance, and language appreciation</li>
+                            <li><strong>Leadership Development:</strong> Student council, peer mentoring, and community service</li>
+                        </ul>
+                        
+                        <p>Each child participates in at least two co-curricular activities per term, allowing them to explore different interests. Activities are scheduled to complement academic learning, not compete with it.</p>
+                    </div>
+                `,
+                features: [
+                    {
+                        icon: "uil uil-football",
+                        title: "Sports Excellence",
+                        description: "Various sports with professional coaching"
+                    },
+                    {
+                        icon: "uil uil-music",
+                        title: "Creative Arts",
+                        description: "Music, drama, dance, and visual arts programs"
+                    },
+                    {
+                        icon: "uil uil-presentation",
+                        title: "Academic Clubs",
+                        description: "Debate, science, and other interest groups"
+                    },
+                    {
+                        icon: "uil uil-user-md",
+                        title: "Life Skills",
+                        description: "Practical skills for everyday life"
+                    }
+                ],
+                review: `
+                    <p>Our co-curricular program operates on a rotating schedule with dedicated time each week. We employ specialist coaches and instructors for certain activities. Participation is encouraged but never forced - we help children find activities that match their interests. We celebrate achievements through exhibitions, performances, and competitions. The program is included in school fees with no hidden costs. Activities are age-appropriate and safety-focused. We track participation and growth, noting how co-curricular engagement often boosts academic performance and confidence. Regular showcases allow parents to see their children's talents and progress in these areas.</p>
+                `
+            },
+            "moral-values": {
+                title: "Strong Moral & Social Values",
+                subtitle: "Building Character for Life",
+                heroImage: "images/values.jpg",
+                content: `
+                    <div class="program-text">
+                        <h2>Character Education</h2>
+                        <p>At Jets Elementary, we believe academic excellence must be paired with strong character. Our values education program develops ethical, responsible, and compassionate individuals.</p>
+                        
+                        <ul>
+                            <li><strong>Core Values:</strong> Respect, responsibility, honesty, kindness, and perseverance</li>
+                            <li><strong>Character Education:</strong> Monthly focus on specific virtues through stories and activities</li>
+                            <li><strong>Social-Emotional Learning:</strong> Identifying emotions, empathy, and relationship skills</li>
+                            <li><strong>Cultural Appreciation:</strong> Understanding and respecting diverse backgrounds</li>
+                            <li><strong>Service Learning:</strong> Community projects that teach compassion and civic responsibility</li>
+                            <li><strong>Conflict Resolution:</strong> Peaceful problem-solving and communication skills</li>
+                            <li><strong>Environmental Stewardship:</strong> Caring for our school, community, and planet</li>
+                        </ul>
+                        
+                        <p>Values are not taught as separate subjects but are integrated throughout the school day. Teachers model expected behaviors, and students practice them in real situations.</p>
+                    </div>
+                `,
+                features: [
+                    {
+                        icon: "uil uil-heart",
+                        title: "Monthly Values",
+                        description: "Focus on different virtues each month"
+                    },
+                    {
+                        icon: "uil uil-handshake",
+                        title: "Service Learning",
+                        description: "Community projects and volunteer work"
+                    },
+                    {
+                        icon: "uil uil-users-alt",
+                        title: "Social Skills",
+                        description: "Conflict resolution and communication training"
+                    },
+                    {
+                        icon: "uil uil-leaf",
+                        title: "Environmental Care",
+                        description: "Stewardship of our school and community"
+                    }
+                ],
+                review: `
+                    <p>We implement values education through a whole-school approach. Each month focuses on a specific value, reinforced through morning assemblies, classroom discussions, and recognition systems. Our "Caught Being Good" program acknowledges positive behavior. Teachers receive training in values integration and social-emotional learning. We partner with parents through values newsletters and family challenges. Community service projects (like visiting children's homes or environmental clean-ups) put values into action. We measure success not just by academic results but by the kind of citizens our students become - respectful, responsible, and ready to contribute positively to society.</p>
+                `
+            }
+        };
+
+        // ==================== UNIVERSAL FUNCTIONS (Run on all pages) ====================
+        
+        // ==================== NAVBAR SCROLL EFFECT ====================
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            const scrollPosition = window.scrollY;
+            
+            // Add 'scrolled' class when user scrolls down more than 50px
+            if (scrollPosition > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ==================== MOBILE MENU TOGGLE (Universal for all pages) ====================
+        function setupMobileMenu() {
+            const openMenuBtn = document.getElementById('open-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const navMenu = document.querySelector('.nav_menu');
+
+            // Only run if elements exist (they exist on all pages)
+            if (!openMenuBtn || !closeMenuBtn || !navMenu) return;
+
+            // Open mobile menu
+            openMenuBtn.addEventListener('click', () => {
+                navMenu.classList.add('active');
+                openMenuBtn.style.display = 'none';
+                closeMenuBtn.style.display = 'inline-block';
+            });
+
+            // Close mobile menu
+            closeMenuBtn.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                openMenuBtn.style.display = 'inline-block';
+                closeMenuBtn.style.display = 'none';
+            });
+
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav_menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navMenu.classList.remove('active');
+                        if (openMenuBtn) openMenuBtn.style.display = 'inline-block';
+                        if (closeMenuBtn) closeMenuBtn.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // ==================== PAGE-SPECIFIC FUNCTIONS (Only run on homepage) ====================
+        
+        // Check if we're on the homepage
+        function isHomePage() {
+            const homepage = document.getElementById('homepage');
+            return !!homepage; // Returns true if homepage element exists
+        }
+
+        // ==================== PAGE MANAGEMENT ====================
+        function setupHomePageFeatures() {
+            // Only run if we're on the homepage
+            if (!isHomePage()) return;
+            
+            const homepage = document.getElementById('homepage');
+            const programPage = document.getElementById('program-page');
+            const programContainer = document.getElementById('program-container');
+            const categoryCards = document.querySelectorAll('.category');
+            const navHome = document.getElementById('nav-home');
+            const navLogo = document.getElementById('nav-logo');
+
+            // Function to show program page
+            function showProgramPage(programId) {
+                const program = programs[programId];
+                
+                if (program) {
+                    // Hide homepage, show program page
+                    homepage.style.display = 'none';
+                    programPage.style.display = 'block';
+                    
+                    // Update navigation active state
+                    if (navHome) navHome.classList.remove('active');
+                    
+                    // Generate program page content
+                    const featuresHTML = program.features.map(feature => `
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="${feature.icon}"></i>
+                            </div>
+                            <h4>${feature.title}</h4>
+                            <p>${feature.description}</p>
+                        </div>
+                    `).join('');
+                    
+                    programContainer.innerHTML = `
+                        <div class="program-header">
+                            <a href="#" class="back-to-home" id="back-to-home">
+                                <i class="fas fa-arrow-left"></i> Back to Home
+                            </a>
+                            <h1>${program.title}</h1>
+                            <p>${program.subtitle}</p>
+                        </div>
+                        
+                        <div class="program-hero-image">
+                            <img src="${program.heroImage}" alt="${program.title}">
+                        </div>
+                        
+                        <div class="program-content">
+                            ${program.content}
+                            
+                            <div class="program-features">
+                                <h3>Key Features</h3>
+                                <div class="feature-grid">
+                                    ${featuresHTML}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="program-review">
+                            <h3>School Review</h3>
+                            ${program.review}
+                        </div>
+                    `;
+                    
+                    // Scroll to top of program page
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Add event listener to back button
+                    document.getElementById('back-to-home').addEventListener('click', function(e) {
+                        e.preventDefault();
+                        showHomepage();
+                    });
+                }
+            }
+
+            // Function to show homepage
+            function showHomepage() {
+                homepage.style.display = 'block';
+                programPage.style.display = 'none';
+                if (navHome) navHome.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Add click event listeners to category cards
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const programId = this.getAttribute('data-program');
+                    showProgramPage(programId);
+                });
+            });
+
+            // Navigation event listeners
+            if (navHome) {
+                navHome.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showHomepage();
+                });
+            }
+
+            if (navLogo) {
+                navLogo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showHomepage();
+                });
+            }
+
+            // Check if there's a program ID in the URL hash
+            const hash = window.location.hash.substring(1);
+            if (hash && programs[hash]) {
+                showProgramPage(hash);
+            }
+        }
+
+        // ==================== FAQ TOGGLE FUNCTIONALITY ====================
+        function setupFAQs() {
+            // Only run if we're on the homepage
+            if (!isHomePage()) return;
+            
+            const faqs = document.querySelectorAll('.faq');
+            
+            faqs.forEach(faq => {
+                // Add click event listener to each FAQ
+                faq.addEventListener('click', () => {
+                    // On mobile, close other FAQs when opening a new one (accordion behavior)
+                    if (window.innerWidth <= 768) {
+                        const isActive = faq.classList.contains('active');
+                        if (!isActive) {
+                            faqs.forEach(otherFaq => {
+                                otherFaq.classList.remove('active');
+                                const otherIcon = otherFaq.querySelector('.faq_icon i');
+                                if (otherIcon) {
+                                    otherIcon.classList.remove('fa-minus');
+                                    otherIcon.classList.add('fa-plus');
+                                }
+                            });
+                        }
+                    }
+                    
+                    // Toggle active class on clicked FAQ
+                    faq.classList.toggle('active');
+                    
+                    // Change icon from plus to minus
+                    const icon = faq.querySelector('.faq_icon i');
+                    if (icon) {
+                        if (faq.classList.contains('active')) {
+                            icon.classList.remove('fa-plus');
+                            icon.classList.add('fa-minus');
+                        } else {
+                            icon.classList.remove('fa-minus');
+                            icon.classList.add('fa-plus');
+                        }
+                    }
+                });
+            });
+        }
+
+        // ==================== TESTIMONIAL SLIDER FUNCTIONALITY ====================
+        function setupTestimonials() {
+            // Only run if we're on the homepage
+            if (!isHomePage()) return;
+            
+            const testimonials = document.querySelectorAll('.testimonial');
+            const dots = document.querySelectorAll('.testimonial_dot');
+            const prevBtn = document.getElementById('prev-testimonial');
+            const nextBtn = document.getElementById('next-testimonial');
+            
+            // If no testimonials, exit
+            if (testimonials.length === 0) return;
+            
+            let currentTestimonial = 0;
+            const totalTestimonials = testimonials.length;
+            
+            // Function to show specific testimonial
+            function showTestimonial(index) {
+                // Hide all testimonials
+                testimonials.forEach(testimonial => {
+                    testimonial.classList.remove('active', 'prev', 'next');
+                });
+                
+                // Show current testimonial
+                testimonials[index].classList.add('active');
+                
+                // Set previous testimonial
+                let prevIndex = index - 1;
+                if (prevIndex < 0) prevIndex = totalTestimonials - 1;
+                testimonials[prevIndex].classList.add('prev');
+                
+                // Set next testimonial
+                let nextIndex = index + 1;
+                if (nextIndex >= totalTestimonials) nextIndex = 0;
+                testimonials[nextIndex].classList.add('next');
+                
+                // Update dots
+                dots.forEach((dot, dotIndex) => {
+                    dot.classList.toggle('active', dotIndex === index);
+                });
+                
+                currentTestimonial = index;
+            }
+            
+            // Function for next testimonial
+            function nextTestimonial() {
+                let nextIndex = currentTestimonial + 1;
+                if (nextIndex >= totalTestimonials) nextIndex = 0;
+                showTestimonial(nextIndex);
+            }
+            
+            // Function for previous testimonial
+            function prevTestimonial() {
+                let prevIndex = currentTestimonial - 1;
+                if (prevIndex < 0) prevIndex = totalTestimonials - 1;
+                showTestimonial(prevIndex);
+            }
+            
+            // Initialize
+            function initializeTestimonials() {
+                // Always use slider functionality
+                showTestimonial(0);
+                
+                // Auto-rotate testimonials every 5 seconds
+                setInterval(nextTestimonial, 5000);
+            }
+            
+            initializeTestimonials();
+            
+            // Add click events to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showTestimonial(index);
+                });
+            });
+            
+            // Add click events to navigation buttons
+            if (prevBtn) {
+                prevBtn.addEventListener('click', prevTestimonial);
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', nextTestimonial);
+            }
+        }
+
+        // ==================== INITIALIZE EVERYTHING ====================
+        window.addEventListener('load', function() {
+            // Always set up mobile menu (works on all pages)
+            setupMobileMenu();
+            
+            // Only run homepage-specific functions if we're on the homepage
+            if (isHomePage()) {
+                // Set up homepage features
+                setupHomePageFeatures();
+                
+                // Set up FAQ functionality
+                setupFAQs();
+                
+                // Set up testimonials
+                setupTestimonials();
+                
+                console.log('Homepage features initialized successfully');
+            } else {
+                console.log('Non-homepage detected, skipping homepage-specific features');
+            }
+        });
+
+        // ==================== RESPONSIVE RESIZE HANDLER ====================
+        window.addEventListener('resize', function() {
+            // Handle mobile menu reset
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) {
+                // Desktop: Reset mobile menu
+                const navMenu = document.querySelector('.nav_menu');
+                const openMenuBtn = document.getElementById('open-menu-btn');
+                const closeMenuBtn = document.getElementById('close-menu-btn');
+                
+                if (navMenu) navMenu.classList.remove('active');
+                if (openMenuBtn) openMenuBtn.style.display = 'none';
+                if (closeMenuBtn) closeMenuBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

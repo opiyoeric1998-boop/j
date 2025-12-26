@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aftercare Services - Jets Elementary School</title>
+    
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ICONSCOUT CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CUSTOM CSS -->
+    <style>
+        /* ====== BASE STYLES ====== */
+        :root {
+            --primary-blue: #1a365d;
+            --secondary-blue: #2d74da;
+            --light-blue: #e8f4fc;
+            --accent-blue: #4299e1;
+            --white: #ffffff;
+            --soft-grey: #f7f9fc;
+            --medium-grey: #e2e8f0;
+            --dark-grey: #4a5568;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            
+            /* Gallery button colors */
+            --sports-pink: #e91e63;
+            --tour-blue: #2196f3;
+            --culture-green: #4caf50;
+            --videos-red: #f44336;
+            
+            --heading-font: 'Roboto Slab', serif;
+            --subheading-font: 'Playfair Display', serif;
+            --body-font: 'Lora', serif;
+            --highlight-font: 'Quicksand', sans-serif;
+            
+            --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.07);
+            --shadow-hard: 0 20px 25px rgba(0, 0, 0, 0.1);
+            
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-family: var(--subheading-font);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-blue);
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section_header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section_header h2 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section_header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-blue);
+        }
+
+        .section_header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ====== UPDATED NAVIGATION ====== */
+        nav {
+            background-color: var(--white);
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0.7rem 0;
+        }
+
+        .nav_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav_logo {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 800;
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav_menu {
+            display: flex;
+            gap: 1.8rem;
+            align-items: center;
+        }
+
+        .nav_menu li {
+            list-style: none;
+        }
+
+        .nav_menu a {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            position: relative;
+            letter-spacing: 0.3px;
+        }
+
+        .nav_menu a:hover {
+            color: var(--secondary-blue);
+        }
+
+        .nav_menu a.active {
+            color: var(--secondary-blue);
+            font-weight: 800;
+        }
+
+        .nav_menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--secondary-blue);
+            border-radius: 2px;
+        }
+
+        .nav_buttons {
+            display: none;
+        }
+
+        /* ====== HERO SECTION ====== */
+        .hero {
+            height: 400px;
+            background-image: url("images/service.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .hero_overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 54, 93, 0.75);
+            display: flex;
+            align-items: center;
+        }
+
+        .hero_content {
+            color: var(--white);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero_content h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .hero_content p {
+            font-size: 1.2rem;
+            color: var(--light-blue);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ====== INTRODUCTION SECTION ====== */
+        .introduction {
+            padding: 5rem 0;
+            background-color: var(--soft-grey);
+        }
+
+        .intro_grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .intro_image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .intro_image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .intro_image:hover img {
+            transform: scale(1.03);
+        }
+
+        .intro_text h2 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .intro_text p {
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+        }
+
+        /* Updated Benefits Section without icons */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .benefit_item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Different colors for each card */
+        .benefit_item:nth-child(1) {
+            background-color: #ffe6f2; /* Light pink */
+            border-top: 4px solid #ff66b2;
+        }
+        
+        .benefit_item:nth-child(2) {
+            background-color: #e6f7ff; /* Light blue */
+            border-top: 4px solid #66ccff;
+        }
+        
+        .benefit_item:nth-child(3) {
+            background-color: #e6ffe6; /* Light green */
+            border-top: 4px solid #66cc66;
+        }
+
+        .benefit_item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .benefit_item h4 {
+            margin-bottom: 0.5rem;
+            font-family: var(--highlight-font);
+            font-weight: 600;
+        }
+
+        .benefit_item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* ====== PROGRAMMES SECTION ====== */
+        .programmes {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .programme_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .programme_card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+
+        .programme_card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .programme_image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .programme_image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .programme_card:hover .programme_image img {
+            transform: scale(1.05);
+        }
+
+        .programme_content {
+            padding: 1.5rem;
+        }
+
+        .programme_content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-family: var(--subheading-font);
+        }
+
+        .programme_content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .programme_benefits {
+            list-style-type: none;
+        }
+
+        .programme_benefits li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .programme_benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+
+        /* ====== GALLERY & EVENTS SECTION ====== */
+        .gallery_events {
+            padding: 5rem 0;
+            background-color: var(--soft-grey);
+        }
+
+        /* Gallery Buttons Styling */
+        .gallery_buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery_btn {
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--highlight-font);
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .gallery_btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .gallery_btn.active {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hard);
+        }
+
+        .gallery_btn i {
+            font-size: 1.1rem;
+        }
+
+        /* Individual button colors */
+        .sports-btn {
+            background-color: var(--sports-pink);
+        }
+        
+        .tour-btn {
+            background-color: var(--tour-blue);
+        }
+        
+        .culture-btn {
+            background-color: var(--culture-green);
+        }
+        
+        .videos-btn {
+            background-color: var(--videos-red);
+        }
+
+        /* Gallery Sections */
+        .gallery_section {
+            display: none;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-top: 1rem;
+            box-shadow: var(--shadow-soft);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .gallery_section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery_section h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .gallery_images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery_images img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: calc(var(--border-radius) - 5px);
+            transition: var(--transition);
+        }
+
+        .gallery_images img:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Video gallery section */
+        .video_gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .video_item {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+        }
+
+        .video_item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .video_container {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .video_container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video_caption {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0;
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: 2rem 0 0.7rem;
+            margin-top: 3rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            min-height: auto;
+        }
+
+        .footer_container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 1.5rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer_section {
+            padding: 0;
+        }
+
+        .footer_section h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: var(--highlight-font);
+            letter-spacing: 0.3px;
+        }
+
+        /* School Section */
+        .footer_motto {
+            color: var(--light-blue);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .social_icons {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .social_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social_icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .facebook {
+            background: linear-gradient(135deg, #1877F2, #0d5fbf);
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .tiktok {
+            background: linear-gradient(135deg, #000000, #333333);
+        }
+
+        .whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+        }
+
+        /* Contacts Section */
+        .contact_info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact_item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .contact_item i {
+            color: var(--light-blue);
+            font-size: 0.9rem;
+            margin-top: 0.1rem;
+            min-width: 16px;
+        }
+
+        .contact_item p {
+            color: var(--light-blue);
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .contact_item div p {
+            margin-bottom: 0.2rem;
+        }
+
+        .contact_item div p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer Bottom */
+        .footer_bottom {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--light-blue);
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        /* ====== RESPONSIVE DESIGN ====== */
+        @media (max-width: 1024px) {
+            .intro_grid {
+                gap: 3rem;
+            }
+            
+            .gallery_images {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer_container {
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            /* Mobile Navigation */
+            .nav_menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 80%;
+                max-width: 400px;
+                background-color: var(--white);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 5rem;
+                align-items: flex-start;
+                padding-left: 2rem;
+                gap: 1.5rem;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            .nav_menu.active {
+                right: 0;
+            }
+            
+            .nav_buttons {
+                display: block;
+            }
+            
+            #open-menu-btn, #close-menu-btn {
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--primary-blue);
+                cursor: pointer;
+                font-family: var(--highlight-font);
+                z-index: 1000;
+            }
+            
+            #close-menu-btn {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+            
+            .hero {
+                height: 350px;
+            }
+            
+            .hero_content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .intro_grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .programme_grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery_buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .gallery_btn {
+                width: 80%;
+                justify-content: center;
+            }
+            
+            .gallery_images {
+                grid-template-columns: 1fr;
+            }
+            
+            footer {
+                padding: 1.5rem 0 0.5rem;
+            }
+            
+            .footer_container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .contact_item {
+                justify-content: center;
+                text-align: left;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            
+            .social_icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .nav_logo {
+                font-size: 1.2rem;
+            }
+            
+            .nav_menu a {
+                font-size: 1rem;
+            }
+            
+            .hero {
+                height: 300px;
+            }
+            
+            .hero_content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero_content p {
+                font-size: 1rem;
+            }
+            
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery_images {
+                grid-template-columns: 1fr;
+            }
+            
+            .video_gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            footer {
+                padding: 1.2rem 0 0.4rem;
+            }
+            
+            .footer_section h4 {
+                font-size: 1.1rem;
+            }
+            
+            .footer_motto,
+            .contact_item p {
+                font-size: 0.8rem;
+            }
+            
+            .social_icon {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+            
+            .footer_bottom p {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer_container {
+                gap: 1.5rem;
+            }
+            
+            .footer_section h4 {
+                margin-bottom: 0.8rem;
+            }
+            
+            .contact_item {
+                gap: 0.6rem;
+            }
+            
+            .contact_item i {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html" class="nav_logo">JETS ELEMENTARY</a>
+            
+            <ul class="nav_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="fees.html">Fees</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="aftercare.html" class="active">Aftercare</a></li>
+            </ul>
+            
+            <div class="nav_buttons">
+                <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+                <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+            </div>
+        </div>
+    </nav>
+    <!-- END OF NAVBAR -->
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero_overlay">
+            <div class="container hero_content">
+                <h1>Learning & Enrichment Programmes</h1>
+                <p>A safe, engaging, and nurturing environment where your child continues to learn, play, and grow after the school day ends.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRODUCTION SECTION -->
+    <section class="introduction">
+        <div class="container">
+            <div class="intro_grid">
+                <div class="intro_image">
+                    <img src="images/assembly.jpg" alt="">
+                </div>
+                <div class="intro_text">
+                    <h2>Safe Learning Beyond School Hours</h2>
+                    <p>Our Aftercare Services provide a structured, safe, and stimulating environment for children after regular school hours. We understand the challenges working parents face, and we're here to support both you and your child.</p>
+                    
+                    <p>At Jets Elementary, aftercare isn't just supervision—it's an extension of our educational philosophy. We create opportunities for social interaction, skill development, and creative expression in a caring, secure setting.</p>
+                    
+                    <div class="benefits">
+                        <div class="benefit_item">
+                            <h4>Safety & Security</h4>
+                            <p>Professional staff ensure your child's wellbeing at all times with secure facilities and supervised activities.</p>
+                        </div>
+                        <div class="benefit_item">
+                            <h4>Skill Development</h4>
+                            <p>Activities designed to build confidence, critical thinking, and new abilities in a supportive environment.</p>
+                        </div>
+                        <div class="benefit_item">
+                            <h4>Social Growth</h4>
+                            <p>Opportunities to build friendships, learn teamwork, and develop social skills through guided interactions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AFTERCARE PROGRAMMES SECTION -->
+    <section class="programmes">
+        <div class="container">
+            <div class="section_header">
+                <h2>Our Aftercare Programmes</h2>
+                <p>Each programme is carefully designed to nurture different aspects of your child's development</p>
+            </div>
+            
+            <div class="programme_grid">
+                <!-- Sports and Play -->
+                <div class="programme_card">
+                    <div class="programme_image">
+                        <img src="images/sport.jpg" alt="">
+                    </div>
+                    <div class="programme_content">
+                        <h3>Sports and Play</h3>
+                        <p>Active games and team sports that promote physical fitness, coordination, and social skills. Our supervised play areas allow children to release energy in a safe, structured way.</p>
+                        <ul class="programme_benefits">
+                            <li>Builds teamwork and sportsmanship</li>
+                            <li>Improves physical health and coordination</li>
+                            <li>Teaches discipline and following rules</li>
+                            <li>Encourages healthy competition</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Computer Learning & Robotics -->
+                <div class="programme_card">
+                    <div class="programme_image">
+                        <img src="images/computer.jpg" alt="">
+                    </div>
+                    <div class="programme_content">
+                        <h3>Computer Learning & Robotics</h3>
+                        <p>Introduction to technology, coding basics, and simple robotics projects. We make digital learning fun and accessible for young minds.</p>
+                        <ul class="programme_benefits">
+                            <li>Develops problem-solving skills</li>
+                            <li>Introduces basic programming concepts</li>
+                            <li>Encourages creativity and innovation</li>
+                            <li>Builds confidence with technology</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Chess Game -->
+                <div class="programme_card">
+                    <div class="programme_image">
+                        <img src="images/chess.jpg" alt="">
+                    </div>
+                    <div class="programme_content">
+                        <h3>Chess Game</h3>
+                        <p>The timeless game of strategy taught in an engaging, age-appropriate way. Children learn to think ahead and develop mental focus.</p>
+                        <ul class="programme_benefits">
+                            <li>Enhances critical thinking skills</li>
+                            <li>Improves concentration and patience</li>
+                            <li>Teaches planning and strategy</li>
+                            <li>Boosts memory and cognitive abilities</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Swimming -->
+                <div class="programme_card">
+                    <div class="programme_image">
+                        <img src="images/swimming.jpg" alt="">
+                    </div>
+                    <div class="programme_content">
+                        <h3>Swimming</h3>
+                        <p>Supervised swimming lessons and water safety instruction. Our certified instructors ensure a safe, enjoyable introduction to aquatic skills.</p>
+                        <ul class="programme_benefits">
+                            <li>Teaches essential water safety skills</li>
+                            <li>Builds confidence in the water</li>
+                            <li>Improves overall physical fitness</li>
+                            <li>Develops coordination and strength</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Cooking -->
+                <div class="programme_card">
+                    <div class="programme_image">
+                        <img src="images/cooking.jpg" alt="">
+                    </div>
+                    <div class="programme_content">
+                        <h3>Cooking</h3>
+                        <p>Simple, safe cooking activities that teach basic kitchen skills and nutrition. Children learn to prepare healthy snacks while understanding food concepts.</p>
+                        <ul class="programme_benefits">
+                            <li>Teaches practical life skills</li>
+                            <li>Encourages healthy eating habits</li>
+                            <li>Develops math and measuring skills</li>
+                            <li>Boosts creativity and confidence</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Debate -->
+                <div class="programme_card">
+                    <div class="programme_image">
+                        <img src="images/debate.jpg" alt="">
+                    </div>
+                    <div class="programme_content">
+                        <h3>Debate</h3>
+                        <p>Age-appropriate discussion and public speaking activities that help children express their ideas clearly and respectfully.</p>
+                        <ul class="programme_benefits">
+                            <li>Improves communication skills</li>
+                            <li>Builds confidence in public speaking</li>
+                            <li>Teaches respectful disagreement</li>
+                            <li>Develops critical thinking and reasoning</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Taekwondo -->
+                <div class="programme_card">
+                    <div class="programme_image">
+                        <img src="images/firght.jpg" alt="">
+                    </div>
+                    <div class="programme_content">
+                        <h3>Taekwondo</h3>
+                        <p>Martial arts training focused on discipline, respect, and self-control rather than aggression. Our certified instructors emphasize character development.</p>
+                        <ul class="programme_benefits">
+                            <li>Promotes self-discipline and focus</li>
+                            <li>Teaches respect for self and others</li>
+                            <li>Builds confidence and self-esteem</li>
+                            <li>Improves physical coordination</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCHOOL GALLERY & EVENTS SECTION -->
+    <section class="gallery_events">
+        <div class="container">
+            <div class="section_header">
+                <h2>School Gallery & Events</h2>
+                <p>Explore our vibrant aftercare community through photos and videos</p>
+            </div>
+            
+            <!-- Gallery Buttons -->
+            <div class="gallery_buttons">
+                <button class="gallery_btn sports-btn active" data-target="sports-gallery">
+                    <i class="fas fa-running"></i> Sports
+                </button>
+                <button class="gallery_btn tour-btn" data-target="tour-gallery">
+                    <i class="fas fa-map-marked-alt"></i> Tour
+                </button>
+                <button class="gallery_btn culture-btn" data-target="culture-gallery">
+                    <i class="fas fa-theater-masks"></i> Culture
+                </button>
+                <button class="gallery_btn videos-btn" data-target="videos-gallery">
+                    <i class="fas fa-video"></i> School Videos
+                </button>
+            </div>
+            
+            <!-- Sports Gallery -->
+            <div id="sports-gallery" class="gallery_section active">
+                <h3>Sports Activities</h3>
+                <div class="gallery_images">
+                    <img src="images/sports 1.jpg" alt="">
+                    <img src="images/sports 2.jpg" alt="">
+                    <img src="images/sports 3.jpg" alt="">
+                    <img src="images/sports 4.jpg" alt="">
+
+                </div>
+            </div>
+            
+            <!-- Tour Gallery -->
+            <div id="tour-gallery" class="gallery_section">
+                <h3>School Tour</h3>
+                <div class="gallery_images">
+                    <img src="images/tour-1.jpg" alt="">
+                    <img src="images/tour-2.jpg" alt="">
+                    <img src="images/tour-3.jpg" alt="">
+                    <img src="images/tour-4.jpg" alt="">
+                </div>
+            </div>
+            
+            <!-- Culture Gallery -->
+            <div id="culture-gallery" class="gallery_section">
+                <h3>Cultural Events</h3>
+                <div class="gallery_images">
+                    <img src="images/culture-1.jpg" alt="">
+                    <img src="images/culture-2.jpg" alt="">
+                    <img src="images/culture-3.jpg" alt="">
+                    <img src="images/culture-4.jpg" alt="">
+                </div>
+            </div>
+            
+            <!-- Videos Gallery -->
+            <div id="videos-gallery" class="gallery_section">
+                <h3>School Videos</h3>
+                <div class="video_gallery">
+                    <div class="video_item">
+                        <div class="video_container">
+                            <video controls poster="">
+                                <source src="VID-20251130-WA0028 copy 2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="video_caption">school tour</p>
+                    </div>
+                    
+                    <div class="video_item">
+                        <div class="video_container">
+                            <video controls poster="">
+                                <source src="VID-20251202-WA0062 - Copy.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="video_caption">activity day</p>
+                    </div>
+                    
+                    <div class="video_item">
+                        <div class="video_container">
+                            <video controls poster="">
+                                <source src="VID-20251202-WA0063.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <p class="video_caption">environmental day</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer_container">
+            <!-- School Section -->
+            <div class="footer_section">
+                <h4>Jets Elementary School</h4>
+                <p class="footer_motto">Nurturing young minds for a brighter future</p>
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jets_elementary_school" target="_blank" class="social_icon instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm" target="_blank" class="social_icon tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Contacts Section -->
+            <div class="footer_section">
+                <h4>Contact Us</h4>
+                <div class="contact_info">
+                    <div class="contact_item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <p>+254 717830659</p>
+                            <p>+254 727549629</p>
+                        </div>
+                    </div>
+                    <div class="contact_item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Gesoko, opp.joyland special school-kisumu</p>
+                    </div>
+                    <div class="contact_item">
+                        <i class="fas fa-envelope"></i>
+                        <p>jetselementary@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer_bottom">
+            <p>&copy; 2026 Jets Elementary School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const openMenuBtn = document.getElementById('open-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const navMenu = document.querySelector('.nav_menu');
+        
+        openMenuBtn.addEventListener('click', () => {
+            navMenu.classList.add('active');
+            openMenuBtn.style.display = 'none';
+            closeMenuBtn.style.display = 'block';
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            openMenuBtn.style.display = 'block';
+            closeMenuBtn.style.display = 'none';
+        });
+        
+        // Close menu when clicking on a link (for mobile)
+        const navLinks = document.querySelectorAll('.nav_menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                openMenuBtn.style.display = 'block';
+                closeMenuBtn.style.display = 'none';
+            });
+        });
+        
+        // Gallery Button Functionality
+        const galleryBtns = document.querySelectorAll('.gallery_btn');
+        const gallerySections = document.querySelectorAll('.gallery_section');
+        
+        galleryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and sections
+                galleryBtns.forEach(b => b.classList.remove('active'));
+                gallerySections.forEach(section => section.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding section
+                const targetId = btn.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+            });
+        });
+        
+        // Initialize with sports gallery active
+        document.getElementById('sports-gallery').classList.add('active');
+    </script>
+</body>
+</html>
