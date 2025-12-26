@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Learning Insights | Jets Elementary</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Lora:wght@400;500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+    <style>
+        /* RESETS & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8fafc;
+            transition: background-color 0.3s;
+        }
+
+        /* Add subtle background pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, transparent 99%, rgba(26, 75, 140, 0.03) 100%),
+                linear-gradient(transparent 99%, rgba(42, 141, 237, 0.03) 100%);
+            background-size: 50px 50px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .nav_container h4 {
+            font-family: 'Roboto Slab', serif;
+            color: #1a4b8c;
+            font-size: 1.5rem;
+        }
+
+        .nav_menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav_menu a {
+            font-family: 'Lora', serif;
+            color: #444;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav_menu a:hover,
+        .nav_menu a.active {
+            color: #1a4b8c;
+        }
+
+        .nav_buttons {
+            display: none;
+        }
+
+        .nav_buttons button {
+            background: none;
+            font-size: 1.5rem;
+            color: #1a4b8c;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .nav_buttons button:hover {
+            color: #2a8ded;
+        }
+
+        #close-menu-btn {
+            display: none;
+        }
+
+        /* HERO SECTION */
+        .blog_hero {
+            height: 40vh;
+            min-height: 300px;
+            background: linear-gradient(rgba(26, 75, 140, 0.7), rgba(26, 75, 140, 0.5)),
+                        url("images/blog-7.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+        }
+
+        .hero_overlay {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .hero_content h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero_content p {
+            font-family: 'Lora', serif;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* MAIN CONTENT */
+        .blog_container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .topics_intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .topics_intro h2 {
+            font-family: 'Playfair Display', serif;
+            color: #1a4b8c;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .topics_intro p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* TOPICS GRID */
+        .topics_grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .topic_card {
+            display: block;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 280px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .topic_card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card_image {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .card_image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .topic_card:hover .card_image img {
+            transform: scale(1.05);
+        }
+
+        .image_overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(26, 75, 140, 0.85), transparent 50%);
+        }
+
+        .card_title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            color: white;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        /* DYNAMIC ARTICLE CONTAINER */
+        .article-container {
+            display: none;
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #f0f7ff;
+        }
+
+        .article-header h2 {
+            font-family: 'Playfair Display', serif;
+            color: #1a4b8c;
+            font-size: 1.8rem;
+            flex: 1;
+        }
+
+        .back-to-topics {
+            background-color: #1a4b8c;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-to-topics:hover {
+            background-color: #2a8ded;
+        }
+
+        .article-content {
+            margin-bottom: 2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        .school_review {
+            background-color: #f0f7ff;
+            border-left: 4px solid #1a4b8c;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .school_review h3 {
+            font-family: 'Roboto Slab', serif;
+            color: #1a4b8c;
+            margin-bottom: 0.8rem;
+        }
+
+        /* TOPICS LIST VISIBILITY */
+        .topics-section {
+            transition: opacity 0.3s;
+        }
+
+        .topics-section.hidden {
+            display: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #2a6ebd;
+            color: white;
+            padding: 3rem 0 0;
+            margin-top: 4rem;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .footer_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer_section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer_section h3 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer_tagline {
+            font-style: italic;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer_contact {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact_item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact_icon {
+            min-width: 20px;
+            color: #a8d4ff;
+            font-size: 1.1rem;
+        }
+
+        .contact_item span:not(.contact_icon) {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .social_icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .social_icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social_icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .facebook { background-color: #3b5998; }
+        .instagram { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+        .tiktok { background-color: #000000; }
+        .whatsapp { background-color: #25D366; }
+        .maps { background-color: #34A853; }
+
+        .footer_bottom {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.9;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 992px) {
+            .topics_grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer_container {
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+            
+            .footer_section {
+                text-align: left;
+                min-width: 100%;
+            }
+            
+            .contact_item {
+                justify-content: flex-start;
+            }
+            
+            .social_icons {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .nav_menu {
+                position: fixed;
+                top: 70px;
+                right: 0;
+                flex-direction: column;
+                background-color: white;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
+                z-index: 99;
+                display: flex !important;
+                gap: 1.5rem;
+            }
+            
+            .nav_menu.active {
+                transform: translateX(0);
+            }
+            
+            .nav_menu li {
+                width: 100%;
+            }
+            
+            .nav_menu a {
+                display: block;
+                padding: 0.8rem 1rem;
+                border-radius: 5px;
+                transition: all 0.3s;
+            }
+            
+            .nav_menu a:hover {
+                background-color: #f0f7ff;
+                color: #1a4b8c;
+            }
+            
+            .nav_buttons {
+                display: flex;
+                gap: 0.5rem;
+            }
+            
+            #close-menu-btn {
+                display: none;
+            }
+            
+            /* Topics Grid */
+            .topics_grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .topic_card {
+                height: 250px;
+            }
+            
+            /* Main Content */
+            .blog_container {
+                padding: 0 1.5rem;
+                margin: 2rem auto;
+            }
+            
+            .article-container {
+                padding: 2rem;
+            }
+            
+            .hero_content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero_content p {
+                font-size: 1.1rem;
+            }
+            
+            .article-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .back-to-topics {
+                align-self: flex-start;
+            }
+            
+            /* Footer */
+            footer {
+                border-radius: 30px 30px 0 0;
+                padding: 2.5rem 0 0;
+            }
+            
+            .footer_container {
+                padding: 0 1.5rem 1.5rem;
+                gap: 2rem;
+            }
+            
+            .footer_section {
+                text-align: center;
+            }
+            
+            .contact_item {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .social_icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav_container {
+                padding: 1rem;
+            }
+            
+            .nav_container h4 {
+                font-size: 1.3rem;
+            }
+            
+            .blog_hero {
+                min-height: 250px;
+                height: 35vh;
+            }
+            
+            .hero_content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero_content p {
+                font-size: 1rem;
+            }
+            
+            .topics_intro h2 {
+                font-size: 1.6rem;
+            }
+            
+            .article-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .footer_section h3 {
+                font-size: 1.3rem;
+            }
+            
+            .social_icon {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html"><h4>JETS ELEMENTARY</h4></a>
+            <ul class="nav_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="programme.html">Programme</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="fees.html">Fees</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav_buttons">
+                <button id="open-menu-btn"><i class="uil uil-bars"></i></button>
+                <button id="close-menu-btn"><i class="uil uil-multiply"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="blog_hero">
+        <div class="hero_overlay">
+            <div class="hero_content">
+                <h1>School Blog & Learning Insights</h1>
+                <p>Welcome to our school blog—a place where we share practical tips, heartfelt stories, and simple ideas to support your child's learning journey.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="blog_container">
+        <!-- Topics Introduction -->
+        <section class="topics_intro topics-section" id="topics-intro">
+            <h2>Explore Our Learning Topics</h2>
+            <p>Click on any topic below to read the full article.</p>
+        </section>
+
+        <!-- Topics Grid -->
+        <section class="topics_grid topics-section" id="topics-grid">
+            <div class="topic_card" data-article="financial-literacy">
+                <div class="card_image">
+                    <img src="images/blog-1.jpg" alt="Financial Literacy">
+                    <div class="image_overlay"></div>
+                    <h3 class="card_title">Financial Literacy for Kids</h3>
+                </div>
+            </div>
+
+            <div class="topic_card" data-article="parent-teacher-role">
+                <div class="card_image">
+                    <img src="images/blog-2.jpg" alt="Parent Teacher Collaboration">
+                    <div class="image_overlay"></div>
+                    <h3 class="card_title">Parents & Teachers in Student Life</h3>
+                </div>
+            </div>
+
+            <div class="topic_card" data-article="career-paths">
+                <div class="card_image">
+                    <img src="images/blog-3.jpg" alt="Career Paths">
+                    <div class="image_overlay"></div>
+                    <h3 class="card_title">Better Career Paths in Student Life</h3>
+                </div>
+            </div>
+
+            <div class="topic_card" data-article="study-strategies">
+                <div class="card_image">
+                    <img src="images/blog-4.jpg" alt="Study Strategies">
+                    <div class="image_overlay"></div>
+                    <h3 class="card_title">Effective Homework & Study Strategies</h3>
+                </div>
+            </div>
+
+            <div class="topic_card" data-article="critical-thinking">
+                <div class="card_image">
+                    <img src="images/blog-5.jpg" alt="Critical Thinking">
+                    <div class="image_overlay"></div>
+                    <h3 class="card_title">Developing Critical & Creative Thinking</h3>
+                </div>
+            </div>
+
+            <div class="topic_card" data-article="communication-skills">
+                <div class="card_image">
+                    <img src="images/blog-6.jpg" alt="Communication Skills">
+                    <div class="image_overlay"></div>
+                    <h3 class="card_title">Building Strong Communication Skills</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Article Container -->
+        <div class="article-container" id="article-container">
+            <!-- Content will be dynamically inserted here -->
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer_container">
+            <!-- Section 1: School Name & Tagline -->
+            <div class="footer_section footer_logo">
+                <h3>Jets Elementary School</h3>
+                <p class="footer_tagline">Nurturing young minds for a brighter future</p>
+            </div>
+            
+            <!-- Section 2: Contact Details & Social Icons -->
+            <div class="footer_section footer_contact">
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-phone-alt"></i></span>
+                    <span>+254 717830659</span>
+                    <span>+254 727549629</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <span>Gesoko, opp.joyland special school-kisumu</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-envelope"></i></span>
+                    <span>jetselementary@gmail.com</span>
+                </div>
+                
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="social_icon instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="social_icon tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://maps.google.com" target="_blank" class="social_icon maps" title="Google Maps">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer_bottom">
+            <p>&copy; 2026 Jets Elementary School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Functionality
+        const navMenu = document.querySelector('.nav_menu');
+        const openMenuBtn = document.querySelector('#open-menu-btn');
+        const closeMenuBtn = document.querySelector('#close-menu-btn');
+
+        // Open Mobile Menu
+        openMenuBtn.addEventListener('click', () => {
+            navMenu.style.display = 'flex';
+            openMenuBtn.style.display = 'none';
+            closeMenuBtn.style.display = 'block';
+        });
+
+        // Close Mobile Menu
+        closeMenuBtn.addEventListener('click', () => {
+            navMenu.style.display = 'none';
+            openMenuBtn.style.display = 'block';
+            closeMenuBtn.style.display = 'none';
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav_menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navMenu.style.display = 'none';
+                    openMenuBtn.style.display = 'block';
+                    closeMenuBtn.style.display = 'none';
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navMenu.style.display = 'flex';
+                openMenuBtn.style.display = 'none';
+                closeMenuBtn.style.display = 'none';
+            } else {
+                navMenu.style.display = 'none';
+                openMenuBtn.style.display = 'block';
+                closeMenuBtn.style.display = 'none';
+            }
+        });
+
+        // Article Data
+        const articles = {
+            "financial-literacy": {
+                title: "Financial Literacy for Kids",
+                content: `
+                    <div class="article-content">
+                        <p>Teaching children about money might sound advanced, but even young learners can grasp the basics of saving, spending wisely, and understanding value. When kids learn early, they develop healthy habits that last a lifetime.</p>
+                        
+                        <p>For our PP1 to Grade 6 students, we start with simple concepts: recognizing coins and notes, understanding that items cost money, and learning to wait before buying something. We use pretend play—like classroom "shops"—where children use play money to buy and sell items. This makes learning tangible and fun.</p>
+                        
+                        <p>Why does this matter? Because financial literacy isn't just about money; it's about decision-making, patience, and responsibility. When a child saves pocket money for a small toy, they learn delayed gratification. When they compare prices of two snacks, they practice critical thinking.</p>
+                    </div>
+                    <div class="school_review">
+                        <h3>School Review</h3>
+                        <p>At our school, we actively support financial literacy by integrating money-related activities into maths and life skills lessons. We hold "Savings Week" where children decorate piggy banks and discuss what they'd like to save for. Teachers share stories about earning and sharing, and we encourage parents to involve children in simple shopping decisions. Our goal is to build a foundation of respect for resources and thoughtful spending.</p>
+                    </div>
+                `
+            },
+            "parent-teacher-role": {
+                title: "The Importance of Parents and Teachers in Student Life",
+                content: `
+                    <div class="article-content">
+                        <p>A child's learning journey is shared between home and school. When parents and teachers work together, children feel supported, understood, and motivated. This partnership builds a safety net that helps learners thrive academically and emotionally.</p>
+                        
+                        <p>Teachers provide structure, curriculum, and social learning in the classroom. Parents offer love, routine, and real-world context at home. When these two sides communicate regularly, they can address challenges early—whether it's a struggle with reading or a social worry on the playground.</p>
+                        
+                        <p>Simple gestures make a big difference: attending parent-teacher meetings, asking your child about their day, reading school newsletters, and celebrating small successes. Teachers, in turn, can share positive notes home and suggest ways to extend learning through everyday activities.</p>
+                    </div>
+                    <div class="school_review">
+                        <h3>School Review</h3>
+                        <p>At Jets Elementary, we foster strong parent-teacher connections through regular updates, open-door mornings, and collaborative events like reading days and science fairs. Our teachers send brief weekly summaries of class activities, and we encourage parents to share their child's interests or concerns. We believe that when we work as a team, every child feels seen and encouraged to do their best.</p>
+                    </div>
+                `
+            },
+            "career-paths": {
+                title: "Exploring Better Career Paths in Student Life",
+                content: `
+                    <div class="article-content">
+                        <p>Career exploration in primary school isn't about choosing a job—it's about discovering interests, talents, and possibilities. When children see the variety of roles in their community, they begin to imagine their own futures with curiosity and confidence.</p>
+                        
+                        <p>We introduce careers through stories, guest visitors, and role-play. A firefighter might visit to talk about safety; a nurse might explain how they care for people; a gardener might show how plants grow. These experiences help children connect school subjects to real-world applications.</p>
+                        
+                        <p>For young learners, the focus is on skills rather than job titles: "Are you good at explaining things? You could be a teacher." "Do you like fixing objects? You might enjoy engineering." This strengths-based approach builds self-awareness and opens minds to many pathways.</p>
+                    </div>
+                    <div class="school_review">
+                        <h3>School Review</h3>
+                        <p>Our school organizes "Career Discovery Days" where parents and community members share about their work in child-friendly ways. We also link classroom projects to professions—for example, building models in art (architecture), writing class newspapers (journalism), or growing vegetables (agriculture). We emphasize that every child has unique gifts, and there are countless ways to use them in the future.</p>
+                    </div>
+                `
+            },
+            "study-strategies": {
+                title: "Effective Homework and Study Strategies for Better Learning",
+                content: `
+                    <div class="article-content">
+                        <p>Homework shouldn't be a nightly battle. With the right strategies, it can become a calm, focused time that reinforces classroom learning and builds independent study habits.</p>
+                        
+                        <p>For younger children, short, interactive tasks work best—like reading aloud for 10 minutes, practicing letter formation, or counting household items. As children grow, they can handle longer tasks, but breaks and variety keep motivation high. A simple timer can help: 20 minutes of work, then a 5-minute stretch or snack break.</p>
+                        
+                        <p>Organization matters too. A consistent homework space, free from screens and distractions, helps the mind focus. Encouraging children to explain what they're learning—to a parent, sibling, or even a toy—reinforces understanding. If a task feels overwhelming, breaking it into smaller steps makes it manageable.</p>
+                    </div>
+                    <div class="school_review">
+                        <h3>School Review</h3>
+                        <p>We design homework that is meaningful and age-appropriate, often involving practical activities or short practice exercises. Teachers provide clear instructions and encourage students to ask questions the next day if they face difficulties. We also share tips with parents, such as establishing a homework routine and praising effort over perfection. Our aim is to make after-school learning a positive experience that builds confidence.</p>
+                    </div>
+                `
+            },
+            "critical-thinking": {
+                title: "Developing Critical and Creative Thinking Skills in School",
+                content: `
+                    <div class="article-content">
+                        <p>Critical thinking is about asking questions, analyzing information, and making reasoned decisions. Creative thinking involves imagining new possibilities and solving problems in original ways. Together, these skills prepare children for an ever-changing world.</p>
+                        
+                        <p>In the classroom, we nurture these skills through open-ended questions: "Why do you think that happened?" "How else could we solve this?" Project-based learning encourages children to research, design, and present their ideas. Even simple activities like building with blocks or debating a story character's choices stretch thinking muscles.</p>
+                        
+                        <p>It's important to create an environment where it's safe to be curious and make mistakes. When a science experiment doesn't go as planned, we discuss what we can learn. When a story has an unexpected ending, we explore different perspectives.</p>
+                    </div>
+                    <div class="school_review">
+                        <h3>School Review</h3>
+                        <p>At our school, we embed thinking skills across subjects. In maths, we present real-life problems that require logical steps. In language arts, we encourage predictions and alternative endings. Science lessons include hands-on experiments where students hypothesize and observe results. We also hold "Thinker's Club" sessions where children tackle puzzles, brainteasers, and creative challenges in a low-pressure, fun setting.</p>
+                    </div>
+                `
+            },
+            "communication-skills": {
+                title: "Building Strong Communication Skills in Student Life",
+                content: `
+                    <div class="article-content">
+                        <p>Communication is more than speaking clearly—it's about listening, expressing ideas, understanding others, and navigating social situations. Strong communicators feel more confident in class, on the playground, and eventually in the wider world.</p>
+                        
+                        <p>We practice communication daily: morning circle time where each child shares news, group projects that require collaboration, and role-playing to resolve conflicts. Reading and discussing stories helps with vocabulary and empathy. Writing activities, from journals to short poems, allow children to express thoughts on paper.</p>
+                        
+                        <p>Non-verbal communication matters too. We talk about body language, tone of voice, and facial expressions. Activities like "guess the feeling" games help children recognize emotions in themselves and others.</p>
+                    </div>
+                    <div class="school_review">
+                        <h3>School Review</h3>
+                        <p>Our school prioritizes communication through structured and informal opportunities. Every class includes presentation time, where students speak about a topic of interest. Teachers model active listening and respectful dialogue. We also partner with parents to reinforce these skills at home, suggesting conversation starters or listening games. By valuing every child's voice, we create a community where everyone feels heard and respected.</p>
+                    </div>
+                `
+            }
+        };
+
+        // DOM Elements
+        const topicCards = document.querySelectorAll('.topic_card');
+        const articleContainer = document.getElementById('article-container');
+        const topicsIntro = document.getElementById('topics-intro');
+        const topicsGrid = document.getElementById('topics-grid');
+
+        // Function to show article
+        function showArticle(articleId) {
+            const article = articles[articleId];
+            
+            if (article) {
+                // Hide topics section
+                topicsIntro.classList.add('hidden');
+                topicsGrid.classList.add('hidden');
+                
+                // Show article container with content
+                articleContainer.innerHTML = `
+                    <div class="article-header">
+                        <h2>${article.title}</h2>
+                        <button class="back-to-topics">
+                            <i class="fas fa-arrow-left"></i> Back to Topics
+                        </button>
+                    </div>
+                    ${article.content}
+                `;
+                
+                articleContainer.style.display = 'block';
+                
+                // Smooth scroll to article
+                articleContainer.scrollIntoView({ behavior: 'smooth' });
+                
+                // Add event listener to back button
+                document.querySelector('.back-to-topics').addEventListener('click', showTopics);
+            }
+        }
+
+        // Function to show topics grid
+        function showTopics() {
+            // Show topics section
+            topicsIntro.classList.remove('hidden');
+            topicsGrid.classList.remove('hidden');
+            
+            // Hide article container
+            articleContainer.style.display = 'none';
+            
+            // Smooth scroll to topics
+            topicsIntro.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Add click event listeners to topic cards
+        topicCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const articleId = this.getAttribute('data-article');
+                showArticle(articleId);
+            });
+        });
+
+        // Check if there's an article ID in the URL hash
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && articles[hash]) {
+                showArticle(hash);
+            }
+        });
+
+        // Update URL when article is opened
+        topicCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const articleId = this.getAttribute('data-article');
+                history.pushState(null, null, `#${articleId}`);
+            });
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && articles[hash]) {
+                showArticle(hash);
+            } else {
+                showTopics();
+            }
+        });
+    </script>
+</body>
+</html>
