@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Fees & Payments | Jets Elementary School</title>
+    
+    <!-- IMPORTANT: Same fonts as homepage -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ICONSCOUT CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- MAIN CSS (Embedded to match homepage) -->
+    <style>
+        /* COPY ALL CSS FROM HOMEPAGE HERE */
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #007bff;
+            --color-white: #fff;
+            --color-yellow: #f7c94b;
+            --color-purple: #6f42c1;
+            --color-red: #dc3545;
+            --color-black: #333;
+            --color-light-green: #90ee90;
+            --color-bg: #f8f9fa;
+            --color-light: #f8f9fa;
+            --color-gray: #6c757d;
+            --color-primary-variant: rgba(0, 123, 255, 0.8);
+            --color-dark: #212529;
+            --color-border: #e0e0e0;
+            
+            /* NEW FEE-SPECIFIC COLORS */
+            --color-fee-primary: #1a73e8;
+            --color-fee-secondary: #4285f4;
+            --color-fee-accent: #34a853;
+            --color-fee-light: #e8f0fe;
+            --color-fee-gradient-start: #1a73e8;
+            --color-fee-gradient-end: #4285f4;
+            
+            /* Social Media Colors */
+            --facebook-color: #1877F2;
+            --instagram-color: #E4405F;
+            --tiktok-color: #000000;
+            --whatsapp-color: #25D366;
+            --maps-color: #4285F4;
+            
+            /* Drawer Navigation Colors */
+            --teal-color: #17a2b8;
+            --teal-hover: #138496;
+            --teal-active: #0c6674;
+            --overlay-color: rgba(0, 0, 0, 0.5);
+            
+            --container-width-lg: 76%;
+            --container-width-md: 90%;
+            --container-width-sm: 94%;
+            
+            --transition: all 400ms ease;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --box-shadow-strong: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            line-height: 1.7;
+            color: var(--color-black);
+            background: var(--color-white);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            width: var(--container-width-lg);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .section_subtitle {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* ==================== DRAWER NAVIGATION STYLES ==================== */
+        /* Drawer overlay */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-color);
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Drawer container */
+        .drawer-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 240px;
+            height: 100%;
+            background-color: var(--color-white);
+            z-index: 10000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            border-top-left-radius: 15px;
+            border-bottom-left-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .drawer-container.active {
+            transform: translateX(0);
+        }
+        
+        /* Drawer close button */
+        .drawer-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--teal-color);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            transition: var(--transition);
+            z-index: 10;
+        }
+        
+        .drawer-close:hover {
+            background-color: rgba(23, 162, 184, 0.1);
+            transform: rotate(90deg);
+        }
+        
+        /* Drawer navigation */
+        .drawer-nav {
+            display: flex;
+            flex-direction: column;
+            margin-top: 3rem;
+            flex-grow: 1;
+        }
+        
+        .drawer-nav-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--color-white);
+            background-color: var(--teal-color);
+            padding: 1.25rem 1.5rem;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .drawer-nav-link:first-child {
+            border-top: none;
+        }
+        
+        .drawer-nav-link:last-child {
+            border-bottom: none;
+            border-bottom-left-radius: 15px;
+        }
+        
+        .drawer-nav-link:hover {
+            background-color: var(--teal-hover);
+            transform: translateX(-5px);
+        }
+        
+        .drawer-nav-link.active {
+            background-color: var(--teal-active);
+        }
+        
+        .drawer-nav-link i {
+            font-size: 1.2rem;
+            width: 30px;
+            margin-right: 1rem;
+        }
+        
+        /* Prevent body scrolling when drawer is open */
+        body.drawer-open {
+            overflow: hidden;
+        }
+
+        /* NAVBAR STYLES (From homepage) */
+        nav {
+            background: var(--color-white);
+            width: 100vw;
+            height: 5rem;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: var(--color-white);
+            height: 4.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .nav_container {
+            height: 100%;
+        }
+
+        nav.scrolled .nav_container a h4 {
+            color: var(--color-fee-primary);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        nav.scrolled .nav_menu a {
+            font-size: 0.95rem;
+            padding: 0.4rem 0.8rem;
+        }
+
+        nav.scrolled .nav_menu a:hover {
+            background: rgba(26, 115, 232, 0.08);
+        }
+
+        .nav_container {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        /* Drawer toggle button - only visible on mobile */
+        .drawer-toggle {
+            display: none;
+            background-color: var(--teal-color);
+            color: var(--color-white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .drawer-toggle:hover {
+            background-color: var(--teal-hover);
+            transform: scale(1.05);
+        }
+
+        .nav_menu {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .nav_menu a {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .nav_menu a:hover {
+            color: var(--color-fee-primary);
+            background: rgba(26, 115, 232, 0.1);
+        }
+
+        .nav_container a h4 {
+            color: var(--color-fee-primary);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .nav_menu a.active {
+            color: var(--color-fee-primary);
+            background: rgba(26, 115, 232, 0.1);
+            font-weight: 600;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            background: var(--color-fee-primary);
+            color: var(--color-white);
+            padding: 1rem 2rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--color-fee-primary);
+            border-color: var(--color-fee-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--color-fee-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-fee-primary);
+            border-color: var(--color-fee-primary);
+        }
+
+        .btn-secondary {
+            background: var(--color-fee-accent);
+            color: var(--color-white);
+            border: 1px solid var(--color-fee-accent);
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: var(--color-fee-accent);
+            border-color: var(--color-fee-accent);
+        }
+
+        /* ==================== FEES HERO SECTION - REDUCED HEIGHT ==================== */
+        .fees-hero {
+            padding-top: 8rem; /* Reduced from 12rem */
+            padding-bottom: 3rem; /* Reduced from 4rem */
+            background: linear-gradient(135deg, var(--color-fee-gradient-start) 0%, var(--color-fee-gradient-end) 100%);
+            min-height: 50vh; /* Reduced from 70vh */
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fees-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .fees-hero-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem; /* Reduced from 2rem */
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .fees-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .fees-hero-title {
+            font-size: 2.8rem; /* Reduced from 3.5rem */
+            color: var(--color-white);
+            margin-bottom: 1rem; /* Reduced from 1.5rem */
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .fees-hero-subtitle {
+            font-size: 1.2rem; /* Reduced from 1.3rem */
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem; /* Reduced from 2.5rem */
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .fees-hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            margin-bottom: 1.5rem; /* Reduced spacing */
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem; /* Reduced from 4rem */
+            margin-top: 2.5rem; /* Reduced from 4rem */
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2rem; /* Reduced from 2.5rem */
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 0.9rem; /* Reduced from 1rem */
+            opacity: 0.9;
+        }
+
+        /* Animation for hero section */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections Styling */
+        .download-fees-section,
+        .payment-options-section,
+        .uniforms-section,
+        .additional-info-section,
+        .admission-documents-section {
+            padding: 5rem 0; /* Reduced from 6rem */
+        }
+
+        .download-fees-section {
+            background: var(--color-bg);
+        }
+
+        .uniforms-section {
+            background: var(--color-bg);
+        }
+
+        .admission-documents-section {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f7ff 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 0.8rem; /* Reduced from 1rem */
+            font-size: 2.3rem; /* Reduced from 2.5rem */
+            color: var(--color-fee-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem; /* Reduced from 4rem */
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Download Card */
+        .download-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .download-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--color-fee-primary);
+        }
+
+        .download-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .download-icon {
+            background: var(--color-fee-primary);
+            color: var(--color-white);
+            padding: 2.5rem; /* Reduced from 3rem */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .download-icon i {
+            font-size: 3.5rem; /* Reduced from 4rem */
+        }
+
+        .download-content {
+            padding: 2.5rem; /* Reduced from 3rem */
+        }
+
+        .download-content h3 {
+            font-size: 1.8rem; /* Reduced from 2rem */
+            color: var(--color-fee-primary);
+            margin-bottom: 1rem;
+        }
+
+        .download-content > p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1.5rem; /* Reduced from 2rem */
+        }
+
+        .download-features {
+            margin: 1.5rem 0; /* Reduced from 2rem */
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.8rem; /* Reduced from 1rem */
+        }
+
+        .feature i {
+            color: var(--color-fee-primary);
+        }
+
+        .download-buttons {
+            margin-top: 1.5rem; /* Reduced from 2rem */
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.8rem; /* Reduced from 1rem 2rem */
+            background: var(--color-fee-primary);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .download-btn:hover {
+            background: #0d47a1;
+            transform: translateY(-2px);
+        }
+
+        /* Payment Cards */
+        .payment-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; /* Reduced from 2rem */
+            margin: 2.5rem 0; /* Reduced from 3rem */
+        }
+
+        .payment-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .payment-card-header {
+            background: var(--color-fee-primary);
+            color: white;
+            padding: 1.8rem; /* Reduced from 2rem */
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .payment-card-body {
+            padding: 1.8rem; /* Reduced from 2rem */
+        }
+
+        .payment-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0; /* Reduced from 1rem 0 */
+            border-bottom: 1px dashed #eee;
+        }
+
+        .payment-detail:last-child {
+            border-bottom: none;
+        }
+
+        .payment-note {
+            background: var(--color-fee-light);
+            padding: 1.8rem; /* Reduced from 2rem */
+            border-radius: 8px;
+            margin-top: 1.5rem; /* Reduced from 2rem */
+            border-left: 4px solid var(--color-fee-primary);
+        }
+
+        .payment-note i {
+            color: var(--color-fee-primary);
+            margin-right: 0.5rem;
+        }
+
+        /* Uniform Cards */
+        .uniforms-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; /* Reduced from 2rem */
+            margin: 2.5rem 0; /* Reduced from 3rem */
+        }
+
+        .uniform-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .uniform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .uniform-image-wrapper {
+            height: 250px; /* Reduced from 300px */
+            overflow: hidden;
+        }
+
+        .uniform-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .uniform-card:hover .uniform-img {
+            transform: scale(1.05);
+        }
+
+        .uniform-overlay {
+            background: rgba(26, 115, 232, 0.8);
+            color: white;
+            padding: 0.8rem; /* Reduced from 1rem */
+            text-align: center;
+        }
+
+        .uniform-details {
+            padding: 1.8rem; /* Reduced from 2rem */
+        }
+
+        .uniform-details h3 {
+            color: var(--color-fee-primary);
+            margin-bottom: 1rem;
+        }
+
+        .uniform-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .uniform-items li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .uniform-items li i {
+            color: var(--color-fee-primary);
+        }
+
+        /* Info Cards */
+        .info-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; /* Reduced from 2rem */
+            margin: 2.5rem 0; /* Reduced from 3rem */
+        }
+
+        .info-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .info-card-image {
+            height: 220px; /* Reduced from 250px */
+            overflow: hidden;
+        }
+
+        .info-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .info-card:hover .info-img {
+            transform: scale(1.05);
+        }
+
+        .info-card-content {
+            padding: 1.8rem; /* Reduced from 2rem */
+        }
+
+        .info-card-content h3 {
+            color: var(--color-fee-primary);
+            margin-bottom: 1rem;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-list li i {
+            color: var(--color-fee-accent);
+        }
+
+        /* NEW ADMISSION DOCUMENTS SECTION STYLES */
+        .admission-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem; /* Reduced from 2rem */
+            margin: 2.5rem 0; /* Reduced from 3rem */
+        }
+
+        .admission-card {
+            border-top: 5px solid #17a2b8;
+            height: 100%;
+        }
+
+        .download-icon-admission {
+            background: #17a2b8;
+        }
+
+        .admission-steps {
+            margin: 1.5rem 0; /* Reduced from 2rem */
+            padding-left: 1.5rem;
+        }
+
+        .admission-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem; /* Reduced from 1.5rem */
+            position: relative;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px; /* Reduced from 40px */
+            height: 35px; /* Reduced from 40px */
+            background: #17a2b8;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: #17a2b8;
+            margin-bottom: 0.3rem;
+        }
+
+        .required-docs {
+            margin-top: 1.5rem; /* Reduced from 2rem */
+            padding: 1.2rem; /* Reduced from 1.5rem */
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .required-docs h4 {
+            color: #17a2b8;
+            margin-bottom: 0.8rem; /* Reduced from 1rem */
+        }
+
+        .required-docs ul {
+            padding-left: 1.5rem;
+        }
+
+        .required-docs li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--color-fee-gradient-start) 0%, var(--color-fee-gradient-end) 100%);
+            color: white;
+            padding: 1rem 0; /* Reduced from 1.2rem */
+            width: 100%;
+            margin-top: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.2rem; /* Reduced from 1.5rem */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer_section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer_logo h3 {
+            font-size: 1.2rem; /* Reduced from 1.3rem */
+            font-weight: 700;
+            margin-bottom: 0.3rem; /* Reduced from 0.4rem */
+            color: white;
+        }
+
+        /* Social Icons */
+        .social_icons {
+            display: flex;
+            gap: 0.5rem; /* Reduced from 0.6rem */
+            margin-top: 0.3rem; /* Reduced from 0.5rem */
+            flex-wrap: wrap;
+        }
+
+        .social_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px; /* Reduced from 28px */
+            height: 26px; /* Reduced from 28px */
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .social_icon.facebook {
+            background: var(--facebook-color);
+        }
+
+        .social_icon.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social_icon.tiktok {
+            background: var(--tiktok-color);
+        }
+
+        .social_icon.whatsapp {
+            background: var(--whatsapp-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                width: var(--container-width-md);
+            }
+            
+            .fees-hero-title {
+                font-size: 2.3rem; /* Reduced from 2.8rem */
+            }
+            
+            .download-cards-container,
+            .admission-cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Hide regular nav menu on mobile */
+            .nav_menu {
+                display: none;
+            }
+            
+            /* Show drawer toggle button on mobile */
+            .drawer-toggle {
+                display: flex;
+            }
+            
+            .hero-stats {
+                gap: 1.5rem; /* Reduced from 2rem */
+            }
+            
+            .stat-number {
+                font-size: 1.8rem; /* Reduced from 2rem */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: var(--container-width-sm);
+            }
+            
+            section {
+                padding: 3.5rem 0; /* Reduced from 4rem */
+            }
+            
+            .fees-hero {
+                padding-top: 7rem; /* Reduced from 10rem */
+                padding-bottom: 2.5rem; /* Reduced from 4rem */
+                min-height: 45vh; /* Reduced from auto */
+            }
+            
+            .fees-hero-title {
+                font-size: 2rem; /* Reduced from 2.3rem */
+            }
+            
+            .fees-hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .fees-hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem; /* Reduced from 1rem */
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.2rem; /* Reduced from 1.5rem */
+            }
+            
+            .payment-cards-container,
+            .uniforms-container,
+            .info-cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .download-cards-container,
+            .admission-cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav_container {
+                padding: 0 1rem;
+            }
+            
+            .admission-cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html"><h4>JETS ELEMENTARY</h4></a>
+            
+            <ul class="nav_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="fees.html" class="active">Fees</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Drawer toggle button (only visible on mobile) -->
+            <button class="drawer-toggle" id="drawerToggle" aria-label="Open navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Drawer overlay -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    
+    <!-- Drawer navigation -->
+    <aside class="drawer-container" id="drawerContainer">
+        <!-- Close button inside drawer -->
+        <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Drawer navigation links -->
+        <nav class="drawer-nav" aria-label="Mobile navigation">
+            <a href="index.html" class="drawer-nav-link">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            
+            <a href="about.html" class="drawer-nav-link">
+                <i class="fas fa-info-circle"></i>
+                <span>About</span>
+            </a>
+            
+            <a href="course.html" class="drawer-nav-link">
+                <i class="fas fa-book-open"></i>
+                <span>Course</span>
+            </a>
+            
+            <a href="fees.html" class="drawer-nav-link active">
+                <i class="fas fa-money-bill-alt"></i>
+                <span>Fees</span>
+            </a>
+            
+            <a href="blog.html" class="drawer-nav-link">
+                <i class="fas fa-blog"></i>
+                <span>Blog</span>
+            </a>
+            
+            <a href="contact.html" class="drawer-nav-link">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+    </aside>
+    
+    <!-- END OF NAVBAR -->
+
+    <!-- ENHANCED HERO SECTION WITH REDUCED HEIGHT -->
+    <section class="fees-hero">
+        <div class="container fees-hero-container">
+            <div class="fees-hero-content">
+                <h1 class="fees-hero-title">School Fees & Payments</h1>
+                <p class="fees-hero-subtitle">Transparent and affordable fee structure designed to provide quality education while ensuring value for every family. Access our detailed fees breakdown and convenient payment options.</p>
+                <div class="fees-hero-buttons">
+                    <a href="#download-fees" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download Fees Structure
+                    </a>
+                    <a href="#payment-options" class="btn btn-secondary">
+                        <i class="fas fa-credit-card"></i>
+                        View Payment Options
+                    </a>
+                    <a href="#admission-documents" class="btn btn-primary" style="background: var(--color-white); color: var(--color-fee-primary);">
+                        <i class="fas fa-file-alt"></i>
+                        Admission Documents
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Transparent Pricing</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4+</div>
+                        <div class="stat-label">Payment Methods</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Online Access</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">Flexible</div>
+                        <div class="stat-label">Payment Plans</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF HERO SECTION -->
+
+    <!-- DOWNLOADABLE FEES STRUCTURE AND ADMISSION FORM SECTION -->
+    <section class="download-fees-section" id="download-fees">
+        <div class="container">
+            <h2 class="section-title">Downloadable Forms</h2>
+            <p class="section-subtitle">Access important documents for admissions and fee payments.</p>
+            
+            <div class="download-cards-container">
+                <!-- Fees Structure Card -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="download-content">
+                        <h3>Complete Fees Structure Document</h3>
+                        <p>This comprehensive PDF document contains the complete fees structure for all grades, including tuition fees, activity fees, books & stationery costs, and additional charges for the academic year.</p>
+                        <div class="download-features">
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Detailed breakdown for all grades</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Payment terms and schedules</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Additional charges and services</span>
+                            </div>
+                        </div>
+                        
+                        <div class="download-buttons">
+                            <a href="documents/FEES-STRUCTURE.-ECD-PRIMARY-NEW-1.pdf" class="download-btn" download>
+                                <i class="fas fa-download"></i>
+                                Download Fees Structure (PDF)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Admission Form Card -->
+                <div class="download-card" style="border-top-color: #34a853;">
+                    <div class="download-icon" style="background: #34a853;">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="download-content">
+                        <h3 style="color: #34a853;">School Admission Form</h3>
+                        <p>Download the official admission application form to enroll your child at Jets Elementary School. This form collects essential information for the admission process.</p>
+                        <div class="download-features">
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Complete application form</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Parent/Guardian information</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Medical history & emergency contacts</span>
+                            </div>
+                        </div>
+                        
+                        <div class="download-buttons">
+                            <a href="documents/Admission Form.pdf" class="download-btn" style="background: #34a853;" download>
+                                <i class="fas fa-download"></i>
+                                Download Admission Form (PDF)
+                            </a>
+                        </div>
+                        
+                        <div class="admission-instructions" style="margin-top: 1.5rem; padding: 1.2rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #34a853;">
+                            <h4 style="color: #34a853; margin-bottom: 0.5rem;">Admission Process:</h4>
+                            <ol style="padding-left: 1.5rem;">
+                                <li>Download and complete the admission form</li>
+                                <li>Attach required documents (birth certificate, photos, etc.)</li>
+                                <li>Submit completed form to school office</li>
+                                <li>Schedule admission interview/assessment</li>
+                                <li>Receive admission letter upon acceptance</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF DOWNLOADABLE FEES STRUCTURE SECTION -->
+
+    <!-- PAYMENT OPTIONS SECTION -->
+    <section class="payment-options-section" id="payment-options">
+        <div class="container">
+            <h2 class="section-title">Fees Payment Options</h2>
+            <p class="section-subtitle">We offer secure and convenient payment methods for school fees.</p>
+            
+            <div class="payment-cards-container">
+                <!-- Bank Card 1 -->
+                <div class="payment-card">
+                    <div class="payment-card-header">
+                        <i class="fas fa-university"></i>
+                        <h3>I & M BANK</h3>
+                    </div>
+                    <div class="payment-card-body">
+                        <div class="payment-detail">
+                            <span class="payment-label">Account Name:</span>
+                            <span class="payment-value">Jets Elementary School</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label">Account Number:</span>
+                            <span class="payment-value">22588</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label">Paybill:</span>
+                            <span class="payment-value">542542</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bank Card 2 -->
+                <div class="payment-card">
+                    <div class="payment-card-header">
+                        <i class="fas fa-university"></i>
+                        <h3>SIDIAN BANK</h3>
+                    </div>
+                    <div class="payment-card-body">
+                        <div class="payment-detail">
+                            <span class="payment-label">Account Name:</span>
+                            <span class="payment-value">Jets Elementary School</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label">Account Number:</span>
+                            <span class="payment-value">228558#Admission</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label">Paybill:</span>
+                            <span class="payment-value">111999</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="payment-note">
+                <p><i class="fas fa-info-circle"></i> <strong>Important:</strong> Please use your child's name and admission number as the payment reference. This ensures prompt allocation of payments to the correct account. Payment receipts should be submitted to the school accounts office.</p>
+            </div>
+        </div>
+    </section>
+    <!-- END OF PAYMENT OPTIONS SECTION -->
+
+    <!-- SCHOOL UNIFORMS SECTION -->
+    <section class="uniforms-section">
+        <div class="container">
+            <h2 class="section-title">School Uniforms</h2>
+            <p class="section-subtitle">Our school uniforms promote unity, discipline, and a sense of belonging among students.</p>
+            
+            <div class="uniforms-container">
+                <!-- Boys Uniform -->
+                <div class="uniform-card">
+                    <div class="uniform-image-wrapper">
+                        <img src="images/uniform-1.jpg" alt="Boys Uniform" class="uniform-img">
+                        <div class="uniform-overlay">
+                            <h4>Boys Uniform</h4>
+                        </div>
+                    </div>
+                    <div class="uniform-details">
+                        <h3>Boys' Uniform</h3>
+                        <ul class="uniform-items">
+                            <li><i class="fas fa-check"></i> Plaid (tartan) shorts</li>
+                            <li><i class="fas fa-check"></i> White collar shirt</li>
+                            <li><i class="fas fa-check"></i> Blue sweater with school logo</li>
+                            <li><i class="fas fa-check"></i> Black leather shoes</li>
+                            <li><i class="fas fa-check"></i> White/Blue socks</li>
+                            <li><i class="fas fa-check"></i> Truck Suit + T-shirt</li>
+                            <li><i class="fas fa-check"></i> P.E Kit</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Girls Uniform -->
+                <div class="uniform-card">
+                    <div class="uniform-image-wrapper">
+                        <img src="images/kit.png" alt="Girls Uniform" class="uniform-img">
+                        <div class="uniform-overlay">
+                            <h4>Girls Uniform</h4>
+                        </div>
+                    </div>
+                    <div class="uniform-details">
+                        <h3>Girls' Uniform</h3>
+                        <ul class="uniform-items">
+                            <li><i class="fas fa-check"></i> Plaid (tartan) dress</li>
+                            <li><i class="fas fa-check"></i> Blue sweater with school logo</li>
+                            <li><i class="fas fa-check"></i> Black leather shoes</li>
+                            <li><i class="fas fa-check"></i> White / Blue socks</li>
+                            <li><i class="fas fa-check"></i> Truck suit + T-shirt</li>
+                            <li><i class="fas fa-check"></i> P.E Kit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF SCHOOL UNIFORMS SECTION -->
+
+    <!-- ADDITIONAL INFORMATION SECTION -->
+    <section class="additional-info-section">
+        <div class="container">
+            <h2 class="section-title">Additional Information</h2>
+            <p class="section-subtitle">We provide additional services to support our students' holistic development and convenience for parents.</p>
+            
+            <div class="info-cards-container">
+                <!-- Transport Services -->
+                <div class="info-card">
+                    <div class="info-card-image">
+                        <img src="images/van.jpg" alt="Transport Services" class="info-img">
+                    </div>
+                    <div class="info-card-content">
+                        <h3>Transport Services</h3>
+                        <p>We offer safe and reliable school transport services covering major routes in and around Kisumu. Our vehicles are well-maintained and driven by experienced, certified drivers.</p>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check-circle"></i> Designated pick-up and drop-off points</li>
+                            <li><i class="fas fa-check-circle"></i> Trained matrons on board</li>
+                            <li><i class="fas fa-check-circle"></i> GPS-tracked vehicles</li>
+                            <li><i class="fas fa-check-circle"></i> Affordable termly transport fees</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Meals Programme -->
+                <div class="info-card">
+                    <div class="info-card-image">
+                        <img src="images/meal.jpg" alt="Meals Programme" class="info-img">
+                    </div>
+                    <div class="info-card-content">
+                        <h3>Meals Programme</h3>
+                        <p>We provide nutritious, balanced meals prepared in our modern, hygienic kitchen. Our meals programme follows guidelines from nutritionists to support children's growth and learning.</p>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check-circle"></i> Breakfast and lunch provided</li>
+                            <li><i class="fas fa-check-circle"></i> Special dietary needs accommodated</li>
+                            <li><i class="fas fa-check-circle"></i> Monthly menu shared with parents</li>
+                            <li><i class="fas fa-check-circle"></i> Emphasis on fruits and vegetables</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END OF ADDITIONAL INFORMATION SECTION -->
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer_container">
+            <!-- Section 1: School Name & Tagline -->
+            <div class="footer_section footer_logo">
+                <h3>Jets Elementary School</h3>
+                <p class="footer_tagline">Nurturing young minds for a brighter future</p>
+            </div>
+            
+            <!-- Section 2: Contact Details & Social Icons -->
+            <div class="footer_section footer_contact">
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-phone-alt"></i></span>
+                    <span>+254 717830659</span>
+                    <span>+254 727549629</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <span>Gesoko, opp.joyland special school-kisumu</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-envelope"></i></span>
+                    <span>jetselementary@gmail.com</span>
+                </div>
+                
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="social_icon instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="social_icon tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer_bottom">
+            <p>&copy; 2026 Jets Elementary School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== UNIVERSAL FUNCTIONS ====================
+        
+        // ==================== NAVBAR SCROLL EFFECT ====================
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            const scrollPosition = window.scrollY;
+            
+            // Add 'scrolled' class when user scrolls down more than 50px
+            if (scrollPosition > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ==================== DRAWER NAVIGATION FUNCTIONALITY ====================
+        // DOM Elements for drawer
+        const drawerToggle = document.getElementById('drawerToggle');
+        const drawerClose = document.getElementById('drawerClose');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        const drawerContainer = document.getElementById('drawerContainer');
+        const body = document.body;
+        
+        // Drawer navigation links
+        const drawerLinks = document.querySelectorAll('.drawer-nav-link');
+        
+        // Open drawer function
+        function openDrawer() {
+            drawerContainer.classList.add('active');
+            drawerOverlay.classList.add('active');
+            body.classList.add('drawer-open');
+            
+            // Update ARIA attributes for accessibility
+            drawerToggle.setAttribute('aria-expanded', 'true');
+            drawerContainer.setAttribute('aria-hidden', 'false');
+        }
+        
+        // Close drawer function
+        function closeDrawer() {
+            drawerContainer.classList.remove('active');
+            drawerOverlay.classList.remove('active');
+            body.classList.remove('drawer-open');
+            
+            // Update ARIA attributes for accessibility
+            drawerToggle.setAttribute('aria-expanded', 'false');
+            drawerContainer.setAttribute('aria-hidden', 'true');
+        }
+        
+        // Event Listeners for drawer
+        drawerToggle.addEventListener('click', openDrawer);
+        drawerClose.addEventListener('click', closeDrawer);
+        drawerOverlay.addEventListener('click', closeDrawer);
+        
+        // Close drawer when clicking on a navigation link
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
+        
+        // Close drawer with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && drawerContainer.classList.contains('active')) {
+                closeDrawer();
+            }
+        });
+        
+        // Initialize drawer ARIA attributes
+        drawerToggle.setAttribute('aria-expanded', 'false');
+        drawerContainer.setAttribute('aria-hidden', 'true');
+        
+        // ==================== MOBILE MENU TOGGLE (for old navigation) ====================
+        function setupMobileMenu() {
+            const openMenuBtn = document.getElementById('open-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const navMenu = document.querySelector('.nav_menu');
+
+            // Only run if elements exist (for backward compatibility)
+            if (!openMenuBtn || !closeMenuBtn || !navMenu) return;
+
+            // Open mobile menu
+            openMenuBtn.addEventListener('click', () => {
+                navMenu.classList.add('active');
+                openMenuBtn.style.display = 'none';
+                closeMenuBtn.style.display = 'inline-block';
+            });
+
+            // Close mobile menu
+            closeMenuBtn.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                openMenuBtn.style.display = 'inline-block';
+                closeMenuBtn.style.display = 'none';
+            });
+
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav_menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        navMenu.classList.remove('active');
+                        if (openMenuBtn) openMenuBtn.style.display = 'inline-block';
+                        if (closeMenuBtn) closeMenuBtn.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // ==================== SMOOTH SCROLL ====================
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        // Close drawer if open
+                        if (drawerContainer.classList.contains('active')) {
+                            closeDrawer();
+                        }
+                        
+                        // Close old mobile menu if open
+                        const navMenu = document.querySelector('.nav_menu');
+                        if (navMenu && navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            const openMenuBtn = document.getElementById('open-menu-btn');
+                            const closeMenuBtn = document.getElementById('close-menu-btn');
+                            if (openMenuBtn) openMenuBtn.style.display = 'inline-block';
+                            if (closeMenuBtn) closeMenuBtn.style.display = 'none';
+                        }
+                        
+                        // Scroll to target
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // ==================== ANIMATIONS ====================
+        function setupAnimations() {
+            // Add animation classes to elements
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.download-card, .payment-card, .uniform-card, .info-card, .admission-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state for animated elements
+            const animatedElements = document.querySelectorAll('.download-card, .payment-card, .uniform-card, .info-card, .admission-card');
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Run on load and scroll
+            window.addEventListener('load', animateOnScroll);
+            window.addEventListener('scroll', animateOnScroll);
+        }
+
+        // ==================== INITIALIZE EVERYTHING ====================
+        window.addEventListener('load', function() {
+            // Set up old mobile menu (for backward compatibility)
+            setupMobileMenu();
+            
+            // Set up smooth scroll
+            setupSmoothScroll();
+            
+            // Set up animations
+            setupAnimations();
+            
+            console.log('Fees page with reduced hero section initialized successfully');
+        });
+
+        // ==================== RESPONSIVE RESIZE HANDLER ====================
+        window.addEventListener('resize', function() {
+            const isMobile = window.innerWidth <= 1024;
+            
+            // Close drawer when resizing to desktop
+            if (!isMobile && drawerContainer.classList.contains('active')) {
+                closeDrawer();
+            }
+            
+            // Handle old mobile menu reset
+            if (!isMobile) {
+                // Desktop: Reset old mobile menu
+                const navMenu = document.querySelector('.nav_menu');
+                const openMenuBtn = document.getElementById('open-menu-btn');
+                const closeMenuBtn = document.getElementById('close-menu-btn');
+                
+                if (navMenu) navMenu.classList.remove('active');
+                if (openMenuBtn) openMenuBtn.style.display = 'none';
+                if (closeMenuBtn) closeMenuBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
