@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literacy Development | Jets Elementary School</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Oswald:wght@300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- ICONSCOUT CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Embedded CSS -->
+    <style>
+        /* ====== CSS RESET & GLOBAL STYLES ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Primary Colors */
+            --color-primary: #1a5f9e;
+            --color-primary-variant: rgba(26, 95, 158, 0.8);
+            --color-secondary: #4a90e2;
+            --color-accent: #f39c12;
+            --color-dark-blue: #0a2a5a;
+            --color-light-blue: #e8f2ff;
+            
+            /* Status Colors */
+            --color-success: #27ae60;
+            --color-warning: #f39c12;
+            --color-danger: #e74c3c;
+            --color-purple: #9b59b6;
+            
+            /* Neutral Colors */
+            --color-white: #ffffff;
+            --color-light: #f8f9fa;
+            --color-medium: #e9ecef;
+            --color-dark: #333333;
+            --color-black: #000000;
+            --color-gray: #6c757d;
+            --color-text: #444444;
+            
+            /* Social Media Colors */
+            --facebook-color: #1877F2;
+            --instagram-color: #E4405F;
+            --tiktok-color: #000000;
+            --whatsapp-color: #25D366;
+            --maps-color: #34A853;
+            
+            /* Layout */
+            --container-width-lg: 76%;
+            --container-width-md: 90%;
+            --container-width-sm: 94%;
+            
+            /* Effects */
+            --transition: all 400ms ease;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --box-shadow-strong: 0 6px 20px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--color-text);
+            background: var(--color-white);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            color: var(--color-text);
+        }
+
+        a {
+            color: var(--color-primary);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--color-secondary);
+        }
+
+        ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ====== UTILITY CLASSES ====== */
+        .container {
+            width: var(--container-width-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            color: var(--color-gray);
+        }
+
+        /* ====== NAVBAR STYLES ====== */
+        nav {
+            background: var(--color-white);
+            width: 100%;
+            height: 5rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            height: 4.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav_container {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        /* School Logo - Straight Line on Mobile */
+        .nav_container a h4 {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .nav_menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav_menu a {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            color: var(--color-dark);
+            position: relative;
+        }
+
+        .nav_menu a:hover,
+        .nav_menu a.active {
+            color: var(--color-primary);
+            background: rgba(26, 95, 158, 0.1);
+        }
+
+        .nav_menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-secondary);
+        }
+
+        /* Return Back Button - Positioned above hero */
+        .return-button-container {
+            position: absolute;
+            top: 6rem;
+            left: 2rem;
+            z-index: 10;
+        }
+
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow-hover);
+            color: var(--color-white);
+            background: linear-gradient(135deg, var(--color-dark-blue) 0%, var(--color-primary) 100%);
+        }
+
+        .back-button i {
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .back-button:hover i {
+            transform: translateX(-3px);
+        }
+
+        /* ====== MAIN CONTENT ====== */
+        .literacy-page {
+            padding-top: 5rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* ====== 1️⃣ HERO SECTION ====== */
+        .literacy-hero {
+            height: 60vh;
+            min-height: 400px;
+            max-height: 600px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url("images/literacy.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--color-white);
+            padding: 2rem;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--color-white);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        /* ====== 2️⃣ INTRODUCTION SECTION ====== */
+        .literacy-intro {
+            background: var(--color-white);
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .intro-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow-strong);
+            transition: var(--transition);
+            height: 350px;
+        }
+
+        .intro-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .intro-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ====== 3️⃣ IMPORTANCE OF LITERACY ====== */
+        .literacy-importance {
+            background: var(--color-light);
+        }
+
+        .importance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .importance-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+
+        .importance-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .importance-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .importance-card.touch-active {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .card-header h3 {
+            color: var(--color-white);
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-body p {
+            margin: 0;
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* ====== 4️⃣ GRADE LEVELS ====== */
+        .grade-levels {
+            background: var(--color-white);
+        }
+
+        .grade-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .grade-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.6s ease-out forwards;
+            animation-delay: calc(var(--index, 0) * 0.1s);
+        }
+
+        .grade-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .grade-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .grade-card.touch-active {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .grade-header {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .grade-icon {
+            width: 100%;
+            height: 180px;
+            margin: 0 auto 1rem;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            border: 1px solid var(--color-medium);
+        }
+
+        .grade-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .grade-header h3 {
+            color: var(--color-dark);
+            margin-bottom: 0.3rem;
+            font-size: 1.4rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .grade-header h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .grade-age {
+            font-style: italic;
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            margin: 1rem 0 0;
+        }
+
+        .grade-content {
+            padding: 1.5rem;
+        }
+
+        .grade-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .grade-content li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .grade-content li i {
+            color: var(--color-success);
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* ====== 5️⃣ TEACHING APPROACH ====== */
+        .teaching-approach {
+            background: var(--color-light);
+        }
+
+        .approach-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .approach-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow-strong);
+            transition: var(--transition);
+            height: 400px;
+        }
+
+        .approach-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .approach-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .approach-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .approach-text h3 {
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .approach-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .approach-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.8rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .approach-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .approach-list strong {
+            color: var(--color-primary);
+        }
+
+        /* ====== 6️⃣ FAQ SECTION ====== */
+        .literacy-faq {
+            background: var(--color-white);
+        }
+
+        .faqs-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq {
+            background: var(--color-white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--color-medium);
+        }
+
+        .faq:hover {
+            box-shadow: var(--box-shadow-hover);
+            border-color: var(--color-primary);
+        }
+
+        .faq.active {
+            border-color: var(--color-primary);
+            background: var(--color-light);
+        }
+
+        .faq-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .faq-icon {
+            min-width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .faq:hover .faq-icon {
+            background: var(--color-secondary);
+        }
+
+        .faq.active .faq-icon {
+            background: var(--color-secondary);
+            transform: rotate(45deg);
+        }
+
+        .question-answer h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--color-dark);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            padding-left: 4.2rem;
+            margin-top: 0;
+        }
+
+        .faq.active .faq-answer {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1.2rem;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            line-height: 1.7;
+            color: var(--color-text);
+            font-size: 1rem;
+        }
+
+        /* ====== FOOTER STYLES ====== */
+        footer {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark-blue) 100%);
+            color: var(--color-white);
+            padding: 1.2rem 0;
+            width: 100%;
+            margin-top: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer_contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact_item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .contact_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            color: #4fc3f7;
+        }
+
+        .social_icons {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            color: var(--color-white);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.8rem;
+        }
+
+        .social_icon.facebook {
+            background: var(--facebook-color);
+        }
+
+        .social_icon.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social_icon.tiktok {
+            background: var(--tiktok-color);
+        }
+
+        .social_icon.whatsapp {
+            background: var(--whatsapp-color);
+        }
+
+        .social_icon.maps {
+            background: var(--maps-color);
+        }
+
+        .social_icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer_bottom {
+            text-align: center;
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ====== ANIMATIONS ====== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ====== RESPONSIVE DESIGN ====== */
+
+        /* Tablet (1024px and below) */
+        @media (max-width: 1024px) {
+            :root {
+                --container-width-lg: var(--container-width-md);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .intro-content,
+            .approach-content {
+                gap: 3rem;
+            }
+            
+            .section-padding {
+                padding: 5rem 0;
+            }
+            
+            .nav_menu {
+                display: flex !important;
+            }
+            
+            .back-button {
+                padding: 0.7rem 1.3rem;
+                font-size: 0.9rem;
+            }
+            
+            .return-button-container {
+                left: 1.5rem;
+                top: 5.5rem;
+            }
+        }
+
+        /* Tablet Landscape (768px and below) */
+        @media (max-width: 768px) {
+            :root {
+                --container-width-lg: var(--container-width-sm);
+            }
+            
+            .nav_container {
+                padding: 0 1.5rem;
+                flex-direction: column;
+                height: auto;
+                min-height: 5rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+            
+            .nav_container a h4 {
+                text-align: center;
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-padding {
+                padding: 4rem 0;
+            }
+            
+            .literacy-hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .intro-content,
+            .approach-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .intro-image,
+            .approach-image {
+                height: 300px;
+                order: -1;
+            }
+            
+            .importance-grid,
+            .grade-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .faq-header {
+                gap: 1rem;
+            }
+            
+            .faq-icon {
+                min-width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .question-answer h4 {
+                font-size: 1.1rem;
+            }
+            
+            .footer_container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            .footer_contact {
+                align-items: center;
+            }
+            
+            .contact_item {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .social_icons {
+                justify-content: center;
+            }
+            
+            .return-button-container {
+                top: 6rem;
+                left: 1rem;
+            }
+            
+            .back-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .nav_menu {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav_menu a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        /* Mobile (576px and below) */
+        @media (max-width: 576px) {
+            .container {
+                width: 94%;
+                padding: 0 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+                margin-bottom: 1rem;
+            }
+            
+            h2::after {
+                width: 60px;
+                height: 2px;
+                bottom: -8px;
+            }
+            
+            .section-padding {
+                padding: 3rem 0;
+            }
+            
+            .literacy-hero {
+                height: 40vh;
+                min-height: 300px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .intro-image,
+            .approach-image {
+                height: 250px;
+            }
+            
+            .importance-grid,
+            .grade-container {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            
+            .importance-card,
+            .grade-card {
+                margin-bottom: 0.5rem;
+            }
+            
+            .card-header,
+            .grade-header {
+                padding: 1.2rem;
+            }
+            
+            .card-header h3,
+            .grade-header h3 {
+                font-size: 1.2rem;
+            }
+            
+            .card-body,
+            .grade-content {
+                padding: 1.2rem;
+            }
+            
+            .grade-icon {
+                height: 150px;
+            }
+            
+            .grade-content li {
+                font-size: 0.9rem;
+            }
+            
+            .faq-answer p {
+                font-size: 0.9rem;
+            }
+            
+            .contact_item {
+                font-size: 0.8rem;
+            }
+            
+            .nav_container {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 0.8rem;
+            }
+            
+            .nav_container a h4 {
+                font-size: 1.2rem;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .nav_menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .nav_menu a {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.85rem;
+            }
+            
+            .return-button-container {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin: 0 auto;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+            
+            .back-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            nav {
+                height: auto;
+                min-height: 6rem;
+            }
+            
+            nav.scrolled {
+                height: auto;
+                min-height: 6rem;
+            }
+            
+            .literacy-page {
+                padding-top: 6rem;
+            }
+        }
+
+        /* Small Mobile (400px and below) */
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .section-intro {
+                font-size: 0.95rem;
+                margin-bottom: 2rem;
+            }
+            
+            .intro-text p,
+            .approach-text p {
+                font-size: 0.95rem;
+            }
+            
+            .grade-content li {
+                font-size: 0.9rem;
+            }
+            
+            .faq-answer p {
+                font-size: 0.9rem;
+            }
+            
+            .contact_item {
+                font-size: 0.8rem;
+            }
+            
+            .nav_menu {
+                gap: 0.3rem;
+            }
+            
+            .nav_menu a {
+                font-size: 0.8rem;
+                padding: 0.25rem 0.5rem;
+            }
+            
+            .nav_container a h4 {
+                font-size: 1.1rem;
+            }
+            
+            .back-button {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav,
+            footer,
+            .social_icons,
+            .back-button,
+            .return-button-container {
+                display: none;
+            }
+            
+            .literacy-page {
+                padding-top: 0;
+            }
+            
+            .section-padding {
+                padding: 2rem 0;
+            }
+            
+            .importance-card,
+            .grade-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html" id="nav-logo"><h4>JETS ELEMENTARY SCHOOL</h4></a>
+            
+            <ul class="nav_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="fees.html">Fees</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END OF NAVBAR -->
+
+    <!-- Return Button - Positioned above hero section -->
+    <div class="return-button-container">
+        <a href="index.html" class="back-button" title="Return to Home">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Home</span>
+        </a>
+    </div>
+
+    <main class="literacy-page">
+        <!-- 1️⃣ Hero Section -->
+        <section class="literacy-hero">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>Literacy Development</h1>
+                    <p class="hero-subtitle">Building strong reading and writing skills from PP1 to Grade 4</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2️⃣ Introduction Section -->
+        <section class="literacy-intro section-padding">
+            <div class="container">
+                <h2>What is Literacy?</h2>
+                <div class="intro-content">
+                    <div class="intro-text">
+                        <p>Literacy is the foundation of learning and communication. At Jets Elementary School, we define literacy as the development of reading, writing, listening, and speaking skills that enable children to express themselves and understand the world around them.</p>
+                        <p>As a key learning area in the CBC (Competency-Based Curriculum) framework, literacy helps young learners build essential skills that support their academic growth and personal development.</p>
+                    </div>
+                    <div class="intro-image">
+                        <img src="images/grade-4.jpg" alt="Children reading books in classroom">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3️⃣ Importance of Literacy -->
+        <section class="literacy-importance section-padding">
+            <div class="container">
+                <h2>Why Literacy Matters</h2>
+                <p class="section-intro">Literacy development is crucial for young learners. Here's why:</p>
+                
+                <div class="importance-grid">
+                    <div class="importance-card">
+                        <div class="card-header" style="background: linear-gradient(135deg, #1a5f9e, #4a90e2);">
+                            <h3>Confident Communication</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Helps children express themselves clearly and communicate confidently with peers and adults.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="importance-card">
+                        <div class="card-header" style="background: linear-gradient(135deg, #e74c3c, #ff6b6b);">
+                            <h3>Learning Foundation</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Builds essential reading and writing skills that support learning across all subjects and grade levels.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="importance-card">
+                        <div class="card-header" style="background: linear-gradient(135deg, #f39c12, #ff8e53);">
+                            <h3>Creative Thinking</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Develops critical thinking, creativity, and imagination through storytelling and creative writing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="importance-card">
+                        <div class="card-header" style="background: linear-gradient(135deg, #27ae60, #20c997);">
+                            <h3>Self-Expression</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Encourages children to express their thoughts, feelings, and ideas with confidence and clarity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4️⃣ Literacy by Grade Level -->
+        <section class="grade-levels section-padding">
+            <div class="container">
+                <h2>Literacy Development by Grade</h2>
+                <p class="section-intro">Our literacy curriculum is carefully structured to meet the needs of each age group:</p>
+                
+                <div class="grade-container">
+                    <!-- PP1 & PP2 -->
+                    <div class="grade-card">
+                        <div class="grade-header">
+                            <div class="grade-icon">
+                                <img src="images/grade-1.jpg" alt="Preschool children learning letters">
+                            </div>
+                            <h3>PP1 & PP2</h3>
+                            <p class="grade-age">Ages 4-6</p>
+                        </div>
+                        <div class="grade-content">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Listening and speaking skills</li>
+                                <li><i class="fas fa-check-circle"></i> Letter sounds (phonics)</li>
+                                <li><i class="fas fa-check-circle"></i> Storytelling, songs, and rhymes</li>
+                                <li><i class="fas fa-check-circle"></i> Recognizing letters and simple words</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Grade 1 -->
+                    <div class="grade-card">
+                        <div class="grade-header">
+                            <div class="grade-icon">
+                                <img src="images/grade-2.jpg" alt="Grade 1 students reading">
+                            </div>
+                            <h3>Grade 1</h3>
+                            <p class="grade-age">Ages 6-7</p>
+                        </div>
+                        <div class="grade-content">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Reading simple words and sentences</li>
+                                <li><i class="fas fa-check-circle"></i> Writing simple sentences</li>
+                                <li><i class="fas fa-check-circle"></i> Building vocabulary</li>
+                                <li><i class="fas fa-check-circle"></i> Basic punctuation and capitalization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Grade 2 -->
+                    <div class="grade-card">
+                        <div class="grade-header">
+                            <div class="grade-icon">
+                                <img src="images/grade-3.jpg" alt="Grade 2 students writing">
+                            </div>
+                            <h3>Grade 2</h3>
+                            <p class="grade-age">Ages 7-8</p>
+                        </div>
+                        <div class="grade-content">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Reading short stories</li>
+                                <li><i class="fas fa-check-circle"></i> Spelling and sentence structure</li>
+                                <li><i class="fas fa-check-circle"></i> Expressing ideas in writing</li>
+                                <li><i class="fas fa-check-circle"></i> Reading comprehension</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Grade 3 & 4 -->
+                    <div class="grade-card">
+                        <div class="grade-header">
+                            <div class="grade-icon">
+                                <img src="images/grade-5.jpg" alt="Grade 3-4 students in library">
+                            </div>
+                            <h3>Grade 3 & 4</h3>
+                            <p class="grade-age">Ages 8-10</p>
+                        </div>
+                        <div class="grade-content">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Reading for understanding</li>
+                                <li><i class="fas fa-check-circle"></i> Creative writing and composition</li>
+                                <li><i class="fas fa-check-circle"></i> Grammar and proper sentence formation</li>
+                                <li><i class="fas fa-check-circle"></i> Presentation and public speaking skills</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5️⃣ Teaching Approach -->
+        <section class="teaching-approach section-padding">
+            <div class="container">
+                <h2>Our Teaching Approach</h2>
+                <div class="approach-content">
+                    <div class="approach-image">
+                        <img src="images/creative.jpg" alt="Teacher engaging with students">
+                    </div>
+                    <div class="approach-text">
+                        <h3>Learner-Centered & CBC-Aligned</h3>
+                        <p>Our literacy instruction follows the Competency-Based Curriculum (CBC) framework with a focus on:</p>
+                        <ul class="approach-list">
+                            <li><strong>Interactive Activities:</strong> Hands-on learning through games, role-play, and group work</li>
+                            <li><strong>Creative Expression:</strong> Encouraging storytelling, drawing, and creative writing</li>
+                            <li><strong>Collaborative Learning:</strong> Group discussions, peer reading, and shared writing activities</li>
+                            <li><strong>Differentiated Instruction:</strong> Tailoring lessons to meet individual learning needs</li>
+                            <li><strong>Fun & Engagement:</strong> Making literacy learning enjoyable through songs, rhymes, and picture books</li>
+                        </ul>
+                        <p>We believe that when children enjoy learning, they develop a lifelong love for reading and writing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6️⃣ FAQ Section -->
+        <section class="literacy-faq section-padding">
+            <div class="container">
+                <h2>Frequently Asked Questions about Literacy</h2>
+                <p class="section-intro">Common questions parents ask about our literacy program:</p>
+                
+                <div class="faqs-container">
+                    <article class="faq">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="question-answer">
+                                <h4>At what age should my child start reading?</h4>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We introduce pre-reading skills in PP1 (age 4) with letter recognition and phonics. Most children begin reading simple words by age 5-6. Every child develops at their own pace, and our teachers provide individualized support.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="faq">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="question-answer">
+                                <h4>How do you help struggling readers?</h4>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We use differentiated instruction, small group sessions, one-on-one support, and multisensory approaches. Our teachers are trained in various reading intervention strategies and work closely with parents to support each child's progress.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="faq">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="question-answer">
+                                <h4>What reading materials do you use?</h4>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We use a variety of age-appropriate materials including phonics readers, storybooks, CBC-aligned textbooks, digital resources, and our well-stocked school library with books from diverse authors and cultures.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="faq">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="question-answer">
+                                <h4>How can parents support literacy at home?</h4>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We recommend daily reading together, creating a reading corner at home, visiting libraries, playing word games, and modeling good reading habits. We provide monthly reading tips and book suggestions for parents.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer_container">
+            <!-- Section 2: Contact Details & Social Icons -->
+            <div class="footer_section footer_contact">
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-phone-alt"></i></span>
+                    <span>+254 717830659</span>
+                    <span>+254 727549629</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <span>Gesoko, opp.joyland special school-kisumu</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-envelope"></i></span>
+                    <span>jetselementary@gmail.com</span>
+                </div>
+                
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="social_icon instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="social_icon tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://maps.google.com" target="_blank" class="social_icon maps" title="Google Maps">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer_bottom">
+            <p>&copy; 2026 Jets Elementary School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // ==================== NAVBAR SCROLL EFFECT ====================
+        function handleScroll() {
+            const nav = document.querySelector('nav');
+            const scrollPosition = window.scrollY;
+            
+            if (scrollPosition > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }
+
+        // ==================== FAQ TOGGLE FUNCTIONALITY ====================
+        function setupFAQs() {
+            const faqs = document.querySelectorAll('.faq');
+            
+            faqs.forEach(faq => {
+                faq.addEventListener('click', () => {
+                    // On mobile, close other FAQs when opening a new one
+                    if (window.innerWidth <= 768) {
+                        const isActive = faq.classList.contains('active');
+                        if (!isActive) {
+                            faqs.forEach(otherFaq => {
+                                otherFaq.classList.remove('active');
+                                const otherIcon = otherFaq.querySelector('.faq-icon i');
+                                if (otherIcon) {
+                                    otherIcon.classList.remove('fa-minus');
+                                    otherIcon.classList.add('fa-plus');
+                                }
+                            });
+                        }
+                    }
+                    
+                    // Toggle active class on clicked FAQ
+                    faq.classList.toggle('active');
+                    
+                    // Change icon from plus to minus
+                    const icon = faq.querySelector('.faq-icon i');
+                    if (icon) {
+                        if (faq.classList.contains('active')) {
+                            icon.classList.remove('fa-plus');
+                            icon.classList.add('fa-minus');
+                        } else {
+                            icon.classList.remove('fa-minus');
+                            icon.classList.add('fa-plus');
+                        }
+                    }
+                });
+            });
+        }
+
+        // ==================== CARD ANIMATIONS ====================
+        function setupCardAnimations() {
+            const cards = document.querySelectorAll('.importance-card, .grade-card');
+            
+            // Set animation delay for grade cards
+            document.querySelectorAll('.grade-card').forEach((card, index) => {
+                card.style.setProperty('--index', index);
+            });
+            
+            // Intersection Observer for card animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // ==================== RESIZE HANDLER ====================
+        function handleResize() {
+            // Handle FAQ behavior on mobile vs desktop
+            const faqs = document.querySelectorAll('.faq');
+            if (window.innerWidth <= 768) {
+                // Mobile: Close all FAQs except first on load
+                faqs.forEach((faq, index) => {
+                    if (index !== 0) {
+                        faq.classList.remove('active');
+                        const icon = faq.querySelector('.faq-icon i');
+                        if (icon) {
+                            icon.classList.remove('fa-minus');
+                            icon.classList.add('fa-plus');
+                        }
+                    } else {
+                        // Keep first FAQ open on mobile
+                        faq.classList.add('active');
+                        const icon = faq.querySelector('.faq-icon i');
+                        if (icon) {
+                            icon.classList.remove('fa-plus');
+                            icon.classList.add('fa-minus');
+                        }
+                    }
+                });
+            } else {
+                // Desktop: Open all FAQs
+                faqs.forEach(faq => {
+                    faq.classList.add('active');
+                    const icon = faq.querySelector('.faq-icon i');
+                    if (icon) {
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
+                });
+            }
+        }
+
+        // ==================== SET ACTIVE NAV LINK ====================
+        function setActiveNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav_menu a');
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if ((currentPage === '' && linkHref === 'index.html') || 
+                    (currentPage === linkHref)) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // ==================== IMAGE OPTIMIZATION ====================
+        function optimizeImages() {
+            const images = document.querySelectorAll('img');
+            
+            images.forEach(img => {
+                // Skip if already loaded
+                if (img.complete) return;
+                
+                // Add loading="lazy" attribute if not present
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+                
+                // Handle image loading errors
+                img.addEventListener('error', function() {
+                    console.warn(`Failed to load image: ${this.src}`);
+                    // You could add a placeholder image here
+                });
+            });
+        }
+
+        // ==================== INITIALIZE EVERYTHING ====================
+        function initialize() {
+            // Set up event listeners
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('resize', handleResize);
+            
+            // Initialize components
+            setupFAQs();
+            setupCardAnimations();
+            optimizeImages();
+            setActiveNavLink();
+            
+            // Initial resize handling
+            handleResize();
+            
+            // Initial scroll handling
+            handleScroll();
+            
+            console.log('Literacy page initialized successfully!');
+        }
+
+        // ==================== LOAD EVENT ====================
+        window.addEventListener('load', initialize);
+    </script>
+</body>
+</html>
