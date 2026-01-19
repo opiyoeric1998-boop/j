@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Jets Elementary School</title>
+    
+    <!-- ICONSCOUT CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <!-- ADD FONT AWESOME FOR PLUS/MINUS ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #007bff;
+            --color-white: #fff;
+            --color-yellow: #f7c94b;
+            --color-purple: #6f42c1;
+            --color-red: #dc3545;
+            --color-black: #333;
+            --color-light-green: #90ee90;
+            --color-bg: #f8f9fa;
+            --color-light: #f8f9fa;
+            --color-gray: #6c757d;
+            --color-primary-variant: rgba(0, 123, 255, 0.8);
+            --color-dark: #212529;
+            --color-border: #e0e0e0;
+            
+            /* NEW COLOR SCHEME: Navy Blue, White, Sky Blue - MATCHING ABOUT PAGE */
+            --color-navy-blue: #003366;       /* 30% - Main header/footer color */
+            --color-sky-blue: #4fc3f7;        /* 10% - Accent color */
+            --color-navy-dark: #002244;       /* Darker navy for footer */
+            
+            /* Social Media Colors */
+            --facebook-color: #1877F2;
+            --instagram-color: #E4405F;
+            --tiktok-color: #000000;
+            --whatsapp-color: #25D366;
+            --maps-color: #4285F4;
+            
+            /* Core Value Icon Colors */
+            --color-compassion: #E91E63;
+            --color-excellence: #FF9800;
+            --color-community: #4CAF50;
+            --color-innovation: #2196F3;
+            --color-integrity: #9C27B0;
+            --color-respect: #009688;
+            
+            /* Hamburger Menu Colors */
+            --hamburger-bg: linear-gradient(135deg, var(--color-navy-blue) 0%, #001a33 100%);
+            --hamburger-bg-active: var(--color-sky-blue);
+            --hamburger-color: var(--color-white);
+            
+            --container-width-lg: 76%;
+            --container-width-md: 90%;
+            --container-width-sm: 94%;
+            
+            --transition: all 300ms ease;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --box-shadow-strong: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            line-height: 1.7;
+            color: var(--color-black);
+            background: var(--color-white); /* 60% white - main content areas */
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: opacity 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            width: var(--container-width-lg);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* ==================== MODERN HAMBURGER MENU ==================== */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--hamburger-bg);
+            border-radius: 12px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-menu-btn.active {
+            background: var(--hamburger-bg-active);
+            transform: rotate(180deg);
+        }
+
+        .mobile-menu-btn.active:hover {
+            transform: rotate(180deg) scale(1.05);
+        }
+
+        .hamburger-line {
+            width: 24px;
+            height: 3px;
+            background-color: var(--hamburger-color);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: var(--color-white);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: var(--color-white);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-navy-blue) 0%, #001a33 100%);
+            z-index: 1000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            padding: 80px 20px 30px;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mobile-nav-link {
+            color: var(--color-white);
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid transparent;
+        }
+
+        .mobile-nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+            border-left-color: var(--color-sky-blue); /* Sky blue accent */
+        }
+
+        .mobile-nav-link.active {
+            background: rgba(255, 255, 255, 0.25);
+            border-left-color: var(--color-sky-blue); /* Sky blue accent */
+            font-weight: 600;
+        }
+
+        .mobile-nav-link i {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        /* UPDATED: Navy blue background for header - MATCHING ABOUT PAGE */
+        nav {
+            background: var(--color-navy-blue); /* 30% navy blue */
+            width: 100vw;
+            height: 5rem;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: var(--color-navy-blue);
+            height: 4.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .nav_container {
+            height: 100%;
+        }
+
+        nav.scrolled .nav_container a h4 {
+            color: var(--color-white); /* White text on navy blue */
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        nav.scrolled .nav_menu a {
+            font-size: 0.95rem;
+            padding: 0.4rem 0.8rem;
+        }
+
+        nav.scrolled .nav_menu a:hover {
+            background: rgba(79, 195, 247, 0.08); /* Sky blue tint */
+        }
+
+        .nav_container {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .nav_menu {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        /* UPDATED: Navigation links styling */
+        .nav_menu a {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            color: var(--color-white); /* White text on navy blue */
+            position: relative;
+        }
+
+        .nav_menu a:hover {
+            color: var(--color-white);
+            background: rgba(79, 195, 247, 0.1); /* Sky blue tint */
+        }
+
+        .nav_menu a.active {
+            color: var(--color-white);
+            background: rgba(79, 195, 247, 0.15); /* Sky blue tint */
+            font-weight: 600;
+        }
+
+        /* UPDATED: Sky blue hover underline effect */
+        .nav_menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-sky-blue); /* Sky blue accent */
+            transition: width 0.3s ease;
+        }
+
+        .nav_menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav_menu a.active::after {
+            width: 100%;
+            background: var(--color-sky-blue); /* Sky blue accent */
+        }
+
+        /* UPDATED: Logo/School name in white */
+        .nav_container a h4 {
+            color: var(--color-white); /* White text on navy blue */
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* ==================== CONTACT PAGE SPECIFIC STYLES ==================== */
+        /* Contact Hero Section */
+        .contact-hero {
+            padding-top: 12rem;
+            padding-bottom: 6rem;
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.8)), url('images/contact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-white);
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+            background: var(--color-bg);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-form-container h2,
+        .contact-info-container h2 {
+            font-size: 2.2rem;
+            color: var(--color-navy-blue);
+            margin-bottom: 15px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-form-container h2::after,
+        .contact-info-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--color-sky-blue);
+        }
+
+        .form-intro,
+        .info-intro {
+            font-size: 1.1rem;
+            color: var(--color-gray);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .contact-form {
+            background: var(--color-white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow-strong);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--color-navy-blue);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            color: var(--color-black);
+            background-color: #f9f9f9;
+            transition: var(--transition);
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-sky-blue);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.1);
+        }
+
+        /* UPDATED: Button styling with sky blue accents - MATCHING ABOUT PAGE */
+        .btn {
+            display: inline-block;
+            background: var(--color-sky-blue); /* Sky blue accent */
+            color: var(--color-white);
+            padding: 1rem 2rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--color-sky-blue); /* Sky blue accent */
+            border-color: var(--color-sky-blue); /* Sky blue accent */
+            transform: translateY(-2px);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .contact-info-container {
+            background: var(--color-white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow-strong);
+            height: fit-content;
+        }
+
+        .contact-details {
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .contact-icon {
+            background-color: #e8f0fa;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-icon i {
+            font-size: 1.2rem;
+            color: var(--color-sky-blue); /* Sky blue accent */
+        }
+
+        .contact-text h3 {
+            font-size: 1.3rem;
+            color: var(--color-navy-blue);
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .contact-text p {
+            font-size: 1rem;
+            color: var(--color-gray);
+            line-height: 1.5;
+        }
+
+        .contact-social {
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .contact-social h3 {
+            font-size: 1.4rem;
+            color: var(--color-navy-blue);
+            margin-bottom: 10px;
+        }
+
+        .contact-social p {
+            font-size: 1rem;
+            color: var(--color-gray);
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .facebook { background-color: var(--facebook-color); }
+        .instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+        .tiktok { background-color: var(--tiktok-color); }
+        .whatsapp { background-color: var(--whatsapp-color); }
+
+        /* Form Message Styles */
+        #form-message {
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Loading state for submit button */
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .submit-btn.loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .submit-btn.loading::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            left: 50%;
+            margin-left: -10px;
+            margin-top: -10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Form Success/Error Message Styles */
+        .message {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 1rem;
+            line-height: 1.5;
+            display: none;
+        }
+        
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+        
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+        
+        /* Honeypot field styling */
+        .honeypot-field {
+            display: none;
+        }
+
+        /* Form validation error styling */
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: var(--color-red);
+        }
+        
+        .form-group.error label {
+            color: var(--color-red);
+        }
+        
+        .error-message {
+            color: var(--color-red);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        /* ==================== FOOTER STYLES ==================== */
+        /* UPDATED: Navy blue background for footer - MATCHING ABOUT PAGE */
+        footer {
+            background: var(--color-navy-dark); /* Darker navy blue for footer */
+            color: white;
+            padding: 2rem 0 1.2rem 0;
+            width: 100%;
+            margin-top: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer_section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer_logo h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .footer_tagline {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 250px;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer_contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact_item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+        }
+
+        .contact_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            color: var(--color-sky-blue); /* Sky blue accent */
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        /* UPDATED: Social Media Icons with sky blue hover effects - MATCHING ABOUT PAGE */
+        .social_icons {
+            display: flex;
+            gap: 0.7rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        /* Social Media Icon Colors with white icons */
+        .social_icon.facebook {
+            background: rgba(24, 119, 242, 0.9);
+        }
+
+        .social_icon.instagram {
+            background: linear-gradient(45deg, rgba(240, 148, 51, 0.9), rgba(230, 104, 60, 0.9), rgba(220, 39, 67, 0.9), rgba(204, 35, 102, 0.9), rgba(188, 24, 136, 0.9));
+        }
+
+        .social_icon.tiktok {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .social_icon.whatsapp {
+            background: rgba(37, 211, 102, 0.9);
+        }
+
+        .social_icon.maps {
+            background: rgba(66, 133, 244, 0.9);
+        }
+
+        /* UPDATED: Hover Effects with sky blue glow - MATCHING ABOUT PAGE */
+        .social_icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 195, 247, 0.4); /* Sky blue glow */
+        }
+
+        .social_icon.facebook:hover {
+            background: #1877F2;
+        }
+
+        .social_icon.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social_icon.tiktok:hover {
+            background: #000000;
+        }
+
+        .social_icon.whatsapp:hover {
+            background: #25D366;
+        }
+
+        .social_icon.maps:hover {
+            background: #4285F4;
+        }
+
+        /* UPDATED: Footer links with sky blue hover effects - MATCHING ABOUT PAGE */
+        .footer_links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer_links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer_links a:hover {
+            color: var(--color-sky-blue); /* Sky blue accent */
+            transform: translateX(3px);
+        }
+
+        .footer_links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-sky-blue); /* Sky blue accent */
+            transition: width 0.3s ease;
+        }
+
+        .footer_links a:hover::after {
+            width: 100%;
+        }
+
+        .footer_bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            width: 100%;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1024px) {
+            .container {
+                width: var(--container-width-md);
+            }
+            
+            .contact-wrapper {
+                gap: 30px;
+            }
+            
+            .contact-form,
+            .contact-info-container {
+                padding: 30px;
+            }
+            
+            .contact-hero h1 {
+                font-size: 3rem;
+            }
+            
+            /* Show hamburger button on tablets and mobiles */
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            /* Hide desktop navigation menu on tablets and mobiles */
+            .nav_menu {
+                display: none;
+            }
+            
+            .nav_container {
+                padding: 0 1.5rem;
+            }
+            
+            nav.scrolled .mobile-menu-btn {
+                top: 15px;
+            }
+            
+            .footer_container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .footer_section {
+                min-width: 100%;
+            }
+            
+            .footer_links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: var(--container-width-sm);
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            .contact-hero {
+                padding-top: 9rem;
+                padding-bottom: 4rem;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-hero p {
+                font-size: 1rem;
+            }
+            
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .contact-form,
+            .contact-info-container {
+                padding: 25px 20px;
+            }
+            
+            .contact-form-container h2,
+            .contact-info-container h2 {
+                font-size: 1.8rem;
+            }
+            
+            .nav_container {
+                padding: 0 1.5rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+            }
+            
+            .contact-icon {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            #form-message {
+                margin-top: 15px;
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .mobile-menu-btn {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .mobile-nav {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-hero {
+                padding-top: 8rem;
+                padding-bottom: 3rem;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-form,
+            .contact-info-container {
+                padding: 20px 15px;
+            }
+            
+            .mobile-nav {
+                width: 230px;
+            }
+            
+            .contact-form-container h2,
+            .contact-info-container h2 {
+                font-size: 1.6rem;
+            }
+            
+            .submit-btn {
+                padding: 14px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== MODERN HAMBURGER MENU COMPONENTS ==================== -->
+    <div class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" role="button" tabindex="0" aria-expanded="false">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+    
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link" data-page="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            
+            <a href="about.html" class="mobile-nav-link" data-page="about">
+                <i class="fas fa-info-circle"></i>
+                <span>About</span>
+            </a>
+            
+            <a href="course.html" class="mobile-nav-link" data-page="course">
+                <i class="fas fa-book-open"></i>
+                <span>Course</span>
+            </a>
+            
+            <a href="fees.html" class="mobile-nav-link" data-page="fees">
+                <i class="fas fa-money-bill-alt"></i>
+                <span>Fees</span>
+            </a>
+            
+            <a href="blog.html" class="mobile-nav-link" data-page="blog">
+                <i class="fas fa-blog"></i>
+                <span>Blog</span>
+            </a>
+            
+            <a href="contact.html" class="mobile-nav-link active" data-page="contact">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html" id="nav-logo"><h4>JETS ELEMENTARY</h4></a>
+            
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav_menu">
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="about.html" id="nav-about">About</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="fees.html">Fees</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- END OF NAVBAR -->
+
+    <!-- ==================== CONTACT PAGE CONTENT ==================== -->
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Get in Touch With Us</h1>
+            <p>We're here to help with any questions about our school, programmes, or admissions process. Reach out to us today.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <p class="form-intro">Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <!-- Success/Error message container -->
+                    <div id="form-message" class="message"></div>
+                    
+                    <!-- UPDATED FORM WITH NEW FORMSPREE URL: https://formspree.io/f/xkoogpgw -->
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkoogpgw" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                            <div class="error-message">Please enter your full name</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="Your email address">
+                            <div class="error-message">Please enter a valid email address</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="admissions">Admissions Inquiry</option>
+                                <option value="programme">Programme Information</option>
+                                <option value="fees">Fee Structure</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message">Please select a subject</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Your message..."></textarea>
+                            <div class="error-message">Please enter your message</div>
+                        </div>
+                        
+                        <!-- Hidden fields for Formspree -->
+                        <input type="hidden" name="_subject" id="emailSubject" value="New Message from Jets Elementary Contact Form">
+                        <input type="hidden" name="_replyto" id="replyTo" value="">
+                        
+                        <!-- Honeypot for spam protection -->
+                        <div class="honeypot-field">
+                            <label for="honeypot">Leave this field empty if you're human:</label>
+                            <input type="text" id="honeypot" name="_gotcha">
+                        </div>
+                        
+                        <button type="submit" class="btn submit-btn" id="submitBtn">Send Message</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-info-container">
+                    <h2>Contact Information</h2>
+                    <p class="info-intro">You can also reach us through the following channels.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Our Location</h3>
+                                <p>Gesoko, opp. joyland special school<br>Kisumu, Kenya</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Phone Numbers</h3>
+                                <p>+254 717 830 659</p>
+                                <p>+254 727 549 629</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email Address</h3>
+                                <p>jetselementary@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Office Hours</h3>
+                                <p>Monday - Friday: 7:30 AM - 5:00 PM</p>
+                                <p>Saturday: 8:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="contact-social">
+                        <h3>Connect With Us</h3>
+                        <p>Follow us on social media for updates and news.</p>
+                        
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social-icon facebook" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="social-icon instagram" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="social-icon tiktok" title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://wa.me/254717830659" target="_blank" class="social-icon whatsapp" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer_container">
+            <!-- Section 1: School Name & Tagline -->
+            <div class="footer_section footer_logo">
+                <h3>Jets Elementary School</h3>
+                <p class="footer_tagline">Nurturing young minds for a brighter future</p>
+                
+                <!-- Footer Links -->
+                <div class="footer_links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="course.html">Courses</a>
+                    <a href="fees.html">Fees</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Section 2: Contact Details & Social Icons -->
+            <div class="footer_section footer_contact">
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-phone-alt"></i></span>
+                    <span>+254 717830659<br>+254 727549629</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <span>Gesoko, opp.joyland special school-kisumu</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-envelope"></i></span>
+                    <span>jetselementary@gmail.com</span>
+                </div>
+                
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="social_icon instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="social_icon tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://maps.google.com" target="_blank" class="social_icon maps" title="Google Maps">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer_bottom">
+            <p>&copy; <span id="currentYear"></span> Jets Elementary School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== MODERN HAMBURGER MENU FUNCTIONALITY ====================
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        function toggleMobileMenu() {
+            const isActive = mobileNav.classList.contains('active');
+            
+            if (isActive) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        }
+        
+        function openMobileMenu() {
+            mobileNav.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            mobileMenuBtn.classList.add('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                mobileNavLinks[0].focus();
+            }, 300);
+        }
+        
+        function closeMobileMenu() {
+            mobileNav.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            
+            mobileMenuBtn.focus();
+        }
+        
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+        
+        mobileMenuBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMobileMenu();
+            }
+        });
+        
+        function setActiveMobileNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            mobileNavLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if ((currentPage === '' && linkHref === 'index.html') || 
+                    (currentPage === linkHref)) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        function setActiveDesktopNavLink() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav_menu a');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkHref = link.getAttribute('href');
+                
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                } else if (currentPage === '' && linkHref === 'index.html') {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        function handleResponsiveMenu() {
+            if (window.innerWidth >= 1025 && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        }
+
+        // ==================== NAVBAR SCROLL EFFECT ====================
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (navbar) {
+                const scrollPosition = window.scrollY;
+                
+                if (scrollPosition > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // ==================== CONTACT FORM HANDLING ====================
+        function setupContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            const formMessage = document.getElementById('form-message');
+            const submitBtn = document.getElementById('submitBtn');
+            const currentYear = new Date().getFullYear();
+            const formGroups = document.querySelectorAll('.form-group');
+            
+            // Set the email subject dynamically based on selected subject
+            const subjectSelect = document.getElementById('subject');
+            const emailSubject = document.getElementById('emailSubject');
+            const replyTo = document.getElementById('replyTo');
+            
+            // Update copyright year
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = currentYear;
+            }
+            
+            // Update email subject when subject changes
+            if (subjectSelect && emailSubject) {
+                subjectSelect.addEventListener('change', function() {
+                    const selectedOption = this.options[this.selectedIndex];
+                    const subjectText = selectedOption.text;
+                    emailSubject.value = `Jets Elementary: ${subjectText} Inquiry`;
+                });
+            }
+            
+            // Set reply-to email dynamically when email changes
+            const emailInput = document.getElementById('email');
+            if (emailInput && replyTo) {
+                emailInput.addEventListener('input', function() {
+                    replyTo.value = this.value;
+                });
+            }
+            
+            // Real-time form validation
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, select, textarea');
+                if (input && input.hasAttribute('required')) {
+                    input.addEventListener('blur', function() {
+                        validateField(this);
+                    });
+                    
+                    input.addEventListener('input', function() {
+                        clearFieldError(this);
+                    });
+                }
+            });
+            
+            // Field validation function
+            function validateField(field) {
+                const formGroup = field.closest('.form-group');
+                const errorMessage = formGroup.querySelector('.error-message');
+                let isValid = true;
+                
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    formGroup.classList.add('error');
+                    isValid = false;
+                } else if (field.type === 'email' && field.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value.trim())) {
+                        formGroup.classList.add('error');
+                        errorMessage.textContent = 'Please enter a valid email address';
+                        isValid = false;
+                    }
+                }
+                
+                if (isValid) {
+                    formGroup.classList.remove('error');
+                }
+                
+                return isValid;
+            }
+            
+            // Clear field error
+            function clearFieldError(field) {
+                const formGroup = field.closest('.form-group');
+                formGroup.classList.remove('error');
+            }
+            
+            // Validate entire form
+            function validateForm() {
+                let isValid = true;
+                const requiredFields = contactForm.querySelectorAll('input[required], select[required], textarea[required]');
+                
+                requiredFields.forEach(field => {
+                    if (!validateField(field)) {
+                        isValid = false;
+                    }
+                });
+                
+                return isValid;
+            }
+            
+            // Show message function
+            function showMessage(text, type) {
+                if (!formMessage) return;
+                
+                formMessage.textContent = text;
+                formMessage.className = 'message ' + type;
+                formMessage.style.display = 'block';
+                
+                // Scroll to message
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                // Hide message after 8 seconds
+                if (type === 'success') {
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                        formMessage.textContent = '';
+                    }, 8000);
+                }
+            }
+            
+            // Form submission handler
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    // Validate form
+                    if (!validateForm()) {
+                        showMessage('Please fill in all required fields correctly.', 'error');
+                        return;
+                    }
+                    
+                    // Check honeypot field
+                    const honeypot = document.getElementById('honeypot');
+                    if (honeypot && honeypot.value.trim() !== '') {
+                        // This is likely a bot, silently fail
+                        console.log('Form submission blocked by honeypot');
+                        return;
+                    }
+                    
+                    // Show loading state
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('loading');
+                    
+                    try {
+                        // Prepare form data
+                        const formData = new FormData(contactForm);
+                        
+                        // Send to Formspree (using the new URL: https://formspree.io/f/xkoogpgw)
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            // Success message
+                            showMessage('Thank you for contacting Jets Elementary School! Your message has been sent successfully. We will get back to you shortly.', 'success');
+                            
+                            // Reset form
+                            contactForm.reset();
+                            
+                            // Reset the select to its default state
+                            if (subjectSelect) {
+                                subjectSelect.selectedIndex = 0;
+                                emailSubject.value = 'New Message from Jets Elementary Contact Form';
+                            }
+                            
+                            // Reset reply-to field
+                            if (replyTo) {
+                                replyTo.value = '';
+                            }
+                            
+                            // Clear all validation errors
+                            formGroups.forEach(group => {
+                                group.classList.remove('error');
+                            });
+                        } else {
+                            // Handle Formspree errors
+                            const errorData = await response.json();
+                            if (errorData.errors && errorData.errors.length > 0) {
+                                showMessage('Error: ' + errorData.errors.map(error => error.message).join(', '), 'error');
+                            } else {
+                                showMessage('There was an error sending your message. Please try again later.', 'error');
+                            }
+                            console.error('Formspree error:', errorData);
+                        }
+                    } catch (error) {
+                        // Network error
+                        showMessage('Network error. Please check your internet connection and try again.', 'error');
+                        console.error('Network error:', error);
+                    } finally {
+                        // Reset button state
+                        submitBtn.textContent = 'Send Message';
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('loading');
+                    }
+                });
+            }
+        }
+
+        // ==================== INITIALIZE EVERYTHING ====================
+        function initializeAll() {
+            setActiveMobileNavLink();
+            setActiveDesktopNavLink();
+            setupContactForm();
+            
+            window.addEventListener('resize', handleResponsiveMenu);
+            
+            console.log('Contact page with matching header/footer initialized!');
+        }
+
+        window.addEventListener('DOMContentLoaded', initializeAll);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
