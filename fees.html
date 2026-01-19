@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Fees & Payments | Jets Elementary School</title>
+    
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ICONSCOUT CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CUSTOM CSS -->
+    <style>
+        /* ====== BASE STYLES ====== */
+        :root {
+            /* UPDATED: Same color scheme as about page */
+            --color-navy-blue: #003366;       /* 30% - Main header/footer color */
+            --color-sky-blue: #4fc3f7;        /* 10% - Accent color */
+            --color-navy-dark: #002244;       /* Darker navy for footer */
+            --color-white: #ffffff;
+            --color-bg: #f8f9fa;
+            --color-light: #f8f9fa;
+            --color-gray: #6c757d;
+            --color-dark: #212529;
+            --color-border: #e0e0e0;
+            --color-black: #333;
+            --text-light: #718096;
+            
+            /* Social Media Colors - MATCHING ABOUT PAGE */
+            --facebook-color: #1877F2;
+            --instagram-color: #E4405F;
+            --tiktok-color: #000000;
+            --whatsapp-color: #25D366;
+            --maps-color: #4285F4;
+            
+            /* FEE-SPECIFIC COLORS */
+            --color-fee-primary: #1a73e8;
+            --color-fee-secondary: #4285f4;
+            --color-fee-accent: #34a853;
+            --color-fee-light: #e8f0fe;
+            --color-fee-gradient-start: #1a73e8;
+            --color-fee-gradient-end: #4285f4;
+            
+            /* Hamburger Menu Colors - MATCHING ABOUT PAGE */
+            --hamburger-bg: linear-gradient(135deg, var(--color-navy-blue) 0%, #001a33 100%);
+            --hamburger-bg-active: var(--color-sky-blue);
+            --hamburger-color: var(--color-white);
+            
+            /* Image Modal */
+            --modal-overlay: rgba(0, 0, 0, 0.9);
+            --modal-bg: #fff;
+            
+            --container-width-lg: 76%;
+            --container-width-md: 90%;
+            --container-width-sm: 94%;
+            
+            --transition: all 400ms ease;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --box-shadow-strong: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            line-height: 1.7;
+            color: var(--color-black);
+            background: var(--color-white);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            width: var(--container-width-lg);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        /* ====== UPDATED MODERN HAMBURGER MENU ====== */
+        /* MATCHING ABOUT PAGE HAMBURGER MENU */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--hamburger-bg);
+            border-radius: 12px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-menu-btn.active {
+            background: var(--hamburger-bg-active);
+            transform: rotate(180deg);
+        }
+
+        .mobile-menu-btn.active:hover {
+            transform: rotate(180deg) scale(1.05);
+        }
+
+        .hamburger-line {
+            width: 24px;
+            height: 3px;
+            background-color: var(--hamburger-color);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: var(--color-white);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: var(--color-white);
+        }
+
+        /* Mobile Navigation Menu */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-navy-blue) 0%, #001a33 100%);
+            z-index: 1000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            padding: 80px 20px 30px;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        /* Mobile Navigation Links */
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mobile-nav-link {
+            color: var(--color-white);
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid transparent;
+        }
+
+        .mobile-nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+            border-left-color: var(--color-sky-blue);
+        }
+
+        .mobile-nav-link.active {
+            background: rgba(255, 255, 255, 0.25);
+            border-left-color: var(--color-sky-blue);
+            font-weight: 600;
+        }
+
+        .mobile-nav-link i {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ====== UPDATED NAVIGATION - MATCHING ABOUT PAGE ====== */
+        nav {
+            background: var(--color-navy-blue);
+            width: 100vw;
+            height: 5rem;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: var(--color-navy-blue);
+            height: 4.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .nav_container {
+            height: 100%;
+        }
+
+        nav.scrolled .nav_container a h4 {
+            color: var(--color-white);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        nav.scrolled .nav_menu a {
+            font-size: 0.95rem;
+            padding: 0.4rem 0.8rem;
+        }
+
+        nav.scrolled .nav_menu a:hover {
+            background: rgba(79, 195, 247, 0.08);
+        }
+
+        .nav_container {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        /* UPDATED: Logo/School name in white - MATCHING ABOUT PAGE */
+        .nav_container a h4 {
+            color: var(--color-white);
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* Desktop Navigation Menu */
+        .nav_menu {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        /* UPDATED: Navigation links styling - MATCHING ABOUT PAGE */
+        .nav_menu a {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            color: var(--color-white);
+            position: relative;
+        }
+
+        .nav_menu a:hover {
+            color: var(--color-white);
+            background: rgba(79, 195, 247, 0.1);
+        }
+
+        .nav_menu a.active {
+            color: var(--color-white);
+            background: rgba(79, 195, 247, 0.15);
+            font-weight: 600;
+        }
+
+        /* UPDATED: Sky blue hover underline effect - MATCHING ABOUT PAGE */
+        .nav_menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-sky-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav_menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav_menu a.active::after {
+            width: 100%;
+            background: var(--color-sky-blue);
+        }
+
+        /* ====== IMAGE MODAL STYLES - MATCHING ABOUT PAGE ====== */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10002;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            background: var(--color-sky-blue);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: #03a9f4;
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            background: var(--color-sky-blue);
+            color: var(--color-white);
+            padding: 1rem 2rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--color-sky-blue);
+            border-color: var(--color-sky-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--color-fee-primary);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--color-fee-primary);
+            border-color: var(--color-fee-primary);
+        }
+
+        .btn-secondary {
+            background: var(--color-fee-accent);
+            color: var(--color-white);
+            border: 1px solid var(--color-fee-accent);
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: var(--color-fee-accent);
+            border-color: var(--color-fee-accent);
+        }
+
+        /* ====== FEES HERO SECTION - ENHANCED & RESPONSIVE ====== */
+        .fees-hero {
+            padding-top: 10rem;
+            padding-bottom: 3rem;
+            background: linear-gradient(rgba(0, 51, 102, 0.9), rgba(0, 51, 102, 0.8)), url('images/service.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .fees-hero-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .fees-hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .fees-hero-title {
+            font-size: 2.8rem;
+            color: var(--color-white);
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .fees-hero-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .fees-hero-buttons {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Animation for hero section */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections Styling */
+        .download-fees-section,
+        .payment-options-section,
+        .uniforms-section,
+        .additional-info-section,
+        .admission-documents-section {
+            padding: 4rem 0;
+        }
+
+        .download-fees-section {
+            background: var(--color-bg);
+        }
+
+        .uniforms-section {
+            background: var(--color-bg);
+        }
+
+        .admission-documents-section {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f7ff 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            color: var(--color-navy-blue);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Download Card */
+        .download-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .download-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--color-fee-primary);
+            margin-bottom: 2rem;
+        }
+
+        .download-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .download-icon {
+            background: var(--color-fee-primary);
+            color: var(--color-white);
+            padding: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .download-icon i {
+            font-size: 3.5rem;
+        }
+
+        .download-content {
+            padding: 2.5rem;
+        }
+
+        .download-content h3 {
+            font-size: 1.8rem;
+            color: var(--color-fee-primary);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .download-content > p {
+            font-size: 1.1rem;
+            color: var(--color-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-features {
+            margin: 1.5rem 0;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature i {
+            color: var(--color-fee-primary);
+            flex-shrink: 0;
+        }
+
+        .download-buttons {
+            margin-top: 1.5rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.8rem;
+            background: var(--color-fee-primary);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: #0d47a1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Fix for broken download links */
+        .download-files {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .download-link {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--color-fee-primary);
+            border: 1px solid #e0e0e0;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .download-link:hover {
+            background: var(--color-fee-light);
+            border-color: var(--color-fee-primary);
+            transform: translateY(-2px);
+        }
+
+        .download-link i {
+            font-size: 1.3rem;
+        }
+
+        .download-link span {
+            font-weight: 500;
+        }
+
+        .download-link small {
+            display: block;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Payment Cards */
+        .payment-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .payment-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .payment-card-header {
+            background: var(--color-fee-primary);
+            color: white;
+            padding: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .payment-card-body {
+            padding: 1.8rem;
+        }
+
+        .payment-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.9rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .payment-detail:last-child {
+            border-bottom: none;
+        }
+
+        .payment-note {
+            background: var(--color-fee-light);
+            padding: 1.8rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--color-fee-primary);
+        }
+
+        .payment-note i {
+            color: var(--color-fee-primary);
+            margin-right: 0.5rem;
+        }
+
+        /* Uniform Cards */
+        .uniforms-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .uniform-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .uniform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .uniform-image-wrapper {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .uniform-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .uniform-card:hover .uniform-img {
+            transform: scale(1.05);
+        }
+
+        .uniform-overlay {
+            background: rgba(26, 115, 232, 0.8);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+        }
+
+        .uniform-details {
+            padding: 1.8rem;
+        }
+
+        .uniform-details h3 {
+            color: var(--color-fee-primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .uniform-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .uniform-items li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .uniform-items li i {
+            color: var(--color-fee-primary);
+            flex-shrink: 0;
+        }
+
+        /* Info Cards */
+        .info-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .info-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .info-card-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .info-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .info-card:hover .info-img {
+            transform: scale(1.05);
+        }
+
+        .info-card-content {
+            padding: 1.8rem;
+        }
+
+        .info-card-content h3 {
+            color: var(--color-fee-primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-list li i {
+            color: var(--color-fee-accent);
+            flex-shrink: 0;
+        }
+
+        /* ====== UPDATED FOOTER - MATCHING ABOUT PAGE ====== */
+        footer {
+            background: var(--color-navy-dark);
+            color: white;
+            padding: 2rem 0 1.2rem 0;
+            width: 100%;
+            margin-top: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer_section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer_logo h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .footer_tagline {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 250px;
+            line-height: 1.5;
+        }
+
+        .footer_contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact_item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+        }
+
+        .contact_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            color: var(--color-sky-blue);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        /* UPDATED: Footer links with sky blue hover effects - MATCHING ABOUT PAGE */
+        .footer_links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .footer_links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer_links a:hover {
+            color: var(--color-sky-blue);
+            transform: translateX(3px);
+        }
+
+        .footer_links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-sky-blue);
+            transition: width 0.3s ease;
+        }
+
+        .footer_links a:hover::after {
+            width: 100%;
+        }
+
+        /* UPDATED: Social Media Icons with sky blue hover effects - MATCHING ABOUT PAGE */
+        .social_icons {
+            display: flex;
+            gap: 0.7rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        /* Social Media Icon Colors with white icons */
+        .social_icon.facebook {
+            background: rgba(24, 119, 242, 0.9);
+        }
+
+        .social_icon.instagram {
+            background: linear-gradient(45deg, rgba(240, 148, 51, 0.9), rgba(230, 104, 60, 0.9), rgba(220, 39, 67, 0.9), rgba(204, 35, 102, 0.9), rgba(188, 24, 136, 0.9));
+        }
+
+        .social_icon.tiktok {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .social_icon.whatsapp {
+            background: rgba(37, 211, 102, 0.9);
+        }
+
+        .social_icon.maps {
+            background: rgba(66, 133, 244, 0.9);
+        }
+
+        /* UPDATED: Hover Effects with sky blue glow - MATCHING ABOUT PAGE */
+        .social_icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 195, 247, 0.4);
+        }
+
+        .social_icon.facebook:hover {
+            background: #1877F2;
+        }
+
+        .social_icon.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social_icon.tiktok:hover {
+            background: #000000;
+        }
+
+        .social_icon.whatsapp:hover {
+            background: #25D366;
+        }
+
+        .social_icon.maps:hover {
+            background: #4285F4;
+        }
+
+        .footer_bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            width: 100%;
+        }
+
+        /* Download Success Notification */
+        .download-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: #34a853;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            animation: slideInRight 0.3s ease-out;
+        }
+
+        .download-notification.show {
+            display: flex;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* ====== RESPONSIVE DESIGN ====== */
+        @media (max-width: 1200px) {
+            .container {
+                width: var(--container-width-md);
+            }
+            
+            .fees-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .fees-hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            /* Show hamburger button on tablets and mobiles */
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            /* Hide desktop navigation menu on tablets and mobiles */
+            .nav_menu {
+                display: none;
+            }
+            
+            .nav_container {
+                padding: 0 1.5rem;
+            }
+            
+            nav.scrolled .mobile-menu-btn {
+                top: 15px;
+            }
+            
+            .fees-hero {
+                min-height: 50vh;
+                padding-top: 9rem;
+                padding-bottom: 2.5rem;
+            }
+            
+            .fees-hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .fees-hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .fees-hero-buttons {
+                gap: 1rem;
+            }
+            
+            .btn {
+                padding: 0.9rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            
+            .hero-stats {
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: var(--container-width-sm);
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .fees-hero {
+                padding-top: 8rem;
+                padding-bottom: 2rem;
+                min-height: 45vh;
+            }
+            
+            .fees-hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .fees-hero-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .fees-hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .fees-hero-content {
+                padding: 0 1rem;
+            }
+            
+            .hero-stats {
+                flex-direction: row;
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            
+            .stat-item {
+                flex: 1;
+                min-width: 120px;
+            }
+            
+            .stat-number {
+                font-size: 1.6rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+            
+            .download-fees-section,
+            .payment-options-section,
+            .uniforms-section,
+            .additional-info-section,
+            .admission-documents-section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+            
+            .payment-cards-container,
+            .uniforms-container,
+            .info-cards-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .download-content,
+            .payment-card-body,
+            .uniform-details,
+            .info-card-content {
+                padding: 1.5rem;
+            }
+            
+            .download-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            .nav_container {
+                padding: 0 1rem;
+            }
+            
+            .modal-close {
+                top: -35px;
+                right: 10px;
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+            
+            .modal-title {
+                bottom: -40px;
+                font-size: 1rem;
+            }
+            
+            .download-notification {
+                top: 80px;
+                right: 10px;
+                left: 10px;
+            }
+            
+            .footer_container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .footer_section {
+                min-width: 100%;
+            }
+            
+            .footer_links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .mobile-menu-btn {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            /* Adjust mobile nav width for mobile */
+            .mobile-nav {
+                width: 250px;
+            }
+            
+            .fees-hero {
+                min-height: 40vh;
+                padding-top: 7rem;
+                padding-bottom: 1.5rem;
+            }
+            
+            .fees-hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .fees-hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .stat-item {
+                width: 100%;
+            }
+            
+            .download-icon {
+                padding: 2rem;
+            }
+            
+            .download-icon i {
+                font-size: 3rem;
+            }
+            
+            .footer_container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.2rem;
+            }
+            
+            .footer_section {
+                width: 100%;
+            }
+            
+            .social_icons {
+                justify-content: center;
+            }
+            
+            .download-link {
+                padding: 0.8rem 1rem;
+            }
+            
+            .payment-card-header,
+            .uniform-overlay {
+                padding: 1.2rem;
+            }
+            
+            .payment-detail {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            
+            /* Adjust mobile nav width for very small screens */
+            .mobile-nav {
+                width: 230px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .fees-hero-title {
+                font-size: 1.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .download-content h3,
+            .uniform-details h3,
+            .info-card-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .fees-hero-buttons .btn {
+                font-size: 0.85rem;
+                padding: 0.7rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== IMAGE MODAL ==================== -->
+    <div class="image-modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modalImage" src="" alt="Enlarged view">
+            <div class="modal-title" id="modalTitle"></div>
+        </div>
+    </div>
+
+    <!-- ==================== MODERN HAMBURGER MENU COMPONENTS ==================== -->
+    <div class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" role="button" tabindex="0" aria-expanded="false">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+    
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link" data-page="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            
+            <a href="about.html" class="mobile-nav-link" data-page="about">
+                <i class="fas fa-info-circle"></i>
+                <span>About</span>
+            </a>
+            
+            <a href="course.html" class="mobile-nav-link" data-page="course">
+                <i class="fas fa-book-open"></i>
+                <span>Course</span>
+            </a>
+            
+            <a href="fees.html" class="mobile-nav-link active" data-page="fees">
+                <i class="fas fa-money-bill-alt"></i>
+                <span>Fees</span>
+            </a>
+            
+            <a href="blog.html" class="mobile-nav-link" data-page="blog">
+                <i class="fas fa-blog"></i>
+                <span>Blog</span>
+            </a>
+            
+            <a href="contact.html" class="mobile-nav-link" data-page="contact">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html" id="nav-logo"><h4>JETS ELEMENTARY</h4></a>
+            
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav_menu">
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="about.html" id="nav-about">About</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="fees.html" class="active">Fees</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Download Success Notification -->
+    <div class="download-notification" id="downloadNotification">
+        <i class="fas fa-check-circle"></i>
+        <div>
+            <strong>Download Started!</strong>
+            <p id="notificationMessage">Your file is downloading...</p>
+        </div>
+    </div>
+
+    <!-- ENHANCED HERO SECTION -->
+    <section class="fees-hero">
+        <div class="container fees-hero-container">
+            <div class="fees-hero-content">
+                <h1 class="fees-hero-title">School Fees & Payments</h1>
+                <p class="fees-hero-subtitle">Transparent and affordable fee structure designed to provide quality education while ensuring value for every family. Access our detailed fees breakdown and convenient payment options.</p>
+                <div class="fees-hero-buttons">
+                    <a href="#download-fees" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Download Fees Structure
+                    </a>
+                    <a href="#payment-options" class="btn btn-secondary">
+                        <i class="fas fa-credit-card"></i>
+                        View Payment Options
+                    </a>
+                    <a href="#admission-form" class="btn btn-primary" style="background: var(--color-white); color: var(--color-fee-primary); border: 1px solid white;">
+                        <i class="fas fa-file-alt"></i>
+                        Admission Form
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Transparent pricing</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Payment Options</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Online Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOWNLOADABLE FEES STRUCTURE AND ADMISSION FORM SECTION -->
+    <section class="download-fees-section" id="download-fees">
+        <div class="container">
+            <h2 class="section-title">Downloadable Forms</h2>
+            <p class="section-subtitle">Access important documents for admissions and fee payments. All forms are available in PDF format for easy download.</p>
+            
+            <div class="download-container">
+                <!-- Fees Structure Card -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="download-content">
+                        <h3>Complete Fees Structure Document</h3>
+                        <p>This comprehensive PDF document contains the complete fees structure for all grades, including tuition fees, activity fees, books & stationery costs, and additional charges for the academic year.</p>
+                        <div class="download-features">
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Detailed breakdown for all grades (Nursery to Grade 6)</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Payment terms and schedules for each term</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Additional charges for transport, meals, and activities</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Discount policies for siblings and early payments</span>
+                            </div>
+                        </div>
+                        
+                        <div class="download-files">
+                            <!-- WORKING FEES STRUCTURE DOWNLOAD LINK -->
+                            <a href="documents/FEES-STRUCTURE.-ECD-PRIMARY-NEW-1.pdf" class="download-link" download="JETS_Elementary_Fees_Structure_2025.pdf" id="feesDownloadLink">
+                                <i class="fas fa-file-pdf"></i>
+                                <div>
+                                    <span>Download Fees Structure (PDF)</span>
+                                    <small>File size: ~850KB | Updated: 2026</small>
+                                </div>
+                                <i class="fas fa-download" style="margin-left: auto;"></i>
+                            </a>
+                            
+                            <!-- Alternative download link for fees structure -->
+                            <a href="documents/FEES-STRUCTURE.-ECD-PRIMARY-NEW-1.pdf" class="download-link" download="JETS_Fees_2025.pdf" style="margin-top: 0.5rem;" id="feesAlternativeLink">
+                                <i class="fas fa-file-pdf"></i>
+                                <div>
+                                    <span>Alternative Download Link</span>
+                                    <small>Try this if the above link doesn't work</small>
+                                </div>
+                                <i class="fas fa-download" style="margin-left: auto;"></i>
+                            </a>
+                        </div>
+                        
+                        <!-- Download Instructions -->
+                        <div class="payment-note" style="margin-top: 2rem;">
+                            <p><i class="fas fa-info-circle"></i> <strong>Download Instructions:</strong> If the download doesn't start automatically, right-click the link and select "Save link as..." to download the PDF directly to your device. For mobile devices, tap and hold the link, then choose "Download".</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Admission Form Card -->
+                <div class="download-card" id="admission-form" style="border-top-color: #34a853;">
+                    <div class="download-icon" style="background: #34a853;">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="download-content">
+                        <h3 style="color: #34a853;">School Admission Form</h3>
+                        <p>Download the official admission application form to enroll your child at Jets Elementary School. This form collects essential information for the admission process. Complete all sections accurately.</p>
+                        <div class="download-features">
+                            <div class="feature">
+                                <i class="fas fa-check-circle" style="color: #34a853;"></i>
+                                <span>Complete application form with all required sections</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle" style="color: #34a853;"></i>
+                                <span>Parent/Guardian information and contacts</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle" style="color: #34a853;"></i>
+                                <span>Student's medical history & emergency contacts</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle" style="color: #34a853;"></i>
+                                <span>Previous school information and transfer details</span>
+                            </div>
+                        </div>
+                        
+                        <div class="download-files">
+                            <!-- WORKING ADMISSION FORM DOWNLOAD LINK -->
+                            <a href="documents/Admission Form.pdf" class="download-link" download="JETS_Elementary_Admission_Form_2025.pdf" id="admissionDownloadLink">
+                                <i class="fas fa-file-alt" style="color: #34a853;"></i>
+                                <div>
+                                    <span>Download Admission Form (PDF)</span>
+                                    <small>File size: ~650KB | Updated: 2026</small>
+                                </div>
+                                <i class="fas fa-download" style="margin-left: auto; color: #34a853;"></i>
+                            </a>
+                            
+                            <!-- Alternative download link for admission form -->
+                            <a href="documents/Admission Form.pdf" class="download-link" download="JETS_Admission_2025.pdf" style="margin-top: 0.5rem;" id="admissionAlternativeLink">
+                                <i class="fas fa-file-alt" style="color: #34a853;"></i>
+                                <div>
+                                    <span>Alternative Download Link</span>
+                                    <small>Try this if the above link doesn't work</small>
+                                </div>
+                                <i class="fas fa-download" style="margin-left: auto; color: #34a853;"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="admission-instructions" style="margin-top: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #34a853;">
+                            <h4 style="color: #34a853; margin-bottom: 1rem; font-size: 1.2rem;">
+                                <i class="fas fa-info-circle"></i> Admission Process:
+                            </h4>
+                            <ol style="padding-left: 1.5rem; margin-bottom: 0;">
+                                <li style="margin-bottom: 0.5rem;">Download and complete the admission form</li>
+                                <li style="margin-bottom: 0.5rem;">Attach required documents (birth certificate, passport photos, previous report cards)</li>
+                                <li style="margin-bottom: 0.5rem;">Submit completed form to school office or via email</li>
+                                <li style="margin-bottom: 0.5rem;">Schedule admission interview/assessment (if required)</li>
+                                <li>Receive admission letter and payment instructions upon acceptance</li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Alternative download option for admission form -->
+                        <div class="payment-note" style="margin-top: 1.5rem;">
+                            <p><i class="fas fa-download"></i> <strong>Need Help?</strong> If you experience any issues downloading the forms, please contact the school office at <strong>+254 717830659</strong> or email <strong>jetselementary@gmail.com</strong> and we will send you the forms directly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT OPTIONS SECTION -->
+    <section class="payment-options-section" id="payment-options">
+        <div class="container">
+            <h2 class="section-title">Fees Payment Options</h2>
+            <p class="section-subtitle">We offer secure and convenient payment methods for school fees. Choose the option that works best for you.</p>
+            
+            <div class="payment-cards-container">
+                <!-- Bank Card 1 -->
+                <div class="payment-card">
+                    <div class="payment-card-header">
+                        <i class="fas fa-university"></i>
+                        <h3>I & M BANK</h3>
+                    </div>
+                    <div class="payment-card-body">
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Account Name:</strong></span>
+                            <span class="payment-value">Jets Elementary School</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Account Number:</strong></span>
+                            <span class="payment-value">22588</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Paybill Number:</strong></span>
+                            <span class="payment-value">542542</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Branch:</strong></span>
+                            <span class="payment-value">Kisumu Main Branch</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bank Card 2 -->
+                <div class="payment-card">
+                    <div class="payment-card-header">
+                        <i class="fas fa-university"></i>
+                        <h3>SIDIAN BANK</h3>
+                    </div>
+                    <div class="payment-card-body">
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Account Name:</strong></span>
+                            <span class="payment-value">Jets Elementary School</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Account Number:</strong></span>
+                            <span class="payment-value">228558#Admission</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Paybill Number:</strong></span>
+                            <span class="payment-value">111999</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Branch:</strong></span>
+                            <span class="payment-value">Kisumu Branch</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Payment Card -->
+                <div class="payment-card">
+                    <div class="payment-card-header">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile Money</h3>
+                    </div>
+                    <div class="payment-card-body">
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>M-Pesa Paybill:</strong></span>
+                            <span class="payment-value">247247</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Account Number:</strong></span>
+                            <span class="payment-value">Student Admission Number</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Airtel Money:</strong></span>
+                            <span class="payment-value">522533</span>
+                        </div>
+                        <div class="payment-detail">
+                            <span class="payment-label"><strong>Reference:</strong></span>
+                            <span class="payment-value">Student Name</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="payment-note">
+                <p><i class="fas fa-info-circle"></i> <strong>Important Payment Instructions:</strong> Always use your child's full name and admission number as the payment reference. This ensures prompt allocation of payments to the correct account. After making payment, send the payment confirmation message/slip to the school accounts office via WhatsApp (+254 717830659) or email (accounts@jetselementary.edu.ke) for official receipt issuance.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="tel:+254717830659" class="btn btn-primary">
+                    <i class="fas fa-phone-alt"></i>
+                    Need Help? Call Accounts Office
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCHOOL UNIFORMS SECTION -->
+    <section class="uniforms-section">
+        <div class="container">
+            <h2 class="section-title">School Uniforms</h2>
+            <p class="section-subtitle">Our school uniforms promote unity, discipline, and a sense of belonging among students. All uniforms are available at the school store.</p>
+            
+            <div class="uniforms-container">
+                <!-- Boys Uniform -->
+                <div class="uniform-card">
+                    <div class="uniform-image-wrapper">
+                        <img src="images/uniform-1.jpg" alt="Boys School Uniform" class="uniform-img clickable-image" data-image-src="images/uniform-1.jpg" data-caption="Boys School Uniform - Plaid shorts with white shirt and blue sweater">
+                        <div class="uniform-overlay">
+                            <h4>Boys Uniform</h4>
+                        </div>
+                    </div>
+                    <div class="uniform-details">
+                        <h3>Boys' School Uniform</h3>
+                        <ul class="uniform-items">
+                            <li><i class="fas fa-check"></i> <span>Plaid (tartan) shorts</span></li>
+                            <li><i class="fas fa-check"></i> <span>White collar shirt with school badge</span></li>
+                            <li><i class="fas fa-check"></i> <span>Blue V-neck sweater with school logo</span></li>
+                            <li><i class="fas fa-check"></i> <span>Black leather shoes (polishable)</span></li>
+                            <li><i class="fas fa-check"></i> <span>White/Blue striped socks</span></li>
+                            <li><i class="fas fa-check"></i> <span>School tie (for special occasions)</span></li>
+                            <li><i class="fas fa-check"></i> <span>PE Kit: Blue shorts and white t-shirt</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Girls Uniform -->
+                <div class="uniform-card">
+                    <div class="uniform-image-wrapper">
+                        <img src="images/kit-2.jpg" alt="Girls School Uniform" class="uniform-img clickable-image" data-image-src="images/kit.png" data-caption="Girls School Uniform - Plaid pinafore with white blouse and blue cardigan">
+                        <div class="uniform-overlay">
+                            <h4>Girls Uniform</h4>
+                        </div>
+                    </div>
+                    <div class="uniform-details">
+                        <h3>Girls' School Uniform</h3>
+                        <ul class="uniform-items">
+                            <li><i class="fas fa-check"></i> <span>Plaid (tartan) pinafore dress</span></li>
+                            <li><i class="fas fa-check"></i> <span>White blouse with school badge</span></li>
+                            <li><i class="fas fa-check"></i> <span>Blue cardigan with school logo</span></li>
+                            <li><i class="fas fa-check"></i> <span>Black leather shoes (Mary Jane style)</span></li>
+                            <li><i class="fas fa-check"></i> <span>White knee-high socks</span></li>
+                            <li><i class="fas fa-check"></i> <span>Blue hair ribbons/bows</span></li>
+                            <li><i class="fas fa-check"></i> <span>PE Kit: Blue skort and white t-shirt</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="payment-note" style="margin-top: 2rem;">
+                <p><i class="fas fa-shopping-cart"></i> <strong>Uniform Purchase:</strong> All uniforms are available at the school store located within the school premises. Opening hours: Monday-Friday 8:00 AM - 4:00 PM, Saturday 9:00 AM - 12:00 PM. Please bring your child for proper sizing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADDITIONAL INFORMATION SECTION -->
+    <section class="additional-info-section">
+        <div class="container">
+            <h2 class="section-title">Additional Services</h2>
+            <p class="section-subtitle">We provide additional services to support our students' holistic development and convenience for parents.</p>
+            
+            <div class="info-cards-container">
+                <!-- Transport Services -->
+                <div class="info-card">
+                    <div class="info-card-image">
+                        <img src="images/van.jpg" alt="School Transport Services" class="info-img clickable-image" data-image-src="images/van.jpg" data-caption="School Transport Services - Safe and reliable transport vehicles">
+                    </div>
+                    <div class="info-card-content">
+                        <h3>Transport Services</h3>
+                        <p>We offer safe and reliable school transport services covering major routes in and around Kisumu. Our vehicles are well-maintained and driven by experienced, certified drivers.</p>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check-circle"></i> <span>Designated pick-up and drop-off points</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Trained matrons on board for supervision</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>GPS-tracked vehicles for safety</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Affordable termly transport fees</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Flexible routes based on student needs</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Meals Programme -->
+                <div class="info-card">
+                    <div class="info-card-image">
+                        <img src="images/meal.jpg" alt="School Meals Programme" class="info-img clickable-image" data-image-src="images/meal.jpg" data-caption="School Meals Programme - Nutritious and balanced meals">
+                    </div>
+                    <div class="info-card-content">
+                        <h3>Meals Programme</h3>
+                        <p>We provide nutritious, balanced meals prepared in our modern, hygienic kitchen. Our meals programme follows guidelines from nutritionists to support children's growth and learning.</p>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check-circle"></i> <span>Breakfast and lunch provided daily</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Special dietary needs accommodated</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Monthly menu shared with parents</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Emphasis on fruits and vegetables</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Clean drinking water available throughout</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="contact.html" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Inquire About Additional Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer_container">
+            <!-- Section 1: School Name & Tagline -->
+            <div class="footer_section footer_logo">
+                <h3>Jets Elementary School</h3>
+                <p class="footer_tagline">Nurturing young minds for a brighter future</p>
+                
+                <!-- Footer Links -->
+                <div class="footer_links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="course.html">Courses</a>
+                    <a href="fees.html">Fees</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Section 2: Contact Details & Social Icons -->
+            <div class="footer_section footer_contact">
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-phone-alt"></i></span>
+                    <span>+254 717830659<br>+254 727549629</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <span>Gesoko, opp.joyland special school-kisumu</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-envelope"></i></span>
+                    <span>jetselementary@gmail.com</span>
+                </div>
+                
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="social_icon instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="social_icon tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://maps.google.com" target="_blank" class="social_icon maps" title="Google Maps">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer_bottom">
+            <p>&copy; 2026 Jets Elementary School. All rights reserved. | <a href="fees.html" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Fees & Payments</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== MODERN HAMBURGER MENU FUNCTIONALITY ====================
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        function toggleMobileMenu() {
+            const isActive = mobileNav.classList.contains('active');
+            
+            if (isActive) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        }
+        
+        function openMobileMenu() {
+            mobileNav.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            mobileMenuBtn.classList.add('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                mobileNavLinks[0].focus();
+            }, 300);
+        }
+        
+        function closeMobileMenu() {
+            mobileNav.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            
+            mobileMenuBtn.focus();
+        }
+        
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+        
+        mobileMenuBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMobileMenu();
+            }
+        });
+        
+        function setActiveMobileNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            mobileNavLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if ((currentPage === '' && linkHref === 'index.html') || 
+                    (currentPage === linkHref)) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        function setActiveDesktopNavLink() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav_menu a');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkHref = link.getAttribute('href');
+                
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                } else if (currentPage === '' && linkHref === 'index.html') {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        function handleResponsiveMenu() {
+            if (window.innerWidth >= 1025 && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        }
+
+        // ==================== IMAGE MODAL FUNCTIONALITY ====================
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalClose = document.getElementById('modalClose');
+        
+        function openImageModal(imgSrc, imgAlt, title) {
+            if (modalImage && modalTitle && imageModal) {
+                modalImage.src = imgSrc;
+                modalImage.alt = imgAlt;
+                modalTitle.textContent = title || imgAlt;
+                imageModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeImageModal() {
+            if (imageModal) {
+                imageModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+        
+        if (modalClose) {
+            modalClose.addEventListener('click', closeImageModal);
+            
+            if (imageModal) {
+                imageModal.addEventListener('click', function(e) {
+                    if (e.target === imageModal) {
+                        closeImageModal();
+                    }
+                });
+            }
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && imageModal && imageModal.classList.contains('active')) {
+                    closeImageModal();
+                }
+            });
+        }
+        
+        // ==================== SETUP CLICKABLE IMAGES ====================
+        function setupClickableImages() {
+            const clickableImages = document.querySelectorAll('.clickable-image');
+            
+            clickableImages.forEach(image => {
+                image.style.cursor = 'pointer';
+                image.addEventListener('click', function() {
+                    const imgSrc = this.getAttribute('data-image-src') || this.getAttribute('src');
+                    const caption = this.getAttribute('data-caption') || this.getAttribute('alt');
+                    
+                    if (imgSrc) {
+                        openImageModal(imgSrc, caption, caption);
+                    }
+                });
+            });
+        }
+
+        // ==================== NAVBAR SCROLL EFFECT ====================
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (navbar) {
+                const scrollPosition = window.scrollY;
+                
+                if (scrollPosition > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // ==================== DOWNLOAD NOTIFICATION FUNCTIONALITY ====================
+        const downloadNotification = document.getElementById('downloadNotification');
+        const notificationMessage = document.getElementById('notificationMessage');
+        
+        function showDownloadNotification(fileName) {
+            notificationMessage.innerHTML = `Your file <strong>${fileName}</strong> is downloading...`;
+            downloadNotification.classList.add('show');
+            
+            // Hide notification after 5 seconds
+            setTimeout(() => {
+                downloadNotification.classList.remove('show');
+            }, 5000);
+        }
+
+        // ==================== DIRECT FILE DOWNLOAD FUNCTIONALITY ====================
+        function setupDownloadLinks() {
+            // Get all download links
+            const downloadLinks = document.querySelectorAll('.download-link');
+            
+            // Add event listeners for tracking and confirmation
+            downloadLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const fileName = this.getAttribute('download') || 'document.pdf';
+                    const fileUrl = this.getAttribute('href');
+                    
+                    console.log(`Starting download: ${fileName} from ${fileUrl}`);
+                    showDownloadNotification(fileName);
+                    
+                    // Try to open the file in a new window if download fails
+                    setTimeout(() => {
+                        // Check if file loaded successfully
+                        fetch(fileUrl, { method: 'HEAD' })
+                            .then(response => {
+                                if (!response.ok) {
+                                    console.warn(`File may not exist: ${fileUrl}`);
+                                    // Show alternative options
+                                    alert(`If download doesn't start automatically, please:\n\n1. Right-click the link and select "Save link as..."\n2. Or contact the school for assistance.`);
+                                }
+                            })
+                            .catch(err => {
+                                console.error(`Error accessing file: ${err}`);
+                            });
+                    }, 1000);
+                });
+            });
+        }
+
+        // ==================== SMOOTH SCROLL ====================
+        function setupSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    
+                    // Skip if it's just "#"
+                    if (targetId === '#') return;
+                    
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        e.preventDefault();
+                        
+                        // Close mobile menu if open
+                        if (mobileNav.classList.contains('active')) {
+                            closeMobileMenu();
+                        }
+                        
+                        // Scroll to target with offset for navbar
+                        const navbarHeight = document.querySelector('nav').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // ==================== ANIMATIONS ====================
+        function setupAnimations() {
+            // Add animation classes to elements
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.download-card, .payment-card, .uniform-card, .info-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state for animated elements
+            const animatedElements = document.querySelectorAll('.download-card, .payment-card, .uniform-card, .info-card');
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Run on load and scroll
+            window.addEventListener('load', animateOnScroll);
+            window.addEventListener('scroll', animateOnScroll);
+        }
+
+        // ==================== INITIALIZE EVERYTHING ====================
+        function initializeAll() {
+            setActiveMobileNavLink();
+            setActiveDesktopNavLink();
+            setupClickableImages();
+            setupDownloadLinks();
+            setupSmoothScroll();
+            setupAnimations();
+            
+            window.addEventListener('resize', handleResponsiveMenu);
+            
+            console.log('Fees page with consistent header/footer initialized!');
+        }
+
+        window.addEventListener('DOMContentLoaded', initializeAll);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
