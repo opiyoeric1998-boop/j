@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literacy Development | Jets Elementary School</title>
+    
+    <!-- ICONSCOUT CDN -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <!-- ADD FONT AWESOME FOR PLUS/MINUS ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #007bff;
+            --color-white: #fff;
+            --color-yellow: #f7c94b;
+            --color-purple: #6f42c1;
+            --color-red: #dc3545;
+            --color-black: #333;
+            --color-light-green: #90ee90;
+            --color-bg: #f8f9fa;
+            --color-light: #f8f9fa;
+            --color-gray: #6c757d;
+            --color-primary-variant: rgba(0, 123, 255, 0.8);
+            --color-dark: #212529;
+            --color-border: #e0e0e0;
+            
+            /* NEW COLOR SCHEME: Navy Blue, White, Sky Blue - MUST MATCH HOMEPAGE */
+            --color-navy-blue: #003366;       /* 30% - Main header/footer color */
+            --color-sky-blue: #4fc3f7;        /* 10% - Accent color */
+            --color-navy-dark: #002244;       /* Darker navy for footer */
+            
+            /* Social Media Colors */
+            --facebook-color: #1877F2;
+            --instagram-color: #E4405F;
+            --tiktok-color: #000000;
+            --whatsapp-color: #25D366;
+            --maps-color: #4285F4;
+            
+            /* Core Value Icon Colors */
+            --color-compassion: #E91E63;
+            --color-excellence: #FF9800;
+            --color-community: #4CAF50;
+            --color-innovation: #2196F3;
+            --color-integrity: #9C27B0;
+            --color-respect: #009688;
+            
+            /* Hamburger Menu Colors */
+            --hamburger-bg: linear-gradient(135deg, var(--color-navy-blue) 0%, #001a33 100%);
+            --hamburger-bg-active: var(--color-sky-blue);
+            --hamburger-color: var(--color-white);
+            
+            --container-width-lg: 76%;
+            --container-width-md: 90%;
+            --container-width-sm: 94%;
+            
+            --transition: all 300ms ease;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --box-shadow-strong: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            line-height: 1.7;
+            color: var(--color-black);
+            background: var(--color-white); /* 60% white - main content areas */
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: opacity 0.3s ease;
+        }
+
+        /* ==================== MODERN HAMBURGER MENU ==================== */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--hamburger-bg);
+            border-radius: 12px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-menu-btn.active {
+            background: var(--hamburger-bg-active);
+            transform: rotate(180deg);
+        }
+
+        .mobile-menu-btn.active:hover {
+            transform: rotate(180deg) scale(1.05);
+        }
+
+        .hamburger-line {
+            width: 24px;
+            height: 3px;
+            background-color: var(--hamburger-color);
+            border-radius: 3px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: var(--color-white);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: var(--color-white);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-navy-blue) 0%, #001a33 100%);
+            z-index: 1000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            padding: 80px 20px 30px;
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mobile-nav-link {
+            color: var(--color-white);
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid transparent;
+        }
+
+        .mobile-nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+            border-left-color: var(--color-sky-blue);
+        }
+
+        .mobile-nav-link.active {
+            background: rgba(255, 255, 255, 0.25);
+            border-left-color: var(--color-sky-blue);
+            font-weight: 600;
+        }
+
+        .mobile-nav-link i {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        nav {
+            background: var(--color-navy-blue);
+            width: 100vw;
+            height: 5rem;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: var(--color-navy-blue);
+            height: 4.5rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled .nav_container {
+            height: 100%;
+        }
+
+        nav.scrolled .nav_container a h4 {
+            color: var(--color-white);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        nav.scrolled .nav_menu a {
+            font-size: 0.95rem;
+            padding: 0.4rem 0.8rem;
+        }
+
+        nav.scrolled .nav_menu a:hover {
+            background: rgba(79, 195, 247, 0.08);
+        }
+
+        .nav_container {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .nav_menu {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav_menu a {
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            color: var(--color-white);
+            position: relative;
+        }
+
+        .nav_menu a:hover {
+            color: var(--color-white);
+            background: rgba(79, 195, 247, 0.1);
+        }
+
+        .nav_menu a.active {
+            color: var(--color-white);
+            background: rgba(79, 195, 247, 0.15);
+            font-weight: 600;
+        }
+
+        .nav_menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-sky-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav_menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav_menu a.active::after {
+            width: 100%;
+            background: var(--color-sky-blue);
+        }
+
+        .nav_container a h4 {
+            color: var(--color-white);
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* ==================== RETURN BUTTON ==================== */
+        .return-btn {
+            background: var(--color-sky-blue);
+            color: var(--color-white);
+            padding: 0.8rem 1.5rem 0.8rem 1rem;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            z-index: 1001;
+            text-decoration: none;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 500;
+            min-width: fit-content;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .return-btn:hover {
+            background: #03a9f4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(79, 195, 247, 0.3);
+        }
+
+        .return-btn i {
+            font-size: 1rem;
+        }
+
+        /* ==================== MEDIA QUERIES ==================== */
+        @media (max-width: 1024px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .nav_menu {
+                display: none;
+            }
+            
+            .nav_container {
+                padding: 0 1.5rem;
+            }
+            
+            .return-btn {
+                padding: 0.6rem 1.2rem 0.6rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            nav.scrolled .mobile-menu-btn {
+                top: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .mobile-nav {
+                width: 250px;
+            }
+            
+            .return-btn {
+                padding: 0.5rem 1rem 0.5rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            
+            nav.scrolled .mobile-menu-btn {
+                top: 12px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .mobile-nav {
+                width: 230px;
+            }
+            
+            .return-btn-text {
+                display: none;
+            }
+            
+            .return-btn {
+                width: 40px;
+                height: 40px;
+                padding: 0;
+                border-radius: 50%;
+                justify-content: center;
+            }
+            
+            .return-btn i {
+                margin: 0;
+            }
+        }
+
+        /* ==================== LITERACY PAGE CONTENT STYLES ==================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            width: var(--container-width-lg);
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 12rem;
+            padding-bottom: 6rem;
+            background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.75)), url('images/literacy.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-white);
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            background: var(--color-sky-blue);
+            color: var(--color-white);
+            padding: 1rem 2rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--color-sky-blue);
+            border-color: var(--color-sky-blue);
+            transform: translateY(-2px);
+        }
+
+        /* Content Sections */
+        .literacy-section {
+            background: var(--color-white);
+        }
+
+        .literacy-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--color-navy-blue);
+            position: relative;
+        }
+
+        .literacy-section h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: var(--color-sky-blue);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-intro {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--color-gray);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Introduction Section */
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .intro-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--color-black);
+        }
+
+        .intro-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow-strong);
+            transition: var(--transition);
+            height: 350px;
+        }
+
+        .intro-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .intro-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Importance Section */
+        .importance-section {
+            background: var(--color-bg);
+        }
+
+        .importance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .importance-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .importance-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            color: var(--color-white);
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-navy-blue), var(--color-sky-blue));
+        }
+
+        .card-header h3 {
+            color: var(--color-white);
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-body p {
+            margin: 0;
+            color: var(--color-black);
+            line-height: 1.6;
+        }
+
+        /* Grade Levels Section */
+        .grade-section {
+            background: var(--color-white);
+        }
+
+        .grade-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .grade-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--color-sky-blue);
+        }
+
+        .grade-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .grade-header {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .grade-icon {
+            width: 100%;
+            height: 180px;
+            margin: 0 auto 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+        }
+
+        .grade-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .grade-card:hover .grade-icon img {
+            transform: scale(1.05);
+        }
+
+        .grade-header h3 {
+            color: var(--color-navy-blue);
+            margin-bottom: 0.3rem;
+            font-size: 1.4rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .grade-header h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: var(--color-sky-blue);
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .grade-age {
+            font-style: italic;
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            margin: 1rem 0 0;
+        }
+
+        .grade-content {
+            padding: 1.5rem;
+        }
+
+        .grade-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .grade-content li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--color-black);
+        }
+
+        .grade-content li i {
+            color: var(--color-sky-blue);
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* Teaching Approach Section */
+        .approach-section {
+            background: var(--color-bg);
+        }
+
+        .approach-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .approach-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow-strong);
+            transition: var(--transition);
+            height: 400px;
+        }
+
+        .approach-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-hover);
+        }
+
+        .approach-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .approach-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .approach-text h3 {
+            color: var(--color-navy-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .approach-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .approach-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.8rem;
+            position: relative;
+            line-height: 1.6;
+            color: var(--color-black);
+        }
+
+        .approach-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-sky-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .approach-list strong {
+            color: var(--color-dark);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--color-white);
+        }
+
+        .faqs-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+
+        .faq {
+            background: var(--color-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--color-border);
+        }
+
+        .faq:hover {
+            box-shadow: var(--box-shadow-hover);
+            border-color: var(--color-sky-blue);
+        }
+
+        .faq.active {
+            border-color: var(--color-sky-blue);
+            background: var(--color-light);
+        }
+
+        .faq-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .faq-icon {
+            min-width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            background: var(--color-sky-blue);
+            color: var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .faq:hover .faq-icon {
+            background: #03a9f4;
+        }
+
+        .faq.active .faq-icon {
+            background: #03a9f4;
+            transform: rotate(45deg);
+        }
+
+        .question-answer h4 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: var(--color-navy-blue);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            padding-left: 4.2rem;
+            margin-top: 0;
+        }
+
+        .faq.active .faq-answer {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1.2rem;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            line-height: 1.7;
+            color: var(--color-black);
+            font-size: 1rem;
+        }
+
+        /* ==================== FOOTER STYLES ==================== */
+        footer {
+            background: var(--color-navy-dark);
+            color: white;
+            padding: 2rem 0 1.2rem 0;
+            width: 100%;
+            margin-top: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer_container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer_section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer_logo h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .footer_tagline {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 250px;
+            line-height: 1.5;
+        }
+
+        .footer_contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact_item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+        }
+
+        .contact_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            color: var(--color-sky-blue);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .footer_links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer_links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer_links a:hover {
+            color: var(--color-sky-blue);
+            transform: translateX(3px);
+        }
+
+        .footer_links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-sky-blue);
+            transition: width 0.3s ease;
+        }
+
+        .footer_links a:hover::after {
+            width: 100%;
+        }
+
+        .social_icons {
+            display: flex;
+            gap: 0.7rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social_icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .social_icon.facebook {
+            background: rgba(24, 119, 242, 0.9);
+        }
+
+        .social_icon.instagram {
+            background: linear-gradient(45deg, rgba(240, 148, 51, 0.9), rgba(230, 104, 60, 0.9), rgba(220, 39, 67, 0.9), rgba(204, 35, 102, 0.9), rgba(188, 24, 136, 0.9));
+        }
+
+        .social_icon.tiktok {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .social_icon.whatsapp {
+            background: rgba(37, 211, 102, 0.9);
+        }
+
+        .social_icon.maps {
+            background: rgba(66, 133, 244, 0.9);
+        }
+
+        .social_icon:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 195, 247, 0.4);
+        }
+
+        .social_icon.facebook:hover {
+            background: #1877F2;
+        }
+
+        .social_icon.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social_icon.tiktok:hover {
+            background: #000000;
+        }
+
+        .social_icon.whatsapp:hover {
+            background: #25D366;
+        }
+
+        .social_icon.maps:hover {
+            background: #4285F4;
+        }
+
+        .footer_bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            width: 100%;
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 1024px) {
+            .container {
+                width: var(--container-width-md);
+            }
+            
+            .hero {
+                padding-top: 10rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .intro-content,
+            .approach-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .importance-grid,
+            .grade-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer_container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .footer_section {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: var(--container-width-sm);
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            .hero {
+                padding-top: 9rem;
+                padding-bottom: 4rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .literacy-section h2 {
+                font-size: 2rem;
+            }
+            
+            .importance-grid,
+            .grade-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .intro-image,
+            .approach-image {
+                height: 280px;
+                order: -1;
+            }
+            
+            .grade-icon {
+                height: 150px;
+            }
+            
+            .faq-header {
+                gap: 1rem;
+            }
+            
+            .faq-icon {
+                min-width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .faq-answer {
+                padding-left: 3.5rem;
+            }
+            
+            .footer_links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .intro-image,
+            .approach-image {
+                height: 220px;
+            }
+            
+            .grade-icon {
+                height: 120px;
+            }
+            
+            .card-header,
+            .grade-header {
+                padding: 1.2rem;
+            }
+            
+            .card-body,
+            .grade-content {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== MODERN HAMBURGER MENU COMPONENTS ==================== -->
+    <div class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" role="button" tabindex="0" aria-expanded="false">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+    
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link" data-page="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            
+            <a href="about.html" class="mobile-nav-link" data-page="about">
+                <i class="fas fa-info-circle"></i>
+                <span>About</span>
+            </a>
+            
+            <a href="course.html" class="mobile-nav-link" data-page="course">
+                <i class="fas fa-book-open"></i>
+                <span>Course</span>
+            </a>
+            
+            <a href="fees.html" class="mobile-nav-link" data-page="fees">
+                <i class="fas fa-money-bill-alt"></i>
+                <span>Fees</span>
+            </a>
+            
+            <a href="blog.html" class="mobile-nav-link" data-page="blog">
+                <i class="fas fa-blog"></i>
+                <span>Blog</span>
+            </a>
+            
+            <a href="contact.html" class="mobile-nav-link" data-page="contact">
+                <i class="fas fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav>
+        <div class="container nav_container">
+            <a href="index.html" id="nav-logo"><h4>JETS ELEMENTARY</h4></a>
+            
+            <!-- Desktop Navigation Menu -->
+            <ul class="nav_menu">
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="about.html" id="nav-about">About</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="fees.html">Fees</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            
+            <!-- Return Button -->
+            <button id="backButton" class="return-btn" aria-label="Go back to previous page">
+                <i class="fas fa-arrow-left"></i>
+                <span class="return-btn-text">Go Back</span>
+            </button>
+        </div>
+    </nav>
+    <!-- END OF NAVBAR -->
+
+    <!-- ==================== LITERACY PAGE CONTENT ==================== -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <h1>Literacy Development</h1>
+                <p>Building strong reading, writing, listening, and speaking skills from PP1 to Grade 4 through interactive and engaging literacy education aligned with CBC standards.</p>
+                <a href="#introduction" class="btn">Explore Literacy Program</a>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="literacy-section" id="introduction">
+            <div class="container">
+                <h2>What is Literacy?</h2>
+                <p class="section-intro">The foundation of learning and communication for young minds</p>
+                <div class="intro-content">
+                    <div class="intro-text">
+                        <p>Literacy is the foundation of learning and communication. At Jets Elementary School, we define literacy as the development of reading, writing, listening, and speaking skills that enable children to express themselves and understand the world around them.</p>
+                        <p>As a key learning area in the CBC (Competency-Based Curriculum) framework, literacy helps young learners build essential skills that support their academic growth and personal development.</p>
+                    </div>
+                    <div class="intro-image">
+                        <img src="images/develop.jpg" alt="Children reading books in classroom" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Importance Section -->
+        <section class="importance-section" id="importance">
+            <div class="container">
+                <h2>Why Literacy Matters</h2>
+                <p class="section-intro">Literacy development is crucial for young learners. Here's why:</p>
+                
+                <div class="importance-grid">
+                    <div class="importance-card">
+                        <div class="card-header">
+                            <h3>Confident Communication</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Helps children express themselves clearly and communicate confidently with peers and adults.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="importance-card">
+                        <div class="card-header">
+                            <h3>Learning Foundation</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Builds essential reading and writing skills that support learning across all subjects and grade levels.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="importance-card">
+                        <div class="card-header">
+                            <h3>Creative Thinking</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Develops critical thinking, creativity, and imagination through storytelling and creative writing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="importance-card">
+                        <div class="card-header">
+                            <h3>Self-Expression</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Encourages children to express their thoughts, feelings, and ideas with confidence and clarity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grade Levels Section -->
+        <section class="grade-section" id="grade-levels">
+            <div class="container">
+                <h2>Literacy Development by Grade</h2>
+                <p class="section-intro">Our literacy curriculum is carefully structured to meet the needs of each age group:</p>
+                
+                <div class="grade-container">
+                    <!-- PP1 & PP2 -->
+                    <div class="grade-card">
+                        <div class="grade-header">
+                            <div class="grade-icon">
+                                <img src="images/grade-1.jpg" alt="Preschool children learning letters" loading="lazy">
+                            </div>
+                            <h3>PP1 & PP2</h3>
+                            <p class="grade-age">Ages 4-6</p>
+                        </div>
+                        <div class="grade-content">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Listening and speaking skills</li>
+                                <li><i class="fas fa-check-circle"></i> Letter sounds (phonics)</li>
+                                <li><i class="fas fa-check-circle"></i> Storytelling, songs, and rhymes</li>
+                                <li><i class="fas fa-check-circle"></i> Recognizing letters and simple words</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Grade 1 -->
+                    <div class="grade-card">
+                        <div class="grade-header">
+                            <div class="grade-icon">
+                                <img src="images/one.jpg" alt="Grade 1 students reading" loading="lazy">
+                            </div>
+                            <h3>Grade 1</h3>
+                            <p class="grade-age">Ages 6-7</p>
+                        </div>
+                        <div class="grade-content">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Reading simple words and sentences</li>
+                                <li><i class="fas fa-check-circle"></i> Writing simple sentences</li>
+                                <li><i class="fas fa-check-circle"></i> Building vocabulary</li>
+                                <li><i class="fas fa-check-circle"></i> Basic punctuation and capitalization</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Grade 2 -->
+                    <div class="grade-card">
+                        <div class="grade-header">
+                            <div class="grade-icon">
+                                <img src="images/two.jpg" alt="Grade 2 students writing" loading="lazy">
+                            </div>
+                            <h3>Grade 2</h3>
+                            <p class="grade-age">Ages 7-8</p>
+                        </div>
+                        <div class="grade-content">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Reading short stories</li>
+                                <li><i class="fas fa-check-circle"></i> Spelling and sentence structure</li>
+                                <li><i class="fas fa-check-circle"></i> Expressing ideas in writing</li>
+                                <li><i class="fas fa-check-circle"></i> Reading comprehension</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Grade 3 & 4 -->
+                    <div class="grade-card">
+                        <div class="grade-header">
+                            <div class="grade-icon">
+                                <img src="images/three.jpg" alt="Grade 3-4 students in library" loading="lazy">
+                            </div>
+                            <h3>Grade 3 & 4</h3>
+                            <p class="grade-age">Ages 8-10</p>
+                        </div>
+                        <div class="grade-content">
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Reading for understanding</li>
+                                <li><i class="fas fa-check-circle"></i> Creative writing and composition</li>
+                                <li><i class="fas fa-check-circle"></i> Grammar and proper sentence formation</li>
+                                <li><i class="fas fa-check-circle"></i> Presentation and public speaking skills</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teaching Approach Section -->
+        <section class="approach-section" id="teaching-approach">
+            <div class="container">
+                <h2>Our Teaching Approach</h2>
+                <p class="section-intro">Learner-centered education following the CBC framework</p>
+                <div class="approach-content">
+                    <div class="approach-image">
+                        <img src="images/four.jpg" alt="Teacher engaging with students" loading="lazy">
+                    </div>
+                    <div class="approach-text">
+                        <h3>Learner-Centered & CBC-Aligned</h3>
+                        <p>Our literacy instruction follows the Competency-Based Curriculum (CBC) framework with a focus on:</p>
+                        <ul class="approach-list">
+                            <li><strong>Interactive Activities:</strong> Hands-on learning through games, role-play, and group work</li>
+                            <li><strong>Creative Expression:</strong> Encouraging storytelling, drawing, and creative writing</li>
+                            <li><strong>Collaborative Learning:</strong> Group discussions, peer reading, and shared writing activities</li>
+                            <li><strong>Differentiated Instruction:</strong> Tailoring lessons to meet individual learning needs</li>
+                            <li><strong>Fun & Engagement:</strong> Making literacy learning enjoyable through songs, rhymes, and picture books</li>
+                        </ul>
+                        <p>We believe that when children enjoy learning, they develop a lifelong love for reading and writing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <p class="section-intro">Common questions parents ask about our literacy program:</p>
+                
+                <div class="faqs-container">
+                    <article class="faq">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="question-answer">
+                                <h4>At what age should my child start reading?</h4>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We introduce pre-reading skills in PP1 (age 4) with letter recognition and phonics. Most children begin reading simple words by age 5-6. Every child develops at their own pace, and our teachers provide individualized support.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="faq">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="question-answer">
+                                <h4>How do you help struggling readers?</h4>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We use differentiated instruction, small group sessions, one-on-one support, and multisensory approaches. Our teachers are trained in various reading intervention strategies and work closely with parents to support each child's progress.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="faq">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="question-answer">
+                                <h4>What reading materials do you use?</h4>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We use a variety of age-appropriate materials including phonics readers, storybooks, CBC-aligned textbooks, digital resources, and our well-stocked school library with books from diverse authors and cultures.</p>
+                        </div>
+                    </article>
+                    
+                    <article class="faq">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="question-answer">
+                                <h4>How can parents support literacy at home?</h4>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We recommend daily reading together, creating a reading corner at home, visiting libraries, playing word games, and modeling good reading habits. We provide monthly reading tips and book suggestions for parents.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer_container">
+            <!-- Section 1: School Name & Tagline -->
+            <div class="footer_section footer_logo">
+                <h3>Jets Elementary School</h3>
+                <p class="footer_tagline">Nurturing young minds for a brighter future</p>
+                
+                <!-- Footer Links -->
+                <div class="footer_links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="course.html">Courses</a>
+                    <a href="fees.html">Fees</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Section 2: Contact Details & Social Icons -->
+            <div class="footer_section footer_contact">
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-phone-alt"></i></span>
+                    <span>+254 717830659<br>+254 727549629</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <span>Gesoko, opp.joyland special school-kisumu</span>
+                </div>
+                <div class="contact_item">
+                    <span class="contact_icon"><i class="fas fa-envelope"></i></span>
+                    <span>jetselementary@gmail.com</span>
+                </div>
+                
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="social_icon instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="social_icon tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://maps.google.com" target="_blank" class="social_icon maps" title="Google Maps">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer_bottom">
+            <p>&copy; 2026 Jets Elementary School. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== MODERN HAMBURGER MENU FUNCTIONALITY ====================
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        
+        function toggleMobileMenu() {
+            const isActive = mobileNav.classList.contains('active');
+            
+            if (isActive) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        }
+        
+        function openMobileMenu() {
+            mobileNav.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            mobileMenuBtn.classList.add('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+            
+            setTimeout(() => {
+                mobileNavLinks[0].focus();
+            }, 300);
+        }
+        
+        function closeMobileMenu() {
+            mobileNav.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            
+            mobileMenuBtn.focus();
+        }
+        
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+        
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+        
+        mobileMenuBtn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMobileMenu();
+            }
+        });
+        
+        function setActiveMobileNavLink() {
+            const currentPage = window.location.pathname.split('/').pop();
+            mobileNavLinks.forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if ((currentPage === '' && linkHref === 'index.html') || 
+                    (currentPage === linkHref)) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+        
+        function setActiveDesktopNavLink() {
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const navLinks = document.querySelectorAll('.nav_menu a');
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const linkHref = link.getAttribute('href');
+                
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                } else if (currentPage === '' && linkHref === 'index.html') {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        function handleResponsiveMenu() {
+            if (window.innerWidth >= 1025 && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        }
+
+        // ==================== BACK BUTTON FUNCTIONALITY ====================
+        function setupBackButton() {
+            const backButton = document.getElementById('backButton');
+            
+            if (!backButton) return;
+            
+            const canGoBack = window.history.length > 1;
+            
+            if (canGoBack) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Add ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.7);
+                        transform: scale(0);
+                        animation: ripple-animation 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        top: ${e.clientY - rect.top - size/2}px;
+                        left: ${e.clientX - rect.left - size/2}px;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    // Remove ripple after animation
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                    
+                    // Go back in history
+                    setTimeout(() => {
+                        window.history.back();
+                    }, 300);
+                });
+            } else {
+                // If no history, go to homepage
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'index.html';
+                });
+            }
+        }
+
+        // ==================== NAVBAR SCROLL EFFECT ====================
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (navbar) {
+                const scrollPosition = window.scrollY;
+                
+                if (scrollPosition > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // ==================== SMOOTH SCROLLING ====================
+        function setupSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // ==================== FAQ TOGGLE FUNCTIONALITY ====================
+        function setupFAQs() {
+            const faqs = document.querySelectorAll('.faq');
+            
+            const isMobile = window.innerWidth <= 768;
+            
+            faqs.forEach((faq, index) => {
+                const icon = faq.querySelector('.faq-icon i');
+                
+                if (isMobile) {
+                    // Mobile: only first FAQ open
+                    if (index === 0) {
+                        faq.classList.add('active');
+                        if (icon) {
+                            icon.classList.remove('fa-plus');
+                            icon.classList.add('fa-minus');
+                        }
+                    } else {
+                        faq.classList.remove('active');
+                        if (icon) {
+                            icon.classList.remove('fa-minus');
+                            icon.classList.add('fa-plus');
+                        }
+                    }
+                } else {
+                    // Desktop: all FAQs open
+                    faq.classList.add('active');
+                    if (icon) {
+                        icon.classList.remove('fa-plus');
+                        icon.classList.add('fa-minus');
+                    }
+                }
+                
+                // Add click event
+                faq.addEventListener('click', () => {
+                    // On mobile, close other FAQs when opening a new one
+                    if (isMobile) {
+                        const isActive = faq.classList.contains('active');
+                        if (!isActive) {
+                            faqs.forEach(otherFaq => {
+                                otherFaq.classList.remove('active');
+                                const otherIcon = otherFaq.querySelector('.faq-icon i');
+                                if (otherIcon) {
+                                    otherIcon.classList.remove('fa-minus');
+                                    otherIcon.classList.add('fa-plus');
+                                }
+                            });
+                        }
+                    }
+                    
+                    // Toggle active class on clicked FAQ
+                    faq.classList.toggle('active');
+                    
+                    // Change icon from plus to minus
+                    if (icon) {
+                        if (faq.classList.contains('active')) {
+                            icon.classList.remove('fa-plus');
+                            icon.classList.add('fa-minus');
+                        } else {
+                            icon.classList.remove('fa-minus');
+                            icon.classList.add('fa-plus');
+                        }
+                    }
+                });
+            });
+        }
+
+        // ==================== RESPONSIVE RESIZE HANDLER ====================
+        function setupResponsiveBehavior() {
+            const navMenu = document.querySelector('.nav_menu');
+            
+            function handleResize() {
+                if (window.innerWidth <= 768) {
+                    navMenu.style.display = 'none';
+                } else {
+                    navMenu.style.display = 'flex';
+                }
+                
+                // Re-initialize FAQs on resize to handle mobile/desktop differences
+                setupFAQs();
+            }
+            
+            window.addEventListener('resize', handleResize);
+            handleResize(); // Initialize on load
+        }
+
+        // ==================== INITIALIZE EVERYTHING ====================
+        function initializeAll() {
+            setActiveMobileNavLink();
+            setActiveDesktopNavLink();
+            setupBackButton();
+            setupSmoothScrolling();
+            setupFAQs();
+            setupResponsiveBehavior();
+            
+            window.addEventListener('resize', handleResponsiveMenu);
+            
+            console.log('Literacy page with matching about page header/footer initialized!');
+        }
+
+        window.addEventListener('DOMContentLoaded', initializeAll);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
