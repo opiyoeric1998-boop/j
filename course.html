@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Programmes - Jets Elementary School</title>
+
+    <!-- Google Fonts: Cormorant Garamond + DM Sans — matches site design system -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ============================================================
+           RESET & ROOT TOKENS — identical to index & about
+        ============================================================ */
+        *, *::before, *::after {
+            margin: 0; padding: 0; border: 0; outline: 0;
+            text-decoration: none; list-style: none;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy:        #002855;
+            --navy-deep:   #001633;
+            --sky:         #38bdf8;
+            --sky-light:   #e0f4fd;
+            --gold:        #f0a500;
+            --white:       #ffffff;
+            --off-white:   #f7f9fc;
+            --slate:       #64748b;
+            --slate-light: #e2e8f0;
+            --black:       #1a1a2e;
+
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body:    'DM Sans', system-ui, sans-serif;
+
+            --container-lg: 78%;
+            --container-md: 90%;
+            --container-sm: 94%;
+            --nav-h: 5rem;
+
+            --shadow-sm:  0 2px 8px rgba(0,40,85,.08);
+            --shadow-md:  0 8px 24px rgba(0,40,85,.12);
+            --shadow-lg:  0 20px 48px rgba(0,40,85,.16);
+
+            --ease: cubic-bezier(.4,0,.2,1);
+            --dur:  300ms;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.7;
+            color: var(--black);
+            background: var(--white);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ============================================================
+           TYPOGRAPHY
+        ============================================================ */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--navy);
+        }
+
+        h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+        h3 { font-size: clamp(1.2rem, 2.5vw, 1.7rem); }
+        h4 { font-size: clamp(1rem, 2vw, 1.2rem); }
+
+        p { color: var(--slate); }
+
+        .container { width: var(--container-lg); margin: 0 auto; }
+        section { padding: 6rem 0; }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--sky);
+            margin-bottom: 1rem;
+        }
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 28px; height: 2px;
+            background: var(--sky);
+            border-radius: 2px;
+        }
+
+        /* ============================================================
+           BUTTONS
+        ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .85rem 2rem;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: .95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--dur) var(--ease);
+        }
+        .btn-primary {
+            background: var(--navy);
+            color: var(--white);
+            border: 2px solid var(--navy);
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--navy);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-light {
+            background: rgba(255,255,255,.15);
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,.4);
+            backdrop-filter: blur(8px);
+        }
+        .btn-light:hover {
+            background: var(--white);
+            color: var(--navy);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+           MOBILE MENU
+        ============================================================ */
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 1.1rem; right: 1.1rem;
+            width: 46px; height: 46px;
+            background: var(--navy);
+            border-radius: 10px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1100;
+            border: 2px solid rgba(255,255,255,.15);
+            transition: background var(--dur) var(--ease), transform var(--dur) var(--ease);
+        }
+        .mobile-menu-btn.active { background: var(--sky); transform: rotate(180deg); }
+
+        .hamburger-line {
+            width: 22px; height: 2.5px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all var(--dur) var(--ease);
+            transform-origin: center;
+        }
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 280px; height: 100%;
+            background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+            z-index: 1050;
+            transition: right .4s var(--ease);
+            box-shadow: -6px 0 30px rgba(0,0,0,.25);
+            display: flex;
+            flex-direction: column;
+            padding: 5rem 1.5rem 2rem;
+            overflow-y: auto;
+        }
+        .mobile-nav.active { right: 0; }
+        .mobile-nav-links { display: flex; flex-direction: column; gap: .6rem; }
+
+        .mobile-nav-link {
+            color: rgba(255,255,255,.85);
+            padding: .9rem 1.2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all .25s var(--ease);
+            background: rgba(255,255,255,.06);
+            border-left: 3px solid transparent;
+        }
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            background: rgba(56,189,248,.15);
+            border-left-color: var(--sky);
+            color: var(--white);
+            transform: translateX(4px);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,.55);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            opacity: 0; visibility: hidden;
+            transition: all .3s var(--ease);
+        }
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+
+        /* ============================================================
+           NAVBAR
+        ============================================================ */
+        nav {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: var(--nav-h);
+            background: var(--navy);
+            z-index: 900;
+            transition: height var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+        }
+        nav::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--sky) 0%, var(--gold) 100%);
+        }
+        nav.scrolled { height: 4.2rem; box-shadow: 0 4px 24px rgba(0,0,0,.18); }
+
+        .nav_container {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2.5rem;
+        }
+        .nav-logo { display: flex; flex-direction: column; line-height: 1; }
+        .nav-logo-main {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: .02em;
+        }
+        .nav-logo-sub {
+            font-size: .65rem;
+            font-weight: 500;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--sky);
+        }
+        /* ── School badge + logo left group ── */
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+        .school-badge-img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            flex-shrink: 0;
+        }
+        .nav-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+            text-decoration: none;
+        }
+        .nav_menu { display: flex; align-items: center; gap: .3rem; }
+        .nav_menu a {
+            font-size: .92rem;
+            font-weight: 500;
+            padding: .5rem .9rem;
+            border-radius: 6px;
+            color: rgba(255,255,255,.8);
+            position: relative;
+            transition: all var(--dur) var(--ease);
+        }
+        .nav_menu a:hover { color: var(--white); background: rgba(255,255,255,.08); }
+        .nav_menu a.active { color: var(--white); background: rgba(56,189,248,.18); }
+        .nav_menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 4px; left: .9rem;
+            width: 0; height: 2px;
+            background: var(--sky);
+            border-radius: 2px;
+            transition: width var(--dur) var(--ease);
+        }
+        .nav_menu a:hover::after,
+        .nav_menu a.active::after { width: calc(100% - 1.8rem); }
+
+        /* ============================================================
+           HERO
+        ============================================================ */
+        .course-hero {
+            padding-top: calc(var(--nav-h) + 4rem);
+            padding-bottom: 5rem;
+            background: linear-gradient(135deg, rgba(0,28,55,.95) 0%, rgba(0,40,85,.88) 50%, rgba(0,22,51,.96) 100%),
+                        url('images/service.jpg') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+            min-height: 62vh;
+            display: flex;
+            align-items: center;
+        }
+        .course-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%; right: -8%;
+            width: 520px; height: 520px;
+            background: radial-gradient(circle, rgba(56,189,248,.18) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .course-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%; left: -6%;
+            width: 380px; height: 380px;
+            background: radial-gradient(circle, rgba(240,165,0,.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(56,189,248,.15);
+            border: 1px solid rgba(56,189,248,.3);
+            color: var(--sky);
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: .4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+        .course-hero h1 {
+            color: var(--white);
+            margin-bottom: 1.2rem;
+            animation: fadeUp .9s var(--ease) both;
+        }
+        .course-hero h1 span { color: var(--sky); }
+        .course-hero p {
+            color: rgba(255,255,255,.72);
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.75;
+            animation: fadeUp .9s var(--ease) .15s both;
+        }
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeUp .9s var(--ease) .3s both;
+        }
+
+        /* ============================================================
+           INTRO / OVERVIEW
+        ============================================================ */
+        .introduction { background: var(--off-white); }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .intro-image-wrap {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .intro-image-wrap img {
+            width: 100%; height: 440px;
+            object-fit: cover;
+            display: block;
+            transition: transform .6s var(--ease);
+        }
+        .intro-image-wrap:hover img { transform: scale(1.04); }
+
+        /* floating badge */
+        .intro-badge {
+            position: absolute;
+            bottom: 1.5rem; right: 1.5rem;
+            background: var(--white);
+            border-radius: 14px;
+            padding: 1rem 1.4rem;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+        }
+        .intro-badge-icon {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, var(--sky) 0%, #0ea5e9 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .intro-badge-text strong {
+            display: block;
+            font-size: .9rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .intro-badge-text span { font-size: .75rem; color: var(--slate); }
+
+        .intro-text h2 { margin-bottom: 1.2rem; }
+        .intro-text p  { font-size: 1rem; line-height: 1.85; margin-bottom: 1.2rem; }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 1.5rem 1.2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border-top: 3px solid transparent;
+            transition: all var(--dur) var(--ease);
+        }
+        .benefit-card:nth-child(1) { border-top-color: #e91e63; }
+        .benefit-card:nth-child(2) { border-top-color: var(--sky); }
+        .benefit-card:nth-child(3) { border-top-color: #4caf50; }
+
+        .benefit-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+
+        .benefit-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto .8rem;
+            font-size: 1.3rem;
+            color: var(--white);
+        }
+        .benefit-card:nth-child(1) .benefit-icon { background: linear-gradient(135deg,#e91e63,#f06292); }
+        .benefit-card:nth-child(2) .benefit-icon { background: linear-gradient(135deg,var(--sky),#0ea5e9); }
+        .benefit-card:nth-child(3) .benefit-icon { background: linear-gradient(135deg,#4caf50,#81c784); }
+
+        .benefit-card h4 { font-size: .95rem; color: var(--navy); margin-bottom: .4rem; }
+        .benefit-card p  { font-size: .82rem; color: var(--slate); margin: 0; line-height: 1.55; }
+
+        /* ============================================================
+           PROGRAMMES
+        ============================================================ */
+        .programmes { background: var(--white); }
+
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-header h2 { margin-bottom: .6rem; }
+        .section-header p  { max-width: 580px; margin: 0 auto; }
+
+        .programme-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .programme-card {
+            background: var(--white);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1.5px solid var(--slate-light);
+            transition: all var(--dur) var(--ease);
+            display: flex;
+            flex-direction: column;
+            animation: fadeUp .6s var(--ease) both;
+        }
+
+        .programme-card:nth-child(1) { animation-delay: .05s; }
+        .programme-card:nth-child(2) { animation-delay: .1s; }
+        .programme-card:nth-child(3) { animation-delay: .15s; }
+        .programme-card:nth-child(4) { animation-delay: .2s; }
+        .programme-card:nth-child(5) { animation-delay: .25s; }
+        .programme-card:nth-child(6) { animation-delay: .3s; }
+        .programme-card:nth-child(7) { animation-delay: .35s; }
+
+        .programme-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--sky);
+        }
+
+        .programme-image {
+            height: 210px;
+            overflow: hidden;
+            position: relative;
+        }
+        .programme-image img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .5s var(--ease);
+        }
+        .programme-card:hover .programme-image img { transform: scale(1.07); }
+
+        .programme-image-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,28,55,.5) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity var(--dur) var(--ease);
+        }
+        .programme-card:hover .programme-image-overlay { opacity: 1; }
+
+        /* colour accent strip at the top of each card */
+        .programme-card:nth-child(1) { border-top: 3px solid #e91e63; }
+        .programme-card:nth-child(2) { border-top: 3px solid #2196F3; }
+        .programme-card:nth-child(3) { border-top: 3px solid #9C27B0; }
+        .programme-card:nth-child(4) { border-top: 3px solid var(--sky); }
+        .programme-card:nth-child(5) { border-top: 3px solid #FF9800; }
+        .programme-card:nth-child(6) { border-top: 3px solid #4CAF50; }
+        .programme-card:nth-child(7) { border-top: 3px solid #009688; }
+
+        .programme-body {
+            padding: 1.6rem 1.8rem 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .programme-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--sky);
+            background: var(--sky-light);
+            padding: .25rem .7rem;
+            border-radius: 100px;
+            margin-bottom: .8rem;
+            width: fit-content;
+        }
+
+        .programme-body h3 { font-size: 1.25rem; margin-bottom: .7rem; }
+
+        .programme-body p { font-size: .92rem; line-height: 1.7; margin-bottom: 1.2rem; flex-grow: 1; }
+
+        .programme-checklist { display: flex; flex-direction: column; gap: .4rem; }
+
+        .programme-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: .55rem;
+            font-size: .85rem;
+            color: var(--slate);
+            line-height: 1.5;
+        }
+
+        .programme-checklist li::before {
+            content: '✓';
+            color: var(--sky);
+            font-weight: 700;
+            font-size: .9rem;
+            flex-shrink: 0;
+            margin-top: .05rem;
+        }
+
+        /* ============================================================
+           GALLERY & EVENTS
+        ============================================================ */
+        .gallery-section { background: var(--off-white); }
+
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .gallery-tab {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            padding: .7rem 1.6rem;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: .88rem;
+            font-weight: 600;
+            color: var(--white);
+            cursor: pointer;
+            border: none;
+            transition: all var(--dur) var(--ease);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gallery-tab:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+
+        .gallery-tab.active {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            outline: 3px solid var(--white);
+            outline-offset: 2px;
+        }
+
+        .tab-sports  { background: linear-gradient(135deg,#e91e63,#f06292); }
+        .tab-tour    { background: linear-gradient(135deg,#2196F3,#64b5f6); }
+        .tab-culture { background: linear-gradient(135deg,#4caf50,#81c784); }
+        .tab-videos  { background: linear-gradient(135deg,#f44336,#ef9a9a); }
+
+        .gallery-panel {
+            display: none;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1.5px solid var(--slate-light);
+            animation: fadeUp .4s var(--ease);
+        }
+        .gallery-panel.active { display: block; }
+
+        .gallery-panel-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .gallery-panel-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .panel-sports  .gallery-panel-icon { background: linear-gradient(135deg,#e91e63,#f06292); }
+        .panel-tour    .gallery-panel-icon { background: linear-gradient(135deg,#2196F3,#64b5f6); }
+        .panel-culture .gallery-panel-icon { background: linear-gradient(135deg,#4caf50,#81c784); }
+        .panel-videos  .gallery-panel-icon { background: linear-gradient(135deg,#f44336,#ef9a9a); }
+
+        .gallery-panel-header h3 { margin: 0; font-size: 1.5rem; }
+
+        /* Photo grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+
+        .photo-item {
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            aspect-ratio: 4/3;
+        }
+
+        .photo-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .5s var(--ease);
+            opacity: 1;
+        }
+
+        .photo-item-overlay {
+            position: absolute; inset: 0;
+            background: rgba(0,28,55,.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity var(--dur) var(--ease);
+        }
+
+        .photo-item-overlay i { color: var(--white); font-size: 1.6rem; }
+
+        .photo-item:hover img { transform: scale(1.08); }
+        .photo-item:hover .photo-item-overlay { opacity: 1; }
+
+        /* Video grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .video-card {
+            background: var(--off-white);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1.5px solid var(--slate-light);
+            transition: all var(--dur) var(--ease);
+        }
+        .video-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--sky); }
+
+        .video-wrap {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        .video-wrap video {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-caption {
+            padding: .9rem 1.2rem;
+            font-size: .9rem;
+            font-weight: 600;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+        .video-caption i { color: var(--sky); font-size: .85rem; }
+
+        /* ============================================================
+           IMAGE MODAL
+        ============================================================ */
+        .image-modal {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,.92);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        .image-modal.active { display: flex; animation: fadeIn .25s var(--ease); }
+
+        .modal-content { max-width: 90vw; max-height: 90vh; position: relative; }
+        .modal-content img {
+            max-width: 100%; max-height: 80vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.5);
+            display: block;
+        }
+        .modal-close {
+            position: absolute;
+            top: -1.2rem; right: -1.2rem;
+            width: 38px; height: 38px;
+            background: var(--sky);
+            border: none; border-radius: 50%;
+            color: var(--white);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--dur) var(--ease);
+        }
+        .modal-close:hover { background: #0ea5e9; transform: rotate(90deg) scale(1.1); }
+
+        .modal-title {
+            position: absolute;
+            bottom: -2.5rem; left: 0;
+            width: 100%;
+            text-align: center;
+            color: rgba(255,255,255,.7);
+            font-size: .9rem;
+        }
+
+        /* ============================================================
+           FOOTER — identical to index & about
+        ============================================================ */
+        footer {
+            background: var(--navy-deep);
+            color: rgba(255,255,255,.8);
+            padding: 3.5rem 0 1.5rem;
+            margin-top: auto;
+            box-shadow: 0 -4px 30px rgba(0,0,0,.2);
+        }
+        .footer_container {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .footer-brand h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: .4rem;
+        }
+        .footer-tagline {
+            font-size: .88rem;
+            color: rgba(255,255,255,.5);
+            max-width: 220px;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .footer-col h4 {
+            font-family: var(--font-body);
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--sky);
+            margin-bottom: 1rem;
+        }
+        .footer_links { display: flex; flex-direction: column; gap: .5rem; }
+        .footer_links a {
+            color: rgba(255,255,255,.65);
+            font-size: .92rem;
+            transition: all var(--dur) var(--ease);
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .2rem 0;
+        }
+        .footer_links a:hover { color: var(--sky); transform: translateX(4px); }
+        .footer_links a::before {
+            content: '→';
+            font-size: .75rem;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: all var(--dur) var(--ease);
+        }
+        .footer_links a:hover::before { opacity: 1; transform: translateX(0); }
+
+        .footer-contact { display: flex; flex-direction: column; gap: .7rem; }
+        .contact_item {
+            display: flex;
+            align-items: flex-start;
+            gap: .75rem;
+            font-size: .88rem;
+            color: rgba(255,255,255,.65);
+            line-height: 1.5;
+        }
+        .contact_icon { color: var(--sky); font-size: .95rem; margin-top: .1rem; flex-shrink: 0; }
+
+        .social_icons { display: flex; gap: .6rem; margin-top: 1.2rem; flex-wrap: wrap; }
+        .social_icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            color: var(--white);
+            transition: all var(--dur) var(--ease);
+        }
+        .social_icon:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,.3); }
+        .social_icon.facebook  { background: #1877F2; }
+        .social_icon.instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+        .social_icon.tiktok    { background: #000; border: 1px solid rgba(255,255,255,.15); }
+        .social_icon.whatsapp  { background: #25D366; }
+        .social_icon.maps      { background: #4285F4; }
+
+        .footer_bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,.08);
+            font-size: .8rem;
+            color: rgba(255,255,255,.35);
+        }
+
+        /* ============================================================
+           ANIMATIONS
+        ============================================================ */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width: 1024px) {
+            .container { width: var(--container-md); }
+            .mobile-menu-btn { display: flex; }
+            .nav_menu { display: none; }
+            .nav_container { padding: 0 1.5rem; }
+
+            .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .intro-image-wrap img { height: 340px; }
+            .intro-badge { display: none; }
+
+            .programme-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .photo-grid { grid-template-columns: repeat(2, 1fr); }
+            .video-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .footer_container { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .container { width: var(--container-sm); }
+            section { padding: 4rem 0; }
+
+            .mobile-menu-btn { top: .85rem; right: .85rem; width: 42px; height: 42px; }
+            .mobile-nav { width: 260px; }
+
+            .course-hero { min-height: auto; padding-bottom: 4rem; }
+
+            .benefits-grid { grid-template-columns: 1fr; }
+
+            .programme-grid { grid-template-columns: 1fr; }
+
+            .gallery-tabs { gap: .7rem; }
+            .gallery-tab { padding: .6rem 1.2rem; font-size: .82rem; }
+
+            .photo-grid { grid-template-columns: repeat(2, 1fr); }
+            .video-grid { grid-template-columns: 1fr; }
+
+            .footer_container { grid-template-columns: 1fr; gap: 2rem; }
+            .footer_links { flex-direction: row; flex-wrap: wrap; gap: .5rem 1.2rem; }
+
+            .modal-close { top: -.8rem; right: .5rem; }
+        }
+
+        @media (max-width: 480px) {
+            .photo-grid { grid-template-columns: 1fr; }
+            .intro-image-wrap img { height: 260px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- IMAGE MODAL -->
+    <div class="image-modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-title" id="modalTitle"></div>
+        </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu-btn" id="mobileMenuBtn" role="button" tabindex="0" aria-label="Toggle menu" aria-expanded="false">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+        <div class="mobile-nav-links">
+            <a href="index.html"    class="mobile-nav-link"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="about.html"    class="mobile-nav-link"><i class="fas fa-info-circle"></i><span>About</span></a>
+            <a href="course.html"   class="mobile-nav-link active"><i class="fas fa-book-open"></i><span>Course</span></a>
+            <a href="fees.html"     class="mobile-nav-link"><i class="fas fa-money-bill-alt"></i><span>Fees</span></a>
+            <a href="blog.html"     class="mobile-nav-link"><i class="fas fa-blog"></i><span>Blog</span></a>
+            <a href="contact.html"  class="mobile-nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a>
+            <a href="aftercare.html" class="mobile-nav-link"><i class="fas fa-child"></i><span>Aftercare</span></a>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="main-nav">
+        <div class="container nav_container">
+            <div class="nav-left">
+
+                <img src="images/logo.png.jpg" alt="Jets Elementary badge" class="school-badge-img">
+
+                <a href="index.html" class="nav-logo">
+
+                    <span class="nav-logo-main">Jets Elementary</span>
+
+                    <span class="nav-logo-sub"></span>
+
+                </a>
+
+            </div>
+            <ul class="nav_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="course.html" class="active">Course</a></li>
+                <li><a href="fees.html">Fees</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="aftercare.html">Aftercare</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ==================== HERO ==================== -->
+        <section class="course-hero">
+            <div class="container hero-inner">
+                <div class="hero-badge"><i class="fas fa-star"></i>7 Enrichment Programmes</div>
+                <h1>Learning &amp; <span>Enrichment</span> Programmes</h1>
+                <p>A safe, engaging, and nurturing environment where your child continues to learn, play, and grow — every single day.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-light">Enrol Today <i class="fas fa-arrow-right"></i></a>
+                    <a href="fees.html" class="btn btn-light" style="background:transparent;border-color:rgba(255,255,255,.3);">View Fees</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== INTRO ==================== -->
+        <section class="introduction">
+            <div class="container intro-grid">
+                <div class="intro-image-wrap">
+                    <img src="images/assembly.jpg" alt="Students in assembly" loading="lazy">
+                    <div class="intro-badge">
+                        <div class="intro-badge-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="intro-badge-text">
+                            <strong>100% Safe</strong>
+                            <span>Supervised at all times</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-text">
+                    <span class="section-label">Why Our Programmes</span>
+                    <h2>Safe Learning Beyond School Hours</h2>
+                    <p>Our Learning Programmes provide a structured, safe, and stimulating environment for children. We understand the challenges working parents face — and we're here to support both you and your child.</p>
+                    <p>At Jets Elementary, our programmes aren't just supervision — they're an extension of our educational philosophy, creating opportunities for social interaction, skill development, and creative expression.</p>
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h4>Safety &amp; Security</h4>
+                            <p>Professional staff ensure your child's wellbeing at all times with secure, supervised facilities.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                            <h4>Skill Development</h4>
+                            <p>Activities designed to build confidence, critical thinking, and new abilities in a supportive setting.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                            <h4>Social Growth</h4>
+                            <p>Guided interactions that build friendships, teamwork, and essential social skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PROGRAMMES ==================== -->
+        <section class="programmes">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label" style="justify-content:center;">What We Offer</span>
+                    <h2>Our Learning Programmes</h2>
+                    <p>Each programme is carefully designed to nurture a different aspect of your child's development.</p>
+                </div>
+                <div class="programme-grid">
+
+                    <!-- Sports -->
+                    <div class="programme-card">
+                        <div class="programme-image">
+                            <img src="images/football.jpg" alt="Children playing football" loading="lazy">
+                            <div class="programme-image-overlay"></div>
+                        </div>
+                        <div class="programme-body">
+                            <span class="programme-tag"><i class="fas fa-running"></i> Physical</span>
+                            <h3>Sports &amp; Play</h3>
+                            <p>Active games and team sports that promote physical fitness, coordination, and social skills in a safe, structured environment.</p>
+                            <ul class="programme-checklist">
+                                <li>Builds teamwork and sportsmanship</li>
+                                <li>Improves physical health and coordination</li>
+                                <li>Teaches discipline and fair play</li>
+                                <li>Encourages healthy competition</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Computer & Robotics -->
+                    <div class="programme-card">
+                        <div class="programme-image">
+                            <img src="images/comp.jpg" alt="Children learning computers" loading="lazy">
+                            <div class="programme-image-overlay"></div>
+                        </div>
+                        <div class="programme-body">
+                            <span class="programme-tag"><i class="fas fa-laptop-code"></i> Technology</span>
+                            <h3>Computer Learning &amp; Robotics</h3>
+                            <p>Introduction to technology, coding basics, and simple robotics projects — making digital learning fun and accessible for young minds.</p>
+                            <ul class="programme-checklist">
+                                <li>Develops problem-solving skills</li>
+                                <li>Introduces basic programming concepts</li>
+                                <li>Encourages creativity and innovation</li>
+                                <li>Builds confidence with technology</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Chess -->
+                    <div class="programme-card">
+                        <div class="programme-image">
+                            <img src="images/jess.jpg" alt="Children playing chess" loading="lazy">
+                            <div class="programme-image-overlay"></div>
+                        </div>
+                        <div class="programme-body">
+                            <span class="programme-tag"><i class="fas fa-chess"></i> Strategy</span>
+                            <h3>Chess Game</h3>
+                            <p>The timeless game of strategy taught in an engaging, age-appropriate way — children learn to think ahead and develop mental focus.</p>
+                            <ul class="programme-checklist">
+                                <li>Enhances critical thinking skills</li>
+                                <li>Improves concentration and patience</li>
+                                <li>Teaches planning and strategy</li>
+                                <li>Boosts memory and cognitive abilities</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Swimming -->
+                    <div class="programme-card">
+                        <div class="programme-image">
+                            <img src="images/hotel.jpg" alt="Swimming activities" loading="lazy">
+                            <div class="programme-image-overlay"></div>
+                        </div>
+                        <div class="programme-body">
+                            <span class="programme-tag"><i class="fas fa-swimmer"></i> Aquatics</span>
+                            <h3>Swimming</h3>
+                            <p>Supervised swimming lessons and water safety instruction by certified instructors ensuring a safe, enjoyable aquatic experience.</p>
+                            <ul class="programme-checklist">
+                                <li>Teaches essential water safety skills</li>
+                                <li>Builds confidence in the water</li>
+                                <li>Improves overall physical fitness</li>
+                                <li>Develops coordination and strength</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Cooking -->
+                    <div class="programme-card">
+                        <div class="programme-image">
+                            <img src="images/food.jpg" alt="Children cooking" loading="lazy">
+                            <div class="programme-image-overlay"></div>
+                        </div>
+                        <div class="programme-body">
+                            <span class="programme-tag"><i class="fas fa-utensils"></i> Life Skills</span>
+                            <h3>Cooking</h3>
+                            <p>Simple, safe cooking activities that teach basic kitchen skills and nutrition — children prepare healthy snacks while understanding food concepts.</p>
+                            <ul class="programme-checklist">
+                                <li>Teaches practical life skills</li>
+                                <li>Encourages healthy eating habits</li>
+                                <li>Develops math and measuring skills</li>
+                                <li>Boosts creativity and confidence</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Debate -->
+                    <div class="programme-card">
+                        <div class="programme-image">
+                            <img src="images/dap.jpg" alt="Children in debate" loading="lazy">
+                            <div class="programme-image-overlay"></div>
+                        </div>
+                        <div class="programme-body">
+                            <span class="programme-tag"><i class="fas fa-microphone"></i> Communication</span>
+                            <h3>Debate</h3>
+                            <p>Age-appropriate discussion and public speaking activities that help children express their ideas clearly and respectfully.</p>
+                            <ul class="programme-checklist">
+                                <li>Improves communication skills</li>
+                                <li>Builds confidence in public speaking</li>
+                                <li>Teaches respectful disagreement</li>
+                                <li>Develops critical thinking and reasoning</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Taekwondo -->
+                    <div class="programme-card">
+                        <div class="programme-image">
+                            <img src="images/karate.jpg" alt="Children learning taekwondo" loading="lazy">
+                            <div class="programme-image-overlay"></div>
+                        </div>
+                        <div class="programme-body">
+                            <span class="programme-tag"><i class="fas fa-fist-raised"></i> Martial Arts</span>
+                            <h3>Taekwondo</h3>
+                            <p>Martial arts training focused on discipline, respect, and self-control rather than aggression — character development first.</p>
+                            <ul class="programme-checklist">
+                                <li>Promotes self-discipline and focus</li>
+                                <li>Teaches respect for self and others</li>
+                                <li>Builds confidence and self-esteem</li>
+                                <li>Improves physical coordination</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== GALLERY & EVENTS ==================== -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label" style="justify-content:center;">Our Memories</span>
+                    <h2>School Gallery &amp; Events</h2>
+                    <p>Explore our vibrant learning community through photos and videos.</p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="gallery-tabs">
+                    <button class="gallery-tab tab-sports active" data-target="panel-sports">
+                        <i class="fas fa-running"></i> Sports
+                    </button>
+                    <button class="gallery-tab tab-tour" data-target="panel-tour">
+                        <i class="fas fa-map-marked-alt"></i> Tour
+                    </button>
+                    <button class="gallery-tab tab-culture" data-target="panel-culture">
+                        <i class="fas fa-theater-masks"></i> Culture
+                    </button>
+                    <button class="gallery-tab tab-videos" data-target="panel-videos">
+                        <i class="fas fa-video"></i> Videos
+                    </button>
+                </div>
+
+                <!-- Sports panel -->
+                <div id="panel-sports" class="gallery-panel panel-sports active">
+                    <div class="gallery-panel-header">
+                        <div class="gallery-panel-icon"><i class="fas fa-running"></i></div>
+                        <h3>Sports Activities</h3>
+                    </div>
+                    <div class="photo-grid">
+                        <div class="photo-item" data-src="images/sports 1.jpg" data-title="Sports Activity 1">
+                            <img src="images/sports 1.jpg" alt="Sports activity 1" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="photo-item" data-src="images/sports 2.jpg" data-title="Sports Activity 2">
+                            <img src="images/sports 2.jpg" alt="Sports activity 2" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="photo-item" data-src="images/sports 3.jpg" data-title="Sports Activity 3">
+                            <img src="images/sports 3.jpg" alt="Sports activity 3" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="photo-item" data-src="images/sports 4.jpg" data-title="Sports Activity 4">
+                            <img src="images/sports 4.jpg" alt="Sports activity 4" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour panel -->
+                <div id="panel-tour" class="gallery-panel panel-tour">
+                    <div class="gallery-panel-header">
+                        <div class="gallery-panel-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <h3>School Tour</h3>
+                    </div>
+                    <div class="photo-grid">
+                        <div class="photo-item" data-src="images/tour-1.jpg" data-title="School Tour 1">
+                            <img src="images/tour-1.jpg" alt="Tour photo 1" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="photo-item" data-src="images/tour-2.jpg" data-title="School Tour 2">
+                            <img src="images/tour-2.jpg" alt="Tour photo 2" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="photo-item" data-src="images/tour-3.jpg" data-title="School Tour 3">
+                            <img src="images/tour-3.jpg" alt="Tour photo 3" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="photo-item" data-src="images/tour-4.jpg" data-title="School Tour 4">
+                            <img src="images/tour-4.jpg" alt="Tour photo 4" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Culture panel -->
+                <div id="panel-culture" class="gallery-panel panel-culture">
+                    <div class="gallery-panel-header">
+                        <div class="gallery-panel-icon"><i class="fas fa-theater-masks"></i></div>
+                        <h3>Cultural Events</h3>
+                    </div>
+                    <div class="photo-grid">
+                        <div class="photo-item" data-src="images/culture-1.jpg" data-title="Cultural Event 1">
+                            <img src="images/culture-1.jpg" alt="Cultural event 1" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="photo-item" data-src="images/culture-2.jpg" data-title="Cultural Event 2">
+                            <img src="images/culture-2.jpg" alt="Cultural event 2" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="photo-item" data-src="images/culture-3.jpg" data-title="Cultural Event 3">
+                            <img src="images/culture-3.jpg" alt="Cultural event 3" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                        <div class="photo-item" data-src="images/culture-4.jpg" data-title="Cultural Event 4">
+                            <img src="images/culture-4.jpg" alt="Cultural event 4" loading="lazy">
+                            <div class="photo-item-overlay"><i class="fas fa-expand-alt"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Videos panel -->
+                <div id="panel-videos" class="gallery-panel panel-videos">
+                    <div class="gallery-panel-header">
+                        <div class="gallery-panel-icon"><i class="fas fa-video"></i></div>
+                        <h3>School Videos</h3>
+                    </div>
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <div class="video-wrap">
+                                <video controls preload="metadata">
+                                    <source src="VID-20251130-WA0028 copy 2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <p class="video-caption"><i class="fas fa-play-circle"></i> School Tour</p>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-wrap">
+                                <video controls preload="metadata">
+                                    <source src="VID-20251202-WA0062 - Copy.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <p class="video-caption"><i class="fas fa-play-circle"></i> Activity Day</p>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-wrap">
+                                <video controls preload="metadata">
+                                    <source src="VID-20260111-WA0000.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <p class="video-caption"><i class="fas fa-play-circle"></i> School Progress</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer_container">
+            <div class="footer-brand">
+                <h3>Jets Elementary</h3>
+                <p class="footer-tagline">Nurturing young minds for a brighter, bolder future.</p>
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="social_icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="social_icon tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://maps.google.com" target="_blank" class="social_icon maps" title="Google Maps"><i class="fas fa-map-marked-alt"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <div class="footer_links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="course.html">Courses</a>
+                    <a href="fees.html">School Fees</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="aftercare.html">Aftercare</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="footer-contact">
+                    <div class="contact_item"><span class="contact_icon"><i class="fas fa-phone-alt"></i></span><span>+254 717 830 659<br>+254 727 549 629</span></div>
+                    <div class="contact_item"><span class="contact_icon"><i class="fas fa-map-marker-alt"></i></span><span>Gesoko, opp. Joyland Special School, Kisumu</span></div>
+                    <div class="contact_item"><span class="contact_icon"><i class="fas fa-envelope"></i></span><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5d3738292e383138303833293c2f241d3a303c3431733e3230">[email&#160;protected]</a></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>&copy; 2026 Jets Elementary School. All rights reserved. Designed with love for young learners.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // ============================================================
+    // MOBILE MENU
+    // ============================================================
+    const mobileMenuBtn     = document.getElementById('mobileMenuBtn');
+    const mobileNav         = document.getElementById('mobileNav');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileNavLinks    = document.querySelectorAll('.mobile-nav-link');
+
+    function openMobileMenu() {
+        mobileNav.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        mobileMenuBtn.classList.add('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => mobileNavLinks[0] && mobileNavLinks[0].focus(), 300);
+    }
+
+    function closeMobileMenu() {
+        mobileNav.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn.addEventListener('click', () =>
+        mobileNav.classList.contains('active') ? closeMobileMenu() : openMobileMenu()
+    );
+    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+    mobileNavLinks.forEach(l => l.addEventListener('click', closeMobileMenu));
+    mobileMenuBtn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            mobileNav.classList.contains('active') ? closeMobileMenu() : openMobileMenu();
+        }
+    });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1025 && mobileNav.classList.contains('active')) closeMobileMenu();
+    });
+
+    // ============================================================
+    // IMAGE MODAL
+    // ============================================================
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalClose = document.getElementById('modalClose');
+
+    function openImageModal(src, alt, title) {
+        modalImage.src = src;
+        modalImage.alt = alt;
+        modalTitle.textContent = title || alt;
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+        imageModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeImageModal);
+    imageModal.addEventListener('click', e => { if (e.target === imageModal) closeImageModal(); });
+
+    // ============================================================
+    // GALLERY TABS
+    // ============================================================
+    function setupGalleryTabs() {
+        const tabs   = document.querySelectorAll('.gallery-tab');
+        const panels = document.querySelectorAll('.gallery-panel');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                const target = document.getElementById(tab.getAttribute('data-target'));
+                if (target) target.classList.add('active');
+            });
+        });
+    }
+
+    // ============================================================
+    // CLICKABLE GALLERY PHOTOS
+    // ============================================================
+    function setupPhotoItems() {
+        document.querySelectorAll('.photo-item').forEach(item => {
+            item.addEventListener('click', function () {
+                const src   = this.getAttribute('data-src');
+                const title = this.getAttribute('data-title') || '';
+                if (src) openImageModal(src, title, title);
+            });
+        });
+    }
+
+    // ============================================================
+    // NAVBAR SCROLL SHRINK
+    // ============================================================
+    window.addEventListener('scroll', () => {
+        document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ============================================================
+    // GLOBAL ESC KEY
+    // ============================================================
+    document.addEventListener('keydown', e => {
+        if (e.key !== 'Escape') return;
+        if (mobileNav.classList.contains('active'))  closeMobileMenu();
+        if (imageModal.classList.contains('active')) closeImageModal();
+    });
+
+    // ============================================================
+    // INIT — single DOMContentLoaded
+    // ======================
