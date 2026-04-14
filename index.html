@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jets Elementary School</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        *, *::before, *::after { margin:0; padding:0; border:0; outline:0; text-decoration:none; list-style:none; box-sizing:border-box; }
+
+        :root {
+            --navy:#002855; --navy-deep:#001633; --sky:#38bdf8; --sky-light:#e0f4fd;
+            --gold:#f0a500; --white:#ffffff; --off-white:#f7f9fc; --slate:#64748b;
+            --slate-light:#e2e8f0; --black:#1a1a2e;
+            --color-primary:var(--navy); --color-accent:var(--sky);
+            --font-display:'Cormorant Garamond',Georgia,serif;
+            --font-body:'DM Sans',system-ui,sans-serif;
+            --container-lg:78%; --container-md:90%; --container-sm:94%; --nav-h:5rem;
+            --shadow-sm:0 2px 8px rgba(0,40,85,.08); --shadow-md:0 8px 24px rgba(0,40,85,.12); --shadow-lg:0 20px 48px rgba(0,40,85,.16);
+            --ease:cubic-bezier(.4,0,.2,1); --dur:300ms;
+        }
+
+        html { scroll-behavior:smooth; font-size:16px; }
+
+        body { font-family:var(--font-body); line-height:1.7; color:var(--black); background:var(--white); overflow-x:hidden; display:flex; flex-direction:column; min-height:100vh; }
+        body.page-transition { opacity:.85; transition:opacity .3s var(--ease); }
+
+        h1,h2,h3,h4,h5,h6 { font-family:var(--font-display); font-weight:700; line-height:1.2; color:var(--navy); }
+        h1 { font-size:clamp(2.2rem,5vw,3.6rem); }
+        h2 { font-size:clamp(1.8rem,4vw,2.8rem); }
+        h3 { font-size:clamp(1.4rem,3vw,2rem); }
+        h4 { font-size:clamp(1.1rem,2vw,1.4rem); }
+        h5 { font-size:1.1rem; }
+        p  { color:var(--slate); }
+
+        .container { width:var(--container-lg); margin:0 auto; }
+        section { padding:6rem 0; }
+
+        .section-label { display:inline-flex; align-items:center; gap:.5rem; font-size:.75rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--sky); margin-bottom:1rem; }
+        .section-label::before { content:''; display:block; width:28px; height:2px; background:var(--sky); border-radius:2px; }
+
+        /* BUTTONS */
+        .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.85rem 2rem; border-radius:6px; font-family:var(--font-body); font-size:.95rem; font-weight:600; cursor:pointer; transition:all var(--dur) var(--ease); text-decoration:none; }
+        .btn-primary { background:var(--navy); color:var(--white); border:2px solid var(--navy); }
+        .btn-primary:hover { background:transparent; color:var(--navy); transform:translateY(-2px); box-shadow:var(--shadow-md); }
+        .btn-outline { background:transparent; color:var(--sky); border:2px solid var(--sky); }
+        .btn-outline:hover { background:var(--sky); color:var(--white); transform:translateY(-2px); }
+        .btn-light { background:rgba(255,255,255,.15); color:var(--white); border:2px solid rgba(255,255,255,.4); backdrop-filter:blur(8px); }
+        .btn-light:hover { background:var(--white); color:var(--navy); transform:translateY(-2px); }
+
+        /* MOBILE MENU */
+        .mobile-menu-btn { display:none; position:fixed; top:1.1rem; right:1.1rem; width:46px; height:46px; background:var(--navy); border-radius:10px; flex-direction:column; justify-content:center; align-items:center; gap:5px; cursor:pointer; z-index:1100; border:2px solid rgba(255,255,255,.15); transition:background var(--dur) var(--ease),transform var(--dur) var(--ease); }
+        .mobile-menu-btn.active { background:var(--sky); transform:rotate(180deg); }
+        .hamburger-line { width:22px; height:2.5px; background:var(--white); border-radius:2px; transition:all var(--dur) var(--ease); transform-origin:center; }
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) { transform:translateY(7.5px) rotate(45deg); }
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) { opacity:0; transform:scaleX(0); }
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) { transform:translateY(-7.5px) rotate(-45deg); }
+        .mobile-nav { position:fixed; top:0; right:-100%; width:280px; height:100%; background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%); z-index:1050; transition:right .4s var(--ease); box-shadow:-6px 0 30px rgba(0,0,0,.25); display:flex; flex-direction:column; padding:5rem 1.5rem 2rem; overflow-y:auto; }
+        .mobile-nav.active { right:0; }
+        .mobile-nav-links { display:flex; flex-direction:column; gap:.6rem; }
+        .mobile-nav-link { color:rgba(255,255,255,.85); padding:.9rem 1.2rem; border-radius:8px; font-size:1rem; font-weight:500; display:flex; align-items:center; gap:1rem; transition:all .25s var(--ease); background:rgba(255,255,255,.06); border-left:3px solid transparent; }
+        .mobile-nav-link:hover,.mobile-nav-link.active { background:rgba(56,189,248,.15); border-left-color:var(--sky); color:var(--white); transform:translateX(4px); }
+        .mobile-menu-overlay { position:fixed; inset:0; background:rgba(0,0,0,.55); backdrop-filter:blur(4px); z-index:1000; opacity:0; visibility:hidden; transition:all .3s var(--ease); }
+        .mobile-menu-overlay.active { opacity:1; visibility:visible; }
+
+        /* NAVBAR */
+        nav { position:fixed; top:0; left:0; width:100%; height:var(--nav-h); background:var(--navy); z-index:900; transition:height var(--dur) var(--ease),box-shadow var(--dur) var(--ease); }
+        nav::after { content:''; position:absolute; bottom:0; left:0; width:100%; height:3px; background:linear-gradient(90deg,var(--sky) 0%,var(--gold) 100%); }
+        nav.scrolled { height:4.2rem; box-shadow:0 4px 24px rgba(0,0,0,.18); }
+        .nav_container { height:100%; display:flex; justify-content:space-between; align-items:center; padding:0 2.5rem; }
+        .nav-left { display:flex; align-items:center; gap:.75rem; text-decoration:none; }
+        .school-badge-img { width:42px; height:42px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,.35); flex-shrink:0; }
+        .nav-logo { display:flex; flex-direction:column; line-height:1; text-decoration:none; }
+        .nav-logo-main { font-family:var(--font-display); font-size:1.45rem; font-weight:700; color:var(--white); letter-spacing:.02em; }
+        .nav-logo-sub { font-size:.65rem; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--sky); }
+        .nav_menu { display:flex; align-items:center; gap:.3rem; }
+        .nav_menu a { font-size:.92rem; font-weight:500; padding:.5rem .9rem; border-radius:6px; color:rgba(255,255,255,.8); position:relative; transition:all var(--dur) var(--ease); }
+        .nav_menu a:hover { color:var(--white); background:rgba(255,255,255,.08); }
+        .nav_menu a.active { color:var(--white); background:rgba(56,189,248,.18); }
+        .nav_menu a::after { content:''; position:absolute; bottom:4px; left:.9rem; width:0; height:2px; background:var(--sky); border-radius:2px; transition:width var(--dur) var(--ease); }
+        .nav_menu a:hover::after,.nav_menu a.active::after { width:calc(100% - 1.8rem); }
+
+        /* ============================================================
+           HERO — ORIGINAL LAYOUT, REDESIGNED BACKGROUND ONLY
+           Every class name, grid, and layout rule from doc 2 is kept
+           intact. Only the atmospheric background layers are new.
+        ============================================================ */
+        header {
+            padding-top: var(--nav-h);
+            padding-bottom: 0;
+            position: relative;
+            overflow: hidden;
+            display: block;
+
+            /* deep navy-to-slate editorial base */
+            background:
+                linear-gradient(135deg,
+                    rgba(0,12,30,.98)   0%,
+                    rgba(0,28,60,.94)  45%,
+                    rgba(22,42,72,.92) 100%);
+        }
+
+        /* large semi-transparent school crest watermark */
+        .hero-watermark {
+            position:absolute;
+            top:50%; left:50%;
+            transform:translate(-50%,-50%);
+            width:min(700px,74vw); height:min(700px,74vw);
+            background:url('images/logo.png.jpg') center/contain no-repeat;
+            opacity:.05;
+            filter:grayscale(1) brightness(3);
+            pointer-events:none;
+            z-index:0;
+        }
+
+        /* left: deep blue cinematic pool behind text */
+        header::before {
+            content:'';
+            position:absolute;
+            top:0; left:-5%;
+            width:58%; height:100%;
+            background:radial-gradient(ellipse 70% 80% at 30% 55%,
+                rgba(0,50,110,.6) 0%, transparent 70%);
+            pointer-events:none; z-index:1;
+        }
+
+        /* right: warm sky+gold glow behind the photo */
+        header::after {
+            content:'';
+            position:absolute;
+            bottom:-12%; right:-8%;
+            width:600px; height:600px;
+            background:radial-gradient(circle,
+                rgba(56,189,248,.16) 0%,
+                rgba(240,165,0,.08) 52%,
+                transparent 72%);
+            border-radius:50%;
+            pointer-events:none; z-index:1;
+        }
+
+        /* subtle diagonal grid texture */
+        .hero-texture {
+            position:absolute; inset:0;
+            background-image:repeating-linear-gradient(
+                -52deg,
+                rgba(255,255,255,.016) 0px,
+                rgba(255,255,255,.016) 1px,
+                transparent 1px,
+                transparent 44px);
+            pointer-events:none; z-index:1;
+        }
+
+        /* gold-to-sky gradient rule at the very bottom edge */
+        .hero-horizon {
+            position:absolute; bottom:0; left:0; right:0; height:3px;
+            background:linear-gradient(90deg,transparent 0%,var(--gold) 22%,var(--sky) 62%,transparent 100%);
+            z-index:2;
+        }
+
+        /* slim sky accent bar on left edge */
+        .hero-corner {
+            position:absolute; top:var(--nav-h); left:0;
+            width:4px; height:160px;
+            background:linear-gradient(to bottom,var(--sky),transparent);
+            z-index:2;
+        }
+
+
+        /* hero — image fills full viewport on every device */
+        .hero-image-only {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            line-height: 0;
+            /* navy bg shows as letterbox on contain mode */
+            background: #000c1e;
+        }
+
+        /* ── DESKTOP / LAPTOP: cover fills the viewport nicely ── */
+        .hero-image-only img {
+            display: block;
+            width: 100%;
+            height: calc(100vh - var(--nav-h));
+            object-fit: cover;
+            object-position: center top;
+            transition: transform .6s var(--ease);
+        }
+        .hero-image-only:hover img { transform: scale(1.015); }
+
+        /* ── TABLET (≤ 900px): switch to contain so nothing is cropped ── */
+        @media (max-width: 900px) {
+            .hero-image-only {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: calc(100vh - var(--nav-h));
+            }
+            .hero-image-only img {
+                width: 100%;
+                height: auto;              /* natural aspect ratio */
+                max-height: calc(100vh - var(--nav-h));
+                object-fit: contain;       /* full image always visible */
+                object-position: center center;
+            }
+        }
+
+        /* ── PHONE (≤ 600px): full-width contain, auto height ── */
+        @media (max-width: 600px) {
+            .hero-image-only {
+                min-height: unset;
+                padding: 0;
+            }
+            .hero-image-only img {
+                width: 100%;
+                height: auto;              /* image dictates height — zero cropping */
+                max-height: none;
+                object-fit: contain;
+            }
+        }
+
+        /* CATEGORIES */
+        .categories { background:var(--off-white); position:relative; overflow:hidden; }
+        .categories::before { content:''; position:absolute; top:0; right:0; width:400px; height:400px; background:radial-gradient(circle,rgba(56,189,248,.07) 0%,transparent 70%); pointer-events:none; }
+        .categories_container { display:grid; grid-template-columns:38% 62%; gap:5rem; align-items:start; }
+        .categories_left h2 { margin-bottom:1.2rem; }
+        .categories_left p  { font-size:1rem; margin-bottom:1.8rem; line-height:1.8; }
+        .checklist { display:flex; flex-direction:column; gap:.6rem; margin-bottom:2rem; }
+        .checklist-item { display:flex; align-items:center; gap:.75rem; font-size:.95rem; color:var(--black); font-weight:500; }
+        .checklist-item::before { content:''; width:20px; height:20px; background:linear-gradient(135deg,var(--sky) 0%,#0ea5e9 100%); border-radius:50%; flex-shrink:0; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E"); background-size:12px; background-repeat:no-repeat; background-position:center; }
+        .categories_right { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+        .category { background:var(--white); padding:1.8rem 1.5rem; border-radius:16px; text-align:center; transition:all var(--dur) var(--ease); box-shadow:var(--shadow-sm); border:1.5px solid transparent; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:.9rem; animation:fadeUp .6s var(--ease) both; }
+        .category:nth-child(1){animation-delay:.05s} .category:nth-child(2){animation-delay:.1s} .category:nth-child(3){animation-delay:.15s} .category:nth-child(4){animation-delay:.2s} .category:nth-child(5){animation-delay:.25s} .category:nth-child(6){animation-delay:.3s}
+        .category:hover { transform:translateY(-8px); box-shadow:var(--shadow-md); border-color:var(--sky); }
+        .category.highlighted { animation:cardPop 2s var(--ease); border-color:var(--sky); box-shadow:0 0 0 4px rgba(56,189,248,.2),var(--shadow-md); }
+        @keyframes cardPop { 0%{transform:translateY(0) scale(1);box-shadow:0 0 0 0 rgba(56,189,248,.4)} 40%{transform:translateY(-6px) scale(1.02);box-shadow:0 0 0 8px rgba(56,189,248,.15)} 100%{transform:translateY(0) scale(1);box-shadow:var(--shadow-sm)} }
+        .category_icon { width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center; transition:transform var(--dur) var(--ease); }
+        .category:hover .category_icon { transform:scale(1.1) rotate(-4deg); }
+        .category_icon i { font-size:1.7rem; color:var(--white); }
+        .category:nth-child(1) .category_icon{background:linear-gradient(135deg,#007bff,#6610f2)} .category:nth-child(2) .category_icon{background:linear-gradient(135deg,#20c997,#28a745)} .category:nth-child(3) .category_icon{background:linear-gradient(135deg,#ff6b6b,#ff8e53)} .category:nth-child(4) .category_icon{background:linear-gradient(135deg,#6f42c1,#e83e8c)} .category:nth-child(5) .category_icon{background:linear-gradient(135deg,#17a2b8,#20c997)} .category:nth-child(6) .category_icon{background:linear-gradient(135deg,#fd7e14,#dc3545)}
+        .category h5 { font-size:1rem; color:var(--navy); line-height:1.3; }
+        .category p  { font-size:.85rem; color:var(--slate); line-height:1.55; margin:0; }
+
+        /* COURSES */
+        .courses { background:var(--white); }
+        .courses-header { text-align:center; margin-bottom:3.5rem; }
+        .courses_container { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+        .course_item { background:var(--white); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); border:1.5px solid var(--slate-light); transition:all var(--dur) var(--ease); animation:fadeUp .6s var(--ease) both; }
+        .course_item:nth-child(1){animation-delay:.1s} .course_item:nth-child(2){animation-delay:.2s} .course_item:nth-child(3){animation-delay:.3s}
+        .course_item:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--sky); }
+        .course_image { height:220px; overflow:hidden; cursor:pointer; position:relative; }
+        .course_image img { width:100%; height:100%; object-fit:cover; transition:transform .5s var(--ease); }
+        .course_item:hover .course_image img { transform:scale(1.07); }
+        .course_image-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,40,85,.5) 0%,transparent 50%); opacity:0; transition:opacity var(--dur) var(--ease); }
+        .course_item:hover .course_image-overlay { opacity:1; }
+        .course_content { padding:1.8rem; }
+        .course_content h4 { font-size:1.3rem; margin-bottom:.7rem; }
+        .course_content p  { font-size:.92rem; margin-bottom:1.4rem; line-height:1.65; }
+
+        /* FAQs */
+        .faqs { background:var(--off-white); position:relative; }
+        .faqs-inner { display:grid; grid-template-columns:1fr; gap:2rem; }
+        .faqs-left h2 { margin-bottom:1rem; } .faqs-left p { margin-bottom:0; }
+        .faqs-left-img { border-radius:16px; overflow:hidden; box-shadow:var(--shadow-lg); }
+        .faqs-left-img img { width:100%; height:320px; object-fit:cover; display:block; }
+        .faqs_container { display:flex; flex-direction:column; gap:.8rem; }
+        .faq { background:var(--white); border-radius:12px; border:1.5px solid var(--slate-light); overflow:hidden; transition:border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease); cursor:pointer; }
+        .faq:hover { border-color:var(--sky); box-shadow:var(--shadow-sm); }
+        .faq.active { border-color:var(--sky); box-shadow:var(--shadow-sm); }
+        .faq_header { display:flex; align-items:center; gap:1rem; padding:1.2rem 1.4rem; }
+        .faq_icon { width:36px; height:36px; border-radius:8px; background:var(--sky-light); color:var(--sky); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; transition:all var(--dur) var(--ease); }
+        .faq.active .faq_icon { background:var(--sky); color:var(--white); transform:rotate(45deg); }
+        .faq_header h4 { margin:0; font-size:1rem; font-weight:600; color:var(--navy); flex:1; }
+        .faq_answer { max-height:0; opacity:0; overflow:hidden; transition:all .45s var(--ease); padding:0 1.4rem 0 3.5rem; }
+        .faq.active .faq_answer { max-height:400px; opacity:1; padding-bottom:1.3rem; }
+        .faq_answer p { font-size:.93rem; color:var(--slate); line-height:1.7; }
+
+        /* TESTIMONIALS */
+        .testimonials { background:var(--navy); overflow:hidden; position:relative; }
+        .testimonials::before { content:''; position:absolute; top:-30%; right:-10%; width:500px; height:500px; background:radial-gradient(circle,rgba(56,189,248,.12) 0%,transparent 70%); pointer-events:none; }
+        .testimonials-header { text-align:center; margin-bottom:3.5rem; position:relative; z-index:1; }
+        .testimonials-header h2 { color:var(--white); }
+        .testimonials-header p  { color:rgba(255,255,255,.6); max-width:520px; margin:.8rem auto 0; }
+        .testimonials_container { max-width:800px; margin:0 auto; position:relative; min-height:320px; z-index:1; }
+        .testimonial { background:rgba(255,255,255,.06); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,.12); padding:2.5rem 2.8rem; border-radius:20px; position:absolute; width:100%; opacity:0; transform:translateX(40px); transition:all .5s var(--ease); }
+        .testimonial.active { opacity:1; transform:translateX(0); z-index:2; }
+        .testimonial.prev   { opacity:0; transform:translateX(-40px); z-index:1; }
+        .testimonial.next   { opacity:0; transform:translateX(40px);  z-index:1; }
+        .quote-mark { font-family:var(--font-display); font-size:5rem; color:var(--sky); opacity:.3; line-height:.6; margin-bottom:1rem; display:block; }
+        .testimonial_text { font-size:1.05rem; line-height:1.8; color:rgba(255,255,255,.85); margin-bottom:2rem; }
+        .testimonial_author { display:flex; align-items:center; gap:1rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.1); }
+        .author_avatar { width:56px; height:56px; border-radius:50%; overflow:hidden; border:2px solid var(--sky); cursor:pointer; flex-shrink:0; transition:transform var(--dur) var(--ease); }
+        .author_avatar:hover { transform:scale(1.08); }
+        .author_avatar img { width:100%; height:100%; object-fit:cover; }
+        .author_info h4 { color:var(--white); font-size:1rem; margin-bottom:.15rem; }
+        .author_info p  { color:var(--sky); font-size:.82rem; margin:0; }
+        .testimonial_nav { display:flex; justify-content:center; gap:.6rem; margin-top:2.5rem; position:relative; z-index:1; }
+        .testimonial_dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.25); border:none; cursor:pointer; transition:all var(--dur) var(--ease); padding:0; }
+        .testimonial_dot.active { background:var(--sky); transform:scale(1.4); width:24px; border-radius:4px; }
+        .testimonial_controls { display:flex; justify-content:center; gap:.8rem; margin-top:1.5rem; position:relative; z-index:1; }
+        .testimonial_btn { width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:var(--white); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1rem; transition:all var(--dur) var(--ease); }
+        .testimonial_btn:hover { background:var(--sky); border-color:var(--sky); transform:scale(1.1); }
+
+        /* PROGRAM PAGE */
+        .homepage  { display:block; }
+        .program-page { display:none; padding-top:calc(var(--nav-h) + 2rem); min-height:100vh; animation:fadeIn .45s var(--ease); }
+        @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+        .program-container { max-width:1160px; margin:0 auto; padding:2rem 1.5rem 4rem; animation:slideInRight .45s var(--ease); }
+        @keyframes slideInRight { from{opacity:0;transform:translateX(30px)} to{opacity:1;transform:translateX(0)} }
+        .program-header { text-align:center; margin-bottom:2.5rem; position:relative; padding-top:1rem; }
+        .back-to-home { position:absolute; left:0; top:0; display:inline-flex; align-items:center; gap:.5rem; background:var(--navy); color:var(--white); padding:.65rem 1.3rem; border-radius:8px; font-size:.9rem; font-weight:600; transition:all var(--dur) var(--ease); }
+        .back-to-home:hover { background:var(--sky); transform:translateY(-2px); }
+        .program-header h1 { color:var(--navy); margin:.5rem 0; }
+        .program-header p  { font-size:1.1rem; color:var(--slate); max-width:700px; margin:0 auto; }
+        .program-hero-image { width:100%; height:380px; border-radius:20px; overflow:hidden; margin-bottom:2.5rem; box-shadow:var(--shadow-lg); cursor:pointer; }
+        .program-hero-image img { width:100%; height:100%; object-fit:cover; transition:transform .5s var(--ease); }
+        .program-hero-image:hover img { transform:scale(1.04); }
+        .program-content { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; margin-bottom:2.5rem; }
+        .program-text { background:var(--white); padding:2.2rem; border-radius:16px; box-shadow:var(--shadow-sm); border:1.5px solid var(--slate-light); }
+        .program-text h2 { color:var(--navy); font-size:1.6rem; margin-bottom:1rem; }
+        .program-text p  { font-size:.97rem; line-height:1.8; margin-bottom:1rem; }
+        .program-text ul { padding-left:1.5rem; margin:1rem 0; }
+        .program-text li { color:var(--slate); margin-bottom:.6rem; font-size:.96rem; line-height:1.6; padding-left:1.2rem; position:relative; }
+        .program-text li::before { content:'✓'; position:absolute; left:0; color:var(--sky); font-weight:700; }
+        .program-features { background:var(--off-white); padding:2.2rem; border-radius:16px; border:1.5px solid var(--slate-light); }
+        .program-features h3 { color:var(--navy); font-size:1.4rem; margin-bottom:1.5rem; }
+        .feature-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+        .feature-item { background:var(--white); padding:1.3rem; border-radius:12px; text-align:center; box-shadow:var(--shadow-sm); transition:all var(--dur) var(--ease); }
+        .feature-item:hover { transform:translateY(-4px); box-shadow:var(--shadow-md); }
+        .feature-icon { width:46px; height:46px; border-radius:12px; background:linear-gradient(135deg,var(--sky) 0%,#0ea5e9 100%); display:flex; align-items:center; justify-content:center; margin:0 auto .8rem; }
+        .feature-icon i { color:var(--white); font-size:1.3rem; }
+        .feature-item h4 { font-size:.95rem; color:var(--navy); margin-bottom:.3rem; }
+        .feature-item p  { font-size:.82rem; color:var(--slate); }
+        .program-review { background:linear-gradient(135deg,#f0f7ff 0%,#e8f4fd 100%); border-left:4px solid var(--sky); padding:2.2rem; border-radius:0 16px 16px 0; margin-top:2rem; }
+        .program-review h3 { color:var(--navy); font-size:1.4rem; margin-bottom:.8rem; }
+        .program-review p  { font-size:.97rem; color:var(--slate); line-height:1.8; }
+
+        /* FOOTER */
+        footer { background:var(--navy-deep); color:rgba(255,255,255,.8); padding:3.5rem 0 1.5rem; margin-top:auto; box-shadow:0 -4px 30px rgba(0,0,0,.2); }
+        .footer_container { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:3rem; max-width:1100px; margin:0 auto; padding:0 2rem; }
+        .footer-brand h3 { font-family:var(--font-display); font-size:1.5rem; color:var(--white); margin-bottom:.4rem; }
+        .footer-tagline { font-size:.88rem; color:rgba(255,255,255,.5); max-width:220px; line-height:1.6; margin-bottom:1.5rem; }
+        .footer-col h4 { font-family:var(--font-body); font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--sky); margin-bottom:1rem; }
+        .footer_links { display:flex; flex-direction:column; gap:.5rem; }
+        .footer_links a { color:rgba(255,255,255,.65); font-size:.92rem; transition:all var(--dur) var(--ease); display:inline-flex; align-items:center; gap:.4rem; padding:.2rem 0; }
+        .footer_links a:hover { color:var(--sky); transform:translateX(4px); }
+        .footer_links a::before { content:'→'; font-size:.75rem; opacity:0; transform:translateX(-6px); transition:all var(--dur) var(--ease); }
+        .footer_links a:hover::before { opacity:1; transform:translateX(0); }
+        .footer-contact { display:flex; flex-direction:column; gap:.7rem; }
+        .contact_item { display:flex; align-items:flex-start; gap:.75rem; font-size:.88rem; color:rgba(255,255,255,.65); line-height:1.5; }
+        .contact_icon { color:var(--sky); font-size:.95rem; margin-top:.1rem; flex-shrink:0; }
+        .social_icons { display:flex; gap:.6rem; margin-top:1.2rem; flex-wrap:wrap; }
+        .social_icon { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:.9rem; color:var(--white); text-decoration:none; transition:all var(--dur) var(--ease); }
+        .social_icon:hover { transform:translateY(-3px); box-shadow:0 6px 16px rgba(0,0,0,.3); }
+        .social_icon.facebook{background:#1877F2} .social_icon.instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)} .social_icon.tiktok{background:#000;border:1px solid rgba(255,255,255,.15)} .social_icon.whatsapp{background:#25D366} .social_icon.maps{background:#4285F4}
+        .footer_bottom { text-align:center; margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.08); font-size:.8rem; color:rgba(255,255,255,.35); }
+
+        /* IMAGE MODAL */
+        .image-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.92); z-index:10000; justify-content:center; align-items:center; padding:2rem; }
+        .image-modal.active { display:flex; animation:fadeIn .25s var(--ease); }
+        .modal-content { max-width:90vw; max-height:90vh; position:relative; }
+        .modal-content img { max-width:100%; max-height:80vh; object-fit:contain; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,.5); display:block; }
+        .modal-close { position:absolute; top:-1.2rem; right:-1.2rem; width:38px; height:38px; background:var(--sky); border:none; border-radius:50%; color:var(--white); font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all var(--dur) var(--ease); }
+        .modal-close:hover { background:#0ea5e9; transform:rotate(90deg) scale(1.1); }
+        .modal-title { position:absolute; bottom:-2.5rem; left:0; width:100%; text-align:center; color:rgba(255,255,255,.7); font-size:.9rem; }
+
+        @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+        /* ============================================================
+           RESPONSIVE — all three tiers
+        ============================================================ */
+
+        /* ── LAPTOP / LARGE TABLET (≤ 1024px) ── */
+        @media(max-width:1024px){
+            .container{width:var(--container-md)}
+            .mobile-menu-btn{display:flex} .nav_menu{display:none} .nav_container{padding:0 1.5rem}
+
+            /* hero: switch to single column — text top, image bottom */
+            /* text stays on top (row 1), image below (row 2) */
+            .hero-accent-card{display:none}
+
+            .categories_container{grid-template-columns:1fr;gap:3rem}
+            .categories_right{grid-template-columns:repeat(2,1fr)}
+            .courses_container{grid-template-columns:repeat(2,1fr)}
+            .faqs-inner{grid-template-columns:1fr;gap:2.5rem} .faqs-left-img{display:none}
+            .program-content{grid-template-columns:1fr} .feature-grid{grid-template-columns:1fr 1fr}
+            .footer_container{grid-template-columns:1fr 1fr;gap:2rem}
+        }
+
+        /* ── TABLET (≤ 768px) ── */
+        @media(max-width:768px){
+            .container{width:var(--container-sm)} section{padding:4rem 0}
+            .mobile-menu-btn{top:.85rem;right:.85rem;width:42px;height:42px} .mobile-nav{width:260px}
+
+            /* hero adjustments for tablet */
+
+            .categories_right{grid-template-columns:1fr}
+            .courses_container{grid-template-columns:1fr}
+            .testimonials_container{min-height:420px} .testimonial{padding:2rem}
+            .program-content{grid-template-columns:1fr} .feature-grid{grid-template-columns:1fr}
+            .back-to-home{position:relative;margin-bottom:1.5rem;display:inline-flex}
+            .program-header h1{margin-top:.8rem}
+            .footer_container{grid-template-columns:1fr;gap:2rem}
+            .footer_links{flex-direction:row;flex-wrap:wrap;gap:.5rem 1.2rem}
+            .modal-close{top:-.8rem;right:.5rem}
+        }
+
+        /* ── MOBILE PHONE (≤ 480px) ── */
+        @media(max-width:480px){
+        }
+    </style>
+</head>
+<body>
+
+    <!-- IMAGE MODAL -->
+    <div class="image-modal" id="imageModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-title" id="modalTitle"></div>
+        </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu-btn" id="mobileMenuBtn" role="button" tabindex="0" aria-label="Toggle menu" aria-expanded="false">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    <div class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile navigation">
+        <div class="mobile-nav-links">
+            <a href="index.html"   class="mobile-nav-link active"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="about.html"   class="mobile-nav-link"><i class="fas fa-info-circle"></i><span>About</span></a>
+            <a href="course.html"  class="mobile-nav-link"><i class="fas fa-book-open"></i><span>Course</span></a>
+            <a href="fees.html"    class="mobile-nav-link"><i class="fas fa-money-bill-alt"></i><span>Fees</span></a>
+            <a href="blog.html"    class="mobile-nav-link"><i class="fas fa-blog"></i><span>Blog</span></a>
+            <a href="contact.html" class="mobile-nav-link"><i class="fas fa-envelope"></i><span>Contact</span></a>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="main-nav">
+        <div class="container nav_container">
+            <div class="nav-left">
+                <img src="images/logo.png.jpg" alt="Jets Elementary badge" class="school-badge-img">
+                <a href="index.html" class="nav-logo">
+                    <span class="nav-logo-main">Jets Elementary</span>
+                    <span class="nav-logo-sub"></span>
+                </a>
+            </div>
+            <ul class="nav_menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="fees.html">Fees</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HOMEPAGE -->
+    <div class="homepage" id="homepage">
+
+        <!-- HERO — original structure, new atmospheric background -->
+        <header id="home">
+
+            <!-- new background atmosphere (aria-hidden, purely decorative) -->
+            <div class="hero-watermark" aria-hidden="true"></div>
+            <div class="hero-texture"   aria-hidden="true"></div>
+            <div class="hero-horizon"   aria-hidden="true"></div>
+            <div class="hero-corner"    aria-hidden="true"></div>
+
+            <div class="hero-image-only" id="headerImageWrapper" data-image-title="Jets Elementary School Campus">
+                <img src="images/jets.png" alt="Jets Elementary School Campus">
+            </div>
+        </header>
+
+        <!-- WHY CHOOSE US -->
+        <section class="categories" id="categories">
+            <div class="container categories_container">
+                <div class="categories_left">
+                    <span class="section-label">Why Choose Us</span>
+                    <h2>A School That Truly Cares</h2>
+                    <p>At Jets Elementary, we provide a warm and nurturing environment where every learner grows with confidence. Our key offerings include:</p>
+                    <div class="checklist">
+                        <div class="checklist-item">CBC-Aligned Learning</div>
+                        <div class="checklist-item">Modern ICT Exposure</div>
+                        <div class="checklist-item">Safe &amp; Caring Environment</div>
+                        <div class="checklist-item">Balanced Co-Curricular Activities</div>
+                        <div class="checklist-item">Play-Based Early Years Program</div>
+                        <div class="checklist-item">Strong Moral &amp; Social Values</div>
+                    </div>
+                    <a href="#categories" class="btn btn-primary">Explore Our Programs &#x2193;</a>
+                </div>
+                <div class="categories_right">
+                    <article class="category" data-program="cbc-aligned" id="cbc-aligned">
+                        <div class="category_icon"><i class="uil uil-book-open"></i></div>
+                        <h5>CBC-Aligned Learning</h5>
+                        <p>Strong academic foundation with engaging hands-on activities</p>
+                    </article>
+                    <article class="category" data-program="safe-environment" id="safe-environment">
+                        <div class="category_icon"><i class="uil uil-shield-check"></i></div>
+                        <h5>Safe &amp; Caring Environment</h5>
+                        <p>Clean classes, loving teachers, and child-friendly spaces</p>
+                    </article>
+                    <article class="category" data-program="play-based" id="play-based">
+                        <div class="category_icon"><i class="uil uil-palette"></i></div>
+                        <h5>Play Based Early Years</h5>
+                        <p>PP1, PP2, G1 to G4 enjoy fun, interactive learning</p>
+                    </article>
+                    <article class="category" data-program="ict-exposure" id="ict-exposure">
+                        <div class="category_icon"><i class="uil uil-desktop"></i></div>
+                        <h5>Modern ICT Exposure</h5>
+                        <p>Early introduction to digital skills for future-ready learners</p>
+                    </article>
+                    <article class="category" data-program="co-curricular" id="co-curricular">
+                        <div class="category_icon"><i class="uil uil-football"></i></div>
+                        <h5>Co-Curricular Activities</h5>
+                        <p>Music, Art, Sports, Swimming, Debate, Chess &amp; more</p>
+                    </article>
+                    <article class="category" data-program="moral-values" id="moral-values">
+                        <div class="category_icon"><i class="uil uil-heart"></i></div>
+                        <h5>Moral &amp; Social Values</h5>
+                        <p>We build discipline, confidence, and respect in every child</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- COURSES -->
+        <section class="courses" id="courses">
+            <div class="container">
+                <div class="courses-header">
+                    <span class="section-label">Core Curriculum</span>
+                    <h2>Core Learning Areas</h2>
+                    <p style="max-width:560px;margin:.8rem auto 0;">Our comprehensive curriculum designed to nurture well-rounded learners ready for tomorrow.</p>
+                </div>
+                <div class="courses_container">
+                    <article class="course_item">
+                        <div class="course_image" data-image-title="Literacy Program"><img src="images/course-1.jpg" alt="Literacy Program"><div class="course_image-overlay"></div></div>
+                        <div class="course_content"><h4>Literacy</h4><p>We help your child build strong reading, writing and communication skills &mdash; the foundation for lifelong learning and clear self-expression.</p><a href="literacy.html" class="btn btn-primary">Learn More <i class="fas fa-arrow-right"></i></a></div>
+                    </article>
+                    <article class="course_item">
+                        <div class="course_image" data-image-title="Science &amp; Technology"><img src="images/science.jpg" alt="Science &amp; Technology"><div class="course_image-overlay"></div></div>
+                        <div class="course_content"><h4>Science &amp; Technology</h4><p>We spark curiosity by exploring scientific concepts and introducing basic technology, encouraging problem-solving and critical thinking.</p><a href="science.html" class="btn btn-primary">Learn More <i class="fas fa-arrow-right"></i></a></div>
+                    </article>
+                    <article class="course_item">
+                        <div class="course_image" data-image-title="Creative Arts"><img src="images/course-4.jpg" alt="Creative Arts"><div class="course_image-overlay"></div></div>
+                        <div class="course_content"><h4>Creative Arts</h4><p>We encourage creativity through painting, drawing, crafts and storytelling, allowing each child's imagination to truly shine.</p><a href="creative.html" class="btn btn-primary">Learn More <i class="fas fa-arrow-right"></i></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs -->
+        <section class="faqs" id="faqs">
+            <div class="container faqs-inner">
+                <div class="faqs-left">
+                    <span class="section-label">Common Questions</span>
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Everything you need to know about Jets Elementary. Can't find what you need? Reach out to us directly.</p>
+                </div>
+                <div class="faqs_container">
+                    <article class="faq"><div class="faq_header"><div class="faq_icon"><i class="fas fa-plus"></i></div><h4>What makes Jets Elementary stand out?</h4></div><div class="faq_answer"><p>We blend strong academics, modern learning resources, passionate teachers, and a warm, family-friendly environment that helps every learner thrive.</p></div></article>
+                    <article class="faq"><div class="faq_header"><div class="faq_icon"><i class="fas fa-plus"></i></div><h4>Do you communicate with parents regularly?</h4></div><div class="faq_answer"><p>Absolutely! We keep parents updated through meetings, messages, and weekly reports so you always know your child's progress.</p></div></article>
+                    <article class="faq"><div class="faq_header"><div class="faq_icon"><i class="fas fa-plus"></i></div><h4>What co-curricular activities do you offer?</h4></div><div class="faq_answer"><p>From music, art, sports, cooking, debate, science fair, environmental club, young entrepreneurs, fashion and modelling, to Tae Kwon Do &mdash; we help your child discover new passions.</p></div></article>
+                    <article class="faq"><div class="faq_header"><div class="faq_icon"><i class="fas fa-plus"></i></div><h4>How can I enroll my child?</h4></div><div class="faq_answer"><p>It's easy! Visit the school, call our office, or start enrollment online. Our team will guide you step by step through the process.</p></div></article>
+                    <article class="faq"><div class="faq_header"><div class="faq_icon"><i class="fas fa-plus"></i></div><h4>What curriculum do you teach?</h4></div><div class="faq_answer"><p>We proudly teach the CBC curriculum, using fun, hands-on learning that helps every child discover their talents and grow confidently.</p></div></article>
+                    <article class="faq"><div class="faq_header"><div class="faq_icon"><i class="fas fa-plus"></i></div><h4>What ages do you admit?</h4></div><div class="faq_answer"><p>We welcome young learners from playgroup all the way to Grade classes, giving them a strong, happy start in school life.</p></div></article>
+                    <article class="faq"><div class="faq_header"><div class="faq_icon"><i class="fas fa-plus"></i></div><h4>How do you keep children safe?</h4></div><div class="faq_answer"><p>Safety is our top priority. We have secure grounds, clean classrooms, trained teachers, and strict child protection procedures at all times.</p></div></article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="testimonials-header">
+                    <span class="section-label" style="color:var(--sky);justify-content:center;">Parent Stories</span>
+                    <h2>What Parents Say</h2>
+                    <p>Hear from parents about their experience with Jets Elementary School.</p>
+                </div>
+                <div class="testimonials_container">
+                    <article class="testimonial active"><span class="quote-mark">"</span><p class="testimonial_text">Jets Elementary has been the best decision for my child. She comes home excited every day and has grown so much in confidence. The teachers are caring and truly understand young learners.</p><div class="testimonial_author"><div class="author_avatar" data-image-title="Purity Omariba - Parent"><img src="images/parent-1.jpg" alt="Purity Omariba"></div><div class="author_info"><h4>Purity Omariba</h4><p>Parent &mdash; Grade 2</p></div></div></article>
+                    <article class="testimonial next"><span class="quote-mark">"</span><p class="testimonial_text">The school blends discipline, creativity, and modern learning perfectly. My child is more responsible, active in class, and happy. I highly recommend Jets Elementary.</p><div class="testimonial_author"><div class="author_avatar" data-image-title="Mama Rhemmy - Parent"><img src="images/parent-2.jpg" alt="Mama Rhemmy"></div><div class="author_info"><h4>Mama Rhemmy</h4><p>Parent &mdash; PP2</p></div></div></article>
+                    <article class="testimonial next"><span class="quote-mark">"</span><p class="testimonial_text">My son has improved in reading and writing within a very short time. The school offers a warm environment and strong academics. I love how they communicate with parents.</p><div class="testimonial_author"><div class="author_avatar" data-image-title="Baba Esbourne - Parent"><img src="images/parent-3.jpg" alt="Baba Esbourne"></div><div class="author_info"><h4>Baba Esbourne</h4><p>Parent &mdash; Grade 1</p></div></div></article>
+                    <article class="testimonial next"><span class="quote-mark">"</span><p class="testimonial_text">I appreciate the cleanliness, safety, and kindness of the staff. My daughter settled instantly and enjoys school so much. Jets Elementary feels like a second home for her.</p><div class="testimonial_author"><div class="author_avatar" data-image-title="Kevin Odero - Parent"><img src="images/parent-4.jpg" alt="Kevin Odero"></div><div class="author_info"><h4>Kevin Odero</h4><p>Parent &mdash; Grade 3</p></div></div></article>
+                </div>
+                <div class="testimonial_nav">
+                    <button class="testimonial_dot active" data-index="0"></button>
+                    <button class="testimonial_dot" data-index="1"></button>
+                    <button class="testimonial_dot" data-index="2"></button>
+                    <button class="testimonial_dot" data-index="3"></button>
+                </div>
+                <div class="testimonial_controls">
+                    <button class="testimonial_btn" id="prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                    <button class="testimonial_btn" id="next-testimonial"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- END HOMEPAGE -->
+
+    <!-- PROGRAM PAGE -->
+    <div class="program-page" id="program-page">
+        <div class="program-container" id="program-container"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer_container">
+            <div class="footer-brand">
+                <h3>Jets Elementary</h3>
+                <p class="footer-tagline">Nurturing young minds for a brighter, bolder future.</p>
+                <div class="social_icons">
+                    <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="social_icon facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="social_icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="social_icon tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/254717830659" target="_blank" class="social_icon whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://maps.google.com" target="_blank" class="social_icon maps" title="Google Maps"><i class="fas fa-map-marked-alt"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <div class="footer_links">
+                    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="course.html">Courses</a>
+                    <a href="fees.html">School Fees</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <div class="footer-contact">
+                    <div class="contact_item"><span class="contact_icon"><i class="fas fa-phone-alt"></i></span><span>+254 717 830 659<br>+254 727 549 629</span></div>
+                    <div class="contact_item"><span class="contact_icon"><i class="fas fa-map-marker-alt"></i></span><span>Gesoko, opp. Joyland Special School, Kisumu</span></div>
+                    <div class="contact_item"><span class="contact_icon"><i class="fas fa-envelope"></i></span><span><a href="mailto:jetselementary@gmail.com" style="color:inherit">jetselementary@gmail.com</a></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>&copy; 2026 Jets Elementary School. All rights reserved. Designed with love for young learners.</p>
+        </div>
+    </footer>
+
+    <script>
+
+    // ============================================================
+    // STATE
+    // ============================================================
+    var navState = { currentProgram: null, isTransitioning: false };
+    var testimonialInterval = null;
+
+    // ============================================================
+    // PROGRAMS DATA
+    // ============================================================
+    var programs = {
+        "cbc-aligned": {
+            title: "CBC-Aligned Learning",
+            subtitle: "Building Competencies for Life",
+            heroImage: "images/learning.jpg",
+            content: '<div class="program-text"><h2>Competency-Based Curriculum</h2><p>At Jets Elementary, we embrace the CBC to provide holistic education that goes beyond rote learning. Our approach develops seven core competencies:</p><ul><li><strong>Communication and Collaboration</strong> — Express clearly and work effectively in teams</li><li><strong>Critical Thinking and Problem Solving</strong> — Question, analyse, and create solutions</li><li><strong>Creativity and Imagination</strong> — Artistic expression and innovative thinking daily</li><li><strong>Citizenship</strong> — Responsible, patriotic, globally-aware individuals</li><li><strong>Learning to Learn</strong> — Self-directed learning skills and curiosity</li><li><strong>Self-efficacy</strong> — Confidence and belief in one\'s own abilities</li><li><strong>Digital Literacy</strong> — Preparing students for the digital age</li></ul><p>Classrooms support hands-on learning with practical activities, projects, and real-world applications.</p></div>',
+            features: [
+                { icon: "uil uil-book-open",        title: "Thematic Learning",      description: "Integrated subjects around meaningful real-world topics" },
+                { icon: "uil uil-users-alt",         title: "Collaborative Projects", description: "Group work that develops teamwork and communication" },
+                { icon: "uil uil-presentation-play", title: "Practical Activities",   description: "Hands-on learning experiences in every subject" },
+                { icon: "uil uil-chart-line",        title: "Continuous Assessment",  description: "Ongoing evaluation of all seven competencies" }
+            ],
+            review: "<p>We implement CBC through thematic learning where subjects connect around meaningful real-life topics. Our assessment is continuous and competency-based, tracking each child's progress holistically.</p>"
+        },
+        "safe-environment": {
+            title: "Safe & Caring Environment",
+            subtitle: "Where Every Child Feels Secure and Valued",
+            heroImage: "images/care.jpg",
+            content: '<div class="program-text"><h2>A Sanctuary for Learning</h2><p>A child\'s sense of security is fundamental to learning. At Jets Elementary, every child feels physically, emotionally, and psychologically safe.</p><ul><li><strong>Secure Premises</strong> — Controlled access, CCTV, and perimeter fencing</li><li><strong>Child-Friendly Facilities</strong> — Age-appropriate furniture and clean washrooms</li><li><strong>Trained Staff</strong> — Child protection training and background checks</li><li><strong>Health and Hygiene</strong> — Regular health checks and clean drinking water</li><li><strong>Emotional Safety</strong> — Anti-bullying policies and positive discipline</li><li><strong>First Aid</strong> — Trained first-aiders on duty at all times</li></ul></div>',
+            features: [
+                { icon: "uil uil-shield-check",  title: "24/7 Security",     description: "Round-the-clock security personnel and surveillance" },
+                { icon: "uil uil-heart-medical", title: "Health Monitoring", description: "Regular health checks and first aid facilities" },
+                { icon: "uil uil-smile",          title: "Emotional Support", description: "Counseling services and peer support programs" },
+                { icon: "uil uil-home",           title: "Family Atmosphere", description: "Warm, nurturing relationships with all staff" }
+            ],
+            review: "<p>Our safety protocols are comprehensive and regularly reviewed. Monthly drills, a full-time nurse, and strict visitor policies combine with emotional wellbeing programs.</p>"
+        },
+        "play-based": {
+            title: "Play-Based Early Years Program",
+            subtitle: "Learning Through Joyful Exploration",
+            heroImage: "images/environment.jpg",
+            content: '<div class="program-text"><h2>The Power of Play</h2><p>For our youngest learners (PP1, PP2, Grade 1-4), play is the most powerful vehicle for learning.</p><ul><li><strong>Structured and Unstructured Play</strong> — Guided activities and free choice in balance</li><li><strong>Learning Centers</strong> — Reading, art, blocks, drama, and discovery areas</li><li><strong>Outdoor Learning</strong> — Nature exploration and physical activities</li><li><strong>Social Development</strong> — Sharing, cooperation, and conflict resolution</li><li><strong>Language Development</strong> — Storytelling, puppetry, and role-play</li><li><strong>Early Math Concepts</strong> — Counting, sorting, and patterning through games</li></ul></div>',
+            features: [
+                { icon: "uil uil-palette",       title: "Creative Expression", description: "Art, music, and drama integrated into daily activities" },
+                { icon: "uil uil-trees",          title: "Outdoor Learning",    description: "Nature exploration and physical play areas" },
+                { icon: "uil uil-game-structure", title: "Learning Centers",    description: "Dedicated areas for different types of play" },
+                { icon: "uil uil-smile-beam",     title: "Social Development",  description: "Play that builds sharing and cooperation skills" }
+            ],
+            review: "<p>We implement play-based learning through carefully planned environments and trained early years specialists. The result: happy, confident learners who develop foundational skills naturally.</p>"
+        },
+        "ict-exposure": {
+            title: "Modern ICT Exposure",
+            subtitle: "Preparing Digital Natives for the Future",
+            heroImage: "images/tech.jpg",
+            content: '<div class="program-text"><h2>Technology as a Learning Tool</h2><p>At Jets Elementary, we introduce children to technology in age-appropriate, meaningful ways that prepare them for a digital future.</p><ul><li><strong>Digital Literacy Skills</strong> — Basic operations, keyboarding, and safe internet use</li><li><strong>Coding and Robotics</strong> — Simple programming through games and robots</li><li><strong>Creative Technology</strong> — Digital art, music composition, and storytelling</li><li><strong>Research Skills</strong> — Using technology to find and evaluate information</li><li><strong>Digital Citizenship</strong> — Responsible, ethical technology use</li></ul></div>',
+            features: [
+                { icon: "uil uil-desktop",             title: "Computer Lab",       description: "Modern computers with educational software" },
+                { icon: "uil uil-circuit",             title: "Coding Classes",     description: "Age-appropriate programming and robotics" },
+                { icon: "uil uil-shield-exclamation",  title: "Internet Safety",    description: "Teaching responsible digital citizenship" },
+                { icon: "uil uil-creative-commons-pd", title: "Digital Creativity", description: "Art, music, and storytelling with technology" }
+            ],
+            review: "<p>Our dedicated ICT lab integrates technology across all subjects. Internet safety is explicitly taught with filtered access.</p>"
+        },
+        "co-curricular": {
+            title: "Balanced Co-Curricular Activities",
+            subtitle: "Discovering Passions Beyond the Classroom",
+            heroImage: "images/curricular.jpg",
+            content: '<div class="program-text"><h2>Holistic Development</h2><p>Education extends beyond the classroom. Our co-curricular program helps children discover their passions and build confidence.</p><ul><li><strong>Sports &amp; Physical Activities</strong> — Football, athletics, swimming, Tae Kwon Do</li><li><strong>Creative Arts</strong> — Music, drama, dance, and visual arts</li><li><strong>Academic Clubs</strong> — Debate, science club, mathletes, and young writers</li><li><strong>Life Skills</strong> — Cooking, gardening, first aid, and environmental club</li><li><strong>Entrepreneurship</strong> — Young entrepreneurs program with business basics</li><li><strong>Leadership Development</strong> — Student council and community service</li></ul></div>',
+            features: [
+                { icon: "uil uil-football",    title: "Sports Excellence", description: "Various sports with professional coaching" },
+                { icon: "uil uil-music",        title: "Creative Arts",     description: "Music, drama, dance, and visual arts programs" },
+                { icon: "uil uil-presentation", title: "Academic Clubs",    description: "Debate, science, and other interest groups" },
+                { icon: "uil uil-user-md",      title: "Life Skills",       description: "Practical skills for everyday life" }
+            ],
+            review: "<p>Our co-curricular program runs on a dedicated rotating schedule with specialist coaches. Included in school fees with no hidden costs.</p>"
+        },
+        "moral-values": {
+            title: "Strong Moral & Social Values",
+            subtitle: "Building Character for Life",
+            heroImage: "images/social.jpg",
+            content: '<div class="program-text"><h2>Character Education</h2><p>Academic excellence must be paired with strong character. Our values program develops ethical, responsible, and compassionate individuals.</p><ul><li><strong>Core Values</strong> — Respect, responsibility, honesty, kindness, and perseverance</li><li><strong>Character Education</strong> — Monthly focus on specific virtues through stories and activities</li><li><strong>Social-Emotional Learning</strong> — Emotions, empathy, and relationship skills</li><li><strong>Service Learning</strong> — Community projects that teach compassion</li><li><strong>Conflict Resolution</strong> — Peaceful problem-solving and communication</li><li><strong>Environmental Stewardship</strong> — Caring for our school and planet</li></ul></div>',
+            features: [
+                { icon: "uil uil-heart",     title: "Monthly Values",     description: "Focus on different virtues each month" },
+                { icon: "uil uil-handshake", title: "Service Learning",   description: "Community projects and volunteer work" },
+                { icon: "uil uil-users-alt", title: "Social Skills",      description: "Conflict resolution and communication training" },
+                { icon: "uil uil-leaf",      title: "Environmental Care", description: "Stewardship of our school and community" }
+            ],
+            review: "<p>Our whole-school values approach uses morning assemblies, classroom discussions, and the Caught Being Good recognition system.</p>"
+        }
+    };
+
+    // ============================================================
+    // HISTORY
+    // ============================================================
+    function initHistoryState() {
+        if (!history.state) {
+            history.replaceState({ page: 'home', program: null }, '', window.location.href);
+        }
+    }
+    function pushProgramHistory(programId) {
+        history.pushState({ page: 'program', program: programId }, '', '#' + programId);
+        navState.currentProgram = programId;
+    }
+    function replaceHomeHistory(highlightCardId) {
+        history.replaceState({ page: 'home', program: null, highlightCard: highlightCardId || null }, '', window.location.pathname);
+        navState.currentProgram = null;
+    }
+
+    // ============================================================
+    // MOBILE MENU
+    // ============================================================
+    var mobileMenuBtn     = document.getElementById('mobileMenuBtn');
+    var mobileNav         = document.getElementById('mobileNav');
+    var mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+    function openMobileMenu() {
+        mobileNav.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        mobileMenuBtn.classList.add('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+        mobileNav.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    mobileMenuBtn.addEventListener('click', function () {
+        mobileNav.classList.contains('active') ? closeMobileMenu() : openMobileMenu();
+    });
+    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+    document.querySelectorAll('.mobile-nav-link').forEach(function (l) {
+        l.addEventListener('click', closeMobileMenu);
+    });
+    mobileMenuBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            mobileNav.classList.contains('active') ? closeMobileMenu() : openMobileMenu();
+        }
+    });
+    window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1025) { closeMobileMenu(); }
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') { return; }
+        if (mobileNav.classList.contains('active')) { closeMobileMenu(); }
+        var modal = document.getElementById('imageModal');
+        if (modal && modal.classList.contains('active')) { closeImageModal(); }
+    });
+
+    // ============================================================
+    // IMAGE MODAL
+    // ============================================================
+    var imageModal = document.getElementById('imageModal');
+    var modalImage = document.getElementById('modalImage');
+    var modalTitle = document.getElementById('modalTitle');
+    var modalClose = document.getElementById('modalClose');
+
+    function openImageModal(src, alt, title) {
+        modalImage.src = src;
+        modalImage.alt = alt;
+        modalTitle.textContent = title || alt;
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeImageModal() {
+        imageModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    modalClose.addEventListener('click', closeImageModal);
+    imageModal.addEventListener('click', function (e) {
+        if (e.target === imageModal) { closeImageModal(); }
+    });
+
+    // ============================================================
+    // SCROLL
+    // ============================================================
+    window.addEventListener('scroll', function () {
+        document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    function getPos(id, offset) {
+        offset = offset || 120;
+        var el = document.getElementById(id);
+        return el ? el.getBoundingClientRect().top + window.scrollY - offset : 0;
+    }
+    function highlightCard(cardId) {
+        var card = document.getElementById(cardId);
+        if (!card) { return; }
+        document.querySelectorAll('.category').forEach(function (c) { c.classList.remove('highlighted'); });
+        card.classList.add('highlighted');
+        window.scrollTo({ top: getPos(cardId, 160), behavior: 'smooth' });
+        setTimeout(function () { card.classList.remove('highlighted'); }, 2000);
+    }
+
+    // ============================================================
+    // PAGE TRANSITIONS
+    // ============================================================
+    function showProgramPage(programId) {
+        var program = programs[programId];
+        if (!program) { return; }
+        closeMobileMenu();
+        pushProgramHistory(programId);
+
+        document.getElementById('homepage').style.display = 'none';
+        document.getElementById('program-page').style.display = 'block';
+
+        var featuresHTML = program.features.map(function (f) {
+            return '<div class="feature-item"><div class="feature-icon"><i class="' + f.icon + '"></i></div><h4>' + f.title + '</h4><p>' + f.description + '</p></div>';
+        }).join('');
+
+        document.getElementById('program-container').innerHTML =
+            '<div class="program-header">' +
+                '<a href="#" class="back-to-home" id="back-to-home"><i class="fas fa-arrow-left"></i> Back to Home</a>' +
+                '<h1>' + program.title + '</h1>' +
+                '<p>' + program.subtitle + '</p>' +
+            '</div>' +
+            '<div class="program-hero-image" id="programHeroImg" data-image-title="' + program.title + '">' +
+                '<img src="' + program.heroImage + '" alt="' + program.title + '">' +
+            '</div>' +
+            '<div class="program-content">' +
+                program.content +
+                '<div class="program-features"><h3>Key Features</h3><div class="feature-grid">' + featuresHTML + '</div></div>' +
+            '</div>' +
+            '<div class="program-review"><h3>How We Deliver This</h3>' + program.review + '</div>';
+
+        document.getElementById('back-to-home').addEventListener('click', function (e) {
+            e.preventDefault();
+            showHomepage(programId);
+        });
+
+        var heroImg = document.getElementById('programHeroImg');
+        if (heroImg) {
+            heroImg.addEventListener('click', function () {
+                var img = this.querySelector('img');
+                openImageModal(img.src, img.alt, this.getAttribute('data-image-title'));
+            });
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showHomepage(highlightCardId) {
+        replaceHomeHistory(highlightCardId);
+        document.getElementById('homepage').style.display = 'block';
+        document.getElementById('program-page').style.display = 'none';
+        initHomePageFeatures();
+        if (highlightCardId) {
+            setTimeout(function () { highlightCard(highlightCardId); }, 120);
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    window.addEventListener('popstate', function (e) {
+        var s = e.state;
+        if (!s || s.page === 'home') { showHomepage(s && s.highlightCard); return; }
+        if (s.page === 'program') { showProgramPage(s.program); }
+    });
+    window.addEventListener('hashchange', function () {
+        var hash = window.location.hash.substring(1);
+        if (hash && programs[hash]) { showProgramPage(hash); }
+    });
+
+    // ============================================================
+    // HOMEPAGE FEATURES — categories, FAQs, testimonials
+    // ============================================================
+    function initHomePageFeatures() {
+
+        // Category cards
+        document.querySelectorAll('.category').forEach(function (card) {
+            var fresh = card.cloneNode(true);
+            card.parentNode.replaceChild(fresh, card);
+            fresh.addEventListener('click', function () {
+                showProgramPage(this.getAttribute('data-program'));
+            });
+        });
+
+        // Clickable images
+        var hw = document.getElementById('headerImageWrapper');
+        if (hw) {
+            hw.addEventListener('click', function () {
+                var img = this.querySelector('img');
+                openImageModal(img.src, img.alt, this.getAttribute('data-image-title') || img.alt);
+            });
+        }
+        document.querySelectorAll('.course_image').forEach(function (el) {
+            el.addEventListener('click', function () {
+                var img = this.querySelector('img');
+                openImageModal(img.src, img.alt, this.getAttribute('data-image-title') || img.alt);
+            });
+        });
+        document.querySelectorAll('.author_avatar').forEach(function (el) {
+            el.addEventListener('click', function () {
+                var img = this.querySelector('img');
+                openImageModal(img.src, img.alt, this.getAttribute('data-image-title') || img.alt);
+            });
+        });
+
+        // FAQ accordion
+        document.querySelectorAll('.faq').forEach(function (faq) {
+            var fresh = faq.cloneNode(true);
+            faq.parentNode.replaceChild(fresh, faq);
+            fresh.addEventListener('click', function () {
+                var opening = !this.classList.contains('active');
+                document.querySelectorAll('.faq').forEach(function (f) {
+                    f.classList.remove('active');
+                    var ico = f.querySelector('.faq_icon i');
+                    if (ico) { ico.className = 'fas fa-plus'; }
+                });
+                if (opening) {
+                    this.classList.add('active');
+                    var ico = this.querySelector('.faq_icon i');
+                    if (ico) { ico.className = 'fas fa-minus'; }
+                }
+            });
+        });
+
+        // Testimonials
+        var testimonials = document.querySelectorAll('.testimonial');
+        if (!testimonials.length) { return; }
+        var total   = testimonials.length;
+        var current = 0;
+
+        function showTestimonial(idx) {
+            testimonials.forEach(function (t) { t.classList.remove('active', 'prev', 'next'); });
+            testimonials[idx].classList.add('active');
+            testimonials[(idx - 1 + total) % total].classList.add('prev');
+            testimonials[(idx + 1) % total].classList.add('next');
+            document.querySelectorAll('.testimonial_dot').forEach(function (d, i) {
+                d.classList.toggle('active', i === idx);
+            });
+            current = idx;
+        }
+
+        if (testimonialInterval) { clearInterval(testimonialInterval); testimonialInterval = null; }
+        showTestimonial(0);
+        testimonialInterval = setInterval(function () { showTestimonial((current + 1) % total); }, 5000);
+
+        document.querySelectorAll('.testimonial_dot').forEach(function (dot, i) {
+            var f = dot.cloneNode(true);
+            dot.parentNode.replaceChild(f, dot);
+            f.addEventListener('click', function () {
+                clearInterval(testimonialInterval);
+                showTestimonial(i);
+                testimonialInterval = setInterval(function () { showTestimonial((current + 1) % total); }, 5000);
+            });
+        });
+
+        ['prev-testimonial', 'next-testimonial'].forEach(function (id) {
+            var btn = document.getElementById(id);
+            if (!btn) { return; }
+            var fresh = btn.cloneNode(true);
+            btn.parentNode.replaceChild(fresh, btn);
+            fresh.addEventListener('click', function () {
+                clearInterval(testimonialInterval);
+                var next = id === 'next-testimonial' ? (current + 1) % total : (current - 1 + total) % total;
+                showTestimonial(next);
+                testimonialInterval = setInterval(function () { showTestimonial((current + 1) % total); }, 5000);
+            });
+        });
+    }
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    window.addEventListener('DOMContentLoaded', function () {
+        initHistoryState();
+
+        var page = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav_menu a, .mobile-nav-link').forEach(function (a) {
+            a.classList.toggle('active',
+                a.getAttribute('href') === page ||
+                (page === '' && a.getAttribute('href') === 'index.html')
+            );
+        });
+
+        var hash = window.location.hash.substring(1);
+        if (hash && programs[hash]) {
+            showProgramPage(hash);
+        } else {
+            initHomePageFeatures();
+        }
+    });
+    </script>
+</body>
+</html>
