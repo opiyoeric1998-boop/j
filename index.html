@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Jets Comprehensive School — Nurturing World-Ready Learners</title>
+<meta name="description" content="New Jets Comprehensive School, Kisumu — A CBC-aligned international-standard elementary school nurturing confident, creative learners from Playgroup to Grade 4.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+
+<style>
+/* ============================================================
+   HOME PAGE SPECIFIC STYLES
+   ============================================================ */
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(6,10,22,.88) 0%, rgba(10,28,70,.45) 55%, rgba(10,14,26,.18) 100%);
+  z-index: 1;
+}
+.hero-bg-img {
+  position: absolute; inset: 0;
+  background: url('images/Header.png') center/cover no-repeat;
+  z-index: 0;
+  transform-origin: center;
+  animation: heroZoom 18s ease-in-out infinite alternate;
+}
+@keyframes heroZoom { from{transform:scale(1)} to{transform:scale(1.06)} }
+
+.hero-accent-1 {
+  position: absolute;
+  top: -10%; right: -5%;
+  width: 680px; height: 680px;
+  background: radial-gradient(circle, rgba(59,130,246,.2) 0%, transparent 65%);
+  z-index: 2; pointer-events: none;
+  animation: pulse 8s ease-in-out infinite;
+}
+.hero-accent-2 {
+  position: absolute;
+  bottom: -15%; left: -8%;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(244,168,23,.12) 0%, transparent 65%);
+  z-index: 2; pointer-events: none;
+  animation: pulse 10s ease-in-out 2s infinite;
+}
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+.hero-grid-lines { display: none; }
+
+.hero-bottom-fade {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 220px;
+  background: linear-gradient(to top, var(--ink) 0%, transparent 100%);
+  z-index: 3;
+}
+
+/* Navbar transparent over hero */
+.hero-nav {
+  position: relative; z-index: 10;
+  padding: 1.4rem 0;
+}
+.hero-nav-inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+}
+
+.hero-body {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  position: relative; z-index: 5;
+  padding: 0 0 4.5rem;
+}
+.hero-body .container {
+  margin-left: 0;
+  margin-right: auto;
+  width: 100%;
+}
+.hero-content {
+  max-width: 500px;
+  text-align: left;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  background: rgba(244,168,23,.15);
+  border: 1px solid rgba(244,168,23,.35);
+  color: var(--gold);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .42rem 1.1rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  animation: fadeUp .8s var(--ease) both;
+}
+.hero-tag i { font-size: .7rem; }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: .9rem;
+  text-align: left;
+  animation: fadeUp .8s var(--ease) .1s both;
+}
+.hero-title .accent { color: var(--gold); font-style: normal; }
+.hero-title .line2 { color: var(--sky-bright); }
+
+.hero-welcome {
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .6rem;
+  opacity: .9;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  animation: fadeUp .6s var(--ease) both;
+}
+.hero-welcome::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.hero-tagline {
+  font-size: clamp(.85rem, 1.5vw, .98rem);
+  color: rgba(255,255,255,.78);
+  line-height: 1.65;
+  max-width: 420px;
+  margin-bottom: 1.8rem;
+  text-align: left;
+  animation: fadeUp .8s var(--ease) .2s both;
+}
+.hero-tagline strong { color: var(--white); font-weight: 700; }
+
+.hero-desc {
+  font-size: 1.08rem;
+  color: rgba(255,255,255,.7);
+  line-height: 1.8;
+  max-width: 580px;
+  margin-bottom: 2.5rem;
+  animation: fadeUp .8s var(--ease) .2s both;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp .8s var(--ease) .3s both;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,.1);
+  animation: fadeUp .8s var(--ease) .4s both;
+}
+.hero-stat {}
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+.hero-stat-num span { color: var(--gold); }
+.hero-stat-lbl {
+  font-size: .75rem;
+  color: rgba(255,255,255,.45);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-top: .3rem;
+}
+
+/* Hero image card */
+.hero-image-card {
+  position: relative; z-index: 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  animation: scaleIn .9s var(--ease) .15s both;
+}
+.hero-image-card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s var(--ease);
+}
+.hero-image-card:hover img { transform: scale(1.04); }
+.hero-float-badge {
+  position: absolute;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: .9rem 1.3rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+.hero-float-badge.badge-tl { top: 1.5rem; left: 1.5rem; }
+.hero-float-badge.badge-br { bottom: 1.5rem; right: 1.5rem; }
+.fb-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: var(--white);
+  flex-shrink: 0;
+}
+.fb-icon.gold-bg  { background: linear-gradient(135deg,var(--gold),#d4880a); }
+.fb-icon.blue-bg  { background: linear-gradient(135deg,var(--cobalt),#0ea5e9); }
+.fb-text strong { display: block; font-size: .88rem; font-weight: 700; color: var(--navy); }
+.fb-text span   { font-size: .72rem; color: var(--slate); }
+
+/* ── WHY CHOOSE US ── */
+.why-section { background: linear-gradient(180deg, var(--ink) 0%, #0d1525 100%); padding-bottom: 8rem; position: relative; }
+.why-header {
+  text-align: center;
+  position: relative; z-index: 1;
+  margin-bottom: 4rem;
+}
+.why-header h2 { color: var(--white); }
+.why-header p  { color: rgba(255,255,255,.55); max-width: 540px; margin: .8rem auto 0; }
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  position: relative; z-index: 1;
+}
+.pillar-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2rem;
+  transition: all .35s var(--ease);
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+.pillar-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0; height: 3px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s var(--ease);
+}
+.pillar-card:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.15);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,0,0,.4);
+}
+.pillar-card:hover::before { transform: scaleX(1); }
+
+.pillar-icon {
+  width: 58px; height: 58px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: var(--white);
+  margin-bottom: 1.4rem;
+}
+.pillar-card:nth-child(1) .pillar-icon { background: linear-gradient(135deg,#1655c0,#3b82f6); }
+.pillar-card:nth-child(2) .pillar-icon { background: linear-gradient(135deg,#10b981,#34d399); }
+.pillar-card:nth-child(3) .pillar-icon { background: linear-gradient(135deg,#0891b2,#06b6d4); }
+.pillar-card:nth-child(4) .pillar-icon { background: linear-gradient(135deg,#8b5cf6,#a78bfa); }
+.pillar-card:nth-child(5) .pillar-icon { background: linear-gradient(135deg,#ef4444,#f87171); }
+.pillar-card:nth-child(6) .pillar-icon { background: linear-gradient(135deg,#0891b2,#06b6d4); }
+
+.pillar-card h4 { color: var(--white); font-size: 1.1rem; margin-bottom: .5rem; }
+.pillar-card p  { color: rgba(255,255,255,.5); font-size: .88rem; line-height: 1.65; margin: 0; }
+
+.pillar-card .pillar-arrow {
+  position: absolute;
+  top: 1.8rem; right: 1.8rem;
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.06);
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.3);
+  font-size: .8rem;
+  transition: all .3s var(--ease);
+  cursor: pointer;
+  outline: none;
+}
+.pillar-card:hover .pillar-arrow {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* ── QUICK LINKS BAND ── */
+.band {
+  background: linear-gradient(135deg, var(--cobalt) 0%, var(--navy) 100%);
+  padding: 3.5rem 0;
+  position: relative; overflow: hidden;
+}
+.band::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('images/logo.png.jpg') center/120px no-repeat;
+  opacity: .03;
+}
+.band-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.band-text h3 { color: var(--white); font-size: 1.6rem; margin-bottom: .3rem; }
+.band-text p  { color: rgba(255,255,255,.65); margin: 0; }
+.band-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.course-card:hover .course-card:hover /* ── FAQs ── */
+.faq-section { background: var(--white); }
+.faq-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 5rem;
+  align-items: start;
+}
+.faq-left h2 { margin-bottom: 1rem; }
+.faq-left p  { margin-bottom: 2rem; }
+.faq-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.faq-image img {
+  width: 100%; height: 300px;
+  object-fit: cover; display: block;
+  transition: transform .55s var(--ease);
+}
+.faq-image:hover img { transform: scale(1.04); }
+
+.faq-list { display: flex; flex-direction: column; gap: .7rem; }
+.faq-item {
+  background: var(--off-white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--dur) var(--ease);
+}
+.faq-item.open { border-color: var(--cobalt); background: var(--white); box-shadow: var(--shadow-sm); }
+.faq-header {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  padding: 1.1rem 1.4rem;
+  cursor: pointer;
+  user-select: none;
+}
+.faq-q-icon {
+  width: 34px; height: 34px; flex-shrink: 0;
+  border-radius: 9px;
+  background: var(--sky-light);
+  color: var(--cobalt);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .85rem;
+  transition: all var(--dur) var(--ease);
+}
+.faq-item.open .faq-q-icon { background: var(--cobalt); color: var(--white); transform: rotate(45deg); }
+.faq-header h4 { flex: 1; font-size: .97rem; color: var(--navy); margin: 0; }
+.faq-chevron { color: var(--slate-light); font-size: .8rem; transition: transform var(--dur) var(--ease); flex-shrink: 0; }
+.faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--cobalt); }
+.faq-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height .45s var(--ease);
+}
+.faq-item.open .faq-body { max-height: 400px; }
+.faq-body-inner {
+  padding: .2rem 1.4rem 1.3rem 3.3rem;
+  font-size: .91rem; color: var(--slate); line-height: 1.75;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials-section {
+  background: linear-gradient(150deg, var(--navy) 0%, var(--ink) 100%);
+  position: relative; overflow: hidden;
+}
+.testimonials-section::before {
+  content: '';
+  position: absolute; top: -20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+.testimonials-section::after {
+  content: '';
+  position: absolute; bottom: -15%; left: -8%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(244,168,23,.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.test-header { text-align: center; margin-bottom: 4rem; position: relative; z-index: 1; }
+.test-header h2 { color: var(--white); }
+.test-header p  { color: rgba(255,255,255,.5); max-width: 500px; margin: .7rem auto 0; }
+
+.test-stage { max-width: 820px; margin: 0 auto; position: relative; z-index: 1; }
+.test-track { position: relative; }
+.test-card {
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius-xl);
+  padding: 2.8rem 3rem;
+  display: none;
+  width: 100%;
+  animation: tCardIn .45s var(--ease) both;
+}
+.test-card.active { display: block; }
+.test-card.prev   { display: none; }
+@keyframes tCardIn { from{opacity:0;transform:translateX(32px)} to{opacity:1;transform:translateX(0)} }
+
+.test-quote {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  color: var(--gold);
+  opacity: .35;
+  line-height: .7;
+  margin-bottom: .8rem;
+}
+.test-text {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.82);
+  line-height: 1.85;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+.test-author {
+  display: flex; align-items: center; gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+.test-avatar {
+  width: 54px; height: 54px;
+  border-radius: 50%; overflow: hidden;
+  border: 2.5px solid var(--gold);
+  flex-shrink: 0;
+}
+.test-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.test-author-name { font-size: .98rem; font-weight: 700; color: var(--white); }
+.test-author-role { font-size: .78rem; color: var(--gold); }
+
+.test-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  position: relative; z-index: 1;
+}
+.test-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  border: none; cursor: pointer;
+  transition: all var(--dur) var(--ease); padding: 0;
+}
+.test-dot.active { background: var(--gold); transform: scale(1.4); width: 22px; border-radius: 4px; }
+.test-btn {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.18);
+  color: var(--white); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .9rem;
+  transition: all var(--dur) var(--ease);
+}
+.test-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); transform: scale(1.1); }
+
+/* ── CTA STRIP ── */
+.cta-strip {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--cobalt) 100%);
+  padding: 5rem 0;
+  position: relative; overflow: hidden;
+}
+.cta-strip::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -5%;
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(255,255,255,.15) 0%, transparent 65%);
+}
+.cta-inner {
+  position: relative; z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.cta-text h2 { color: var(--white); font-size: clamp(1.8rem,3.5vw,2.5rem); margin-bottom: .4rem; }
+.cta-text p  { color: rgba(255,255,255,.7); margin: 0; font-size: 1.02rem; }
+.cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .pillars-grid    { grid-template-columns: repeat(2,1fr); }
+    .faq-layout      { grid-template-columns: 1fr; gap: 3rem; }
+}
+@media (max-width: 768px) {
+  .hero-body       { padding: 0 0 3rem; }
+  .hero-content    { max-width: 100%; }
+  .hero-title      { font-size: clamp(1.5rem, 6vw, 2rem); line-height: 1.18; }
+  .hero-welcome    { font-size: .72rem; }
+  .hero-tagline    { font-size: .85rem; margin-bottom: 1.4rem; max-width: 100%; }
+  .hero-stats      { gap: 1.5rem; }
+  .pillars-grid    { grid-template-columns: 1fr; }
+    .band-inner      { flex-direction: column; text-align: center; }
+  .cta-inner       { flex-direction: column; text-align: center; justify-content: center; }
+  .cta-actions     { justify-content: center; }
+  .test-card       { padding: 2rem 1.6rem; }
+}
+@media (max-width: 540px) {
+  .hero-actions    { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 420px) {
+  .hero-title      { font-size: clamp(1.35rem, 7vw, 1.75rem); }
+  .hero-tagline    { font-size: .82rem; }
+
+}
+
+/* ══════════════════════════════════════════════════════════
+   PROGRAMME PAGE — Full-screen slide-in experience
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Full-page overlay, slides in from right ── */
+.prog-modal {
+  display: none;
+  position: fixed; inset: 0;
+  background: var(--off-white);
+  z-index: 10000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+}
+.prog-modal.open {
+  display: flex;
+  animation: pgSlideIn .38s cubic-bezier(.25,.46,.45,.94) both;
+}
+.prog-modal.closing {
+  animation: pgSlideOut .32s cubic-bezier(.55,.06,.68,.19) both;
+}
+@keyframes pgSlideIn  { from{transform:translateX(100%);opacity:.6} to{transform:translateX(0);opacity:1} }
+@keyframes pgSlideOut { from{transform:translateX(0);opacity:1} to{transform:translateX(100%);opacity:.6} }
+
+/* ── Sticky top bar — back button ── */
+.prog-topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 clamp(1.2rem,5vw,4rem);
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+}
+.prog-back-btn {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--navy); color: var(--white);
+  border: none; border-radius: 50px;
+  padding: .55rem 1.4rem;
+  font-family: var(--font-body); font-size: .85rem; font-weight: 700;
+  cursor: pointer; transition: all .22s var(--ease);
+  letter-spacing: .02em;
+}
+.prog-back-btn:hover { background: var(--cobalt); transform: translateX(-3px); }
+.prog-back-btn i { font-size: .8rem; }
+.prog-topbar-brand {
+  font-family: var(--font-display);
+  font-size: .95rem; font-weight: 700;
+  color: var(--navy); opacity: .55;
+}
+
+/* ── Content wrapper ── */
+.prog-modal-box {
+  flex: 1; width: 100%; max-width: 100%;
+  display: flex; flex-direction: column;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none; border-radius: 0;
+}
+
+/* ── HERO BAND ── */
+.prog-hero {
+  position: relative;
+  padding: clamp(3rem,8vw,7rem) clamp(1.5rem,8vw,6rem) clamp(3rem,6vw,5rem);
+  overflow: hidden;
+  min-height: clamp(320px,45vh,520px);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  background: linear-gradient(160deg, var(--ink) 0%, #0c2060 60%, #1655c0 100%);
+}
+.prog-hero-glow-1 {
+  position: absolute; top: -20%; right: -5%;
+  width: clamp(280px,45vw,600px); height: clamp(280px,45vw,600px);
+  background: radial-gradient(circle, rgba(59,130,246,.3) 0%, transparent 65%);
+  border-radius: 50%; pointer-events: none; z-index: 1;
+  animation: gFloat 8s ease-in-out infinite;
+}
+.prog-hero-glow-2 {
+  position: absolute; bottom: -15%; left: -3%;
+  width: clamp(200px,30vw,420px); height: clamp(200px,30vw,420px);
+  background: radial-gradient(circle, rgba(244,168,23,.2) 0%, transparent 65%);
+  border-radius: 50%; pointer-events: none; z-index: 1;
+  animation: gFloat 10s ease-in-out 2s infinite;
+}
+@keyframes gFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+.prog-hero-grid {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.prog-hero-accent-line {
+  position: absolute; top: 0; left: 0; right: 0; height: 4px; z-index: 3;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--sky-bright) 55%, transparent 100%);
+}
+.prog-hero-content { position: relative; z-index: 5; max-width: 800px; }
+.prog-hero-tag {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(244,168,23,.16); border: 1px solid rgba(244,168,23,.38);
+  color: var(--gold); font-family: var(--font-body);
+  font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  padding: .4rem 1.1rem; border-radius: 100px; margin-bottom: 1.4rem;
+  animation: fadeUp .5s .1s both;
+}
+.prog-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem,5vw,4rem);
+  font-weight: 900; color: var(--white);
+  line-height: 1.08; margin-bottom: .8rem;
+  letter-spacing: -.02em;
+  animation: fadeUp .5s .18s both;
+}
+.prog-hero-title .accent { color: var(--sky-bright); font-style: italic; }
+.prog-hero-sub {
+  font-size: clamp(.95rem,1.8vw,1.12rem);
+  color: rgba(255,255,255,.65);
+  line-height: 1.72; max-width: 580px; margin: 0;
+  animation: fadeUp .5s .26s both;
+}
+.prog-hero-stats {
+  display: flex; gap: 2.5rem; margin-top: 2.5rem; flex-wrap: wrap;
+  padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.12);
+  animation: fadeUp .5s .34s both;
+}
+.prog-stat {
+  display: flex; flex-direction: column;
+  border-left: 2.5px solid rgba(244,168,23,.55); padding-left: 1rem;
+}
+.prog-stat-num {
+  font-family: var(--font-display); font-size: 1.7rem; font-weight: 700;
+  color: var(--gold); line-height: 1;
+}
+.prog-stat-lbl {
+  font-size: .65rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: rgba(255,255,255,.42); margin-top: .3rem;
+}
+
+/* ── Page content body ── */
+.prog-body {
+  flex: 1; background: var(--off-white);
+  max-width: 1200px; width: 100%;
+  margin: 0 auto; padding: 0 0 4rem;
+  align-self: center; box-sizing: border-box;
+}
+@media (min-width: 1200px) {
+  .prog-body { padding: 0 2rem 5rem; }
+}
+
+/* ── Section wrapper ── */
+.prog-section {
+  background: var(--white); margin: 2.5rem clamp(1.2rem,4vw,3rem) 0;
+  border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+}
+
+/* ── Section header ── */
+.prog-sec-hd {
+  padding: 1.8rem 2.2rem 0;
+  display: flex; align-items: center; gap: .75rem;
+  margin-bottom: 1.5rem;
+}
+.prog-sec-hd-accent {
+  width: 4px; height: 28px; border-radius: 2px;
+  background: linear-gradient(to bottom, var(--gold), var(--cobalt));
+  flex-shrink: 0;
+}
+.prog-sec-hd h2 {
+  font-family: var(--font-body); font-size: .72rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--cobalt); margin: 0;
+}
+
+/* ── Offer items grid ── */
+.prog-items-grid {
+  display: grid; grid-template-columns: repeat(2,1fr);
+  gap: 1rem; padding: 0 2.2rem 2.2rem;
+}
+.prog-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  background: var(--off-white); border-radius: 14px;
+  padding: 1.2rem 1.3rem; border: 1.5px solid var(--border);
+  transition: all .22s var(--ease);
+}
+.prog-item:hover {
+  background: var(--sky-light); border-color: var(--sky);
+  transform: translateY(-2px); box-shadow: var(--shadow-sm);
+}
+.prog-item-ico {
+  width: 42px; height: 42px; border-radius: 12px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--navy), var(--cobalt));
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 1rem;
+}
+.prog-item-ico.alt-1 { background: linear-gradient(135deg,#10b981,#059669); }
+.prog-item-ico.alt-2 { background: linear-gradient(135deg,#8b5cf6,#6d28d9); }
+.prog-item-ico.alt-3 { background: linear-gradient(135deg,#f59e0b,#d97706); }
+.prog-item-ico.alt-4 { background: linear-gradient(135deg,#ef4444,#dc2626); }
+.prog-item-text strong {
+  display: block; font-size: .92rem; font-weight: 700;
+  color: var(--navy); margin-bottom: .25rem; line-height: 1.3;
+}
+.prog-item-text span { font-size: .84rem; color: var(--slate); line-height: 1.6; }
+
+/* ── Key features (4-up cards) ── */
+.prog-features-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0; border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+.prog-feat-card {
+  padding: 1.8rem 1.4rem; text-align: center;
+  background: var(--white); border-right: 1px solid var(--border);
+  transition: background .22s var(--ease), transform .22s var(--ease);
+}
+.prog-feat-card:last-child { border-right: 0; }
+.prog-feat-card:hover { background: var(--sky-light); transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+.prog-feat-ico {
+  width: 52px; height: 52px; border-radius: 14px; margin: 0 auto 1rem;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: var(--white);
+  background: linear-gradient(135deg, var(--cobalt), var(--sky));
+}
+.prog-feat-card h4 { font-size: .92rem; color: var(--navy); margin-bottom: .35rem; }
+.prog-feat-card p  { font-size: .78rem; color: var(--slate); line-height: 1.6; }
+
+/* ── Delivery insight ── */
+.prog-delivery {
+  margin: 2.5rem clamp(1.2rem,4vw,3rem) 0;
+  border-radius: var(--radius-xl); overflow: hidden;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--cobalt) 100%);
+  padding: 2.5rem 2.8rem;
+  display: flex; align-items: flex-start; gap: 1.5rem;
+  position: relative; overflow: hidden;
+}
+.prog-delivery::before {
+  content: '';
+  position: absolute; top: -30%; right: -5%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(59,130,246,.2) 0%, transparent 65%);
+  border-radius: 50%; pointer-events: none;
+}
+.prog-delivery-ico {
+  width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+  background: rgba(244,168,23,.2); border: 1.5px solid rgba(244,168,23,.35);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 1.2rem; position: relative; z-index: 1;
+}
+.prog-delivery-text { position: relative; z-index: 1; }
+.prog-delivery-text h3 {
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--white); margin-bottom: .55rem;
+}
+.prog-delivery-text p {
+  font-size: .92rem; color: rgba(255,255,255,.7);
+  line-height: 1.8; margin: 0;
+}
+
+/* ── Call to action bar at bottom ── */
+.prog-cta-bar {
+  margin: 2.5rem clamp(1.2rem,4vw,3rem) 0;
+  background: var(--gold);
+  border-radius: var(--radius-xl);
+  padding: 2.2rem 2.8rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  flex-wrap: wrap;
+}
+.prog-cta-text h3 { font-size: clamp(1.1rem,2.5vw,1.5rem); color: var(--navy); margin-bottom: .25rem; }
+.prog-cta-text p  { font-size: .92rem; color: rgba(13,42,92,.65); margin: 0; }
+.prog-cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.prog-cta-btn-primary {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--navy); color: var(--white); border: none;
+  padding: .85rem 2rem; border-radius: 50px;
+  font-family: var(--font-body); font-size: .9rem; font-weight: 700;
+  cursor: pointer; transition: all .22s var(--ease);
+}
+.prog-cta-btn-primary:hover { background: var(--cobalt); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,42,92,.3); }
+.prog-cta-btn-sec {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: transparent; color: var(--navy);
+  border: 2px solid rgba(13,42,92,.3);
+  padding: .83rem 1.8rem; border-radius: 50px;
+  font-family: var(--font-body); font-size: .9rem; font-weight: 700;
+  cursor: pointer; transition: all .22s var(--ease);
+}
+.prog-cta-btn-sec:hover { background: rgba(13,42,92,.08); transform: translateY(-2px); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .prog-features-grid { grid-template-columns: repeat(2,1fr); }
+  .prog-feat-card:nth-child(2) { border-right: 0; }
+  .prog-feat-card:nth-child(3) { border-top: 1px solid var(--border); }
+  .prog-feat-card:nth-child(4) { border-top: 1px solid var(--border); border-right: 0; }
+}
+@media (max-width: 640px) {
+  .prog-items-grid { grid-template-columns: 1fr; }
+  .prog-delivery { padding: 2rem 1.6rem; flex-direction: column; }
+  .prog-cta-bar { flex-direction: column; text-align: center; padding: 2rem 1.6rem; }
+  .prog-cta-actions { justify-content: center; width: 100%; }
+  .prog-cta-btn-primary, .prog-cta-btn-sec { justify-content: center; width: 100%; }
+  .prog-features-grid { grid-template-columns: 1fr 1fr; }
+  .prog-hero-stats { gap: 1rem; padding-top: 1.5rem; margin-top: 1.5rem; }
+  .prog-stat-num { font-size: 1.3rem; }
+  .prog-hero-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  .prog-topbar { padding: 0 1rem; }
+  .prog-topbar-brand { font-size: .8rem; max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .prog-section { margin: 1.5rem .8rem 0; }
+  .prog-sec-hd { padding: 1.4rem 1.4rem 0; }
+  .prog-items-grid { padding: 0 1.4rem 1.6rem; }
+  .prog-delivery { margin: 1.5rem .8rem 0; }
+  .prog-cta-bar  { margin: 1.5rem .8rem 0; }
+}
+@media (max-width: 420px) {
+  .prog-features-grid { grid-template-columns: 1fr; }
+  .prog-feat-card { border-right: 0; border-top: 1px solid var(--border); }
+  .prog-feat-card:first-child { border-top: 0; }
+  .prog-hero { padding: 2.5rem 1.2rem 2rem; }
+  .prog-hero-stats { flex-wrap: wrap; gap: .6rem; }
+  .prog-stat { flex: 1; min-width: calc(50% - .3rem); }
+  .prog-topbar-brand { display: none; }
+  .prog-back-btn { font-size: .82rem; padding: .48rem 1.1rem; }
+}
+</style>
+
+<style id="shared-design-system">
+/* ============================================================
+   NEW JETS COMPREHENSIVE SCHOOL — DESIGN SYSTEM (INLINE)
+   ============================================================ */
+*,*::before,*::after{margin:0;padding:0;border:0;outline:0;text-decoration:none;list-style:none;box-sizing:border-box}
+:root{
+  --ink:#0a0e1a;--ink-soft:#1c2438;--navy:#0d2a5c;--navy-mid:#1a3a72;--navy-light:#1e4d9b;
+  --cobalt:#1655c0;--sky:#3b82f6;--sky-bright:#60a5fa;--sky-light:#dbeafe;
+  --gold:#f4a817;--gold-dark:#d4880a;--gold-light:#fef3c7;
+  --white:#ffffff;--off-white:#f8fafd;--pearl:#f0f4fb;--mist:#e8eef8;
+  --slate:#5a6885;--slate-light:#94a3b8;--border:#dde4f0;
+  --success:#10b981;--error:#ef4444;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --nav-h:5.2rem;--container-xl:1280px;
+  --radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;
+  --shadow-xs:0 1px 4px rgba(10,14,26,.06);--shadow-sm:0 4px 12px rgba(10,14,26,.08);
+  --shadow-md:0 8px 28px rgba(10,14,26,.12);--shadow-lg:0 20px 56px rgba(10,14,26,.16);
+  --shadow-xl:0 32px 80px rgba(10,14,26,.22);
+  --ease:cubic-bezier(.4,0,.2,1);--dur:280ms;
+}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);line-height:1.7;color:var(--ink);background:var(--white);overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.18;color:var(--navy)}
+h1{font-size:clamp(2.4rem,5vw,4rem)}h2{font-size:clamp(1.9rem,3.5vw,3rem)}
+h3{font-size:clamp(1.3rem,2.5vw,2rem)}h4{font-size:clamp(1.05rem,1.8vw,1.3rem)}
+p{color:var(--slate);line-height:1.75}
+.container{max-width:var(--container-xl);margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
+section{padding:6rem 0}
+/* SECTION LABEL */
+.section-label{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--font-body);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cobalt);margin-bottom:.9rem}
+.section-label::before{content:'';width:22px;height:2px;background:var(--gold);border-radius:2px;flex-shrink:0}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2.1rem;border-radius:50px;font-family:var(--font-body);font-size:.92rem;font-weight:700;cursor:pointer;transition:all var(--dur) var(--ease);border:2px solid transparent;letter-spacing:.02em;white-space:nowrap;text-decoration:none}
+.btn-primary{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.btn-primary:hover{background:var(--cobalt);border-color:var(--cobalt);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,42,92,.3)}
+.btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold-dark);border-color:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(244,168,23,.35)}
+.btn-outline{background:transparent;color:var(--cobalt);border-color:var(--cobalt)}
+.btn-outline:hover{background:var(--cobalt);color:var(--white);transform:translateY(-2px)}
+.btn-white{background:var(--white);color:var(--navy);border-color:var(--white)}
+.btn-white:hover{background:transparent;color:var(--white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--white);border-color:rgba(255,255,255,.55)}
+.btn-outline-white:hover{background:var(--white);color:var(--navy);transform:translateY(-2px)}
+.btn-ghost-light{background:rgba(255,255,255,.12);color:var(--white);border-color:rgba(255,255,255,.35);backdrop-filter:blur(10px)}
+.btn-ghost-light:hover{background:var(--white);color:var(--navy);transform:translateY(-2px)}
+.btn-sm{padding:.65rem 1.5rem;font-size:.85rem}
+.btn-lg{padding:1.1rem 2.5rem;font-size:1rem}
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:900;transition:all var(--dur) var(--ease)}
+.navbar.transparent{background:transparent}
+.navbar.solid,.navbar.scrolled{background:var(--navy);box-shadow:0 2px 24px rgba(10,14,26,.18)}
+.navbar.solid::after,.navbar.scrolled::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold) 0%,var(--sky-bright) 60%,transparent 100%)}
+.nav-brand{display:flex;align-items:center;gap:.85rem;text-decoration:none;flex-shrink:0}
+.nav-badge{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2.5px solid rgba(255,255,255,.3);flex-shrink:0}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-brand-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--white);letter-spacing:.01em}
+.brand-short{display:none}
+.brand-full{display:inline}
+.nav-brand-tag{font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:.2rem}
+.nav-links a{font-size:.88rem;font-weight:600;padding:.55rem 1rem;border-radius:var(--radius-sm);color:rgba(255,255,255,.8);transition:all var(--dur) var(--ease);position:relative;letter-spacing:.01em}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.1)}
+.nav-links a.active::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:18px;height:2px;background:var(--gold);border-radius:2px}
+.nav-cta{flex-shrink:0}
+/* HAMBURGER */
+.hamburger{display:none;position:fixed;top:1rem;right:1rem;width:48px;height:48px;background:var(--navy);border:2px solid rgba(255,255,255,.18);border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5.5px;cursor:pointer;z-index:1100;transition:all var(--dur) var(--ease)}
+.hamburger.open{background:var(--cobalt);transform:rotate(90deg)}
+.h-line{width:22px;height:2.5px;background:var(--white);border-radius:2px;transition:all var(--dur) var(--ease);transform-origin:center}
+.hamburger.open .h-line:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.hamburger.open .h-line:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open .h-line:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+/* DRAWER */
+.mobile-drawer{position:fixed;top:0;right:-100%;width:300px;height:100%;background:linear-gradient(160deg,var(--navy) 0%,var(--ink) 100%);z-index:1050;transition:right .4s var(--ease);display:flex;flex-direction:column;padding:5.5rem 1.8rem 2rem;overflow-y:auto;box-shadow:-8px 0 40px rgba(0,0,0,.3)}
+.mobile-drawer.open{right:0}
+.drawer-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.drawer-logo img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.drawer-logo-text .name{font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:700}
+.drawer-logo-text .tag{font-size:.62rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
+.drawer-links{display:flex;flex-direction:column;gap:.4rem}
+.drawer-links a{color:rgba(255,255,255,.8);font-size:.98rem;font-weight:600;padding:.85rem 1.2rem;border-radius:10px;display:flex;align-items:center;gap:.9rem;background:rgba(255,255,255,.05);border-left:3px solid transparent;transition:all .24s var(--ease)}
+.drawer-links a i{font-size:.95rem;color:var(--sky-bright);width:18px;flex-shrink:0}
+.drawer-links a:hover,.drawer-links a.active{background:rgba(59,130,246,.15);border-left-color:var(--gold);color:var(--white);transform:translateX(4px)}
+.drawer-cta{margin-top:2rem}
+.drawer-contact{margin-top:auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:1000;opacity:0;visibility:hidden;transition:all .3s var(--ease)}
+.overlay.open{opacity:1;visibility:visible}
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:10000;justify-content:center;align-items:center;padding:2rem}
+.lightbox.open{display:flex;animation:fadeIn .25s var(--ease)}
+.lightbox-content{position:relative;max-width:92vw;max-height:92vh}
+.lightbox-content img{max-width:100%;max-height:84vh;object-fit:contain;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,.6);display:block}
+.lightbox-close{position:absolute;top:-1.2rem;right:-1.2rem;width:38px;height:38px;background:var(--gold);border:none;border-radius:50%;color:var(--navy);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--dur) var(--ease);font-weight:700}
+.lightbox-close:hover{transform:rotate(90deg) scale(1.1);background:#fff}
+.lightbox-caption{text-align:center;color:rgba(255,255,255,.55);font-size:.85rem;margin-top:.7rem}
+/* FOOTER */
+.site-footer{background:var(--ink);color:rgba(255,255,255,.75);padding:5rem 0 0;margin-top:auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1.3fr;gap:3.5rem;padding-bottom:4rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand-logo{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;text-decoration:none}
+.footer-brand-logo img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.2)}
+.footer-brand-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--white)}
+.footer-tagline{font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.65;max-width:260px;margin-bottom:1.8rem}
+.footer-socials{display:flex;gap:.7rem;flex-wrap:wrap}
+.footer-social{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--white);transition:all var(--dur) var(--ease)}
+.footer-social:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.footer-social.fb{background:#1877F2}.footer-social.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.footer-social.tt{background:#111;border:1px solid rgba(255,255,255,.12)}.footer-social.wa{background:#25D366}.footer-social.gm{background:#4285F4}
+.footer-col h4{font-family:var(--font-body);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.footer-links{display:flex;flex-direction:column;gap:.6rem}
+.footer-links a{color:rgba(255,255,255,.6);font-size:.9rem;transition:all var(--dur) var(--ease);display:flex;align-items:center;gap:.4rem}
+.footer-links a:hover{color:var(--gold);transform:translateX(4px)}
+.footer-links a::before{content:'›';opacity:.4}
+.footer-contact-list{display:flex;flex-direction:column;gap:1rem}
+.footer-contact-item{display:flex;align-items:flex-start;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.55}
+.footer-contact-item i{color:var(--gold);margin-top:.15rem;flex-shrink:0}
+.footer-contact-item a{color:inherit}.footer-contact-item a:hover{color:var(--gold)}
+.footer-bottom{text-align:center;padding:1.8rem 0;font-size:.78rem;color:rgba(255,255,255,.28)}
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+/* PAGE HERO (shared across subpages) */
+.page-hero{padding-top:calc(var(--nav-h)+5rem);padding-bottom:6rem;position:relative;overflow:hidden;min-height:56vh;display:flex;align-items:center}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,var(--white) 0%,transparent 100%)}
+.page-hero-inner{position:relative;z-index:1;text-align:center}
+.page-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(244,168,23,.15);border:1px solid rgba(244,168,23,.3);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.4rem 1.1rem;border-radius:100px;margin-bottom:1.4rem}
+.page-hero-inner h1{color:var(--white);margin-bottom:1rem;animation:fadeUp .8s both}
+.page-hero-inner h1 span{color:var(--gold);font-style:italic}
+.page-hero-inner p{color:rgba(255,255,255,.72);font-size:1.08rem;max-width:620px;margin:0 auto;line-height:1.8;animation:fadeUp .8s .1s both}
+/* RESPONSIVE */
+@media(max-width:640px){.brand-full{display:none}.brand-short{display:inline}.nav-brand-tag{display:none}.nav-brand-name{font-size:1.1rem}}
+@media(max-width:1024px){.hamburger{display:flex}.nav-links{display:none}.nav-cta{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+@media(max-width:768px){section{padding:4.5rem 0}.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:540px){.footer-grid{grid-template-columns:1fr;gap:1.8rem}}
+
+</style>
+</head>
+<body>
+
+<!-- ==================== LIGHTBOX ==================== -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="lb-close"><i class="fas fa-times"></i></button>
+    <img id="lb-img" src="" alt="">
+    <div class="lightbox-caption" id="lb-cap"></div>
+  </div>
+</div>
+
+<!-- ==================== HAMBURGER ==================== -->
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+  <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
+</button>
+<div class="overlay" id="drawer-overlay"></div>
+
+<!-- ==================== MOBILE DRAWER ==================== -->
+<div class="mobile-drawer" id="mobile-drawer" role="navigation">
+  <div class="drawer-logo">
+    <img src="images/logo.png.jpg" alt="NJCS Logo">
+    <div class="drawer-logo-text">
+      <div class="name">New Jets Comprehensive School</div>
+      <div class="tag">Kisumu, Kenya</div>
+    </div>
+  </div>
+  <div class="drawer-links">
+    <a href="index.html" class="active"><i class="fas fa-home"></i>Home</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i>About Us</a>
+    <a href="course.html"><i class="fas fa-book-open"></i>Programmes</a>
+    <a href="fees.html"><i class="fas fa-receipt"></i>Fees & Admissions</a>
+    <a href="blog.html"><i class="fas fa-rss"></i>Blog</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+  </div>
+  <div class="drawer-contact">
+    <i class="fas fa-phone-alt" style="color:var(--gold);margin-right:.4rem"></i>+254 727 549 629<br>
+    <i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:.4rem"></i>Gesoko, opp. Joyland, Kisumu
+  </div>
+</div>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="home">
+  <div class="hero-bg-img"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-accent-1"></div>
+  <div class="hero-accent-2"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-bottom-fade"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar transparent" id="main-nav">
+    <div class="container hero-nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="images/logo.png.jpg" alt="NJCS" class="nav-badge">
+        <div class="nav-brand-text">
+          <span class="nav-brand-name"><span class="brand-full">New Jets Comprehensive School</span><span class="brand-short">NJCS</span></span>
+          <span class="nav-brand-tag">Kisumu · Est. 2023</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="course.html">Programmes</a>
+        <a href="fees.html">Fees</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </nav>
+
+  <!-- Hero Body -->
+  <div class="hero-body">
+    <div class="container">
+      <div class="hero-content">
+        <p class="hero-welcome">Welcome to</p>
+        <h1 class="hero-title">New Jets<br><span class="accent">Comprehensive School</span></h1>
+        <p class="hero-tagline">Nurturing confident, creative learners — <strong>Playgroup to Grade 4</strong> — in the heart of Kisumu.</p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-gold">Enrol Your Child <i class="fas fa-arrow-right"></i></a>
+          <a href="about.html" class="btn btn-ghost-light">Our Story <i class="fas fa-play-circle"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHY CHOOSE US ==================== -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="why-header">
+      <span class="section-label" style="justify-content:center;color:rgba(255,255,255,.5)">Why Choose NJCS</span>
+      <h2>A School That Truly Cares</h2>
+      <p>Six pillars of excellence that define the New Jets Comprehensive School difference.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card reveal" data-program="cbc-aligned" style="cursor:pointer">
+        <div class="pillar-icon"><i class="fas fa-book-open"></i></div>
+        <button class="pillar-arrow" data-program="cbc-aligned" aria-label="Learn more"><i class="fas fa-arrow-right"></i></button>
+        <h4>CBC-Aligned Learning</h4>
+        <p>Strong academic foundation with competency-based, hands-on curriculum designed for the modern Kenyan child.</p>
+      </div>
+      <div class="pillar-card reveal" data-program="safe-environment" style="cursor:pointer">
+        <div class="pillar-icon"><i class="fas fa-shield-alt"></i></div>
+        <button class="pillar-arrow" data-program="safe-environment" aria-label="Learn more"><i class="fas fa-arrow-right"></i></button>
+        <h4>Safe & Caring Environment</h4>
+        <p>Secure premises, loving teachers, child-friendly spaces, and a robust child protection framework.</p>
+      </div>
+      <div class="pillar-card reveal" data-program="play-based" style="cursor:pointer">
+        <div class="pillar-icon"><i class="fas fa-palette"></i></div>
+        <button class="pillar-arrow" data-program="play-based" aria-label="Learn more"><i class="fas fa-arrow-right"></i></button>
+        <h4>Play-Based Early Years</h4>
+        <p>PP1, PP2, and early grades enjoy joyful, interactive learning that builds love for school.</p>
+      </div>
+      <div class="pillar-card reveal" data-program="ict-exposure" style="cursor:pointer">
+        <div class="pillar-icon"><i class="fas fa-laptop"></i></div>
+        <button class="pillar-arrow" data-program="ict-exposure" aria-label="Learn more"><i class="fas fa-arrow-right"></i></button>
+        <h4>Modern ICT Exposure</h4>
+        <p>Early introduction to digital skills preparing learners to thrive in an increasingly digital world.</p>
+      </div>
+      <div class="pillar-card reveal" data-program="co-curricular" style="cursor:pointer">
+        <div class="pillar-icon"><i class="fas fa-trophy"></i></div>
+        <button class="pillar-arrow" data-program="co-curricular" aria-label="Learn more"><i class="fas fa-arrow-right"></i></button>
+        <h4>Co-Curricular Excellence</h4>
+        <p>Music, Art, Sports, Swimming, Debate, Chess, Tae Kwon Do — developing well-rounded champions.</p>
+      </div>
+      <div class="pillar-card reveal" data-program="moral-values" style="cursor:pointer">
+        <div class="pillar-icon"><i class="fas fa-heart"></i></div>
+        <button class="pillar-arrow" data-program="moral-values" aria-label="Learn more"><i class="fas fa-arrow-right"></i></button>
+        <h4>Moral & Social Values</h4>
+        <p>We build discipline, empathy, confidence, and respect in every child every single day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== BAND ==================== -->
+<div class="band">
+  <div class="container band-inner">
+    <div class="band-text">
+      <h3>Ready to Join the NJCS Family?</h3>
+      <p>Enrolment is open. Give your child the world-class start they deserve.</p>
+    </div>
+    <div class="band-actions">
+      <a href="fees.html" class="btn btn-white">View Fees & Forms</a>
+      <a href="contact.html" class="btn btn-gold">Apply Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ==================== FAQs ==================== -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-left">
+        <span class="section-label">Common Questions</span>
+        <h2>Everything You Need to Know</h2>
+        <p>Can't find your answer? Reach out to us directly — we're always happy to help.</p>
+        <div class="faq-image">
+          <img src="images/story-1.jpg" alt="Students at NJCS" data-zoom>
+        </div>
+        <div style="margin-top:1.8rem">
+          <a href="contact.html" class="btn btn-primary">Ask Us Directly <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+            <h4>What makes New Jets Comprehensive School stand out?</h4>
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </div>
+          <div class="faq-body"><div class="faq-body-inner">We blend strong academics with modern learning resources, passionate teachers, and a warm family environment — with a genuine international-school standard delivered right here in Kisumu.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+            <h4>Do you communicate regularly with parents?</h4>
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </div>
+          <div class="faq-body"><div class="faq-body-inner">Absolutely! We keep parents updated through scheduled meetings, direct messages, and weekly progress reports so you always know how your child is growing.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+            <h4>What co-curricular activities are available?</h4>
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </div>
+          <div class="faq-body"><div class="faq-body-inner">From music, art, sports, cooking, debate, science fair, environmental club, young entrepreneurs, fashion &amp; modelling, to Tae Kwon Do — we help your child discover new passions and skills.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+            <h4>How do I enrol my child?</h4>
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </div>
+          <div class="faq-body"><div class="faq-body-inner">It's simple! Visit the school, call our office, or download the admission form from our Fees page. Our admissions team will guide you through every step.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+            <h4>What curriculum do you follow?</h4>
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </div>
+          <div class="faq-body"><div class="faq-body-inner">We proudly implement Kenya's Competency-Based Curriculum (CBC), using fun, hands-on methods that help every child discover their talents and develop genuine competencies for life.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+            <h4>What ages do you admit?</h4>
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </div>
+          <div class="faq-body"><div class="faq-body-inner">We welcome learners from Playgroup (age 2–3) through PP1, PP2, and all the way to Grade 4, giving children a strong, joyful start to their education.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-q-icon"><i class="fas fa-plus"></i></div>
+            <h4>How do you keep children safe?</h4>
+            <i class="fas fa-chevron-down faq-chevron"></i>
+          </div>
+          <div class="faq-body"><div class="faq-body-inner">Safety is our highest priority. Secure grounds, clean classrooms, trained first-aiders, strict visitor policies, and a comprehensive child protection framework are all in place at all times.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TESTIMONIALS ==================== -->
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <div class="test-header">
+      <span class="section-label" style="justify-content:center;color:rgba(255,255,255,.4)">Parent Stories</span>
+      <h2>What Our Parents Say</h2>
+      <p>Real voices from families who chose New Jets Comprehensive School for their children.</p>
+    </div>
+    <div class="test-stage">
+      <div class="test-track">
+        <div class="test-card" id="tc-0">
+          <div class="test-quote">"</div>
+          <p class="test-text">New Jets Comprehensive School has been the best decision for my child. She comes home excited every day and has grown so much in confidence. The teachers are caring and truly understand young learners.</p>
+          <div class="test-author">
+            <div class="test-avatar"><img src="images/parent-1.jpg" alt="Purity Omariba"></div>
+            <div>
+              <div class="test-author-name">Purity Omariba</div>
+              <div class="test-author-role">Parent — Grade 2</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card" id="tc-1">
+          <div class="test-quote">"</div>
+          <p class="test-text">The school blends discipline, creativity, and modern learning perfectly. My child is more responsible, active in class, and genuinely happy. I highly recommend NJCS to every parent.</p>
+          <div class="test-author">
+            <div class="test-avatar"><img src="images/parent-2.jpg" alt="Mama Rhemmy"></div>
+            <div>
+              <div class="test-author-name">Mama Rhemmy</div>
+              <div class="test-author-role">Parent — PP2</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card" id="tc-2">
+          <div class="test-quote">"</div>
+          <p class="test-text">I appreciate the cleanliness, safety, and kindness of all the staff. My daughter settled instantly and loves school so much. New Jets Comprehensive School truly feels like a second home for her.</p>
+          <div class="test-author">
+            <div class="test-avatar"><img src="images/parent-4.jpg" alt="Kevin Odero"></div>
+            <div>
+              <div class="test-author-name">Kevin Odero</div>
+              <div class="test-author-role">Parent — Grade 3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="test-controls">
+        <button class="test-btn" id="test-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="test-dot active" data-idx="0"></button>
+        <button class="test-dot" data-idx="1"></button>
+        <button class="test-dot" data-idx="2"></button>
+        <button class="test-btn" id="test-next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA STRIP ==================== -->
+<section class="cta-strip">
+  <div class="container cta-inner">
+    <div class="cta-text">
+      <h2>Give Your Child the Best Start in Life</h2>
+      <p>Join the growing New Jets Comprehensive School family — where every child is known, valued, and nurtured.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="fees.html" class="btn btn-primary">Download Admission Form</a>
+      <a href="contact.html" class="btn btn-outline-white">Contact Us <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<!-- ==================== PROGRAM MODAL ==================== -->
+<div class="prog-modal" id="prog-modal" role="dialog" aria-modal="true" aria-labelledby="prog-modal-title">
+  <!-- Sticky top bar -->
+  <div class="prog-topbar" id="prog-topbar">
+    <button class="prog-back-btn" id="prog-modal-close" aria-label="Go back">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </button>
+    <span class="prog-topbar-brand">New Jets Comprehensive School</span>
+  </div>
+  <div class="prog-modal-box" id="prog-modal-box">
+    <div id="prog-modal-content"></div>
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <a href="index.html" class="footer-brand-logo">
+          <img src="images/logo.png.jpg" alt="NJCS Logo">
+          <span class="footer-brand-name">New Jets Comprehensive School</span>
+        </a>
+        <p class="footer-tagline">Nurturing confident, creative, world-ready learners in the heart of Kisumu since 2023.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="footer-social fb"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="footer-social ig"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/@jets_elementay_ksm?_r=1&_t=ZM-91piVOhMLLE" target="_blank" class="footer-social tt"><i class="fab fa-tiktok"></i></a>
+          <a href="https://wa.me/254717830659" target="_blank" class="footer-social wa"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://maps.google.com" target="_blank" class="footer-social gm"><i class="fas fa-map-marked-alt"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="course.html">Programmes</a>
+          <a href="fees.html">School Fees</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Gesoko, opp. Joyland Special School, Kisumu</span></div>
+          <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+254727549629">+254 727 549 629</a></div>
+          <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/254717830659">WhatsApp Us</a></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:jetselementary@gmail.com">jetselementary@gmail.com</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 New Jets Comprehensive School. All rights reserved. Designed with love for young learners in Kisumu.
+    </div>
+  </div>
+</footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ══════════════════════════════════════════════
+     PROGRAMS DATA
+  ══════════════════════════════════════════════ */
+  var PROGRAMS = {
+    'cbc-aligned': {
+      tag: 'Core Curriculum', title: 'CBC-Aligned Learning', subtitle: 'Building Competencies for Life',
+      items: [
+        { icon: 'fas fa-comments',     title: 'Communication & Collaboration',    desc: 'Express clearly and work effectively in teams through daily group activities.' },
+        { icon: 'fas fa-brain',        title: 'Critical Thinking & Problem Solving', desc: 'Question, analyse, and create solutions through hands-on, inquiry-based lessons.' },
+        { icon: 'fas fa-lightbulb',    title: 'Creativity & Imagination',          desc: 'Artistic expression and innovative thinking integrated into every subject daily.' },
+        { icon: 'fas fa-globe-africa', title: 'Citizenship',                        desc: 'Building responsible, patriotic, globally-aware individuals from the earliest years.' },
+        { icon: 'fas fa-book-open',    title: 'Learning to Learn',                 desc: 'Self-directed learning skills, curiosity, and love for discovery in every child.' },
+        { icon: 'fas fa-user-check',   title: 'Self-Efficacy',                     desc: 'Confidence and belief in your own abilities nurtured through consistent encouragement.' },
+        { icon: 'fas fa-laptop',       title: 'Digital Literacy',                  desc: 'Age-appropriate technology skills preparing every learner for the digital future.' }
+      ],
+      features: [
+        { icon: 'fas fa-layer-group', title: 'Thematic Learning',      desc: 'Integrated subjects around meaningful real-world topics' },
+        { icon: 'fas fa-users',       title: 'Collaborative Projects', desc: 'Group work that builds teamwork and communication' },
+        { icon: 'fas fa-flask',       title: 'Practical Activities',   desc: 'Hands-on learning experiences in every subject area' },
+        { icon: 'fas fa-chart-line',  title: 'Continuous Assessment',  desc: 'Ongoing evaluation tracking all seven CBC competencies' }
+      ],
+      insight: 'We implement CBC through thematic learning where subjects connect around meaningful real-life topics. Assessment is continuous and competency-based, tracking each child holistically throughout the year.'
+    },
+    'safe-environment': {
+      tag: 'Child Wellbeing', title: 'Safe & Caring Environment', subtitle: 'Where Every Child Feels Secure and Valued',
+      items: [
+        { icon: 'fas fa-lock',         title: 'Secure Premises',        desc: 'Controlled access, perimeter fencing, and vigilant security personnel at all times.' },
+        { icon: 'fas fa-couch',        title: 'Child-Friendly Spaces',  desc: 'Age-appropriate furniture, clean washrooms, and safe play equipment throughout.' },
+        { icon: 'fas fa-user-shield',  title: 'Trained Staff',          desc: 'All staff receive child protection training and thorough background verification.' },
+        { icon: 'fas fa-hands-wash',   title: 'Health & Hygiene',       desc: 'Regular health checks, clean drinking water, and strict sanitation standards daily.' },
+        { icon: 'fas fa-heart',        title: 'Emotional Safety',       desc: 'Anti-bullying policies, positive discipline, and a culture of mutual respect.' },
+        { icon: 'fas fa-first-aid',    title: 'First Aid Ready',        desc: 'Trained first-aiders on duty at all times with a fully stocked first aid station.' }
+      ],
+      features: [
+        { icon: 'fas fa-shield-alt', title: '24/7 Security',     desc: 'Round-the-clock security personnel and surveillance' },
+        { icon: 'fas fa-heartbeat',  title: 'Health Monitoring', desc: 'Regular health checks and first aid facilities on-site' },
+        { icon: 'fas fa-smile',      title: 'Emotional Support', desc: 'Counselling support and peer wellbeing programs' },
+        { icon: 'fas fa-home',       title: 'Family Atmosphere', desc: 'Warm, nurturing relationships between staff and learners' }
+      ],
+      insight: 'Our safety protocols are comprehensive and regularly reviewed. Monthly drills, a trained first-aider, strict visitor policies, and wellbeing programs combine to create a truly safe learning space.'
+    },
+    'play-based': {
+      tag: 'Early Years', title: 'Play-Based Early Years', subtitle: 'Learning Through Joyful Exploration',
+      items: [
+        { icon: 'fas fa-dice',      title: 'Structured & Free Play',  desc: 'A healthy balance of guided activities and free-choice play every single day.' },
+        { icon: 'fas fa-th',        title: 'Learning Centres',        desc: 'Dedicated reading, art, blocks, drama, and discovery areas in every classroom.' },
+        { icon: 'fas fa-tree',      title: 'Outdoor Learning',        desc: 'Nature exploration, gardening, and physical activities in safe outdoor spaces.' },
+        { icon: 'fas fa-users',     title: 'Social Development',      desc: 'Sharing, cooperation, and peaceful conflict resolution through guided play.' },
+        { icon: 'fas fa-comments',  title: 'Language Development',    desc: 'Storytelling, puppetry, and role-play that enrich vocabulary and expression.' },
+        { icon: 'fas fa-sort-numeric-up', title: 'Early Numeracy',   desc: 'Counting, sorting, and patterning through hands-on games and materials.' }
+      ],
+      features: [
+        { icon: 'fas fa-paint-brush', title: 'Creative Expression', desc: 'Art, music, and drama integrated into daily activities' },
+        { icon: 'fas fa-seedling',    title: 'Outdoor Learning',    desc: 'Nature exploration and supervised physical play areas' },
+        { icon: 'fas fa-puzzle-piece','title': 'Learning Centres',  desc: 'Dedicated areas supporting different types of play' },
+        { icon: 'fas fa-child',       title: 'Social Development',  desc: 'Play that builds sharing, empathy, and cooperation' }
+      ],
+      insight: 'We implement play-based learning through carefully planned environments and trained early years specialists — happy, confident learners who develop foundational skills naturally and joyfully.'
+    },
+    'ict-exposure': {
+      tag: 'Digital Skills', title: 'Modern ICT Exposure', subtitle: 'Preparing Digital Natives for the Future',
+      items: [
+        { icon: 'fas fa-keyboard',      title: 'Digital Literacy Skills', desc: 'Basic operations, keyboarding, and responsible internet use from early grades.' },
+        { icon: 'fas fa-code',          title: 'Coding & Robotics',       desc: 'Simple programming concepts introduced through age-appropriate games and activities.' },
+        { icon: 'fas fa-palette',       title: 'Creative Technology',     desc: 'Digital art, music composition, and storytelling using child-friendly tools.' },
+        { icon: 'fas fa-search',        title: 'Research Skills',         desc: 'Using technology to find, evaluate, and present information responsibly.' },
+        { icon: 'fas fa-user-shield',   title: 'Digital Citizenship',     desc: 'Responsible, ethical, and safe technology use taught explicitly at every level.' }
+      ],
+      features: [
+        { icon: 'fas fa-desktop',  title: 'Computer Lab',      desc: 'Modern computers with curriculum-aligned educational software' },
+        { icon: 'fas fa-robot',    title: 'Coding Classes',    desc: 'Age-appropriate programming and introductory robotics sessions' },
+        { icon: 'fas fa-wifi',     title: 'Internet Safety',   desc: 'Filtered access and explicit digital citizenship lessons' },
+        { icon: 'fas fa-film',     title: 'Digital Creativity',desc: 'Art, music, and multimedia storytelling with technology' }
+      ],
+      insight: 'Our ICT lab integrates technology meaningfully across all subjects. Internet safety is explicitly taught with filtered access and regular parent communication about safe device use at home.'
+    },
+    'co-curricular': {
+      tag: 'Beyond the Classroom', title: 'Co-Curricular Excellence', subtitle: 'Discovering Passions Beyond the Classroom',
+      items: [
+        { icon: 'fas fa-futbol',        title: 'Sports & Athletics',    desc: 'Football, athletics, swimming, and Tae Kwon Do with professional coaching.' },
+        { icon: 'fas fa-music',         title: 'Creative Arts',         desc: 'Music, drama, dance, and visual arts programmes throughout the year.' },
+        { icon: 'fas fa-trophy',        title: 'Academic Clubs',        desc: 'Debate, science club, mathletes, chess, and young writers groups.' },
+        { icon: 'fas fa-utensils',      title: 'Life Skills',           desc: 'Cooking, gardening, first aid training, and environmental club activities.' },
+        { icon: 'fas fa-briefcase',     title: 'Entrepreneurship',      desc: 'Young entrepreneurs programme introducing basic business and financial literacy.' },
+        { icon: 'fas fa-crown',         title: 'Leadership',            desc: 'Student council, prefect roles, and community service initiatives.' }
+      ],
+      features: [
+        { icon: 'fas fa-running',          title: 'Sports Excellence',  desc: 'Various sports coached by specialist physical education teachers' },
+        { icon: 'fas fa-theater-masks',    title: 'Creative Arts',      desc: 'Music, drama, dance, and visual arts for all ages' },
+        { icon: 'fas fa-microphone',       title: 'Academic Clubs',     desc: 'Debate, science, chess, and other interest-based groups' },
+        { icon: 'fas fa-hands-helping',    title: 'Life Skills',        desc: 'Practical everyday skills in a fun, supportive setting' }
+      ],
+      insight: 'Our co-curricular programme runs on a dedicated schedule with specialist coaches. All activities are included in school fees with no hidden costs — every child participates and discovers a passion.'
+    },
+    'moral-values': {
+      tag: 'Character Education', title: 'Moral & Social Values', subtitle: 'Building Character for Life',
+      items: [
+        { icon: 'fas fa-star',          title: 'Core Values',           desc: 'Respect, responsibility, honesty, kindness, and perseverance taught daily.' },
+        { icon: 'fas fa-book',          title: 'Character Education',   desc: 'Monthly focus on specific virtues through stories, discussions, and activities.' },
+        { icon: 'fas fa-heart',         title: 'Social-Emotional Learning', desc: 'Understanding emotions, empathy, and building healthy relationships.' },
+        { icon: 'fas fa-hands-helping', title: 'Service Learning',      desc: 'Community projects and volunteer activities that develop compassion and civic pride.' },
+        { icon: 'fas fa-handshake',     title: 'Conflict Resolution',   desc: 'Peaceful problem-solving and respectful communication taught explicitly.' },
+        { icon: 'fas fa-leaf',          title: 'Environmental Care',    desc: 'Caring for our school campus, community, and the natural world around us.' }
+      ],
+      features: [
+        { icon: 'fas fa-award',    title: 'Monthly Values',   desc: 'Focused spotlight on a different virtue each month' },
+        { icon: 'fas fa-hands',    title: 'Service Learning', desc: 'Community projects and meaningful volunteer activities' },
+        { icon: 'fas fa-comments', title: 'Social Skills',    desc: 'Conflict resolution, communication, and empathy training' },
+        { icon: 'fas fa-seedling', title: 'Environmental Care', desc: 'Active stewardship of our school and community' }
+      ],
+      insight: 'Our whole-school values approach uses morning assemblies, classroom discussions, and the Caught Being Good recognition system. Academic and character growth always go hand in hand at NJCS.'
+    }
+  };
+
+  /* ══════════════════════════════════════════════
+     PROGRAM MODAL
+  ══════════════════════════════════════════════ */
+  var modal    = document.getElementById('prog-modal');
+  var content  = document.getElementById('prog-modal-content');
+  var closeBtn = document.getElementById('prog-modal-close');
+  var modalBox = document.getElementById('prog-modal-box');
+
+  var ALT_CLASSES = ['', 'alt-1', 'alt-2', 'alt-3', 'alt-4'];
+
+  function openModal(programId) {
+    var p = PROGRAMS[programId];
+    if (!p) return;
+
+    /* ── offer items ── */
+    var itemsHTML = '';
+    for (var i = 0; i < p.items.length; i++) {
+      var itm = p.items[i];
+      var altCls = ALT_CLASSES[i % ALT_CLASSES.length];
+      itemsHTML +=
+        '<div class="prog-item">' +
+          '<div class="prog-item-ico ' + altCls + '"><i class="' + itm.icon + '"></i></div>' +
+          '<div class="prog-item-text">' +
+            '<strong>' + itm.title + '</strong>' +
+            '<span>' + itm.desc + '</span>' +
+          '</div>' +
+        '</div>';
+    }
+
+    /* ── feature cards ── */
+    var featHTML = '';
+    for (var j = 0; j < p.features.length; j++) {
+      var ft = p.features[j];
+      featHTML +=
+        '<div class="prog-feat-card">' +
+          '<div class="prog-feat-ico"><i class="' + ft.icon + '"></i></div>' +
+          '<h4>' + ft.title + '</h4>' +
+          '<p>' + ft.desc + '</p>' +
+        '</div>';
+    }
+
+    content.innerHTML =
+      /* ── HERO BAND ── */
+      '<div class="prog-hero">' +
+        '<div class="prog-hero-glow-1"></div>' +
+        '<div class="prog-hero-glow-2"></div>' +
+        '<div class="prog-hero-grid"></div>' +
+        '<div class="prog-hero-accent-line"></div>' +
+        '<div class="prog-hero-content">' +
+          '<span class="prog-hero-tag"><i class="fas fa-star"></i> ' + p.tag + '</span>' +
+          '<div class="prog-hero-title" id="prog-modal-title">' + p.title + '</div>' +
+          '<p class="prog-hero-sub">' + p.subtitle + '</p>' +
+          '<div class="prog-hero-stats">' +
+            '<div class="prog-stat"><div class="prog-stat-num">PP1–G4</div><div class="prog-stat-lbl">All Levels</div></div>' +
+            '<div class="prog-stat"><div class="prog-stat-num">CBC</div><div class="prog-stat-lbl">Certified</div></div>' +
+            '<div class="prog-stat"><div class="prog-stat-num">Kisumu</div><div class="prog-stat-lbl">Location</div></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+
+      /* ── BODY ── */
+      '<div class="prog-body">' +
+
+        /* What we offer */
+        '<div class="prog-section">' +
+          '<div class="prog-sec-hd">' +
+            '<div class="prog-sec-hd-accent"></div>' +
+            '<h2>What We Offer</h2>' +
+          '</div>' +
+          '<div class="prog-items-grid">' + itemsHTML + '</div>' +
+        '</div>' +
+
+        /* Key features */
+        '<div class="prog-section" style="margin-top:1.5rem">' +
+          '<div class="prog-sec-hd">' +
+            '<div class="prog-sec-hd-accent"></div>' +
+            '<h2>Key Features</h2>' +
+          '</div>' +
+          '<div class="prog-features-grid">' + featHTML + '</div>' +
+        '</div>' +
+
+        /* Delivery */
+        '<div class="prog-delivery">' +
+          '<div class="prog-delivery-ico"><i class="fas fa-lightbulb"></i></div>' +
+          '<div class="prog-delivery-text">' +
+            '<h3>How We Deliver This</h3>' +
+            '<p>' + p.insight + '</p>' +
+          '</div>' +
+        '</div>' +
+
+        /* CTA bar */
+        '<div class="prog-cta-bar">' +
+          '<div class="prog-cta-text">' +
+            '<h3>Ready to Give Your Child This Experience?</h3>' +
+            '<p>Contact us today to learn more or begin the enrolment process.</p>' +
+          '</div>' +
+          '<div class="prog-cta-actions">' +
+            '<a href="fees.html" class="prog-cta-btn-primary">Download Admission Form <i class="fas fa-arrow-right"></i></a>' +
+            '<a href="contact.html" class="prog-cta-btn-sec">Contact Us</a>' +
+          '</div>' +
+        '</div>' +
+
+      '</div>';
+
+    /* Show the page */
+    modal.classList.remove('closing');
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (modalBox) modalBox.scrollTop = 0;
+    modal.scrollTop = 0;
+  }
+
+  function closeModal() {
+    modal.classList.add('closing');
+    setTimeout(function() {
+      modal.classList.remove('open', 'closing');
+      document.body.style.overflow = '';
+    }, 320);
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (modal) modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* Event delegation on pillars grid */
+  var pillarsGrid = document.querySelector('.pillars-grid');
+  if (pillarsGrid) {
+    pillarsGrid.addEventListener('click', function(e) {
+      var el = e.target;
+      /* Walk up max 5 levels to find data-program */
+      for (var n = 0; n < 5; n++) {
+        if (!el) break;
+        if (el.dataset && el.dataset.program) {
+          openModal(el.dataset.program);
+          return;
+        }
+        el = el.parentElement;
+      }
+    });
+  }
+
+  /* ══════════════════════════════════════════════
+     TESTIMONIALS
+  ══════════════════════════════════════════════ */
+  var track  = document.querySelector('.test-track');
+  var cards  = track ? track.querySelectorAll('.test-card') : [];
+  var dots   = document.querySelectorAll('.test-dot');
+  var total  = cards.length;
+  var cur    = 0;
+  var timer  = null;
+
+  function showCard(idx) {
+    if (!total) return;
+    idx = ((idx % total) + total) % total;
+    /* Remove all state classes */
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].classList.remove('active', 'prev', 'next');
+    }
+    /* Set active — CSS display:block shows it with fade-in animation */
+    cards[idx].classList.add('active');
+    /* Update dots */
+    for (var d = 0; d < dots.length; d++) {
+      dots[d].classList.toggle('active', d === idx);
+    }
+    cur = idx;
+  }
+
+  function advance(delta) {
+    if (timer) clearInterval(timer);
+    showCard(cur + delta);
+    timer = setInterval(function() { showCard(cur + 1); }, 6000);
+  }
+
+  for (var d = 0; d < dots.length; d++) {
+    (function(idx) {
+      dots[idx].addEventListener('click', function() { advance(idx - cur); });
+    }(d));
+  }
+
+  var prevBtn = document.getElementById('test-prev');
+  var nextBtn = document.getElementById('test-next');
+  if (prevBtn) prevBtn.addEventListener('click', function() { advance(-1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { advance(1); });
+
+  showCard(0);
+  timer = setInterval(function() { showCard(cur + 1); }, 6000);
+
+  /* ══════════════════════════════════════════════
+     NAVBAR — transparent over hero, solid after
+  ══════════════════════════════════════════════ */
+  var nav = document.getElementById('main-nav');
+  function updateNav() {
+    var hero = document.querySelector('.hero');
+    if (!nav || !hero) return;
+    if (window.scrollY > hero.offsetHeight - 80) {
+      nav.classList.remove('transparent'); nav.classList.add('solid');
+    } else {
+      nav.classList.remove('solid'); nav.classList.add('transparent');
+    }
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  /* ══════════════════════════════════════════════
+     FAQs
+  ══════════════════════════════════════════════ */
+  var faqItems = document.querySelectorAll('.faq-item');
+  for (var fi = 0; fi < faqItems.length; fi++) {
+    (function(item) {
+      var hdr = item.querySelector('.faq-header') || item.querySelector('.faq-q');
+      if (!hdr) return;
+      hdr.addEventListener('click', function() {
+        var isOpen = item.classList.contains('open');
+        for (var k = 0; k < faqItems.length; k++) {
+          faqItems[k].classList.remove('open');
+          var ico = faqItems[k].querySelector('.faq-q-icon i');
+          if (ico) ico.className = 'fas fa-plus';
+        }
+        if (!isOpen) {
+          item.classList.add('open');
+          var ico = item.querySelector('.faq-q-icon i');
+          if (ico) ico.className = 'fas fa-minus';
+        }
+      });
+    }(faqItems[fi]));
+  }
+
+}); /* end DOMContentLoaded */
+</script>
+
+<script id="shared-js">
+/* NEW JETS COMPREHENSIVE SCHOOL — SHARED JS */
+(function(){
+  'use strict';
+  /* NAVBAR SCROLL */
+  var navbar=document.getElementById('main-nav');
+  function updateNav(){if(!navbar)return;if(navbar.classList.contains('always-solid'))return;navbar.classList.toggle('scrolled',window.scrollY>60)}
+  window.addEventListener('scroll',updateNav,{passive:true});updateNav();
+  /* HAMBURGER DRAWER */
+  var hamburger=document.getElementById('hamburger');
+  var drawer=document.getElementById('mobile-drawer');
+  var overlay=document.getElementById('drawer-overlay');
+  function openDrawer(){if(!drawer)return;drawer.classList.add('open');overlay.classList.add('open');hamburger.classList.add('open');hamburger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+  function closeDrawer(){if(!drawer)return;drawer.classList.remove('open');overlay.classList.remove('open');hamburger.classList.remove('open');hamburger.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  if(hamburger){hamburger.addEventListener('click',function(){drawer.classList.contains('open')?closeDrawer():openDrawer()});hamburger.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();hamburger.click()}})}
+  if(overlay)overlay.addEventListener('click',closeDrawer);
+  document.querySelectorAll('.drawer-links a').forEach(function(a){a.addEventListener('click',closeDrawer)});
+  window.addEventListener('resize',function(){if(window.innerWidth>=1025)closeDrawer()});
+  /* LIGHTBOX */
+  var lb=document.getElementById('lightbox');var lbImg=document.getElementById('lb-img');var lbCap=document.getElementById('lb-cap');var lbClose=document.getElementById('lb-close');
+  window.openLightbox=function(src,alt){if(!lb)return;lbImg.src=src;lbImg.alt=alt||'';if(lbCap)lbCap.textContent=alt||'';lb.classList.add('open');document.body.style.overflow='hidden'};
+  window.closeLightbox=function(){if(!lb)return;lb.classList.remove('open');lbImg.src='';document.body.style.overflow=''};
+  if(lbClose)lbClose.addEventListener('click',closeLightbox);
+  if(lb)lb.addEventListener('click',function(e){if(e.target===lb)closeLightbox()});
+  function wireImages(){document.querySelectorAll('img[data-zoom]').forEach(function(img){if(img.getAttribute('data-lb-wired'))return;img.setAttribute('data-lb-wired','1');img.style.cursor='zoom-in';img.addEventListener('click',function(e){e.stopPropagation();openLightbox(this.src,this.alt)})})}
+  wireImages();new MutationObserver(wireImages).observe(document.body,{childList:true,subtree:true});
+  /* ESCAPE */
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDrawer();closeLightbox()}});
+  /* SCROLL REVEAL */
+  var revEls=document.querySelectorAll('.reveal');
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');io.unobserve(entry.target)}})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  revEls.forEach(function(el){io.observe(el)});
+  /* SMOOTH ANCHOR */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=this.getAttribute('href');if(id==='#')return;var target=document.querySelector(id);if(!target)return;e.preventDefault();var nh=navbar?navbar.offsetHeight:80;window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-nh-16,behavior:'smooth'})})});
+}());
+
+</script>
+</body>
+</html>
