@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Arts — New Jets Comprehensive School</title>
+<meta name="description" content="Explore the Creative Arts programme at New Jets Comprehensive School — nurturing imagination, expression, and creativity through painting, music, drama, craft, and movement in Kisumu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* ══════════════════════════════════════════════════
+   PAGE HERO — definitive rules
+   ══════════════════════════════════════════════════ */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 6rem) 0 5.5rem;
+  min-height: 60vh;
+  background:
+    linear-gradient(160deg, rgba(6,10,22,.97) 0%, rgba(56,16,64,.93) 45%, rgba(10,32,78,.82) 100%),
+    url('images/creative.jpg') center / cover no-repeat;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(22,85,192,.16) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--white) 0%, transparent 100%);
+  pointer-events: none;
+}
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+  padding: 0 1.5rem;
+}
+.page-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(244,168,23,.16);
+  border: 1px solid rgba(244,168,23,.38);
+  color: var(--gold);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: .42rem 1.15rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  animation: fadeUp .7s both;
+}
+.page-hero-inner h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.22;
+  color: #ffffff;
+  letter-spacing: -.01em;
+  max-width: 820px;
+  margin: 0 auto 1.2rem;
+  word-break: normal;
+  overflow-wrap: break-word;
+  animation: fadeUp .7s .08s both;
+}
+.page-hero-inner h1 span {
+  color: var(--gold);
+  font-style: normal;
+}
+.page-hero-inner p {
+  font-family: var(--font-body);
+  font-size: clamp(.95rem, 1.9vw, 1.08rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(230, 236, 248, .88);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  animation: fadeUp .7s .16s both;
+}
+.page-hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp .7s .24s both;
+}
+@media (max-width: 768px) {
+  .page-hero {
+    padding: calc(var(--nav-h) + 4rem) 0 4.5rem;
+    min-height: 52vh;
+  }
+  .page-hero-inner h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .page-hero-inner p  { font-size: clamp(.9rem, 3vw, 1rem); }
+}
+@media (max-width: 480px) {
+  .page-hero { padding: calc(var(--nav-h) + 3rem) 0 4rem; }
+  .page-hero-inner h1 { font-size: clamp(1.4rem, 7vw, 1.9rem); }
+}
+
+
+/* ── INTRO SPLIT HERO ── */
+.intro-split { background: var(--white); }
+.intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.intro-img { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); }
+.intro-img img { width: 100%; height: 440px; object-fit: cover; display: block; transition: transform .6s var(--ease); }
+.intro-img:hover img { transform: scale(1.04); }
+.intro-text h2 { margin-bottom: 1.2rem; }
+.intro-text p { font-size: .98rem; line-height: 1.88; margin-bottom: 1.1rem; }
+
+/* ── AREAS ── */
+.areas-section { background: var(--off-white); }
+.section-center { text-align: center; margin-bottom: 3.5rem; }
+.section-center p { max-width: 560px; margin: .7rem auto 0; }
+.areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.area-card {
+  background: var(--white); border-radius: var(--radius-lg); padding: 2rem 1.6rem;
+  border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+  transition: all .3s var(--ease); border-top: 3px solid transparent;
+}
+.area-card:nth-child(1) { border-top-color: #e53e3e; }
+.area-card:nth-child(2) { border-top-color: #805ad5; }
+.area-card:nth-child(3) { border-top-color: var(--gold); }
+.area-card:nth-child(4) { border-top-color: #38a169; }
+.area-card:nth-child(5) { border-top-color: #3182ce; }
+.area-card:nth-child(6) { border-top-color: #dd6b20; }
+.area-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+.area-icon {
+  width: 52px; height: 52px; border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem; font-size: 1.3rem; color: var(--white);
+}
+.area-card:nth-child(1) .area-icon { background: #e53e3e; }
+.area-card:nth-child(2) .area-icon { background: #805ad5; }
+.area-card:nth-child(3) .area-icon { background: var(--gold); }
+.area-card:nth-child(4) .area-icon { background: #38a169; }
+.area-card:nth-child(5) .area-icon { background: #3182ce; }
+.area-card:nth-child(6) .area-icon { background: #dd6b20; }
+.area-card h3 { font-size: 1.1rem; margin-bottom: .5rem; color: var(--navy); }
+.area-card p { font-size: .87rem; line-height: 1.65; }
+
+/* ── WHY ARTS ── */
+.why-section { background: var(--white); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.why-card {
+  background: var(--off-white); border-radius: var(--radius-lg); padding: 1.8rem;
+  border-left: 4px solid var(--sky); transition: all .3s var(--ease);
+}
+.why-card:hover { transform: translateX(6px); box-shadow: var(--shadow-sm); }
+.why-card:nth-child(2) { border-left-color: var(--gold); }
+.why-card:nth-child(3) { border-left-color: #10b981; }
+.why-card:nth-child(4) { border-left-color: #8b5cf6; }
+.why-card:nth-child(5) { border-left-color: #e53e3e; }
+.why-card:nth-child(6) { border-left-color: #dd6b20; }
+.why-card h4 { font-size: 1rem; color: var(--navy); margin-bottom: .45rem; }
+.why-card p { font-size: .88rem; line-height: 1.7; }
+
+/* ── LEVEL OUTCOMES ── */
+.outcomes-section { background: var(--off-white); }
+.level-block {
+  background: var(--white); border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--shadow-sm); border: 1px solid var(--border); margin-bottom: 2rem;
+}
+.level-block:last-child { margin-bottom: 0; }
+.level-header { padding: 1.7rem 2.2rem; color: var(--white); }
+.lh-pp   { background: linear-gradient(135deg, var(--navy), #1a4a8a); }
+.lh-g12  { background: linear-gradient(135deg, #10b981, #047857); }
+.lh-g34  { background: linear-gradient(135deg, var(--gold), #d97706); }
+.level-header h3 { color: var(--white); font-size: 1.5rem; margin-bottom: .15rem; }
+.level-header p  { color: rgba(255,255,255,.72); font-size: .88rem; margin: 0; }
+.outcome-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; padding: 2rem; }
+.outcome-card {
+  background: var(--off-white); border-radius: var(--radius-md); padding: 1.2rem;
+  border-left: 3px solid var(--sky); transition: all .3s var(--ease);
+}
+.outcome-card:hover { background: var(--white); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.outcome-card h4 { font-size: .9rem; color: var(--navy); margin-bottom: .3rem; }
+.outcome-card p  { font-size: .82rem; color: var(--slate); line-height: 1.55; }
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: linear-gradient(135deg, var(--navy) 0%, #3d0a50 100%);
+  padding: 6rem 0; text-align: center; position: relative; overflow: hidden;
+}
+.cta-band::before {
+  content: ''; position: absolute; top: -30%; right: -8%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(244,168,23,.18) 0%, transparent 65%);
+  border-radius: 50%; pointer-events: none;
+}
+.cta-band h2 { color: var(--white); margin-bottom: 1rem; position: relative; z-index: 1; }
+.cta-band p { color: rgba(255,255,255,.7); max-width: 520px; margin: 0 auto 2.5rem; font-size: 1.05rem; line-height: 1.8; position: relative; z-index: 1; }
+.cta-band-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; position: relative; z-index: 1; }
+
+@media (max-width: 1024px) {
+  .intro-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .intro-img img { height: 340px; }
+  .areas-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .outcome-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .areas-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .outcome-cards { grid-template-columns: 1fr; }
+}
+
+
+<style id="hero-text-fix">
+/* ── PAGE HERO TEXT — final sizing override ── */
+@media (max-width: 768px) {
+  }
+@media (max-width: 480px) {
+  }
+</style>
+
+<style id="shared-design-system">
+/* ============================================================
+   NEW JETS COMPREHENSIVE SCHOOL — DESIGN SYSTEM (INLINE)
+   ============================================================ */
+*,*::before,*::after{margin:0;padding:0;border:0;outline:0;text-decoration:none;list-style:none;box-sizing:border-box}
+:root{
+  --ink:#0a0e1a;--ink-soft:#1c2438;--navy:#0d2a5c;--navy-mid:#1a3a72;--navy-light:#1e4d9b;
+  --cobalt:#1655c0;--sky:#3b82f6;--sky-bright:#60a5fa;--sky-light:#dbeafe;
+  --gold:#f4a817;--gold-dark:#d4880a;--gold-light:#fef3c7;
+  --white:#ffffff;--off-white:#f8fafd;--pearl:#f0f4fb;--mist:#e8eef8;
+  --slate:#5a6885;--slate-light:#94a3b8;--border:#dde4f0;
+  --success:#10b981;--error:#ef4444;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --nav-h:5.2rem;--container-xl:1280px;
+  --radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;
+  --shadow-xs:0 1px 4px rgba(10,14,26,.06);--shadow-sm:0 4px 12px rgba(10,14,26,.08);
+  --shadow-md:0 8px 28px rgba(10,14,26,.12);--shadow-lg:0 20px 56px rgba(10,14,26,.16);
+  --shadow-xl:0 32px 80px rgba(10,14,26,.22);
+  --ease:cubic-bezier(.4,0,.2,1);--dur:280ms;
+}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);line-height:1.7;color:var(--ink);background:var(--white);overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.18;color:var(--navy)}
+h1{font-size:clamp(2.4rem,5vw,4rem)}h2{font-size:clamp(1.9rem,3.5vw,3rem)}
+h3{font-size:clamp(1.3rem,2.5vw,2rem)}h4{font-size:clamp(1.05rem,1.8vw,1.3rem)}
+p{color:var(--slate);line-height:1.75}
+.container{max-width:var(--container-xl);margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
+section{padding:6rem 0}
+/* SECTION LABEL */
+.section-label{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--font-body);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cobalt);margin-bottom:.9rem}
+.section-label::before{content:'';width:22px;height:2px;background:var(--gold);border-radius:2px;flex-shrink:0}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2.1rem;border-radius:50px;font-family:var(--font-body);font-size:.92rem;font-weight:700;cursor:pointer;transition:all var(--dur) var(--ease);border:2px solid transparent;letter-spacing:.02em;white-space:nowrap;text-decoration:none}
+.btn-primary{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.btn-primary:hover{background:var(--cobalt);border-color:var(--cobalt);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,42,92,.3)}
+.btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold-dark);border-color:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(244,168,23,.35)}
+.btn-outline{background:transparent;color:var(--cobalt);border-color:var(--cobalt)}
+.btn-outline:hover{background:var(--cobalt);color:var(--white);transform:translateY(-2px)}
+.btn-white{background:var(--white);color:var(--navy);border-color:var(--white)}
+.btn-white:hover{background:transparent;color:var(--white);transform:translateY(-2px)}
+.btn-outline-white{background:transparent;color:var(--white);border-color:rgba(255,255,255,.55)}
+.btn-outline-white:hover{background:var(--white);color:var(--navy);transform:translateY(-2px)}
+.btn-ghost-light{background:rgba(255,255,255,.12);color:var(--white);border-color:rgba(255,255,255,.35);backdrop-filter:blur(10px)}
+.btn-ghost-light:hover{background:var(--white);color:var(--navy);transform:translateY(-2px)}
+.btn-sm{padding:.65rem 1.5rem;font-size:.85rem}
+.btn-lg{padding:1.1rem 2.5rem;font-size:1rem}
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:900;transition:all var(--dur) var(--ease)}
+.navbar.transparent{background:transparent}
+.navbar.solid,.navbar.scrolled{background:var(--navy);box-shadow:0 2px 24px rgba(10,14,26,.18)}
+.navbar.solid::after,.navbar.scrolled::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold) 0%,var(--sky-bright) 60%,transparent 100%)}
+.nav-brand{display:flex;align-items:center;gap:.85rem;text-decoration:none;flex-shrink:0}
+.nav-badge{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2.5px solid rgba(255,255,255,.3);flex-shrink:0}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-brand-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--white);letter-spacing:.01em}
+.brand-short{display:none}
+.brand-full{display:inline}
+.nav-brand-tag{font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:.2rem}
+.nav-links a{font-size:.88rem;font-weight:600;padding:.55rem 1rem;border-radius:var(--radius-sm);color:rgba(255,255,255,.8);transition:all var(--dur) var(--ease);position:relative;letter-spacing:.01em}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.1)}
+.nav-links a.active::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:18px;height:2px;background:var(--gold);border-radius:2px}
+.nav-cta{flex-shrink:0}
+/* HAMBURGER */
+.hamburger{display:none;position:fixed;top:1rem;right:1rem;width:48px;height:48px;background:var(--navy);border:2px solid rgba(255,255,255,.18);border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5.5px;cursor:pointer;z-index:1100;transition:all var(--dur) var(--ease)}
+.hamburger.open{background:var(--cobalt);transform:rotate(90deg)}
+.h-line{width:22px;height:2.5px;background:var(--white);border-radius:2px;transition:all var(--dur) var(--ease);transform-origin:center}
+.hamburger.open .h-line:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.hamburger.open .h-line:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open .h-line:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+/* DRAWER */
+.mobile-drawer{position:fixed;top:0;right:-100%;width:300px;height:100%;background:linear-gradient(160deg,var(--navy) 0%,var(--ink) 100%);z-index:1050;transition:right .4s var(--ease);display:flex;flex-direction:column;padding:5.5rem 1.8rem 2rem;overflow-y:auto;box-shadow:-8px 0 40px rgba(0,0,0,.3)}
+.mobile-drawer.open{right:0}
+.drawer-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.drawer-logo img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.drawer-logo-text .name{font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:700}
+.drawer-logo-text .tag{font-size:.62rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
+.drawer-links{display:flex;flex-direction:column;gap:.4rem}
+.drawer-links a{color:rgba(255,255,255,.8);font-size:.98rem;font-weight:600;padding:.85rem 1.2rem;border-radius:10px;display:flex;align-items:center;gap:.9rem;background:rgba(255,255,255,.05);border-left:3px solid transparent;transition:all .24s var(--ease)}
+.drawer-links a i{font-size:.95rem;color:var(--sky-bright);width:18px;flex-shrink:0}
+.drawer-links a:hover,.drawer-links a.active{background:rgba(59,130,246,.15);border-left-color:var(--gold);color:var(--white);transform:translateX(4px)}
+.drawer-cta{margin-top:2rem}
+.drawer-contact{margin-top:auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:1000;opacity:0;visibility:hidden;transition:all .3s var(--ease)}
+.overlay.open{opacity:1;visibility:visible}
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:10000;justify-content:center;align-items:center;padding:2rem}
+.lightbox.open{display:flex;animation:fadeIn .25s var(--ease)}
+.lightbox-content{position:relative;max-width:92vw;max-height:92vh}
+.lightbox-content img{max-width:100%;max-height:84vh;object-fit:contain;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,.6);display:block}
+.lightbox-close{position:absolute;top:-1.2rem;right:-1.2rem;width:38px;height:38px;background:var(--gold);border:none;border-radius:50%;color:var(--navy);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--dur) var(--ease);font-weight:700}
+.lightbox-close:hover{transform:rotate(90deg) scale(1.1);background:#fff}
+.lightbox-caption{text-align:center;color:rgba(255,255,255,.55);font-size:.85rem;margin-top:.7rem}
+/* FOOTER */
+.site-footer{background:var(--ink);color:rgba(255,255,255,.75);padding:5rem 0 0;margin-top:auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1.3fr;gap:3.5rem;padding-bottom:4rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand-logo{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;text-decoration:none}
+.footer-brand-logo img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.2)}
+.footer-brand-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--white)}
+.footer-tagline{font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.65;max-width:260px;margin-bottom:1.8rem}
+.footer-socials{display:flex;gap:.7rem;flex-wrap:wrap}
+.footer-social{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--white);transition:all var(--dur) var(--ease)}
+.footer-social:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.footer-social.fb{background:#1877F2}.footer-social.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.footer-social.tt{background:#111;border:1px solid rgba(255,255,255,.12)}.footer-social.wa{background:#25D366}.footer-social.gm{background:#4285F4}
+.footer-col h4{font-family:var(--font-body);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.footer-links{display:flex;flex-direction:column;gap:.6rem}
+.footer-links a{color:rgba(255,255,255,.6);font-size:.9rem;transition:all var(--dur) var(--ease);display:flex;align-items:center;gap:.4rem}
+.footer-links a:hover{color:var(--gold);transform:translateX(4px)}
+.footer-links a::before{content:'›';opacity:.4}
+.footer-contact-list{display:flex;flex-direction:column;gap:1rem}
+.footer-contact-item{display:flex;align-items:flex-start;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.55}
+.footer-contact-item i{color:var(--gold);margin-top:.15rem;flex-shrink:0}
+.footer-contact-item a{color:inherit}.footer-contact-item a:hover{color:var(--gold)}
+.footer-bottom{text-align:center;padding:1.8rem 0;font-size:.78rem;color:rgba(255,255,255,.28)}
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+/* PAGE HERO (shared across subpages) */
+
+
+
+
+
+
+
+/* RESPONSIVE */
+@media(max-width:640px){.brand-full{display:none}.brand-short{display:inline}.nav-brand-tag{display:none}.nav-brand-name{font-size:1.1rem}}
+@media(max-width:1024px){.hamburger{display:flex}.nav-links{display:none}.nav-cta{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+@media(max-width:768px){section{padding:4.5rem 0}.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:540px){.footer-grid{grid-template-columns:1fr;gap:1.8rem}}
+
+</style>
+</head>
+<body>
+
+<button class="mobile-btn" id="mobile-btn" aria-label="Toggle navigation" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+<div class="overlay" id="drawer-overlay"></div>
+<div class="mobile-drawer" id="mobile-drawer" role="navigation">
+  <div class="drawer-logo">
+    <img src="images/logo.png.jpg" alt="NJCS Logo">
+    <div class="drawer-logo-text">
+      <div class="name">New Jets Comprehensive School</div>
+      <div class="tag">Kisumu, Kenya</div>
+    </div>
+  </div>
+  <div class="drawer-links">
+    <a href="index.html"><i class="fas fa-home"></i>Home</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i>About Us</a>
+    <a href="course.html" class="active"><i class="fas fa-book-open"></i>Programmes</a>
+    <a href="fees.html"><i class="fas fa-receipt"></i>Fees & Admissions</a>
+    <a href="blog.html"><i class="fas fa-rss"></i>Blog</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+  </div>
+  <div class="drawer-contact">
+    <i class="fas fa-phone-alt" style="color:var(--gold);margin-right:.4rem"></i>+254 727 549 629<br>
+    <i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:.4rem"></i>Gesoko, opp. Joyland, Kisumu
+  </div>
+</div>
+
+<nav class="navbar solid always-solid" id="main-nav">
+  <div class="container" style="height:100%;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+    <a href="index.html" class="nav-brand">
+      <img src="images/logo.png.jpg" alt="NJCS" class="nav-badge">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name"><span class="brand-full">New Jets Comprehensive School</span><span class="brand-short">NJCS</span></span>
+        <span class="nav-brand-tag">Kisumu · Est. 2023</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="course.html" class="active">Programmes</a>
+      <a href="fees.html">Fees</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</nav>
+
+<main>
+
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-tag"><i class="fas fa-palette"></i> Core Curriculum</div>
+    <h1>Creative <span>Arts</span> Curriculum</h1>
+    <p>Nurturing imagination, expression, and creativity through integrated arts education — painting, music, drama, craft, movement, and collaboration.</p>
+    <div class="page-hero-actions">
+      <a href="#areas" class="btn btn-gold">Explore the Programme <i class="fas fa-arrow-down"></i></a>
+      <a href="contact.html" class="btn btn-outline-white">Enquire About Admissions</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-split">
+  <div class="container intro-grid">
+    <div class="intro-img reveal">
+      <img src="images/creative.jpg" alt="Children in creative arts class" data-zoom>
+    </div>
+    <div class="intro-text reveal">
+      <span class="section-label">Why Creative Arts?</span>
+      <h2>Every Child is an Artist</h2>
+      <p>At New Jets Comprehensive School, we believe creativity is not a talent reserved for a few — it is a capacity present in every child, waiting to be nurtured. Our Creative Arts programme is woven through every school day, not treated as an optional extra.</p>
+      <p>Through visual arts, music, drama, movement, and craft, children develop confidence, emotional intelligence, and a distinctive creative voice that enriches everything they do — academically and socially.</p>
+      <a href="contact.html" class="btn btn-primary" style="margin-top:.5rem;">Enquire About Admissions <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section class="areas-section" id="areas">
+  <div class="container">
+    <div class="section-center reveal">
+      <span class="section-label" style="justify-content:center;">What We Cover</span>
+      <h2>Areas of Creative Arts</h2>
+      <p>Six interconnected disciplines that develop every dimension of a child's creative self.</p>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-paint-brush"></i></div>
+        <h3>Drawing &amp; Painting</h3>
+        <p>Exploring colours, shapes, and techniques to express ideas visually using various mediums and tools.</p>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-music"></i></div>
+        <h3>Music</h3>
+        <p>Singing, rhythm activities, introduction to instruments, and music appreciation from diverse cultures.</p>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-theater-masks"></i></div>
+        <h3>Drama</h3>
+        <p>Role-play, storytelling, puppet shows, and simple performances to build confidence and communication.</p>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-cut"></i></div>
+        <h3>Craft</h3>
+        <p>Hands-on activities using recycled materials, paper, clay, and textiles to create 3D artworks.</p>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-running"></i></div>
+        <h3>Movement &amp; Dance</h3>
+        <p>Creative dance, coordination exercises, expressive movements, and rhythm-based physical activities.</p>
+      </div>
+      <div class="area-card reveal">
+        <div class="area-icon"><i class="fas fa-users"></i></div>
+        <h3>Collaboration</h3>
+        <p>Group murals, ensemble performances, and shared projects that build teamwork and diverse perspectives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-center reveal">
+      <span class="section-label" style="justify-content:center;">Why It Matters</span>
+      <h2>Importance of Creative Arts Education</h2>
+      <p>Arts education develops the whole child — cognitively, emotionally, and socially.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <h4>Builds Imagination &amp; Self-Expression</h4>
+        <p>A safe space to explore thoughts and feelings. Children develop their unique voice without judgement.</p>
+      </div>
+      <div class="why-card reveal">
+        <h4>Encourages Teamwork &amp; Confidence</h4>
+        <p>Group performances and collaborative projects teach children to work together and share their work.</p>
+      </div>
+      <div class="why-card reveal">
+        <h4>Develops Fine Motor Skills</h4>
+        <p>Cutting, drawing, painting, and modelling strengthen hand-eye coordination essential for writing.</p>
+      </div>
+      <div class="why-card reveal">
+        <h4>Promotes Cultural Appreciation</h4>
+        <p>Exposure to diverse art forms fosters global awareness, tolerance, and cultural appreciation.</p>
+      </div>
+      <div class="why-card reveal">
+        <h4>Enhances Academic Performance</h4>
+        <p>Arts education improves focus, memory, and problem-solving across all subject areas.</p>
+      </div>
+      <div class="why-card reveal">
+        <h4>Fosters Emotional Intelligence</h4>
+        <p>Through arts, children learn to identify, express, and manage emotions — building self-awareness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING OUTCOMES BY LEVEL -->
+<section class="outcomes-section">
+  <div class="container">
+    <div class="section-center reveal">
+      <span class="section-label" style="justify-content:center;">By Grade Level</span>
+      <h2>Learning Outcomes by Level</h2>
+      <p>A carefully structured progression from foundational exploration to creative expression.</p>
+    </div>
+
+    <div class="level-block reveal">
+      <div class="level-header lh-pp">
+        <h3>PP1 – PP2: Foundational Exploration</h3>
+        <p>Early childhood creative development through play and sensory exploration</p>
+      </div>
+      <div class="outcome-cards">
+        <div class="outcome-card"><h4>Colour &amp; Shape Recognition</h4><p>Exploring primary colours through finger painting and collage</p></div>
+        <div class="outcome-card"><h4>Rhythm &amp; Song</h4><p>Singing simple songs and nursery rhymes with basic percussion</p></div>
+        <div class="outcome-card"><h4>Role-play &amp; Imagination</h4><p>Basic role-play and puppet shows to develop social skills</p></div>
+        <div class="outcome-card"><h4>Free Drawing</h4><p>Free drawing with crayons, markers, and chalk on varied surfaces</p></div>
+        <div class="outcome-card"><h4>Movement Coordination</h4><p>Simple rhythm activities to develop body awareness</p></div>
+        <div class="outcome-card"><h4>Sensory Development</h4><p>Introduction to textures through sensory play with varied materials</p></div>
+      </div>
+    </div>
+
+    <div class="level-block reveal">
+      <div class="level-header lh-g12">
+        <h3>Grade 1 – 2: Skill Development</h3>
+        <p>Building foundational skills in various art forms with guided instruction</p>
+      </div>
+      <div class="outcome-cards">
+        <div class="outcome-card"><h4>Mixed Media Art</h4><p>Creative drawing with watercolours, pastels, and charcoal</p></div>
+        <div class="outcome-card"><h4>3D Art Forms</h4><p>Basic modelling with clay and playdough</p></div>
+        <div class="outcome-card"><h4>Music Ensembles</h4><p>Rhythm patterns and simple percussion ensembles</p></div>
+        <div class="outcome-card"><h4>Short Performances</h4><p>Group skits and storytelling with simple costumes</p></div>
+        <div class="outcome-card"><h4>Cultural Arts</h4><p>Traditional crafts and music from local Kenyan culture</p></div>
+        <div class="outcome-card"><h4>Collaborative Murals</h4><p>Group art projects focused on community themes</p></div>
+      </div>
+    </div>
+
+    <div class="level-block reveal">
+      <div class="level-header lh-g34">
+        <h3>Grade 3 – 4: Creative Expression</h3>
+        <p>Advanced exploration and development of personal artistic style</p>
+      </div>
+      <div class="outcome-cards">
+        <div class="outcome-card"><h4>Design Principles</h4><p>Introduction to perspective and composition in visual arts</p></div>
+        <div class="outcome-card"><h4>Melodic Instruments</h4><p>Playing recorder, xylophone and reading basic notation</p></div>
+        <div class="outcome-card"><h4>Script Writing</h4><p>Character development and stage performance techniques</p></div>
+        <div class="outcome-card"><h4>Cultural Dance</h4><p>Cultural dance forms and basic choreography</p></div>
+        <div class="outcome-card"><h4>Art Appreciation</h4><p>Art critique sessions and learning about notable artists</p></div>
+        <div class="outcome-card"><h4>Digital Arts</h4><p>Introduction to digital drawing software and creative apps</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Unlock Your Child's Creative Potential</h2>
+    <p>Enrol at New Jets Comprehensive School and give your child the tools to express themselves, connect with others, and see the world with wonder.</p>
+    <div class="cta-band-actions">
+      <a href="fees.html" class="btn btn-gold">View Fees &amp; Admissions <i class="fas fa-arrow-right"></i></a>
+      <a href="contact.html" class="btn btn-outline-white">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <a href="index.html" class="footer-brand-logo">
+          <img src="images/logo.png.jpg" alt="NJCS"><span class="footer-brand-name">New Jets Comprehensive School</span>
+        </a>
+        <p class="footer-tagline">Nurturing confident, creative, world-ready learners in Kisumu since 2023.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="footer-social fb"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="footer-social ig"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/254717830659" target="_blank" class="footer-social wa"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://maps.google.com" target="_blank" class="footer-social gm"><i class="fas fa-map-marked-alt"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About Us</a><a href="course.html">Programmes</a>
+        <a href="fees.html">School Fees</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+      </div></div>
+
+      <div class="footer-col"><h4>Contact Us</h4><div class="footer-contact-list">
+        <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Gesoko, opp. Joyland Special School, Kisumu</span></div>
+        <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+254727549629">+254 727 549 629</a></div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:jetselementary@gmail.com">jetselementary@gmail.com</a></div>
+      </div></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 New Jets Comprehensive School. All rights reserved.</div>
+  </div>
+</footer>
+
+
+<script id="shared-js">
+/* NEW JETS COMPREHENSIVE SCHOOL — SHARED JS */
+(function(){
+  'use strict';
+  /* NAVBAR SCROLL */
+  var navbar=document.getElementById('main-nav');
+  function updateNav(){if(!navbar)return;if(navbar.classList.contains('always-solid'))return;navbar.classList.toggle('scrolled',window.scrollY>60)}
+  window.addEventListener('scroll',updateNav,{passive:true});updateNav();
+  /* HAMBURGER DRAWER */
+  var hamburger=document.getElementById('hamburger');
+  var drawer=document.getElementById('mobile-drawer');
+  var overlay=document.getElementById('drawer-overlay');
+  function openDrawer(){if(!drawer)return;drawer.classList.add('open');overlay.classList.add('open');hamburger.classList.add('open');hamburger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+  function closeDrawer(){if(!drawer)return;drawer.classList.remove('open');overlay.classList.remove('open');hamburger.classList.remove('open');hamburger.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  if(hamburger){hamburger.addEventListener('click',function(){drawer.classList.contains('open')?closeDrawer():openDrawer()});hamburger.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();hamburger.click()}})}
+  if(overlay)overlay.addEventListener('click',closeDrawer);
+  document.querySelectorAll('.drawer-links a').forEach(function(a){a.addEventListener('click',closeDrawer)});
+  window.addEventListener('resize',function(){if(window.innerWidth>=1025)closeDrawer()});
+  /* LIGHTBOX */
+  var lb=document.getElementById('lightbox');var lbImg=document.getElementById('lb-img');var lbCap=document.getElementById('lb-cap');var lbClose=document.getElementById('lb-close');
+  window.openLightbox=function(src,alt){if(!lb)return;lbImg.src=src;lbImg.alt=alt||'';if(lbCap)lbCap.textContent=alt||'';lb.classList.add('open');document.body.style.overflow='hidden'};
+  window.closeLightbox=function(){if(!lb)return;lb.classList.remove('open');lbImg.src='';document.body.style.overflow=''};
+  if(lbClose)lbClose.addEventListener('click',closeLightbox);
+  if(lb)lb.addEventListener('click',function(e){if(e.target===lb)closeLightbox()});
+  function wireImages(){document.querySelectorAll('img[data-zoom]').forEach(function(img){if(img.getAttribute('data-lb-wired'))return;img.setAttribute('data-lb-wired','1');img.style.cursor='zoom-in';img.addEventListener('click',function(e){e.stopPropagation();openLightbox(this.src,this.alt)})})}
+  wireImages();new MutationObserver(wireImages).observe(document.body,{childList:true,subtree:true});
+  /* ESCAPE */
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeDrawer();closeLightbox()}});
+  /* SCROLL REVEAL */
+  var revEls=document.querySelectorAll('.reveal');
+  var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');io.unobserve(entry.target)}})},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+  revEls.forEach(function(el){io.observe(el)});
+  /* FAQ ACCORDION */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var header=item.querySelector('.faq-header')||item.querySelector('.faq-q');
+    if(!header)return;
+    header.addEventListener('click',function(){
+      var isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');var ico=o.querySelector('.faq-q-icon i');if(ico)ico.className='fas fa-plus'});
+      if(!isOpen){item.classList.add('open');var ico=item.querySelector('.faq-q-icon i');if(ico)ico.className='fas fa-minus'}
+    });
+  });
+  /* SMOOTH ANCHOR */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=this.getAttribute('href');if(id==='#')return;var target=document.querySelector(id);if(!target)return;e.preventDefault();var nh=navbar?navbar.offsetHeight:80;window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-nh-16,behavior:'smooth'})})});
+}());
+
+</script>
+</body>
+</html>
