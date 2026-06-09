@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programmes — New Jets Comprehensive School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* ══════════════════════════════════════════════════
+   PAGE HERO
+   ══════════════════════════════════════════════════ */
+.page-hero {
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  padding: calc(var(--nav-h) + 6rem) 0 5.5rem;
+  min-height: 60vh;
+  background:
+    linear-gradient(160deg, rgba(6,10,22,.97) 0%, rgba(10,32,78,.93) 45%, rgba(18,56,130,.82) 100%),
+    url('images/sport-1.jpg') center / cover no-repeat;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(22,85,192,.18) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+.page-hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  background: linear-gradient(to top, var(--white) 0%, transparent 100%);
+  pointer-events: none;
+}
+.page-hero-inner { position: relative; z-index: 1; text-align: center; width: 100%; padding: 0 1.5rem; }
+.page-tag {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(244,168,23,.16); border: 1px solid rgba(244,168,23,.38);
+  color: var(--gold); font-size: .72rem; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; padding: .42rem 1.15rem; border-radius: 100px;
+  margin-bottom: 1.5rem; animation: fadeUp .7s both;
+}
+.page-hero-inner h1 {
+  font-family: var(--font-display); font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 700; line-height: 1.22; color: #fff; letter-spacing: -.01em;
+  max-width: 820px; margin: 0 auto 1.2rem; overflow-wrap: break-word;
+  animation: fadeUp .7s .08s both;
+}
+.page-hero-inner h1 span { color: var(--gold); font-style: normal; }
+.page-hero-inner p {
+  font-family: var(--font-body); font-size: clamp(.95rem, 1.9vw, 1.1rem);
+  line-height: 1.75; color: rgba(230,236,248,.88); max-width: 580px;
+  margin: 0 auto 2rem; animation: fadeUp .7s .16s both;
+}
+.hero-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; animation: fadeUp .7s .24s both; }
+
+@media (max-width: 768px) {
+  .page-hero { padding: calc(var(--nav-h) + 4rem) 0 4.5rem; min-height: 52vh; }
+  .page-hero-inner h1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+}
+@media (max-width: 480px) {
+  .page-hero { padding: calc(var(--nav-h) + 3rem) 0 4rem; }
+  .page-hero-inner h1 { font-size: clamp(1.4rem, 7vw, 1.9rem); }
+}
+
+/* ══════════════════════════════════════════════════
+   SECTION HEADER
+   ══════════════════════════════════════════════════ */
+.section-header { text-align: center; margin-bottom: 3.5rem; }
+.section-header p { max-width: 560px; margin: .7rem auto 0; }
+
+/* ══════════════════════════════════════════════════
+   CORE CURRICULUM CARDS
+   ══════════════════════════════════════════════════ */
+.core-section { background: var(--off-white); }
+.core-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+.core-card {
+  background: var(--white); border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+  transition: all .35s var(--ease); cursor: pointer;
+}
+.core-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.core-thumb { height: 230px; overflow: hidden; position: relative; }
+.core-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .55s var(--ease); }
+.core-card:hover .core-thumb img { transform: scale(1.07); }
+.core-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,42,92,.55) 0%, transparent 50%);
+  opacity: 0; transition: opacity .35s var(--ease);
+}
+.core-card:hover .core-overlay { opacity: 1; }
+.core-body { padding: 1.8rem 2rem; }
+.core-tag {
+  display: inline-block; font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--cobalt); background: var(--sky-light);
+  padding: .22rem .7rem; border-radius: 100px; margin-bottom: .7rem;
+}
+.core-body h3 { font-size: 1.25rem; margin-bottom: .6rem; }
+.core-body p { font-size: .91rem; line-height: 1.72; margin-bottom: 1.3rem; }
+.core-read-more {
+  display: inline-flex; align-items: center; gap: .5rem;
+  color: var(--cobalt); font-size: .88rem; font-weight: 700;
+  transition: gap .2s var(--ease);
+}
+.core-card:hover .core-read-more { gap: .8rem; color: var(--gold); }
+
+/* ══════════════════════════════════════════════════
+   CORE DETAIL PAGE (slide-in full page)
+   ══════════════════════════════════════════════════ */
+.core-detail {
+  display: none; position: fixed; inset: 0; z-index: 10000;
+  background: var(--off-white); overflow-y: auto;
+  flex-direction: column;
+}
+.core-detail.open {
+  display: flex;
+  animation: pgSlideIn .38s cubic-bezier(.25,.46,.45,.94) both;
+}
+.core-detail.closing {
+  animation: pgSlideOut .32s cubic-bezier(.55,.06,.68,.19) both;
+}
+@keyframes pgSlideIn  { from{transform:translateX(100%);opacity:.6} to{transform:translateX(0);opacity:1} }
+@keyframes pgSlideOut { from{transform:translateX(0);opacity:1} to{transform:translateX(100%);opacity:.6} }
+
+/* Top bar */
+.cd-topbar {
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(255,255,255,.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 clamp(1.2rem,5vw,4rem); height: 64px;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.cd-back-btn {
+  display: inline-flex; align-items: center; gap: .6rem;
+  background: var(--navy); color: var(--white); border: none; border-radius: 50px;
+  padding: .55rem 1.4rem; font-family: var(--font-body);
+  font-size: .85rem; font-weight: 700; cursor: pointer;
+  transition: all .22s var(--ease);
+}
+.cd-back-btn:hover { background: var(--cobalt); transform: translateX(-3px); }
+.cd-topbar-label { font-family: var(--font-display); font-size: .95rem; font-weight: 700; color: var(--navy); opacity: .5; }
+
+/* Hero band */
+.cd-hero {
+  position: relative; overflow: hidden;
+  padding: clamp(3rem,8vw,7rem) clamp(1.5rem,8vw,6rem) clamp(3rem,6vw,5rem);
+  min-height: clamp(300px,40vh,480px);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  background: linear-gradient(160deg, var(--ink) 0%, #0c2060 60%, #1655c0 100%);
+}
+.cd-hero-glow {
+  position: absolute; top: -20%; right: -5%;
+  width: clamp(200px,40vw,500px); height: clamp(200px,40vw,500px);
+  background: radial-gradient(circle, rgba(59,130,246,.3) 0%, transparent 65%);
+  border-radius: 50%; pointer-events: none; z-index: 1;
+  animation: gFloat 8s ease-in-out infinite;
+}
+@keyframes gFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+.cd-hero-grid {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background-image: linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.cd-hero-line { position: absolute; top: 0; left: 0; right: 0; height: 4px; z-index: 3; background: linear-gradient(90deg, var(--gold) 0%, var(--sky-bright) 55%, transparent 100%); }
+.cd-hero-content { position: relative; z-index: 5; max-width: 760px; }
+.cd-hero-tag {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: rgba(244,168,23,.16); border: 1px solid rgba(244,168,23,.38);
+  color: var(--gold); font-size: .7rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; padding: .4rem 1.1rem; border-radius: 100px; margin-bottom: 1.2rem;
+}
+.cd-hero-title {
+  font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.6rem);
+  font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: .7rem;
+  letter-spacing: -.02em;
+}
+.cd-hero-sub { font-size: clamp(.9rem,1.8vw,1.08rem); color: rgba(255,255,255,.65); line-height: 1.7; max-width: 560px; margin: 0; }
+
+/* Detail body */
+.cd-body { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 2.5rem clamp(1.2rem,4vw,3rem) 5rem; }
+
+.cd-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-bottom: 3rem; }
+.cd-intro-img { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); }
+.cd-intro-img img { width: 100%; height: 340px; object-fit: cover; display: block; transition: transform .6s var(--ease); }
+.cd-intro-img:hover img { transform: scale(1.04); }
+.cd-intro-text h2 { font-size: clamp(1.5rem,3vw,2rem); margin-bottom: 1rem; }
+.cd-intro-text p { font-size: .95rem; line-height: 1.85; margin-bottom: 1rem; }
+
+.cd-points-section { margin-bottom: 2.5rem; }
+.cd-section-label {
+  display: flex; align-items: center; gap: .7rem;
+  font-family: var(--font-body); font-size: .7rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--cobalt);
+  margin-bottom: 1.4rem;
+}
+.cd-section-label::before { content: ''; width: 24px; height: 3px; background: var(--gold); border-radius: 2px; flex-shrink: 0; }
+
+.cd-points-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.cd-point {
+  display: flex; align-items: flex-start; gap: .9rem;
+  background: var(--white); border-radius: 14px; padding: 1.1rem 1.2rem;
+  border: 1.5px solid var(--border); transition: all .22s var(--ease);
+}
+.cd-point:hover { background: var(--sky-light); border-color: var(--sky); transform: translateY(-2px); }
+.cd-point-ico {
+  width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--navy), var(--cobalt));
+  display: flex; align-items: center; justify-content: center; color: var(--white); font-size: .9rem;
+}
+.cd-point-ico.g { background: linear-gradient(135deg,#10b981,#059669); }
+.cd-point-ico.p { background: linear-gradient(135deg,#8b5cf6,#6d28d9); }
+.cd-point-ico.a { background: linear-gradient(135deg,#f59e0b,#d97706); }
+.cd-point strong { display: block; font-size: .9rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+.cd-point span { font-size: .82rem; color: var(--slate); line-height: 1.55; }
+
+.cd-insight {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--cobalt) 100%);
+  border-radius: var(--radius-xl); padding: 2.2rem 2.5rem;
+  display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 2rem;
+  position: relative; overflow: hidden;
+}
+.cd-insight::before {
+  content: ''; position: absolute; top: -30%; right: -5%;
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(59,130,246,.2) 0%, transparent 65%);
+  border-radius: 50%; pointer-events: none;
+}
+.cd-insight-ico {
+  width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+  background: rgba(244,168,23,.2); border: 1.5px solid rgba(244,168,23,.4);
+  display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 1.1rem; position: relative; z-index: 1;
+}
+.cd-insight-text { position: relative; z-index: 1; }
+.cd-insight-text h3 { color: var(--white); font-size: 1rem; margin-bottom: .45rem; }
+.cd-insight-text p { color: rgba(255,255,255,.7); font-size: .9rem; line-height: 1.8; margin: 0; }
+
+.cd-cta {
+  background: var(--gold); border-radius: var(--radius-xl); padding: 2rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+}
+.cd-cta h3 { font-size: clamp(1rem,2.5vw,1.35rem); color: var(--navy); margin-bottom: .2rem; }
+.cd-cta p  { font-size: .88rem; color: rgba(13,42,92,.65); margin: 0; }
+.cd-cta-actions { display: flex; gap: .8rem; flex-wrap: wrap; }
+.cd-btn-enrol {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--navy); color: var(--white); border: none; border-radius: 50px;
+  padding: .8rem 1.8rem; font-family: var(--font-body); font-size: .88rem; font-weight: 700; cursor: pointer; text-decoration: none;
+  transition: all .22s var(--ease);
+}
+.cd-btn-enrol:hover { background: var(--cobalt); transform: translateY(-2px); }
+.cd-btn-contact {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: transparent; color: var(--navy); border: 2px solid rgba(13,42,92,.3); border-radius: 50px;
+  padding: .78rem 1.6rem; font-family: var(--font-body); font-size: .88rem; font-weight: 700; cursor: pointer; text-decoration: none;
+  transition: all .22s var(--ease);
+}
+.cd-btn-contact:hover { background: rgba(13,42,92,.08); transform: translateY(-2px); }
+
+@media (max-width: 768px) {
+  .cd-intro { grid-template-columns: 1fr; gap: 2rem; }
+  .cd-intro-img img { height: 260px; }
+  .cd-points-grid { grid-template-columns: 1fr; }
+  .cd-hero { padding: 2.5rem 1.4rem 2rem; }
+  .cd-insight { flex-direction: column; padding: 1.8rem 1.4rem; }
+  .cd-cta { flex-direction: column; text-align: center; padding: 1.8rem 1.4rem; }
+  .cd-cta-actions { justify-content: center; width: 100%; }
+  .cd-btn-enrol, .cd-btn-contact { justify-content: center; flex: 1; }
+  .cd-topbar-label { display: none; }
+}
+
+/* ══════════════════════════════════════════════════
+   ENRICHMENT
+   ══════════════════════════════════════════════════ */
+.enrich-section { background: var(--white); }
+.enrich-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+.enrich-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border); transition: all .35s var(--ease); }
+.enrich-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--cobalt); }
+.enrich-img { height: 200px; overflow: hidden; position: relative; }
+.enrich-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .55s var(--ease); }
+.enrich-card:hover .enrich-img img { transform: scale(1.07); }
+.enrich-badge { position: absolute; top: .9rem; left: 1rem; font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--white); background: rgba(13,42,92,.55); border: 1px solid rgba(255,255,255,.22); padding: .22rem .65rem; border-radius: 100px; backdrop-filter: blur(6px); }
+.enrich-body { padding: 1.5rem 1.8rem; }
+.enrich-body h4 { font-size: 1.1rem; margin-bottom: .5rem; }
+.enrich-body p { font-size: .88rem; line-height: 1.68; margin-bottom: .9rem; }
+.enrich-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+.enrich-tag { font-size: .68rem; font-weight: 700; color: var(--cobalt); background: var(--sky-light); padding: .2rem .6rem; border-radius: 6px; }
+
+/* ══════════════════════════════════════════════════
+   GALLERY
+   ══════════════════════════════════════════════════ */
+.gallery-section { background: var(--off-white); }
+.tab-row { display: flex; justify-content: center; flex-wrap: wrap; gap: .7rem; margin-bottom: 3rem; }
+.tab-btn { padding: .55rem 1.6rem; border-radius: 100px; border: 2px solid var(--border); background: var(--white); color: var(--slate); font-size: .88rem; font-weight: 700; cursor: pointer; transition: all var(--dur) var(--ease); }
+.tab-btn:hover { border-color: var(--cobalt); color: var(--cobalt); }
+.tab-btn.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.video-panel.active { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+
+/* Gallery preview strip — 3 thumbnails + view all button */
+.gal-preview {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: .6rem;
+  margin-bottom: 1.2rem;
+}
+.gal-item {
+  border-radius: var(--radius-md); overflow: hidden; height: 140px;
+  cursor: pointer; box-shadow: var(--shadow-sm); position: relative;
+}
+.gal-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s var(--ease); }
+.gal-item:hover img { transform: scale(1.07); }
+.gal-item::after {
+  content: '\f00e';
+  font-family: 'Font Awesome 6 Free'; font-weight: 900;
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: rgba(255,255,255,.9);
+  background: rgba(10,22,56,.45);
+  opacity: 0; transition: opacity .3s var(--ease);
+}
+.gal-item:hover::after { opacity: 1; }
+.gal-view-all {
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
+  width: 100%; padding: .85rem;
+  background: var(--white); border: 2px solid var(--border);
+  border-radius: var(--radius-md); cursor: pointer;
+  font-family: var(--font-body); font-size: .88rem; font-weight: 700;
+  color: var(--cobalt); transition: all .22s var(--ease);
+}
+.gal-view-all:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.gal-view-all i { font-size: .82rem; }
+
+/* Gallery lightbox (full screen) */
+.gal-lightbox {
+  display: none; position: fixed; inset: 0; z-index: 20000;
+  background: rgba(4,8,20,.96); backdrop-filter: blur(8px);
+  flex-direction: column; align-items: center; justify-content: center;
+  padding: 1rem;
+}
+.gal-lightbox.open { display: flex; animation: fadeIn .25s var(--ease); }
+.gal-lb-img {
+  max-width: min(90vw, 1100px); max-height: 80vh;
+  object-fit: contain; border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.7); display: block;
+}
+.gal-lb-caption { color: rgba(255,255,255,.6); font-size: .88rem; margin-top: 1rem; text-align: center; }
+.gal-lb-close {
+  position: fixed; top: 1.2rem; right: 1.2rem;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.25);
+  color: var(--white); font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .22s var(--ease);
+}
+.gal-lb-close:hover { background: var(--white); color: var(--navy); transform: rotate(90deg); }
+.gal-lb-prev, .gal-lb-next {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,.12); border: 1.5px solid rgba(255,255,255,.22);
+  color: var(--white); font-size: 1rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .22s var(--ease);
+}
+.gal-lb-prev { left: 1rem; }
+.gal-lb-next { right: 1rem; }
+.gal-lb-prev:hover, .gal-lb-next:hover { background: var(--white); color: var(--navy); }
+.gal-lb-counter { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.45); font-size: .8rem; }
+
+/* Video cards */
+.vid-card { background: var(--white); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border); transition: all .35s var(--ease); }
+.vid-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--cobalt); }
+.vid-wrap { height: 200px; overflow: hidden; background: #000; position: relative; }
+.vid-wrap video { width: 100%; height: 100%; object-fit: cover; }
+.vid-cap { padding: .8rem 1.2rem; font-size: .88rem; font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: .5rem; }
+.vid-cap i { color: var(--cobalt); }
+
+/* CTA */
+.cta-section { background: linear-gradient(135deg,var(--navy) 0%,var(--ink) 100%); padding: 6rem 0; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; top: -20%; right: -5%; width: 420px; height: 420px; background: radial-gradient(circle,rgba(59,130,246,.15) 0%,transparent 65%); }
+.cta-inner { position: relative; z-index: 1; text-align: center; }
+.cta-inner h2 { color: var(--white); margin-bottom: 1rem; }
+.cta-inner p { color: rgba(255,255,255,.65); font-size: 1.05rem; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.8; }
+.cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+@media(max-width:1024px) {
+  .core-grid,.enrich-grid { grid-template-columns: repeat(2,1fr); }
+  .gal-preview { grid-template-columns: repeat(3,1fr); }
+  .tab-panel.active,.video-panel.active { display: block; }
+}
+@media(max-width:768px) {
+  .core-grid,.enrich-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .gal-item { height: 110px; }
+  .gal-lb-prev { left: .3rem; }
+  .gal-lb-next { right: .3rem; }
+}
+@media(max-width:540px) {
+  .gal-item { height: 100px; }
+}
+</style>
+
+<style id="shared-design-system">
+*,*::before,*::after{margin:0;padding:0;border:0;outline:0;text-decoration:none;list-style:none;box-sizing:border-box}
+:root{
+  --ink:#0a0e1a;--ink-soft:#1c2438;--navy:#0d2a5c;--navy-mid:#1a3a72;--navy-light:#1e4d9b;
+  --cobalt:#1655c0;--sky:#3b82f6;--sky-bright:#60a5fa;--sky-light:#dbeafe;
+  --gold:#f4a817;--gold-dark:#d4880a;--gold-light:#fef3c7;
+  --white:#ffffff;--off-white:#f8fafd;--pearl:#f0f4fb;--mist:#e8eef8;
+  --slate:#5a6885;--slate-light:#94a3b8;--border:#dde4f0;
+  --success:#10b981;--error:#ef4444;
+  --font-display:'Playfair Display',Georgia,serif;
+  --font-body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --nav-h:5.2rem;--container-xl:1280px;
+  --radius-sm:8px;--radius-md:14px;--radius-lg:22px;--radius-xl:32px;
+  --shadow-xs:0 1px 4px rgba(10,14,26,.06);--shadow-sm:0 4px 12px rgba(10,14,26,.08);
+  --shadow-md:0 8px 28px rgba(10,14,26,.12);--shadow-lg:0 20px 56px rgba(10,14,26,.16);
+  --shadow-xl:0 32px 80px rgba(10,14,26,.22);
+  --ease:cubic-bezier(.4,0,.2,1);--dur:280ms;
+}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);line-height:1.7;color:var(--ink);background:var(--white);overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh}
+h1,h2,h3,h4,h5,h6{font-family:var(--font-display);font-weight:700;line-height:1.18;color:var(--navy)}
+h1{font-size:clamp(2.4rem,5vw,4rem)}h2{font-size:clamp(1.9rem,3.5vw,3rem)}
+h3{font-size:clamp(1.3rem,2.5vw,2rem)}h4{font-size:clamp(1.05rem,1.8vw,1.3rem)}
+p{color:var(--slate);line-height:1.75}
+.container{max-width:var(--container-xl);margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
+section{padding:6rem 0}
+.section-label{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--font-body);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cobalt);margin-bottom:.9rem}
+.section-label::before{content:'';width:22px;height:2px;background:var(--gold);border-radius:2px;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2.1rem;border-radius:50px;font-family:var(--font-body);font-size:.92rem;font-weight:700;cursor:pointer;transition:all var(--dur) var(--ease);border:2px solid transparent;letter-spacing:.02em;white-space:nowrap;text-decoration:none}
+.btn-primary{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.btn-primary:hover{background:var(--cobalt);border-color:var(--cobalt);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,42,92,.3)}
+.btn-gold{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.btn-gold:hover{background:var(--gold-dark);border-color:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(244,168,23,.35)}
+.btn-outline-white{background:transparent;color:var(--white);border-color:rgba(255,255,255,.55)}
+.btn-outline-white:hover{background:var(--white);color:var(--navy);transform:translateY(-2px)}
+.btn-ghost-light{background:rgba(255,255,255,.12);color:var(--white);border-color:rgba(255,255,255,.35);backdrop-filter:blur(10px)}
+.btn-ghost-light:hover{background:var(--white);color:var(--navy);transform:translateY(-2px)}
+.btn-sm{padding:.65rem 1.5rem;font-size:.85rem}
+.navbar{position:fixed;top:0;left:0;width:100%;height:var(--nav-h);z-index:900;transition:all var(--dur) var(--ease)}
+.navbar.solid,.navbar.scrolled{background:var(--navy);box-shadow:0 2px 24px rgba(10,14,26,.18)}
+.navbar.solid::after,.navbar.scrolled::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold) 0%,var(--sky-bright) 60%,transparent 100%)}
+.nav-brand{display:flex;align-items:center;gap:.85rem;text-decoration:none;flex-shrink:0}
+.nav-badge{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2.5px solid rgba(255,255,255,.3);flex-shrink:0}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-brand-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--white);letter-spacing:.01em}
+.brand-short{display:none}.brand-full{display:inline}
+.nav-brand-tag{font-size:.58rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:.2rem}
+.nav-links a{font-size:.88rem;font-weight:600;padding:.55rem 1rem;border-radius:var(--radius-sm);color:rgba(255,255,255,.8);transition:all var(--dur) var(--ease);position:relative;letter-spacing:.01em}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.1)}
+.nav-links a.active::after{content:'';position:absolute;bottom:4px;left:50%;transform:translateX(-50%);width:18px;height:2px;background:var(--gold);border-radius:2px}
+.hamburger{display:none;position:fixed;top:1rem;right:1rem;width:48px;height:48px;background:var(--navy);border:2px solid rgba(255,255,255,.18);border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5.5px;cursor:pointer;z-index:1100;transition:all var(--dur) var(--ease)}
+.hamburger.open{background:var(--cobalt);transform:rotate(90deg)}
+.h-line{width:22px;height:2.5px;background:var(--white);border-radius:2px;transition:all var(--dur) var(--ease);transform-origin:center}
+.hamburger.open .h-line:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.hamburger.open .h-line:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open .h-line:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+.mobile-drawer{position:fixed;top:0;right:-100%;width:300px;height:100%;background:linear-gradient(160deg,var(--navy) 0%,var(--ink) 100%);z-index:1050;transition:right .4s var(--ease);display:flex;flex-direction:column;padding:5.5rem 1.8rem 2rem;overflow-y:auto;box-shadow:-8px 0 40px rgba(0,0,0,.3)}
+.mobile-drawer.open{right:0}
+.drawer-logo{display:flex;align-items:center;gap:.7rem;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.drawer-logo img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.drawer-logo-text .name{font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:700}
+.drawer-logo-text .tag{font-size:.62rem;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
+.drawer-links{display:flex;flex-direction:column;gap:.4rem}
+.drawer-links a{color:rgba(255,255,255,.8);font-size:.98rem;font-weight:600;padding:.85rem 1.2rem;border-radius:10px;display:flex;align-items:center;gap:.9rem;background:rgba(255,255,255,.05);border-left:3px solid transparent;transition:all .24s var(--ease)}
+.drawer-links a i{font-size:.95rem;color:var(--sky-bright);width:18px;flex-shrink:0}
+.drawer-links a:hover,.drawer-links a.active{background:rgba(59,130,246,.15);border-left-color:var(--gold);color:var(--white);transform:translateX(4px)}
+.drawer-contact{margin-top:auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(5px);z-index:1000;opacity:0;visibility:hidden;transition:all .3s var(--ease)}
+.overlay.open{opacity:1;visibility:visible}
+.site-footer{background:var(--ink);color:rgba(255,255,255,.75);padding:5rem 0 0;margin-top:auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1.3fr;gap:3.5rem;padding-bottom:4rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand-logo{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;text-decoration:none}
+.footer-brand-logo img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.2)}
+.footer-brand-name{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--white)}
+.footer-tagline{font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.65;max-width:260px;margin-bottom:1.8rem}
+.footer-socials{display:flex;gap:.7rem;flex-wrap:wrap}
+.footer-social{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--white);transition:all var(--dur) var(--ease)}
+.footer-social:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.footer-social.fb{background:#1877F2}.footer-social.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.footer-social.wa{background:#25D366}
+.footer-col h4{font-family:var(--font-body);font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.footer-links{display:flex;flex-direction:column;gap:.6rem}
+.footer-links a{color:rgba(255,255,255,.6);font-size:.9rem;transition:all var(--dur) var(--ease);display:flex;align-items:center;gap:.4rem}
+.footer-links a:hover{color:var(--gold);transform:translateX(4px)}
+.footer-links a::before{content:'›';opacity:.4}
+.footer-contact-list{display:flex;flex-direction:column;gap:1rem}
+.footer-contact-item{display:flex;align-items:flex-start;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.55}
+.footer-contact-item i{color:var(--gold);margin-top:.15rem;flex-shrink:0}
+.footer-contact-item a{color:inherit}.footer-contact-item a:hover{color:var(--gold)}
+.footer-bottom{text-align:center;padding:1.8rem 0;font-size:.78rem;color:rgba(255,255,255,.28)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:640px){.brand-full{display:none}.brand-short{display:inline}.nav-brand-tag{display:none}.nav-brand-name{font-size:1.1rem}}
+@media(max-width:1024px){.hamburger{display:flex}.nav-links{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+@media(max-width:768px){section{padding:4.5rem 0}.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:540px){.footer-grid{grid-template-columns:1fr;gap:1.8rem}}
+</style>
+</head>
+<body>
+
+<!-- GALLERY LIGHTBOX -->
+<div class="gal-lightbox" id="gal-lightbox">
+  <button class="gal-lb-close" id="gal-lb-close"><i class="fas fa-times"></i></button>
+  <button class="gal-lb-prev" id="gal-lb-prev"><i class="fas fa-chevron-left"></i></button>
+  <button class="gal-lb-next" id="gal-lb-next"><i class="fas fa-chevron-right"></i></button>
+  <img class="gal-lb-img" id="gal-lb-img" src="" alt="">
+  <div class="gal-lb-caption" id="gal-lb-cap"></div>
+  <div class="gal-lb-counter" id="gal-lb-counter"></div>
+</div>
+
+<!-- CORE DETAIL PAGE -->
+<div class="core-detail" id="core-detail">
+  <div class="cd-topbar">
+    <button class="cd-back-btn" id="cd-back"><i class="fas fa-arrow-left"></i> Back to Programmes</button>
+    <span class="cd-topbar-label">New Jets Comprehensive School</span>
+  </div>
+  <div id="cd-content"></div>
+</div>
+
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+  <div class="h-line"></div><div class="h-line"></div><div class="h-line"></div>
+</button>
+<div class="overlay" id="drawer-overlay"></div>
+<div class="mobile-drawer" id="mobile-drawer" role="navigation">
+  <div class="drawer-logo"><img src="images/logo.png.jpg" alt="NJCS Logo"><div class="drawer-logo-text"><div class="name">New Jets Comprehensive School</div><div class="tag">Kisumu, Kenya</div></div></div>
+  <div class="drawer-links">
+    <a href="index.html"><i class="fas fa-home"></i>Home</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i>About Us</a>
+    <a href="course.html" class="active"><i class="fas fa-book-open"></i>Programmes</a>
+    <a href="fees.html"><i class="fas fa-receipt"></i>Fees & Admissions</a>
+    <a href="blog.html"><i class="fas fa-rss"></i>Blog</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+  </div>
+  <div class="drawer-contact">
+    <i class="fas fa-phone-alt" style="color:var(--gold);margin-right:.4rem"></i>+254 727 549 629<br>
+    <i class="fas fa-map-marker-alt" style="color:var(--gold);margin-right:.4rem"></i>Gesoko, opp. Joyland, Kisumu
+  </div>
+</div>
+
+<nav class="navbar solid always-solid" id="main-nav">
+  <div class="container" style="height:100%;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+    <a href="index.html" class="nav-brand"><img src="images/logo.png.jpg" alt="NJCS" class="nav-badge"><div class="nav-brand-text"><span class="nav-brand-name"><span class="brand-full">New Jets Comprehensive School</span><span class="brand-short">NJCS</span></span><span class="nav-brand-tag">Kisumu · Est. 2023</span></div></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="course.html" class="active">Programmes</a>
+      <a href="fees.html">Fees</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</nav>
+
+<main>
+<section class="page-hero">
+  <div class="container page-hero-inner">
+    <div class="page-tag"><i class="fas fa-book-open"></i> Learning Programmes</div>
+    <h1>Our <span>Programmes</span></h1>
+    <p>Rich, well-rounded programmes that go beyond the classroom — nurturing sport, creativity, culture, and curiosity in every learner.</p>
+    <div class="hero-btns">
+      <a href="#core" class="btn btn-ghost-light"><i class="fas fa-book-open"></i> Core Curriculum</a>
+      <a href="#gallery" class="btn btn-gold"><i class="fas fa-images"></i> Photo Gallery</a>
+    </div>
+  </div>
+</section>
+
+<section class="core-section" id="core">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label" style="justify-content:center;">Core Curriculum</span>
+      <h2>Core Learning Areas</h2>
+      <p>A comprehensive CBC-aligned curriculum nurturing every dimension of your child's development.</p>
+    </div>
+    <div class="core-grid">
+      <div class="core-card reveal" data-subject="literacy">
+        <div class="core-thumb"><img src="images/course-1.jpg" alt="Literacy"></div>
+        <div class="core-body"><span class="core-tag">Literacy</span><h3>Literacy Development</h3><p>Building strong reading, writing, speaking, and listening skills — the foundation for all learning and clear self-expression.</p><span class="core-read-more">Explore <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+      <div class="core-card reveal" data-subject="science">
+        <div class="core-thumb"><img src="images/science.jpg" alt="Science"></div>
+        <div class="core-body"><span class="core-tag">STEM</span><h3>Science & Technology</h3><p>Sparking curiosity through hands-on experiments, discovery-based learning, and early introduction to technology.</p><span class="core-read-more">Explore <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+      <div class="core-card reveal" data-subject="creative">
+        <div class="core-thumb"><img src="images/course-4.jpg" alt="Creative Arts"></div>
+        <div class="core-body"><span class="core-tag">Creative Arts</span><h3>Creative Arts</h3><p>Nurturing imagination and self-expression through painting, music, drama, dance, craft, and storytelling.</p><span class="core-read-more">Explore <i class="fas fa-arrow-right"></i></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="enrich-section" id="enrichment">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label" style="justify-content:center;">Enrichment Activities</span>
+      <h2>School Programmes</h2>
+      <p>Seven enrichment areas developing the whole child — mind, body, and character.</p>
+    </div>
+    <div class="enrich-grid">
+      <div class="enrich-card reveal"><div class="enrich-img"><img src="images/football.jpg" alt="Sports"><div class="enrich-badge"><i class="fas fa-running"></i> Sports</div></div><div class="enrich-body"><h4>Sports & Physical Education</h4><p>Football, netball, athletics, and more — building fitness, teamwork, and resilience through structured PE.</p><div class="enrich-tags"><span class="enrich-tag">Football</span><span class="enrich-tag">Netball</span><span class="enrich-tag">Athletics</span></div></div></div>
+      <div class="enrich-card reveal"><div class="enrich-img"><img src="images/tour-1.jpg" alt="Tours"><div class="enrich-badge"><i class="fas fa-bus"></i> Tours</div></div><div class="enrich-body"><h4>Educational Tours</h4><p>Learning beyond the classroom through visits to museums, nature parks, and community institutions.</p><div class="enrich-tags"><span class="enrich-tag">Museums</span><span class="enrich-tag">Nature</span><span class="enrich-tag">Community</span></div></div></div>
+      <div class="enrich-card reveal"><div class="enrich-img"><img src="images/culture-1.jpg" alt="Culture"><div class="enrich-badge"><i class="fas fa-palette"></i> Culture</div></div><div class="enrich-body"><h4>Culture & Arts</h4><p>Drama, music, traditional dance, and visual arts — celebrating Kenya's heritage while building creative confidence.</p><div class="enrich-tags"><span class="enrich-tag">Drama</span><span class="enrich-tag">Music</span><span class="enrich-tag">Dance</span></div></div></div>
+      <div class="enrich-card reveal"><div class="enrich-img"><img src="images/science.jpg" alt="Science Club"><div class="enrich-badge"><i class="fas fa-flask"></i> Science</div></div><div class="enrich-body"><h4>Science Club</h4><p>Hands-on experiments and investigations that spark curiosity and build a strong STEM foundation.</p><div class="enrich-tags"><span class="enrich-tag">Experiments</span><span class="enrich-tag">STEM</span><span class="enrich-tag">Projects</span></div></div></div>
+      <div class="enrich-card reveal"><div class="enrich-img"><img src="images/service.jpg" alt="Reading"><div class="enrich-badge"><i class="fas fa-book"></i> Literacy</div></div><div class="enrich-body"><h4>Reading Programme</h4><p>Structured reading sessions, library time, and storytelling activities building a lifelong love of books.</p><div class="enrich-tags"><span class="enrich-tag">Phonics</span><span class="enrich-tag">Storytelling</span><span class="enrich-tag">Library</span></div></div></div>
+      <div class="enrich-card reveal"><div class="enrich-img"><img src="images/dap.jpg" alt="Debate"><div class="enrich-badge"><i class="fas fa-microphone"></i> Speaking</div></div><div class="enrich-body"><h4>Debate & Public Speaking</h4><p>Building communication confidence, critical thinking, and leadership through structured debate and presentations.</p><div class="enrich-tags"><span class="enrich-tag">Debate</span><span class="enrich-tag">Leadership</span><span class="enrich-tag">Communication</span></div></div></div>
+      <div class="enrich-card reveal"><div class="enrich-img"><img src="images/science-3.jpg" alt="Environment"><div class="enrich-badge"><i class="fas fa-leaf"></i> Environment</div></div><div class="enrich-body"><h4>Environmental Club</h4><p>Gardening, tree planting, and recycling — nurturing environmental stewardship from an early age.</p><div class="enrich-tags"><span class="enrich-tag">Gardening</span><span class="enrich-tag">Recycling</span><span class="enrich-tag">Nature</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section" id="gallery">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label" style="justify-content:center;">Memories & Moments</span>
+      <h2>Photo Gallery</h2>
+      <p>A glimpse into the vibrant life at New Jets Comprehensive School — sports, tours, culture, and learning in action.</p>
+    </div>
+    <div class="tab-row">
+      <button class="tab-btn active" data-tab="sports">Sports</button>
+      <button class="tab-btn" data-tab="tours">Tours</button>
+      <button class="tab-btn" data-tab="culture">Culture</button>
+      <button class="tab-btn" data-tab="learning">Learning</button>
+      <button class="tab-btn" data-tab="videos"><i class="fas fa-video" style="margin-right:.35rem"></i>Videos</button>
+    </div>
+    <div id="tab-sports" class="tab-panel active">
+    <div class="gal-preview">
+      <div class="gal-item"><img src="images/sport 7.jpg" alt="Football training"></div>
+      <div class="gal-item"><img src="images/sports 5.jpg" alt="Netball match"></div>
+      <div class="gal-item"><img src="images/sports 6.jpg" alt="Athletics day"></div>
+    </div>
+    <button class="gal-view-all" data-panel="tab-sports"><i class="fas fa-th"></i> View All 6 Photos</button>
+    <div class="gal-all-store" style="display:none">
+      <div class="gal-item"><img src="images/sport 7.jpg" alt="Football training"></div>
+    <div class="gal-item"><img src="images/sports 5.jpg" alt="Netball match"></div>
+    <div class="gal-item"><img src="images/sports 6.jpg" alt="Athletics day"></div>
+    <div class="gal-item"><img src="images/sport 9.jpg" alt="Sports day"></div>
+    <div class="gal-item"><img src="images/sport 8.jpg" alt="Team huddle"></div>
+    <div class="gal-item"><img src="images/sport 10.jpg" alt="Trophy presentation"></div>
+    </div>
+    </div>
+    <div id="tab-tours" class="tab-panel">
+    <div class="gal-preview">
+      <div class="gal-item"><img src="images/tour-1.jpg" alt="Museum visit"></div>
+      <div class="gal-item"><img src="images/tour-2.jpg" alt="Nature park"></div>
+      <div class="gal-item"><img src="images/tour-3.jpg" alt="Community visit"></div>
+    </div>
+    <button class="gal-view-all" data-panel="tab-tours"><i class="fas fa-th"></i> View All 6 Photos</button>
+    <div class="gal-all-store" style="display:none">
+      <div class="gal-item"><img src="images/tour-1.jpg" alt="Museum visit"></div>
+    <div class="gal-item"><img src="images/tour-2.jpg" alt="Nature park"></div>
+    <div class="gal-item"><img src="images/tour-3.jpg" alt="Community visit"></div>
+    <div class="gal-item"><img src="images/tour-4.jpg" alt="Educational outing"></div>
+    <div class="gal-item"><img src="images/tour-5.jpg" alt="Field trip"></div>
+    <div class="gal-item"><img src="images/tour-6.jpg" alt="Learning journey"></div>
+    </div>
+    </div>
+    <div id="tab-culture" class="tab-panel">
+    <div class="gal-preview">
+      <div class="gal-item"><img src="images/culture-1.jpg" alt="Traditional dance"></div>
+      <div class="gal-item"><img src="images/creative-3.jpg" alt="Drama performance"></div>
+      <div class="gal-item"><img src="images/culture-3.jpg" alt="Music ensemble"></div>
+    </div>
+    <button class="gal-view-all" data-panel="tab-culture"><i class="fas fa-th"></i> View All 6 Photos</button>
+    <div class="gal-all-store" style="display:none">
+      <div class="gal-item"><img src="images/culture-1.jpg" alt="Traditional dance"></div>
+    <div class="gal-item"><img src="images/creative-3.jpg" alt="Drama performance"></div>
+    <div class="gal-item"><img src="images/culture-3.jpg" alt="Music ensemble"></div>
+    <div class="gal-item"><img src="images/creative.jpg" alt="Art exhibition"></div>
+    <div class="gal-item"><img src="images/creative-1.jpg" alt="School concert"></div>
+    <div class="gal-item"><img src="images/culture-4.jpg" alt="Cultural day"></div>
+    </div>
+    </div>
+    <div id="tab-learning" class="tab-panel">
+    <div class="gal-preview">
+      <div class="gal-item"><img src="images/comp.jpg" alt="Classroom activity"></div>
+      <div class="gal-item"><img src="images/course-3.jpg" alt="Science experiment"></div>
+      <div class="gal-item"><img src="images/course-4.jpg" alt="Group learning"></div>
+    </div>
+    <button class="gal-view-all" data-panel="tab-learning"><i class="fas fa-th"></i> View All 6 Photos</button>
+    <div class="gal-all-store" style="display:none">
+      <div class="gal-item"><img src="images/comp.jpg" alt="Classroom activity"></div>
+    <div class="gal-item"><img src="images/course-3.jpg" alt="Science experiment"></div>
+    <div class="gal-item"><img src="images/course-4.jpg" alt="Group learning"></div>
+    <div class="gal-item"><img src="images/curricular.jpg" alt="Reading time"></div>
+    <div class="gal-item"><img src="images/food.jpg" alt="Art project"></div>
+    <div class="gal-item"><img src="images/karate.jpg" alt="Outdoor learning"></div>
+    </div>
+    </div>
+    <div id="tab-videos" class="tab-panel video-panel">
+      <div class="vid-card"><div class="vid-wrap"><video controls preload="metadata"><source src="VID-20251130-WA0028 copy 2.mp4" type="video/mp4">Your browser doesn't support video.</video></div><p class="vid-cap"><i class="fas fa-play-circle"></i> School Tour</p></div>
+      <div class="vid-card"><div class="vid-wrap"><video controls preload="metadata"><source src="VID-20251202-WA0062 - Copy.mp4" type="video/mp4">Your browser doesn't support video.</video></div><p class="vid-cap"><i class="fas fa-play-circle"></i> Activity Day</p></div>
+      <div class="vid-card"><div class="vid-wrap"><video controls preload="metadata"><source src="VID-20260111-WA0000.mp4" type="video/mp4">Your browser doesn't support video.</video></div><p class="vid-cap"><i class="fas fa-play-circle"></i> School Progress</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container cta-inner">
+    <h2>Ready to Join the NJCS Family?</h2>
+    <p>Give your child access to all these wonderful programmes. Enrol today and let them thrive.</p>
+    <div class="cta-btns">
+      <a href="fees.html" class="btn btn-ghost-light"><i class="fas fa-file-alt"></i> View Fees & Admission</a>
+      <a href="contact.html" class="btn btn-gold"><i class="fas fa-envelope"></i> Contact Us</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <a href="index.html" class="footer-brand-logo"><img src="images/logo.png.jpg" alt="NJCS"><span class="footer-brand-name">New Jets Comprehensive School</span></a>
+        <p class="footer-tagline">Nurturing confident, creative, world-ready learners in Kisumu since 2023.</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/share/1BmpVeiQvN/" target="_blank" class="footer-social fb"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/jets_elementary_school?igsh=MTI2Z3dxZjNnMXdmYw==" target="_blank" class="footer-social ig"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/254717830659" target="_blank" class="footer-social wa"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><div class="footer-links">
+        <a href="index.html">Home</a><a href="about.html">About Us</a><a href="course.html">Programmes</a>
+        <a href="fees.html">School Fees</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+      </div></div>
+      <div class="footer-col"><h4>Contact</h4><div class="footer-contact-list">
+        <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Gesoko, opp. Joyland, Kisumu</span></div>
+        <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+254727549629">+254 727 549 629</a></div>
+        <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:jetselementary@gmail.com">jetselementary@gmail.com</a></div>
+      </div></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 New Jets Comprehensive School. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ══════════════════════════════════════
+     CORE SUBJECT DATA
+  ══════════════════════════════════════ */
+  var SUBJECTS = {
+    literacy: {
+      tag: 'Core Curriculum', title: 'Literacy Development', sub: 'Building confident communicators from PP1 to Grade 4',
+      img: 'images/course-1.jpg', img2: 'images/assembly.jpg',
+      intro: 'Literacy is the foundation of every area of learning. At New Jets Comprehensive School, we build confident readers, writers, speakers, and listeners through joyful, interactive, CBC-aligned literacy education from the earliest years.',
+      intro2: 'Our approach ensures every child finds their voice and develops a lifelong love of language — through phonics, storytelling, creative writing, and public speaking woven into daily learning.',
+      points: [
+        { ico: '', icon: 'fas fa-comments', title: 'Communication & Speaking', desc: 'Children express themselves clearly and confidently through structured speaking and listening activities.' },
+        { ico: 'g', icon: 'fas fa-book-open', title: 'Reading & Phonics', desc: 'Systematic phonics from PP1, progressing to fluent reading of stories, non-fiction, and digital texts.' },
+        { ico: 'p', icon: 'fas fa-pen-nib', title: 'Creative Writing', desc: 'Storytelling, poetry, journaling, and composition develop imagination and written expression.' },
+        { ico: 'a', icon: 'fas fa-layer-group', title: 'Grammar & Comprehension', desc: 'Structured grammar, punctuation, and comprehension skills built progressively across all grades.' },
+        { ico: '', icon: 'fas fa-users', title: 'Collaborative Learning', desc: 'Peer reading, group discussions, and shared writing build social communication and teamwork.' },
+        { ico: 'g', icon: 'fas fa-sliders-h', title: 'Differentiated Teaching', desc: 'Every lesson is tailored to each child\'s level — no child is left behind or held back.' }
+      ],
+      insight: 'We implement literacy through thematic, cross-curricular units that connect reading and writing to real-world contexts. Progress is tracked continuously and shared with parents through regular reports.'
+    },
+    science: {
+      tag: 'Core Curriculum', title: 'Science & Technology', sub: 'Sparking curiosity and critical thinking from the earliest years',
+      img: 'images/science.jpg', img2: 'images/science-3.jpg',
+      intro: 'At New Jets Comprehensive School, we believe every child is a natural scientist. Our Science & Technology programme uses Kenya\'s CBC framework to develop critical thinking, problem-solving, and a genuine love of discovery.',
+      intro2: 'From exploring living things in PP1 to simple machines in Grade 4, every lesson is practical, collaborative, and fun — building scientific habits of mind that serve children for life.',
+      points: [
+        { ico: '', icon: 'fas fa-flask', title: 'Hands-on Experiments', desc: 'Practical science activities every week — observing, measuring, testing, and recording findings.' },
+        { ico: 'g', icon: 'fas fa-brain', title: 'Critical Thinking', desc: 'We ask "why?" and "how?" Questions, predictions, and analysis are part of every lesson.' },
+        { ico: 'p', icon: 'fas fa-laptop', title: 'Technology Skills', desc: 'Age-appropriate ICT skills including basic computer use, digital research, and responsible internet use.' },
+        { ico: 'a', icon: 'fas fa-leaf', title: 'Environmental Science', desc: 'Nature walks, gardening, and conservation activities build stewardship of the natural world.' },
+        { ico: '', icon: 'fas fa-users', title: 'Collaborative Inquiry', desc: 'Group investigations and science fair projects develop teamwork and communication alongside STEM skills.' },
+        { ico: 'g', icon: 'fas fa-globe-africa', title: 'Real-World Connections', desc: 'Science is connected to Kenya\'s environment, community, and daily life — making it immediately relevant.' }
+      ],
+      insight: 'Our science lab and outdoor learning spaces provide hands-on discovery at every grade level. Internet safety is explicitly taught alongside digital skills, with filtered access for all students.'
+    },
+    creative: {
+      tag: 'Core Curriculum', title: 'Creative Arts', sub: 'Nurturing imagination, expression, and artistic confidence',
+      img: 'images/course-4.jpg', img2: 'images/creative.jpg',
+      intro: 'At New Jets Comprehensive School, creativity is not an optional extra — it is woven through every school day. Our Creative Arts programme develops imagination, emotional intelligence, and a distinctive creative voice in every child.',
+      intro2: 'Through visual arts, music, drama, movement, and craft, children develop confidence and self-expression that enriches everything they do — both academically and socially.',
+      points: [
+        { ico: '', icon: 'fas fa-paint-brush', title: 'Drawing & Painting', desc: 'Exploring colour, form, and technique using a wide range of materials and approaches.' },
+        { ico: 'g', icon: 'fas fa-music', title: 'Music & Singing', desc: 'Rhythm, melody, and ensemble singing — developing musical ear and performance confidence.' },
+        { ico: 'p', icon: 'fas fa-theater-masks', title: 'Drama & Storytelling', desc: 'Role-play, puppet shows, and stage performance build confidence and expressive communication.' },
+        { ico: 'a', icon: 'fas fa-cut', title: 'Craft & Design', desc: 'Hands-on projects using clay, paper, textiles, and recycled materials develop fine motor skills.' },
+        { ico: '', icon: 'fas fa-running', title: 'Movement & Dance', desc: 'Creative dance, rhythm activities, and cultural movement foster body awareness and coordination.' },
+        { ico: 'g', icon: 'fas fa-users', title: 'Collaborative Projects', desc: 'Group murals, ensemble performances, and shared art builds teamwork and celebrates diversity.' }
+      ],
+      insight: 'Our arts programme runs across the full school week — not just in dedicated lessons. We hold annual arts showcases, cultural days, and school concerts where every child participates and shines.'
+    }
+  };
+
+  /* ══════════════════════════════════════
+     CORE DETAIL PANEL
+  ══════════════════════════════════════ */
+  var detail   = document.getElementById('core-detail');
+  var cdContent = document.getElementById('cd-content');
+  var cdBack   = document.getElementById('cd-back');
+
+  function openDetail(subject) {
+    var s = SUBJECTS[subject];
+    if (!s) return;
+
+    var pointsHTML = '';
+    for (var i = 0; i < s.points.length; i++) {
+      var pt = s.points[i];
+      pointsHTML += '<div class="cd-point"><div class="cd-point-ico ' + pt.ico + '"><i class="' + pt.icon + '"></i></div><div><strong>' + pt.title + '</strong><span>' + pt.desc + '</span></div></div>';
+    }
+
+    cdContent.innerHTML =
+      '<div class="cd-hero">' +
+        '<div class="cd-hero-glow"></div>' +
+        '<div class="cd-hero-grid"></div>' +
+        '<div class="cd-hero-line"></div>' +
+        '<div class="cd-hero-content">' +
+          '<span class="cd-hero-tag"><i class="fas fa-star"></i> ' + s.tag + '</span>' +
+          '<div class="cd-hero-title">' + s.title + '</div>' +
+          '<p class="cd-hero-sub">' + s.sub + '</p>' +
+        '</div>' +
+      '</div>' +
+      '<div class="cd-body">' +
+        '<div class="cd-intro">' +
+          '<div class="cd-intro-img"><img src="' + s.img + '" alt="' + s.title + '"></div>' +
+          '<div class="cd-intro-text"><span class="section-label">Overview</span><h2>' + s.title + '</h2><p>' + s.intro + '</p><p>' + s.intro2 + '</p></div>' +
+        '</div>' +
+        '<div class="cd-points-section">' +
+          '<div class="cd-section-label">What We Cover</div>' +
+          '<div class="cd-points-grid">' + pointsHTML + '</div>' +
+        '</div>' +
+        '<div class="cd-insight">' +
+          '<div class="cd-insight-ico"><i class="fas fa-lightbulb"></i></div>' +
+          '<div class="cd-insight-text"><h3>How We Deliver This</h3><p>' + s.insight + '</p></div>' +
+        '</div>' +
+
+      '</div>';
+
+    detail.classList.remove('closing');
+    detail.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    detail.scrollTop = 0;
+  }
+
+  function closeDetail() {
+    detail.classList.add('closing');
+    setTimeout(function () {
+      detail.classList.remove('open', 'closing');
+      document.body.style.overflow = '';
+    }, 320);
+  }
+
+  cdBack.addEventListener('click', closeDetail);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeDetail(); });
+
+  /* Wire core cards */
+  document.querySelector('.core-grid').addEventListener('click', function (e) {
+    var card = e.target.closest('.core-card[data-subject]');
+    if (card) openDetail(card.dataset.subject);
+  });
+
+  /* ══════════════════════════════════════
+     GALLERY TABS
+  ══════════════════════════════════════ */
+  var tabs = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tab-panel');
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tabs.forEach(function (b) { b.classList.remove('active'); });
+      panels.forEach(function (p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      var panel = document.getElementById('tab-' + btn.dataset.tab);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  /* ══════════════════════════════════════
+     GALLERY LIGHTBOX — with prev/next
+  ══════════════════════════════════════ */
+  var glb       = document.getElementById('gal-lightbox');
+  var glbImg    = document.getElementById('gal-lb-img');
+  var glbCap    = document.getElementById('gal-lb-cap');
+  var glbClose  = document.getElementById('gal-lb-close');
+  var glbPrev   = document.getElementById('gal-lb-prev');
+  var glbNext   = document.getElementById('gal-lb-next');
+  var glbCount  = document.getElementById('gal-lb-counter');
+
+  var galImages = []; /* current panel's images */
+  var galIndex  = 0;
+
+  function showGalImage(idx) {
+    if (!galImages.length) return;
+    idx = ((idx % galImages.length) + galImages.length) % galImages.length;
+    galIndex = idx;
+    glbImg.src = galImages[idx].src;
+    glbImg.alt = galImages[idx].alt;
+    glbCap.textContent = galImages[idx].alt;
+    glbCount.textContent = (idx + 1) + ' / ' + galImages.length;
+  }
+
+  function openGalLightbox(imgs, startIdx) {
+    galImages = imgs;
+    glb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    showGalImage(startIdx);
+  }
+
+  function closeGalLightbox() {
+    glb.classList.remove('open');
+    document.body.style.overflow = '';
+    glbImg.src = '';
+  }
+
+  glbClose.addEventListener('click', closeGalLightbox);
+  glb.addEventListener('click', function (e) { if (e.target === glb) closeGalLightbox(); });
+  glbPrev.addEventListener('click', function () { showGalImage(galIndex - 1); });
+  glbNext.addEventListener('click', function () { showGalImage(galIndex + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (!glb.classList.contains('open')) return;
+    if (e.key === 'ArrowLeft')  showGalImage(galIndex - 1);
+    if (e.key === 'ArrowRight') showGalImage(galIndex + 1);
+    if (e.key === 'Escape')     closeGalLightbox();
+  });
+
+  /* Gallery: click thumbnail → open at that index; click "View All" → open at 0 */
+  document.querySelector('.gallery-section').addEventListener('click', function (e) {
+    var panel = e.target.closest('.tab-panel');
+    if (!panel) return;
+
+    /* Collect ALL images (preview + hidden store) */
+    function getAllImgs(panel) {
+      return Array.from(panel.querySelectorAll('.gal-item img'));
+    }
+
+    /* Clicked a thumbnail */
+    var item = e.target.closest('.gal-item');
+    if (item) {
+      var imgs = getAllImgs(panel);
+      /* Find index by matching src */
+      var clickedImg = item.querySelector('img');
+      var idx = 0;
+      for (var i = 0; i < imgs.length; i++) {
+        if (imgs[i] === clickedImg) { idx = i; break; }
+      }
+      openGalLightbox(imgs, idx);
+      return;
+    }
+
+    /* Clicked "View All" button */
+    var viewBtn = e.target.closest('.gal-view-all');
+    if (viewBtn) {
+      var imgs = getAllImgs(panel);
+      openGalLightbox(imgs, 0);
+    }
+  });
+
+  /* ══════════════════════════════════════
+     SCROLL REVEAL
+  ══════════════════════════════════════ */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+}); /* end DOMContentLoaded */
+</script>
+
+<script id="shared-js">
+(function(){
+  'use strict';
+  var navbar=document.getElementById('main-nav');
+  function updateNav(){if(!navbar)return;if(navbar.classList.contains('always-solid'))return;navbar.classList.toggle('scrolled',window.scrollY>60)}
+  window.addEventListener('scroll',updateNav,{passive:true});updateNav();
+  var hamburger=document.getElementById('hamburger');
+  var drawer=document.getElementById('mobile-drawer');
+  var overlay=document.getElementById('drawer-overlay');
+  function openDrawer(){if(!drawer)return;drawer.classList.add('open');overlay.classList.add('open');hamburger.classList.add('open');hamburger.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+  function closeDrawer(){if(!drawer)return;drawer.classList.remove('open');overlay.classList.remove('open');hamburger.classList.remove('open');hamburger.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  if(hamburger){hamburger.addEventListener('click',function(){drawer.classList.contains('open')?closeDrawer():openDrawer()})}
+  if(overlay)overlay.addEventListener('click',closeDrawer);
+  document.querySelectorAll('.drawer-links a').forEach(function(a){a.addEventListener('click',closeDrawer)});
+  window.addEventListener('resize',function(){if(window.innerWidth>=1025)closeDrawer()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer()});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=this.getAttribute('href');if(id==='#')return;var target=document.querySelector(id);if(!target)return;e.preventDefault();var nh=navbar?navbar.offsetHeight:80;window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-nh-16,behavior:'smooth'})})});
+}());
+</script>
+</body>
+</html>
